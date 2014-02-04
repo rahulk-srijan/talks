@@ -1,0 +1,4 @@
+name = "Organization Video Library"
+description = "Organization Videos Library For Custom Module"
+core = "7.x"
+package = "Custom Modules"

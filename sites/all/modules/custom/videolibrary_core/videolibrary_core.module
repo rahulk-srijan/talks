@@ -1,0 +1,196 @@
+<?php
+
+/*
+ * hook_init()
+ */
+
+global $library_subsite_variable;
+
+$library_subsite_variable = array(
+    'orginaction' =>
+    array('to' => 'organization_practice_learning_team@mckinsey.com',
+        'from_email' => 'organization_practice_learning_team@mckinsey.com',
+        'subject' => 'Suggest a video',
+        'msg' => 'I recommend adding the following video to the video library',
+        'site_name' => 'Org in Action: Video Library'),
+    'opsinaction' =>
+    array('to' => 'global_ops_learning_team@mckinsey.com,Ops_Feedback@mckinsey.com',
+        'from_email' => 'global_ops_learning_team@mckinsey.com',
+        'subject' => 'Suggest a video',
+        'msg' => 'I recommend adding the following video to the video library',
+        'site_name' => 'Ops in Action: Video Library'),
+    'btoacademy' =>
+    array('to' => 'bt_learning_registration@mckinsey.com',
+        'from_email' => 'bt_learning_registration@mckinsey.com',
+        'subject' => 'Suggest a video',
+        'msg' => 'I recommend adding the following video to the video library',
+        'site_name' => 'BTO Academy')
+);
+
+
+/**
+ * Implements hook_block_info().
+ */
+function videolibrary_core_block_info() {
+    $blocks = array();
+    $blocks['site_switching'] = array(
+        'info' => t('Video Library Site Switching Menu'),
+    );
+    $blocks['category_menu'] = array(
+        'info' => t('Category Menu For All Library'),
+    );
+
+    return $blocks;
+}
+
+function videolibrary_core_block_view($delta = '') {
+    switch ($delta) {
+        case 'site_switching':
+            $block['subject'] = null; // Most forms don't have a subject
+//    $block['content'] = noti_block_view();
+            $block['content'] = site_switching();
+            break;
+        case 'category_menu':
+            $block['subject'] = null; // Most forms don't have a subject
+//    $block['content'] = noti_block_view();
+            $block['content'] = category_menu();
+            break;
+    }
+    return $block;
+}
+
+/*
+ * 
+ */
+
+function site_switching() {
+    $terms = taxonomy_get_tree(5);
+    $content = '<ul class="sites_switch">';
+    foreach ($terms as $val) {
+        $content .='<li>' . l($val->name, $val->name . '') . '</li>';
+    }
+    $content .='</ul>';
+    return $content;
+}
+
+/*
+ * get term id from term name
+ */
+
+function get_term_id($name) {
+    if ($name) {
+        return db_query("SELECT tid FROM {taxonomy_term_data} WHERE name =:name and vid =:vid", array(':name' => $name, ':vid' => 5))->fetchField();
+    }
+}
+
+/*
+ * Category Menu For all Library
+ */
+
+function category_menu() {
+    $argument = explode('/', request_path());
+    global $subsite_home_page_url;
+    $category_vocab = array('orginaction' => 'category', 'btoacademy' => 'bto_category', 'opsinaction' => 'ops_category');
+
+    $homeclass = '';
+    $tagsclass = '';
+    $arg0 = $argument[0];
+    $arg2 = arg(2);
+    if ($arg0 == $subsite_home_page_url && arg(1) == '') {
+        $homeclass = 'selected homepage_link';
+    } elseif (arg(1) == 'tags') {
+        $tagsclass = 'selected';
+    } elseif (arg(1) == 'browse') {
+        $homeclass = 'selected';
+    }
+
+    $vocab = $category_vocab[$arg0];
+//#block-views-views-by-category-block .block-content.content .left-side-menu li.selected
+    if ($vocab) {
+        $browse_url = url("$arg0/browse");
+        $tag_url = url("$arg0/tags");
+        $content = '';
+        $content .= '<div class="block view-views-by-category" id="block-views-views-by-category-block"><div class="block-content content"><div class="left-side-menu"><ul>
+<li class="view-all ' . $homeclass . '"><a href="' . $browse_url . '">View All</a></li>
+<li class="by-tags ' . $tagsclass . '"><a href="' . $tag_url . '">By Tags</a></li>
+<li class="by-category">By Category</li></ul>';
+
+        $query = db_query("SELECT taxonomy_term_data.name AS taxonomy_term_data_name, taxonomy_term_data.vid AS taxonomy_term_data_vid, taxonomy_term_data.tid AS tid, taxonomy_vocabulary.machine_name AS taxonomy_vocabulary_machine_name FROM 
+{taxonomy_term_data} taxonomy_term_data LEFT JOIN {taxonomy_vocabulary} taxonomy_vocabulary ON taxonomy_term_data.vid = taxonomy_vocabulary.vid WHERE (( (taxonomy_vocabulary.machine_name IN  ('$vocab')) ))")->fetchAll();
+        $content .= '<ul class="category-list">';
+        foreach ($query as $row) {
+            if ($arg2 == $row->tid) {
+                $content .='<li>' . l($row->taxonomy_term_data_name, 'taxonomy/term/' . $row->tid, array('attributes' => array('class' => array('active')))) . '</li>';
+            } else {
+                $content .='<li>' . l($row->taxonomy_term_data_name, 'taxonomy/term/' . $row->tid) . '</li>';
+            }
+        }
+        $content .= '</ul></div></div></div>';
+        return $content;
+    }
+}
+
+function user_top_menu_link() {
+
+    global $library_subsite_variable;
+    global $subsite_home_page_url;
+    global $user;
+    $mail_to = $library_subsite_variable[$subsite_home_page_url]['to'];
+    $subject = $library_subsite_variable[$subsite_home_page_url]['subject'];
+    $msg = $library_subsite_variable[$subsite_home_page_url]['msg'];
+    $content = '';
+    $content .= '<div id="authorize"><ul class="user">';
+
+    $profile_url = '';
+    $role = 'contractor';
+    if (in_array($role, array_values($user->roles))) {
+        $profile_url = "http://home.intranet.mckinsey.com/ks/research/home/welcome";
+    } else {
+        $profile_url = 'http://home.intranet.mckinsey.com/profiles/people/' . $_SERVER['HTTP_VENDORID'];
+    }
+    if ($user->uid != 0) {
+        $content .='<li class="first">' . t('Welcome ') . '<a href="' . $profile_url . '" target="_blank">' . $user->name . '</a></li>';
+        $content .='<li class="second"><a href="' . url('newsletter/subscriptions') . '">My Notifications</a></li>';
+
+        $adminRoles = array('web master', 'administrator');
+        $device = array('ipad', 'iphone');
+        foreach ($adminRoles as $role) {
+            if (in_array($role, array_values($user->roles)) && !(bool) strpos($_SERVER['HTTP_USER_AGENT'], 'iPad') && !(bool) strpos($_SERVER['HTTP_USER_AGENT'], 'iPhone')) {
+                $content .='<li class="third">' . l("Admin", "admin/dashboard") . '</li>';
+            }
+        }
+    } else {
+        $content .='<li class="first"><a href="' . url('user') . '">' . t('Login') . '</a></li>';
+    }
+    $content .='
+<li class="last hidden-phone"><a href="mailto:' . $mail_to . '?Subject='.$subject.'&body='.$msg.'">
+Suggest a Video</a></li>
+<li class="last"><a href="#">How to suggest a video</a>
+<div class="modal">
+  <div class="modal-header">
+    <button type="button" class="close">&times;</button>
+    <h3>How to suggest a video</h3>
+  </div>
+  <div class="modal-body">
+    <p>For security reasons, you can only suggest a video from the desktop version of the video library. The link is located on the top navigation bar.</p>
+  </div>
+</li>
+</ul>
+<p class="copyright">&#169; 1996-' . $date = date("Y") . $date . ' McKinsey & Company</p></div>';
+    return $content;
+}
+
+function videolibrary_core_views_api() {
+  return array(
+    'api' => 3,
+  );
+}
+
+function videolibrary_core_views_query_alter(&$view, &$query) {
+  if ($view->name == 'logging') {
+    //dsm($query, 'before');
+    // Adding OR condition for the contextual filters.
+    $query->where[0]['type'] = 'OR';
+    //dsm($query, 'after');
+  }
+}

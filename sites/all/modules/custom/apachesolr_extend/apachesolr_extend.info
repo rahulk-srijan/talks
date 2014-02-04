@@ -1,0 +1,5 @@
+name = "Apache Solr Extend Features"
+description = "Apache Search Extended Features"
+core = "7.x"
+package = "Custom Modules"
+dependencies[] = apachesolr

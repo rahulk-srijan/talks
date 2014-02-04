@@ -1,0 +1,63 @@
+<?php
+
+/**
+ * Implements hook_install().
+ */
+function duration_install() {
+  // Populate the default {node_access} record.
+  /*
+   *db_insert('node_access')
+   *  ->fields(array(
+   *    'nid' => 0,
+   *    'gid' => 0,
+   *    'realm' => 'all',
+   *    'grant_view' => 1,
+   *    'grant_update' => 0,
+   *    'grant_delete' => 0,
+   *  ))
+   *  ->execute();
+   */
+  /* Your code here */
+}
+/**
+ * Implements hook_schema().
+ */
+
+function duration_schema() {
+  $schema['video_duration'] = array(
+    'description' => 'stores the duration of the vidoe',
+    'fields' => array(
+      'did' => array(
+        'description' => 'serial no of nodes',
+        'type' => 'serial',
+        'unsigned' => TRUE,
+        'not null' => TRUE),
+      'nid' => array(
+        'description' => 'nid of the node',
+        'type'=> 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE),
+      'value' => array(
+        'description' => 'duration of the video',
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '00:00'),
+    ),
+    'unique keys' => array(
+        'nid' => array('nid'),
+),
+    'primary key' => array('did'),
+  );
+  return $schema;
+}
+/**
+ * Implements hook_uninstall().
+ */
+function duration_uninstall() {
+  /*
+   *variable_del('upload_file_types');
+   */
+ db_drop_table(video_duration);
+}
+

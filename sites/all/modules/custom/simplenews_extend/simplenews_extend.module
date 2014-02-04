@@ -1,0 +1,515 @@
+<?php
+
+/**
+ * hook menu
+ */
+function simplenews_extend_menu() {
+
+    $items['newsletter/send/daily/%'] = array(
+        'page callback' => 'newsletterSubscriptions_daily',
+        'access arguments' => array('access newsletter daily'),
+        'type' => MENU_NORMAL_ITEM,
+        'access callback' => TRUE,
+        'title' => 'Send Newsletter Daily',
+        'page arguments' => array(3),
+            //'type' => MENU_LOCAL_TASK,
+    );
+
+    return $items;
+}
+
+/**
+ * 
+ * @global type $daily
+ */
+function newsletterSubscriptions_daily($frequency) {
+
+    global $user;
+//echo 'ranjeet';die();
+    /*  if (arg(2) == 'daily' && arg(3)) {
+      $frequency = arg(3);
+      } else {
+      return FALSE;
+      } */
+
+    if (!$frequency) {
+        return FALSE;
+    }
+    $subscriber_info = findAllSubscribed_user($frequency);
+
+    if ($subscriber_info) {
+        $nids = allupdateContent($frequency); //get all update content
+        $cid = allUpdatedComments($frequency); //get all New content
+        if (empty($nids)) {
+            return t('No New Content Found For the newsletter<br/>');
+        }
+
+        $address_default = variable_get('site_mail', ini_get('sendmail_from'));
+        $name_default = variable_get('site_name', '[Video Library - Updates]');
+        $address = variable_get('simplenews_from_address', $address_default);
+        $name = variable_get('simplenews_from_name', $name_default);
+        $default_mail_subject = variable_get('site_name', '[Video Library - Updates]');
+
+
+
+        $sendmail_from = variable_get('site_mail', ini_get('sendmail_from'));
+        $key = $sendmail_from;
+        $from = $sendmail_from;
+
+        $header_bcc = '';
+        $header_cc = '';
+        //$subject = '[Video Library - Updates]';
+        $subject = variable_get('simplenews_from_subject', $default_mail_subject);
+        //load last created content;
+        $all_video_cat_tid = 4;
+        $my_commented_video_category = 50;
+
+        //get all subscibed categories
+        $subscriber_category1 = subscriber_category();
+
+
+        //find user's all category
+        $subscribed_user_category = subscribed_user_category();
+
+        //find all nid of a user commented
+        $find_user_commented_nid = find_user_commented_nid();
+
+
+        foreach ($subscriber_info as $subs_obj) {
+            $snid = $subs_obj->snid;
+            $mail = $subs_obj->mail;
+            $uid = $subs_obj->uid;
+            $body_mail_content = '';
+            $views_content_count = '';
+            $body_mail_comment = '';
+            $body_mail_comment_count = '';
+
+            $subscriber_category = $subscriber_category1[$snid];
+
+            if (isset($subscriber_category)) {
+
+                $subs_category_tid = array();
+                foreach ($subscriber_category as $subs_category) {
+                    $subs_category_tid[] = $subs_category->tid;
+                }
+                // Send Newletter when All Videos Categories is selected
+
+                if (in_array($all_video_cat_tid, $subs_category_tid)) {
+                    $body_mail_content_views = views_embed_view('newsletter_mail', 'page_1', implode(',', $nids));
+                    $body_mail_content = '<div class="content">New Video Added<br>' . $body_mail_content_views . '</div>';
+
+
+                    //$body_mail_count = views_get_view_result('newsletter_mail', 'page_1', implode(',', $nids));
+                    //$views_count = count($body_mail_count);
+                    $views_content_count = strip_tags($body_mail_content_views);
+                }
+
+                //send newsletter to COMMENTS made on a video I commented on
+                if (in_array($my_commented_video_category, $subs_category_tid)) {
+                    $user_commented_nid = $find_user_commented_nid[$uid];
+                    if (!empty($user_commented_nid)) {
+                        $body_mail_comment_views = views_embed_view('newsletter_comments', 'page_1', implode(',', $user_commented_nid), implode(',', $cid));
+                        $body_mail_comment = '<div class="comment">New Comments' . $body_mail_comment_views . '</div>';
+
+                        $body_mail_comment_count = strip_tags($body_mail_comment_views);
+                    }
+                    //newsletterSubscriptions_daily_comments();
+                }
+            }
+
+
+            //if user select category send newsletter start
+
+            $user_category = $subscribed_user_category[$snid];
+            if ($user_category) {
+                $cat_tid = array();
+                foreach ($user_category as $user_obj) {
+                    $cat_tid[] = $user_obj->tid;
+                }
+
+                if (in_array($all_video_cat_tid, $cat_tid)) {
+                    
+                } else {
+
+                    $body_mail_content_cat_views = views_embed_view('newsletter_mail', 'page_2', implode(',', $nids), implode(",", $cat_tid));
+                    $body_mail_content_cat = '<div class="content_cat">New Video Added <br>' . $body_mail_content_cat_views . '</div>';
+                    $views_content_count_cat = strip_tags($body_mail_content_cat_views);
+                    //if ($views_content_count) {
+                    //  $message = drupal_mail('simplenews_extend', $key, $mail, user_preferred_language($user), array('body' => $body, 'subject' => $subject, 'headers' => array('Cc' => $header_cc, 'Bcc' => $header_bcc), $from, TRUE));
+                    //}
+                }
+            }
+            //if user select category send newsletter End
+
+            if ($views_content_count || $body_mail_comment_count || $views_content_count_cat) {
+                $body = '<div>' . $body_mail_content . '</div>';
+                $body .= '<div>' . $body_mail_content_cat . '</div>';
+                $body .= '<div>' . $body_mail_comment . '</div>';
+                $message = drupal_mail('simplenews_extend', $key, $mail, user_preferred_language($user), array('body' => $body, 'subject' => $subject, 'headers' => array('Cc' => $header_cc, 'Bcc' => $header_bcc), $from, TRUE));
+                if ($message['result']) {
+                    print('<br/>' . $subs_obj->mail);
+                }
+            }
+        }//end foreach loop
+    } else {
+        return t(' No Subscriber For This Newsletter');
+       
+    }
+}
+
+/*
+ * hook taxonomy_term_presave
+ */
+/*
+  function simplenews_extend_taxonomy_term_presave($term) {
+  /*  echo '<pre>';
+  print_r($term);
+  echo '</pre>';
+  // die(); */
+
+//   if (isset($term->tid) && $term->vid == 2 && $term->op == 'Save') {
+// print_r($term);
+//exit(); 
+// db_update('simplenews_category' , array('tid'=>$term->tid, 'my_weight'=>$term->weight));
+//   $result = db_query("UPDATE {simplenews_category} SET my_weight = :weight WHERE tid = :tid", array('tid' => $term->tid, 'weight' => $term->weight));
+//$term_status = findNewslettertid($term->tid);
+/* if ($term_status) {
+
+  } else {
+
+  db_insert('simplenews_category')
+  //->fields(array('tid', 'format', 'priority', 'receipt', 'from_name', 'email_subject', 'from_subject', 'hyperlinks', 'new_account', 'opt_inout', 'block'))
+  ->fields(array(
+  'tid' => $term->tid,
+  'format' => 'html',
+  'priority' => 0,
+  'receipt' => 0,
+  'from_name' => 'ranjeet@srijan.in',
+  'email_subject' => '[[simplenews-category:name]] [node:title]',
+  'from_address' => 'ranjeet@srijan.in',
+  'hyperlinks' => '0',
+  'new_account' => '',
+  'opt_inout' => 'double',
+  'block' => 0,
+  ))
+  ->execute();
+  } */
+// }
+//}
+
+function simplenews_extend_taxonomy_term_insert($term) {
+    if (isset($term->tid) && $term->vid == 2 && $term->op == 'Save') {
+        $address_default = variable_get('site_mail', ini_get('sendmail_from'));
+        $name_default = variable_get('site_name', 'Drupal');
+        $address = variable_get('simplenews_from_address', $address_default);
+        $name = variable_get('simplenews_from_name', $name_default);
+        //get taxonomy weight
+        $term_weight = db_query("Select max(weight) from {taxonomy_term_data} where vid =:vid", array(':vid' => 2))->fetchField() + 1;
+        db_insert('simplenews_category')->fields(array(
+            'tid' => $term->tid,
+            'format' => 'html',
+            'priority' => 0,
+            'receipt' => 0,
+            'from_name' => $name,
+            'email_subject' => '[[simplenews-category:name]] [node:title]',
+            'from_address' => $address,
+            'hyperlinks' => '0',
+            'new_account' => '',
+            'opt_inout' => 'double',
+            'block' => 0,
+            'my_weight' => $term_weight,
+        ))->execute();
+        //modify default 0 weight of taxonomy term
+        db_query("UPDATE {taxonomy_term_data} SET weight = :weight WHERE tid = :tid", array(':tid' => $term->tid, ':weight' => $term_weight));
+
+        //update and save menu link for mobile
+        menu_save_alter($term);
+    }
+}
+
+function findNewslettertid($tid) {
+    if (isset($tid)) {
+        $result = db_select('simplenews_category"', 'tid')
+                ->fields('tid')
+                ->condition('tid', $tid, '=')
+                ->execute()
+                ->fetchAssoc();
+        if (isset($result['tid'])) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+}
+
+/**
+ * Hook_form_alter()
+ * @param type $form
+ * @param type $form_state
+ * @param type $form_id
+ * 
+ */
+function simplenews_extend_form_alter(&$form, &$form_state, $form_id) {
+    // drupal_set_message($form_id);  // print form ID to messages
+    //drupal_set_message(print_r($form));  // print array to messages
+
+    if ($form_id == 'simplenews_subscriptions_page_form') {
+
+        /* $form['update'] = array(
+          '#type' => 'submit',
+          '#value' => 'Save',
+          '#weight '=> '20',
+          ); */
+        $form['actions']['reset'] = array(
+            '#markup' => '<input id="reset" type="reset" value="reset" />',
+            '#weight' => 1000
+        );
+        // echo '<pre>';
+        //print_r($form);
+        // echo '</pre>';
+    }
+    if ($form_id == 'taxonomy_overview_terms') {
+        //update the simple news category weight
+        if ($form['#vocabulary']->vid == 2 && $form['actions']['submit']['#value'] == 'Save') {
+            foreach ($form as $val) {
+                $term = array_shift($val);
+                //update newsletter category weight
+                db_query("UPDATE {simplenews_category} SET my_weight = :weight WHERE tid = :tid", array(':tid' => $term['tid'], ':weight' => $term['weight']));
+
+
+                //update menu weight
+                $link_path = 'taxonomy/term/' . $term['tid'];
+                db_query("UPDATE {menu_links} SET weight = :weight WHERE link_path = :link_path AND plid = 1004", array(':link_path' => $link_path, ':weight' => $term['weight']));
+            }
+        }
+    }
+
+    if ($form_id == 'simplenews_admin_settings_newsletter') {
+        $form['simplenews_sender_info']['simplenews_from_subject'] = array(
+            '#type' => 'textfield',
+            '#title' => t('Newsletter Mail Subject'),
+            '#size' => 60,
+            '#maxlength' => 128,
+            '#default_value' => variable_get('simplenews_from_subject', variable_get('site_name', 'Drupal')),
+        );
+    }
+}
+
+function simplenews_extend_taxonomy_term_delete($term) {
+    //delete newletter category
+    db_delete('simplenews_category')->condition('tid', $term->tid)->execute();
+    //delete mobile menu link
+    $link_path = 'taxonomy/term/' . $term->tid;
+    db_delete('menu_links')->condition('link_path', $link_path)->execute();
+}
+
+/**
+ * find all Contents which is updated today or lastday
+ */
+function allupdateContent($frequency) {
+    //**find all content which is update today or lastday***//
+    //$lastday = (time()-(24*60*60));//1357026658//upload_video
+    if ($frequency == 51) {
+        $from_data = mktime(0, 0, 0, date("m"), date("d") - 1, date("Y")); //daily
+    } elseif ($frequency == 52) {
+        $from_data = mktime(0, 0, 0, date("m"), date("d") - 7, date("Y")); //weekly
+    } elseif ($frequency == 53) {
+        $from_data = mktime(0, 0, 0, date("m") - 1, date("d"), date("Y")); //monthly
+    }
+
+    $db_query = db_query("SELECT nid FROM node WHERE type = 'upload_video' AND status = 1 AND created >= $from_data");
+    $db_result = $db_query->fetchAll();
+    $nids = array();
+    foreach ($db_result as $nidObj) {
+        $nids[] = $nidObj->nid;
+    }
+    return $nids;
+}
+
+/**
+ * find all Comments which is updated today or lastday
+ */
+function allUpdatedComments($frequency) {
+    //**find all content which is update today or lastday***//
+    //$lastday = (time()-(24*60*60));//1357026658//upload_video
+    if ($frequency == 51) {
+        $from_data = mktime(0, 0, 0, date("m"), date("d") - 1, date("Y")); //daily
+    } elseif ($frequency == 52) {
+        $from_data = mktime(0, 0, 0, date("m"), date("d") - 7, date("Y")); //weekly
+    } elseif ($frequency == 53) {
+        $from_data = mktime(0, 0, 0, date("m") - 1, date("d"), date("Y")); //monthly
+    }
+
+    $db_query = db_query("SELECT cid  FROM comment WHERE created >= $from_data AND status = 1");
+    $db_result = $db_query->fetchAll();
+    $cid = array();
+    foreach ($db_result as $nidObj) {
+        $cid[] = $nidObj->cid;
+    }
+    return $cid;
+}
+
+/**
+ * find user_comment_nid
+ */
+function find_user_commented_nid($uid) {
+    //$db_query = db_query("SELECT DISTINCT (nid )FROM comment WHERE uid= $uid AND status = 1 ORDER BY `created` DESC");
+    $db_query = db_query("SELECT DISTINCT (nid ), uid FROM comment WHERE  status = 1 ORDER BY `created` DESC");
+
+
+    //$db_result = $db_query->fetchAll();
+
+    foreach ($db_query as $row) {
+        $nid[$row->uid][] = $row->nid;
+    }
+    return $nid;
+}
+
+/**
+ * Implementation of hook_mail().
+ * 
+ * A very simple hook_mail() implementation, for module "mymodule".
+ * This implementation expects to receive a $body, $subject, and $headers 
+ * inside the $params sent from drupal_mail(), rather than construct
+ * those here in the hook.
+ * @see drupal_mail()
+ */
+function simplenews_extend_mail($key, &$message, $params) {
+    if (isset($params['subject'])) {
+        $message['subject'] = $params['subject'];
+    }
+    if (isset($params['body'])) {
+        $message['body'][] = $params['body'];
+    }
+    if (isset($params['headers']) && is_array($params['headers'])) {
+        $message['headers'] += $params['headers'];
+    }
+
+    // You should really have hook_mail() doing most of the formatting, 
+    // rather than pass in a complete $body or a $subject from drupal_mail().  
+    // To accomplish that, you'd branch this formatting based on the value of
+    // $key sent with drupal_mail(), and using code like this:
+    // switch ($key) {
+    //  case 'key1':
+    //    // do something specific for mails of type key1
+    //    break;      
+    //  case 'key2':
+    //    // do something specific for mails of type key2
+    //    break;
+    // }
+    // That's it - You don't do anything in your hook_mail() to actually
+    // send the mail, that is taken care of by the mail system automatically. 
+}
+
+/**
+ * 
+ * @param type $snid
+ * @return type
+ */
+function subscriber_category($snid) {
+
+
+    $not_in_use_category = array_keys(newsletter_category_not_in_use());
+
+    $not_in_use_category_str = implode(",", $not_in_use_category);
+
+
+    //  $db_query = db_query("SELECT *  FROM simplenews_subscription WHERE tid NOT IN ($not_in_use_category_str) AND status = 1 AND snid = $snid");
+    $db_query = db_query("SELECT *  FROM simplenews_subscription WHERE tid NOT IN ($not_in_use_category_str) AND status = 1");
+    //$db_result = $db_query->fetchAll();
+    //if ($db_result) {
+    //print_r($db_result);
+    //return $db_result;
+    //}
+    foreach ($db_query as $row) {
+        $content[$row->snid][] = $row;
+    }
+    return $content;
+}
+
+/**
+ * 
+ * @param type $snid
+ * @return type
+ */
+function subscribed_user_category($snid) {
+
+
+    $not_in_use_category = array(50, 51, 52, 53, 54);
+
+    $not_in_use_category_str = implode(",", $not_in_use_category);
+
+
+//    $db_query = db_query("SELECT *  FROM simplenews_subscription WHERE tid NOT IN ($not_in_use_category_str) AND status = 1 AND snid = $snid");
+    $db_query = db_query("SELECT *  FROM simplenews_subscription WHERE tid NOT IN ($not_in_use_category_str) AND status = 1");
+
+    //$db_result = $db_query->fetchAll();
+    $content = array();
+    foreach ($db_query as $row) {
+        //print_r($db_result);
+        $content[$row->snid][] = $row;
+        //return $db_result;
+    }
+    return $content;
+}
+
+/*
+ * NewsLetter Category
+ */
+
+function newsletter_category_not_in_use() {
+    $newLetter_Category = array(
+        //'4' => 'All New Videos Added to this Library',
+        //'50' => 'COMMENTS made on a video I commented on',
+        '51' => 'Daily',
+        '52' => 'Weekly',
+        '53' => 'Monthly',
+            //'54' => 'No Notifications',
+    );
+    return $newLetter_Category;
+}
+
+function findAllSubscribed_user($frequency = 54) {
+    $db_query = db_query("SELECT *  FROM simplenews_subscriber WHERE activated = 1");
+    $db_result = $db_query->fetchAll();
+    foreach ($db_result as $db_obj) {
+        if (findFrequency_user($frequency, $db_obj->snid)) {
+            $db_result_obj[] = $db_obj;
+        }
+    }
+
+    if ($db_result_obj) {
+        return $db_result_obj;
+    }
+}
+
+function findFrequency_user($frequency, $snid) {
+    if ($frequency != 54) {
+        $db_query = db_query("SELECT *  FROM simplenews_subscription WHERE snid = $snid AND tid = $frequency AND status = 1");
+        $db_result = $db_query->fetchAll();
+        if ($db_result) {
+            return TRUE;
+        } else {
+            return FALSE;
+        }
+    }
+}
+
+function menu_save_alter($term) {
+
+    //get menu weight 
+    $weight = db_query("SELECT MAX( weight ) FROM  {menu_links} WHERE plid =1004")->fetchField() + 1;
+
+    $plid = db_query("SELECT mlid FROM {menu_links} where mlid='1004'")->fetchField();
+    $menu_item = array(
+        'link_title' => $term->name,
+        'menu_name' => 'menu-main-menu-mobile', // It uses '-', not '_'
+        'customized' => 1, // Must be 1 in order to not dispaly the link in any language
+        'link_path' => 'taxonomy/term/' . $term->tid, // menu_link_save() does not like aliases. Then 'nid' is used
+        'language' => 'en', // language is required in order to make the item translatable
+        'plid' => $plid,
+        'weight' => $weight,
+    );
+    $mlid = menu_link_save($menu_item); // You don't need to receive it in a variable
+    $ml = menu_link_load($mlid);
+}

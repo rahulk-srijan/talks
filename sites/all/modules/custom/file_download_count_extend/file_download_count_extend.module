@@ -1,0 +1,110 @@
+<?php
+
+global $get_node_title;
+
+/**
+ * Implements hook_menu().
+ */
+function file_download_count_extend_menu() {
+    $items = array();
+
+    $items['download'] = array(
+        'page callback' => 'file_download_file',
+        'access arguments' => array('authenticated user'),
+        'type' => MENU_CALLBACK,
+        'access callback' => TRUE,
+    );
+    $items['admin/reports/csv'] = array(
+        'page callback' => 'file_download_reports_csv',
+        'access arguments' => array('authenticated user'),
+        'type' => MENU_NORMAL_ITEM,
+        'access callback' => TRUE,
+        'title' => 'File Download Reports Csv',
+    );
+    return $items;
+}
+
+/**
+ * Page callback for forcing a file to download
+ */
+function file_download_file() {
+    if (isset($_GET['file']) && (isset($_GET['filename']))) {
+        $file = file_load($_GET['file']);
+        $filepath = file_create_url($file->uri);
+
+        //track the downloading file
+        file_download_count_track_file_download($file);
+        $realpath = drupal_realpath($file->uri);
+        $filename = basename($filepath);
+        $extension = pathinfo($filepath, PATHINFO_EXTENSION);
+        if (in_array($extension, array('mp4', 'MP4'))) {
+            drupal_add_http_header('Content-disposition', 'attachment; filename=' . $filename);
+            readfile($realpath);
+        } else {
+            return drupal_access_denied();
+        }
+    }
+}
+
+function file_download_reports_csv() {
+    //global $get_node_title;
+    $view_result = views_get_view_result('file_download_count', 'page_1');
+    // print_r($view_result);
+    //exit();  
+    $headers = array('Name', 'Video', 'Date');
+    $fp = fopen('php://output', 'w');
+    if ($view_result) {
+        drupal_add_http_header('Content-Type', 'text/csv; utf-8');
+        drupal_add_http_header('Content-Disposition', 'attachment; filename = file_download_reports.csv');
+        header('Pragma: no-cache');
+        header('Expires: 0');
+        fputcsv($fp, $headers);
+        //fetching the field values
+        //$value->file_managed_filename
+        foreach ($view_result as $value) {
+            $title = iconv('UTF-8', 'ASCII//TRANSLIT', $value->node_file_usage_title);
+            fputcsv($fp, array($value->users_file_download_count_name, $title, date('m/d/Y', $value->file_download_count_timestamp)));
+        }
+        fclose($fp);
+        exit;
+    }
+}
+
+//echo file_download_count_get_user_file_count(1, 1764);
+
+function file_download_create_link($fid, $filename, $is_downloadable, $type = '1') {
+    global $base_url;
+    $isiPad_down = (bool) strpos($_SERVER['HTTP_USER_AGENT'], 'iPad');
+    if (($type != 1) && (!$isiPad_down)) {
+        if (isset($fid) && (($is_downloadable) != 1) && (!$isiPad_down)) {
+            $file_url = url('download', array('query' => array('file' => $fid, 'filename' => $filename)));
+            $download_image_location = $base_url . '/' . drupal_get_path('theme', $GLOBALS['theme']) . '/css/images/download.png';
+            $content = '<div class="download-video-content"><a href=' . $file_url . ' class="download" title="Download Video"><img src="' . $download_image_location . '" height="18" width="18" /></a></div>';
+            return $content;
+        }
+    }
+    if (isset($fid) && (($is_downloadable) != 1) && (!$isiPad_down)) {
+        // $file_url = url('download', array('query' => array('file' => $fid, 'filename' => $filename)));
+        // $content = '<div class="download-video-content"><a href=' . $file_url . ' class="download" title="Download Video"><img src="'. $download_image_location .'" height="15%" width="15%" /></a></div>';
+        // return $content;
+        $file_url = url('download', array('query' => array('file' => $fid, 'filename' => $filename)));
+        $content = '<div class="download-video"><a href=' . $file_url . ' class="download">Download</a></div>';
+        return $content;
+    } else {
+        return '';
+    }
+}
+
+/*
+ * find node title for a fid
+ */
+
+function get_node_title_from_fid() {
+    $query = db_query("SELECT node.title AS node_title, node.nid AS nid,field_data_field_upload_video.field_upload_video_fid FROM node node LEFT JOIN field_data_field_upload_video field_data_field_upload_video ON node.nid = field_data_field_upload_video.entity_id  AND field_data_field_upload_video.deleted = '0' WHERE ((node.status = '1') AND (node.type IN  ('upload_video')))");
+    foreach ($query as $row) {
+        $content[$row->field_upload_video_fid] = $row->node_title;
+    }
+    return $content;
+}
+
+$get_node_title = get_node_title_from_fid();

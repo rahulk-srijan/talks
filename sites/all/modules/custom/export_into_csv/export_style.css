@@ -1,0 +1,28 @@
+/* 
+    Document   : style.css
+    Created on : Aug 30, 2013, 12:22:22 PM
+    Author     : Shashank Merothiya
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+.download-user-stats{
+    text-align: right;
+
+
+}
+.download-user-stats a {
+    background-color: #E37222;
+    color:#fff;
+    padding: 5px 7px;
+}
+#wait-animation{
+    display: none;
+    text-align: center;
+    font-weight: bold;
+    size: 18px;
+    color:#E37222;
+    border: 1px solid green;
+    padding:5px;
+    background-color: #56954690;
+}

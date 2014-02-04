@@ -1,0 +1,5 @@
+name = Video Duration
+description = Store the duration of the video
+core = 7.x
+files[] = duration.install
+files[] = duration.module

@@ -1,0 +1,287 @@
+<?php
+
+/**
+ * hook Menu
+ */
+//hook_menu();
+//drupal_deliver_html_page()
+function export_into_csv_menu() {
+
+    $items['admin/people/user-stats'] = array(
+        // 'page callback' => 'export_user_stats_csv',
+        'page callback' => 'download_user_stats',
+        'access arguments' => array('download user stats as csv'),
+        'type' => MENU_NORMAL_ITEM,
+        'access callback' => TRUE,
+        'title' => 'Download User Stats',
+            //'type' => MENU_LOCAL_TASK,
+    );
+//download_user_stats
+    /* $items['admin/people/user-stats-download'] = array(
+      'page callback' => 'downloadcsv',
+      'access arguments' => array('download user stats csv file'),
+      'type' => MENU_NORMAL_ITEM,
+      'access callback' => TRUE,
+      'title' => 'Download User Stats csv file',
+      //'type' => MENU_LOCAL_TASK,
+      ); */
+
+    $items['admin/people/video-stats'] = array(
+        //'page callback' => 'export_video_stats',
+        'page callback' => 'download_video_stats',
+        'access arguments' => array('download video stats as csv'),
+        'type' => MENU_NORMAL_ITEM,
+        'access callback' => TRUE,
+        'title' => 'Download Video Stats',
+            //"delivery callback" => array('test_1'),
+            //'type' => MENU_LOCAL_TASK,
+    );
+
+    $items['admin/people/check-download-status'] = array(
+        //'page callback' => 'export_video_stats',
+        'page callback' => 'check_download_status',
+        'access arguments' => array('Check download status'),
+        'type' => MENU_CALLBACK,
+        'access callback' => TRUE,
+        'title' => 'Check download status',
+        "access arguments" => array("access content")
+            //"delivery callback" => array('test_1'),
+            //'type' => MENU_LOCAL_TASK,
+    );
+    return $items;
+}
+
+/*
+ * Export user stats to csv
+ */
+
+function export_user_stats_csv() {
+
+    $result = db_query("SELECT DISTINCT authmap.authname AS authmap_authname, users.uid AS uid, users.access AS users_access, users.created AS users_created, 'user' AS field_data_field_vendor_id_user_entity_type
+  FROM
+  {users} users
+  LEFT JOIN {authmap} authmap ON users.uid = authmap.uid
+  WHERE (( (users.status <> '0') AND (users.uid > '3') ))
+  ORDER BY users_created DESC");
+    if (!$result)
+        die('Couldn\'t fetch records');
+    // $num_fields = $result->rowCount();
+    $headers = array(t('Authentication name'), t('No. of comments'), t('No. of videos viewed'), t('Last access'));
+    $fp = fopen('php://output', 'w');
+    if ($fp && $result) {
+        ob_start();
+        drupal_add_http_header('Content-Type', 'text/csv; utf-8');
+        drupal_add_http_header('Content-Disposition', 'attachment; filename = user-stats.csv');
+        header('Pragma: no-cache');
+        header('Expires: 0');
+        fputcsv($fp, $headers);
+
+        foreach ($result as $row) {
+            fputcsv($fp, array($row->authmap_authname, comment_number($row->uid), number_of_video_views($row->uid), date("m/d/Y", $row->users_access)));
+        }
+        // Close the output stream.
+        fclose($fp);
+        $csv = ob_get_clean();
+        print_r($csv);
+    }
+}
+
+function export_video_stats() {
+    $result = db_query("SELECT node.title AS node_title, node.nid AS nid, node_counter.totalcount AS node_counter_totalcount, flag_counts_node.count AS flag_counts_node_count, node_comment_statistics.comment_count AS node_comment_statistics_comment_count, node.created AS node_created
+FROM 
+{node} node
+LEFT JOIN {flag_counts} flag_counts_node ON node.nid = flag_counts_node.content_id AND flag_counts_node.fid = '3'
+LEFT JOIN {node_counter} node_counter ON node.nid = node_counter.nid
+INNER JOIN {node_comment_statistics} node_comment_statistics ON node.nid = node_comment_statistics.nid
+WHERE (( (node.status = '1') AND (node.type IN  ('upload_video')) ))
+ORDER BY node_created DESC");
+
+    if (!$result)
+        die('Couldn\'t fetch records');
+    //$num_fields = $result->rowCount();
+    $headers = array(t('Video'), t('Views'), t('Likes'), t('Comments'), t('Viewers'));
+    $fp = fopen('php://output', 'w');
+    if ($fp && $result) {
+        drupal_add_http_header('Content-Type', 'text/csv; utf-8');
+        drupal_add_http_header('Content-Disposition', 'attachment; filename = analytics.csv');
+        header('Pragma: no-cache');
+        header('Expires: 0');
+        fputcsv($fp, $headers);
+
+        foreach ($result as $row) {
+            fputcsv($fp, array($row->node_title, $row->node_counter_totalcount, $row->flag_counts_node_count, $row->node_comment_statistics_comment_count, viewers($row->nid)));
+        }
+        // Close the output stream.
+        fclose($fp);
+    }
+}
+
+function create_video_stats() {
+    $result = db_query("SELECT node.title AS node_title, node.nid AS nid, node_counter.totalcount AS node_counter_totalcount, flag_counts_node.count AS flag_counts_node_count, node_comment_statistics.comment_count AS node_comment_statistics_comment_count, node.created AS node_created
+FROM 
+{node} node
+LEFT JOIN {flag_counts} flag_counts_node ON node.nid = flag_counts_node.content_id AND flag_counts_node.fid = '3'
+LEFT JOIN {node_counter} node_counter ON node.nid = node_counter.nid
+INNER JOIN {node_comment_statistics} node_comment_statistics ON node.nid = node_comment_statistics.nid
+WHERE (( (node.status = '1') AND (node.type IN  ('upload_video')) ))
+ORDER BY node_created DESC");
+
+    if (!$result)
+        die('Couldn\'t fetch records');
+    //$num_fields = $result->rowCount();
+    $headers = array(t('Video'), t('Views'), t('Likes'), t('Comments'), t('Viewers'));
+    // $fp = fopen('php://output', 'w');
+    $fp = fopen(DRUPAL_ROOT . '/sites/default/files/analytics.csv', 'w');
+    if ($fp && $result) {
+        // drupal_add_http_header('Content-Type', 'text/csv; utf-8');
+        // drupal_add_http_header('Content-Disposition', 'attachment; filename = analytics.csv');
+        // header('Pragma: no-cache');
+        // header('Expires: 0');
+        fputcsv($fp, $headers);
+
+        foreach ($result as $row) {
+            fputcsv($fp, array($row->node_title, $row->node_counter_totalcount, $row->flag_counts_node_count, $row->node_comment_statistics_comment_count, viewers($row->nid)));
+        }
+        // Close the output stream.
+        fclose($fp);
+    }
+}
+
+/*
+ * Exporting user Stats
+ */
+
+function create_user_stats() {
+
+    $result = db_query("SELECT DISTINCT authmap.authname AS authmap_authname,
+  users.uid AS uid, users.access AS users_access,
+  users.created AS users_created, 'user' AS field_data_field_vendor_id_user_entity_type
+  FROM {users} users LEFT JOIN {authmap} authmap ON users.uid = authmap.uid
+  WHERE (( (users.status <> '0') AND (users.uid > '3') )) ORDER BY users_created DESC");
+    if (!$result)
+        die('Couldn\'t fetch records');
+    //$num_fields = $result->rowCount();
+    $headers = array(t('Authentication name'), t('No. of comments'), t('No. of videos viewed'), t('Last access'));
+    $fp = fopen(DRUPAL_ROOT . '/sites/default/files/user-stats.csv', 'w');
+    if ($fp && $result) {
+        // header('Content-Type: text/csv');
+        //header('Content-Disposition: attachment; filename="csvfile.csv"');
+        // header('Pragma: no-cache');
+        // header('Expires: 0');
+        fputcsv($fp, $headers);
+
+        foreach ($result as $row) {
+            fputcsv($fp, array($row->authmap_authname, comment_number($row->uid), number_of_video_views($row->uid), date("m/d/Y", $row->users_access)));
+        }
+        //close file
+        fclose($fp);
+    }
+}
+
+function download_user_stats() {
+    $_SESSION['downloadstatus'] = array();
+
+    header('Pragma: no-cache');
+    header('Expires: 0');
+    header('Content-Type: application/download');
+    header('Content-Disposition: attachment; filename="user-stats.csv"');
+    header("Content-Length: " . filesize(DRUPAL_ROOT . "/sites/default/files/user-stats.csv"));
+
+    $fp = fopen(DRUPAL_ROOT . "/sites/default/files/user-stats.csv", "r");
+    fpassthru($fp);
+    fclose($fp);
+    $_SESSION['downloadstatus'] = array("status" => "finished", "message" => "Done");
+}
+
+function download_video_stats() {
+    $_SESSION['downloadstatus'] = array();
+    header('Pragma: no-cache');
+    header('Expires: 0');
+    header('Content-Type: application/download');
+    header('Content-Disposition: attachment; filename="analytics.csv"');
+    header("Content-Length: " . filesize(DRUPAL_ROOT . "/sites/default/files/analytics.csv"));
+
+    $fp = fopen(DRUPAL_ROOT . "/sites/default/files/analytics.csv", "r");
+    fpassthru($fp);
+    fclose($fp);
+    $_SESSION['downloadstatus'] = array("status" => "finished", "message" => "Done");
+}
+
+/*
+ * comment count
+ */
+
+function comment_number($uid = '') {
+    $comments = array();
+    $result = db_query("select count('cid') total,uid from {comment} group by uid");
+    if (!$result)
+        watchdog('comment_number', 'Exporting CSV: Not found Number of comment in the table');
+
+    foreach ($result as $row) {
+        $comments[$row->uid] = $row->total;
+    }
+    return $comments;
+}
+
+/*
+ * Views count
+ */
+
+function number_of_video_views($uid = '') {
+    $video_views = array();
+    /* $result = db_select('visitors', 'v')
+      ->fields('v', array('visitors_path'))
+      ->condition('visitors_uid', $uid, '=')
+      ->condition('visitors_path', 'node/%', 'like')
+      ->distinct()
+      ->execute()
+      ->rowcount(); */
+    $result = db_query("select count(distinct visitors_path) total,visitors_uid uid from {visitors} where visitors_path like 'node/%' AND visitors_path NOT LIKE 'node/add%' group by visitors_uid");
+    if (!$result)
+        watchdog('number_of_video_views', 'Exporting CSV: Not found Number of video vdiews in the table');
+
+    foreach ($result as $row) {
+        $video_views[$row->uid] = $row->total;
+    }
+    return $video_views;
+}
+
+/*
+ * find viwwers
+ */
+
+function viewers($node_id = '') {
+    $video_viewers = array();
+    /* $nid = 'node/' . $node_id;
+      $result = db_select('visitors', 'v')
+      ->fields('v', array('visitors_uid'))
+      ->condition('visitors_path', $nid, '=')
+      ->distinct()
+      ->execute()
+      ->rowcount();
+      return $result; */
+
+    $result = db_query("select count( distinct visitors_uid) total,visitors_path path from {visitors} where visitors_path like 'node/%' AND visitors_path NOT LIKE  'node/add%' group by path");
+    if (!$result)
+        watchdog('viewers', 'Exporting CSV: Not found Number of comment in the table');
+
+    foreach ($result as $row) {
+        $video_viewers[$row->path] = $row->total;
+    }
+    return $video_viewers;
+}
+
+function create_stats_csv_file() {
+    create_user_stats();
+    create_video_stats();
+}
+
+function check_download_status() {
+    if (!empty($_SESSION['downloadstatus'])) {
+        // Return json
+        drupal_json_output("success");
+    } else {
+        // Return json
+        drupal_json_output("fail");
+    }
+}

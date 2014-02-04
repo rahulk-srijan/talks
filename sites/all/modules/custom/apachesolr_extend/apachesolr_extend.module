@@ -1,0 +1,342 @@
+<?php
+
+/**
+ * hook Menu
+ */
+//hook_menu();
+
+function apachesolr_extend_menu() {
+
+    $items['api/search/%'] = array(
+        // 'page callback' => 'export_user_stats_csv',
+        'page callback' => 'search_api_solr',
+        'page arguments' => array(2),
+        'access arguments' => array('Search Api Solr json output'),
+        'type' => MENU_CALLBACK,
+        'access callback' => TRUE,
+        'title' => 'Serach Api Solr json output',
+        'delivery callback' => 'drupal_json_output',
+            //'type' => MENU_LOCAL_TASK,
+    );
+    return $items;
+}
+
+function search_api_solr($str) {
+    $args = urlencode($str);
+    drupal_add_http_header('Content-Type', 'application/javascript; utf-8');
+
+    $environments = apachesolr_load_all_environments();
+    $field_bias = $environments['solr']['conf']['field_bias'];
+    ///$qf = apachesolr_environment_variable_get($env_id, 'field_bias', $defaults);
+    $solr_url = $environments['solr']['url'];
+    $field = '&fl=label+entity_id+ts_comments+ts_field_upload_video+ts_field_video_duration+is_comment_count+is_comment_count+is_number_of_like+is_total_node_views+ts_custom_teaser+sm_vid_Category+sm_vid_Tags+sm_vid_Author+bm_field_share+url+ts_field_upload_video_url';
+    //  $field = '&fl=entity_id';
+    $search_in = '&qf=content^' . $field_bias['content'] . '&qf=label^' . $field_bias['label'] . '&qf=ts_comments^' . $field_bias['ts_comments'];
+    $params = $args . $field . $search_in;
+    if (isset($_GET['format'])) {
+        $format = $_GET['format'];
+
+        if ($format == 'jsonp') {
+
+            if (isset($_GET['callback'])) {
+                $callback = $_GET['callback'];
+                $path_format = "/select?q=$params&wt=json&json.wrf=$callback&indent=true&start=0&rows=5000";
+            } else {
+                $path_format = "/select?q=$params&wt=json&json.wrf=callback&indent=true&start=0&rows=5000";
+            }
+        } else {
+            $path_format = "/select?q=$params&wt=$format&indent=true&start=0&rows=5000";
+        }
+    } else {
+        $path_format = "/select?q=$params&wt=json&indent=true&start=0&rows=5000";
+    }
+
+
+    // $content = drupal_http_request($solr_url . $path_format);
+    //drupal_set_header('Content-Type: text/plain');
+    //  drupal_add_http_header('Content-Type', 'application/json');
+    $content = file_get_contents($solr_url . $path_format);
+    echo $content;
+    drupal_exit();
+}
+
+global $total_node_views;
+$total_node_views = number_of_node_views();
+
+/*
+ * hook_apachesolr_index_document_build()
+ */
+
+function apachesolr_extend_apachesolr_index_document_build(ApacheSolrDocument $document, $entity, $entity_type, $env_id) {
+    global $total_node_views;
+    //print_r($entity);exit;
+    //  if ($entity_type == 'node' && $entity->type == 'upload_video') {
+    if (isset($entity->field_upload_video[LANGUAGE_NONE][0]['thumbnailfile']->uri)) {
+        $document->addField('ts_field_upload_video', $entity->field_upload_video[LANGUAGE_NONE][0]['thumbnailfile']->uri);
+        $document->addField('ts_field_upload_video_url', $entity->field_upload_video[LANGUAGE_NONE][0]['uri']);
+    }
+    //index video duration
+
+    if (isset($entity->field_upload_video[LANGUAGE_NONE][0]['uri'])) {
+        $document->addField('ts_field_video_duration', video_library_get_video_duration($entity->field_upload_video[LANGUAGE_NONE][0]['uri']));
+    }
+
+
+    //index number of like of an entity
+    $document->addField('is_number_of_like', number_of_like($entity->nid));
+
+    //indix total node views
+    $document->addField('is_total_node_views', $total_node_views[$entity->nid]);
+    //}
+    if (isset($entity->body[LANGUAGE_NONE][0]['safe_value'])) {
+        $custom_teaser_text = apachesolr_clean_text($entity->body[LANGUAGE_NONE][0]['safe_value']);
+        $document->addField('ts_custom_teaser', $custom_teaser_text);
+    }
+}
+
+/*
+ * hook_apachesolr_query_alter()
+ */
+
+function apachesolr_extend_apachesolr_query_alter(DrupalSolrQueryInterface $query) {
+    $lower_key = strtolower($query->getParam('q'));
+    $query->replaceParam('q', $lower_key);
+    
+    $query->addParam('fl', 'ts_field_upload_video');
+    $query->addParam('fl', 'is_comment_count');
+    $query->addParam('fl', 'is_number_of_like');
+    $query->addParam('fl', 'is_total_node_views');
+    $query->addParam('fl', 'ts_field_video_duration');
+    $query->addParam('fl', 'sm_vid_Category');
+    $query->addParam('fl', 'sm_vid_Author');
+    $query->addParam('fl', 'bm_field_share');
+    $query->addParam('fl', 'ts_custom_teaser');
+    $query->replaceParam('hl.fl', 'ts_custom_teaser');
+    $query->replaceParam('hl.snippets', '2');
+    $query->addParam('hl.mergeContiguous', TRUE);
+
+    //$query->addParam('hl.fl', 'content');
+    //echo "<pre>";print_r($query);die();
+}
+
+function apachesolr_extend_apachesolr_process_results(&$results) {
+    //  print_r($results);
+    // exit;
+    /* foreach ($results as $index => $item) {
+      if ($item['node']->type == 'upload_video' && !empty($item['node']->ts_field_upload_video)) {
+      $results[$index]['field_upload_video'] = $item['node']->ts_field_upload_video;
+      }
+      } */
+}
+
+function apachesolr_extend_preprocess_search_result(&$variables) {
+    //print_r($variables);
+    if (arg(0) == 'search') {
+        $search_key = arg(2);
+    }
+
+    if ($variables["result"]["snippets"]["ts_custom_teaser"]) {
+        //$string = $variables["result"]["snippets"]["ts_custom_teaser"][0];
+        $custom_snippet = strip_tags($variables['snippet']);
+        $variables['snippet'] = highlightWords($custom_snippet, $search_key);
+        // views_trim_text(array('max_length' => 150, 'word_boundary' => TRUE, 'ellipsis' => TRUE, 'html' => TRUE), $teaser_trim_highlight);
+    } else {
+        $variables['snippet'] = trim_highlight_snippet($variables['result']['node']->ts_custom_teaser, $search_key);
+    }
+
+
+    if (isset($variables['result']['node']->ts_field_upload_video)) {
+        $variables['video_thumbnail'] = $variables['result']['node']->ts_field_upload_video;
+    }
+    if (isset($variables['result']['node']->ts_field_video_duration)) {
+        $variables['video_duration'] = $variables['result']['node']->ts_field_video_duration;
+    }
+    if (isset($variables['result']['node']->is_comment_count)) {
+        $variables['comment_count'] = $variables['result']['node']->is_comment_count;
+    }
+    if (isset($variables['result']['node']->is_number_of_like)) {
+        $variables['number_of_like'] = $variables['result']['node']->is_number_of_like;
+    }
+    if (isset($variables['result']['node']->sm_vid_Category[0])) {
+        $variables['category'] = $variables['result']['node']->sm_vid_Category[0];
+    }
+
+    if (isset($variables['result']['node']->sm_vid_Author[0])) {
+        $variables['author'] = $variables['result']['node']->sm_vid_Author[0];
+    }
+    if (isset($variables['result']['node']->is_total_node_views)) {
+        $variables['total_node_views'] = $variables['result']['node']->is_total_node_views;
+    }
+    if (isset($variables['result']['node']->bm_field_share[0])) {
+        $variables['bm_field_share'] = $variables['result']['node']->bm_field_share[0];
+    }
+}
+
+function apachesolr_extend_apachesolr_query_prepare(DrupalSolrQueryInterface &$query, &$caller) {
+    $query->addParam('fl', 'is_comment_count');
+    $query->addParam('fl', 'is_number_of_like');
+    $query->addParam('fl', 'is_total_node_views');
+    $query->addParam('fl', 'ds_created');
+
+    // $query->set_available_sort('ds_created', array('title' => t('Latest'), 'default' => 'desc'));
+    //  $query->removeAvailableSort('score');
+    $query->setAvailableSort('ds_created', array('title' => t('Newest Additions'), 'default' => 'desc'));
+    $query->setAvailableSort('is_total_node_views', array('title' => t('Most Viewed'), 'default' => 'desc'));
+    $query->setAvailableSort('is_number_of_like', array('title' => t('Most Liked'), 'default' => 'desc'));
+    $query->setAvailableSort('is_comment_count', array('title' => t('Most Commented'), 'default' => 'desc'));
+    //$query->setSolrsort('sort_comment_count', 'desc');
+    // print_r($query->getAvailableSorts());
+    //$query->setAvailableSort('score', array('title' => t('Relevance'), 'default' => 'desc'));
+}
+
+function number_of_like($nid) {
+    $flag = flag_get_flag('lke');
+    return $flag->get_count($nid);
+}
+
+/*
+ * Views count
+ */
+
+function number_of_node_views() {
+    $total_views = array();
+
+    $result = db_query("select * from {node_counter}");
+    if (!$result)
+        watchdog('number_of_views', 'Not found Number of node vdiews in the table');
+
+    foreach ($result as $row) {
+        $total_views[$row->nid] = $row->totalcount;
+    }
+    return $total_views;
+}
+
+function apachesolr_extend_block_info() {
+    $blocks['apachesolr_get_total_result'] = array(
+        'info' => t('Apache solr search result total'),
+        'cache' => DRUPAL_NO_CACHE,
+    );
+    $blocks['clear_search_result'] = array(
+        'info' => t('Apache solr Clear Search Result'),
+        'cache' => DRUPAL_NO_CACHE,
+    );
+
+
+    return $blocks;
+}
+
+function apachesolr_extend_block_view($dela = '') {
+
+    $block = array();
+    switch ($dela) {
+        case 'apachesolr_get_total_result':
+            $block['subject'] = t('Apache solr search total');
+            $block['content'] = apachesolr_get_total_result();
+            break;
+        case 'clear_search_result':
+            $block['subject'] = t('Apache solr Clear Search Result');
+            $block['content'] = clear_search_result();
+            break;
+    }
+    return $block;
+}
+
+function apachesolr_get_total_result() {
+    $search_key = ''; // arg(2);
+    $total = ''; // $GLOBALS['pager_total_items'][0];
+    $content = '';
+    $content .= '<div class="total-result"><h2>' . t('Search results') . '</h2></div>';
+    if ($GLOBALS['pager_total_items'][0] > 0) {
+        return $content;
+    } else {
+        return '';
+    }
+}
+
+function clear_search_result() {
+    $search_key = arg(2);
+    $url = url("search/site/$search_key");
+    $content = '<div class="clear-search-result"><p>' . t('Search Options:') . '</p>';
+    if (isset($_GET['f']) && !empty($_GET['f'])) {//check facet is clicked
+        $content .='<p><a href="' . $url . '">Clear Filter</a></p>';
+    }
+    $content .= '</div>';
+    if ($GLOBALS['pager_total_items'][0] > 0) {
+        return $content;
+    } else {
+        return '';
+        ;
+    }
+}
+
+/*
+ * 
+ */
+
+function apachesolr_extend_form_alter(&$form, &$form_state, $form_id) {
+    if ($form_id == "apachesolr_sort_sort_form_") {
+
+        $form['apachesolr_sort_name']['#title'] = '';
+        $form['apachesolr_sort_direction']['#access'] = FALSE;
+        $form['actions']['#attributes']['class'][] = 'element-invisible';
+    }
+    if ($form_id == "search_block_form") {
+        //print_r($form);
+        if ((arg(0) == 'search') && (arg(1) == 'site')) {
+            $form['search_block_form']['#default_value'] = arg(2);
+        }
+        $form['actions']['#attributes']['class'][] = 'element-invisible';
+        $form['search_block_form']['#attributes']['title'] = 'Search videos';
+    }
+}
+
+function apachesolr_extend_node_view($node, $view_mode, $langcode) {
+    if ($node->type == "upload_video") {
+        // Mark video forindexing. Number of views increase each time a user visits a page.
+        apachesolr_mark_entity("node", $node->nid);
+    }
+}
+
+function trim_highlight_snippet($string, $search_key) {
+    // if ($search_key && empty($string)) {
+    $custom_teaser = strip_tags($string);
+    $search_key = trim(strtolower($search_key));
+
+
+    $strpos = stripos($custom_teaser, $search_key);
+    $strrpos = strripos($custom_teaser, $search_key);
+    $strlength = strlen($custom_teaser);
+    $sting_length = 150;
+    if ($strpos === false || $strlength < $sting_length) {
+        $teaser_trim = drupal_substr($custom_teaser, 0, $sting_length);
+    } else {
+        $lenght_diff = ($strlength - $strrpos);
+        //echo '<br>$strpos = '.$strpos .' = $strlength = '.$strlength.' $strrpos '.$strrpos. ' $lenght_diff '.$lenght_diff;
+        if ($strpos > 20 && $strlength >= 200) {
+
+            if ($lenght_diff < 200 && $strpos == $strrpos) {
+                $teaser_trim = drupal_substr($custom_teaser, $strrpos - 100, $sting_length);
+            } else {
+                $teaser_trim = drupal_substr($custom_teaser, stripos($custom_teaser, ' ', $strpos - 20), $sting_length);
+            }
+        } else {
+            $teaser_trim = drupal_substr($custom_teaser, strpos($custom_teaser, ' ', $strpos - 5), $sting_length);
+        }
+    }
+
+    // $highlight = str_ireplace($search_key, "<strong>$search_key</strong>", $teaser_trim);
+    $highlight = highlightWords($teaser_trim, $search_key);
+    $content = views_trim_text(array('max_length' => 150, 'word_boundary' => TRUE, 'ellipsis' => TRUE, 'html' => TRUE), $highlight);
+    return $content;
+}
+
+function highlightWords($string, $term) {
+    $term = preg_replace('/\s+/', ' ', trim($term));
+    $words = explode(' ', $term);
+
+    $highlighted = array();
+    foreach ($words as $word) {
+        $highlighted[] = "<strong>" . $word . "</strong>";
+    }
+    return str_ireplace($words, $highlighted, $string);
+}

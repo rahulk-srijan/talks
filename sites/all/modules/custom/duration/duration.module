@@ -1,0 +1,68 @@
+<?php
+
+function duration_node_presave($node){
+  if($node->type=='upload_video'){
+  $nid = $node->nid;
+  $fid= $node->field_upload_video['und'][0]['fid'];
+  $file= file_load($fid);
+  $filename = $file->filename;
+  $root_path = $_SERVER['DOCUMENT_ROOT'];
+  $video_path = $root_path.'/VideoLibraryD7/sites/default/files/videos/original/'.$filename;
+  $video_duration = test_video_library_get_video_duration($video_path);
+  $nid_count= db_select('video_duration','v')
+              ->fields('v')
+              ->condition('nid',$nid,'=')
+              ->execute()
+              ->rowCount();
+        if($nid_count != 0) {
+          $duration_updated = db_update('video_duration') // Table name no longer needs {}
+              ->fields(array(
+                'value' => $video_duration,
+              ))
+              ->condition('nid',$nid,'=')
+              ->execute();
+        }else {
+          $duration_insert = db_insert('video_duration') // Table name no longer needs {}
+              ->fields(array(
+                'nid' => $nid,
+                'value' => $video_duration,
+              ))
+              ->execute();
+
+        }
+ }
+
+}
+
+function test_video_library_get_video_duration($path) {
+    $videoPath = $path;
+    $results = db_select('variable', 'v')
+            ->fields('v')
+            ->condition('name', 'video_ffmpeg_path', '=')
+            ->execute()
+            ->fetchAssoc();
+    $path_result = $results['value'];
+    $explode_path = explode('"', $path_result);
+    $ffmpeg_path = $explode_path[1];
+    $cmd = "$ffmpeg_path -i $videoPath 2>&1 | grep 'Duration' | cut -d ' ' -f 4 | sed s/,//";
+    exec($cmd, $output, $return_var);
+
+    $time = $output[0];
+    $no_micro = explode('.', $time, 2);
+    $upto_min = $no_micro[0];
+    $hr = '';
+    $min = '';
+    $sec = '';
+    //  $str_time = escapeshellarg($output[0]);
+//   echo $str_time;
+    $array = preg_split('#(?<!\\\)\:#', $upto_min);
+    $hr = $array[0];
+    $min = $array[1];
+    $sec = $array[2];
+    if ($hr > 00) {
+        $formatted_time = $hr . ':' . $min . ':' . $sec;
+    } else {
+        $formatted_time = $min . ':' . $sec;
+    }
+    return $formatted_time;
+}

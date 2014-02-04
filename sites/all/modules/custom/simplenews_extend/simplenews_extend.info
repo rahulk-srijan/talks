@@ -1,0 +1,5 @@
+name = "Simplenews Extended"
+description = "Organization Videos Library For SimpleNews Extended"
+core = "7.x"
+package = "Custom Modules"
+dependencies[] = simplenews

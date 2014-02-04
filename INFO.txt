@@ -1,0 +1,3 @@
+This is the portal built on Drupal 7
+Repo creation date: Nov 8 2012
+Started working on responsive on 26 june 2013

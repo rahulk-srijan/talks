@@ -1,0 +1,4 @@
+name = "Video Library Core Module"
+description = "Video Library Core functionality Custom Module"
+core = "7.x"
+package = "Custom Modules"

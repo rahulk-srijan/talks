@@ -1,0 +1,6 @@
+name = "Exporting User Stats Into CSV"
+description = "Exporting user Stats Into CSV file"
+core = "7.x"
+ stylesheets[all][] = export_style.css
+ scripts[] = export_script.js
+package = "Custom Modules"

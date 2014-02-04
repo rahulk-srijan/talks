@@ -1,0 +1,365 @@
+<?php
+
+/*
+ * hook_init()
+ */
+
+function custom_ovl_init() {
+    /*
+      <script type="text/javascript" src="sites/all/libraries/jquery-1.4.2.min.js"></script>
+      <script type="text/javascript" src="http://localhost/VideoLibraryD7/sites/all/modules/contrib/jcarousel/js/jquery.jcarousel.min.js"></script>
+      <link rel="stylesheet" type="text/css" href="http://localhost/VideoLibraryD7/sites/all/modules/contrib/jcarousel/skins/default/jcarousel-default.css" />
+      <script type="text/javascript">
+      jQuery(document).ready(function() {
+      jQuery('#mycarousel').jcarousel({
+      // Configuration goes here
+      });
+      });
+      </script>
+     */
+    drupal_add_css(drupal_get_path('module', 'jcarousel') . '/skins/default/jcarousel-default.css');
+    drupal_add_js(drupal_get_path('module', 'jcarousel') . '/js/jquery.jcarousel.min.js');
+    drupal_add_js(drupal_get_path('theme', 'vedio_library') . '/scripts/jquery.ui.touch-punch.min.js');
+//    drupal_add_js(libraries_get_path('jwplayer') . 'jwplayer.js', array('group' => JS_THEME, 'every_page' => TRUE));
+    //drupal_add_js($j_js, 'inline');
+}
+
+/**
+ * hook Menu
+ */
+function custom_ovl_menu() {
+
+    $items['custom_ovl/autocomplete'] = array(
+        'page callback' => '_custom_avl_tags_autocomplete',
+        'access arguments' => array('access tags author autocomplete'),
+        'type' => MENU_CALLBACK,
+        'access callback' => TRUE,
+        'title' => 'Tag Auto Complete',
+            //'type' => MENU_LOCAL_TASK,
+    );
+    return $items;
+}
+
+/* * *
+ * Category Form
+ * Hide delete when term has any node
+ */
+
+function custom_ovl_form_alter(&$form, &$form_state, $form_id) {
+    // drupal_set_message($form_id);  // print form ID to messages
+    //  dsm($form);  // print array to messages
+
+    if ($form_id == 'nodequeue_arrange_subqueue_form_1') {
+        $form['add']['nid']['#default_value'] = "Enter the title of a video to add it to the queue";
+    }
+    //   drupal_set_message(print_r($form));  // print array to messages
+//     if ($form_id == 'comment_goodness_confirm_delete') {
+//         return confirm_form($form,
+//     t('Are you sure you want to delete the comment %title?', array('%title' => $comment->subject)),
+//     'node/' . $comment->nid,
+//     t('TDO you really want to to this.'),
+//     t('Delete'),
+//     t('Cancel'),
+//     'comment_goodness_confirm_delete');
+//        // confirm_form(form, question, path, description, yes, no, name)
+//     // $form['delete'] = array(
+//     // '#type' => 'submit',
+//     // '#value' => t('Delete'),
+//     // '#attributes' => array('onclick' => 'if(!confirm("Really Delete?")){return false;}'),
+//     //  }
+// }
+
+    if ($form_id == 'taxonomy_form_term' && isset($form['actions']['delete'])) {
+        $term_tid = $form['#term']['tid'];
+
+        $node_count = custom_helper_taxonomy_term_count_nodes($term_tid, $type = 0); //hide delete button if term has any node
+        if ($node_count >= 1) {
+
+            unset($form['actions']['delete']);
+            $form['actions']['submit'] = array(
+                '#type' => 'submit',
+                '#value' => t('Save'),
+                '#weight' => 5,
+                '#suffix' => '<div style="border:1px solid red"><strong>You can not delete this tag/category as it is associated with some videos</strong></div>',
+            );
+        }
+    }
+    /*
+      if ($form_id == 'views_exposed_form') {
+      //      dsm($form['filter-tid']['#info']['filter-tid']['label']);
+      drupal_add_js(drupal_get_path('module','custom_ovl') . '/autocomplete_autosubmit.js', array('group' => JS_THEME));
+      foreach($form_state['view']->filter as $filter) {
+      if($fid = $filter->options['expose']['identifier']) natcasesort($form[$fid]['#options']);
+      }
+      $form['name'] = array(
+      '#type' => 'textfield',
+      '#default_value' => '',
+      '#autocomplete_path' => 'custom_ovl/autocomplete',
+      '#size' => 20,
+      '#attributes' => array('class' => array('auto_submit'),'title' =>array('Tag Or Author')),
+      );
+      $form['submit'] = array(
+      '#type' => 'submit',
+      '#value' => 'Go',
+      ); */
+    /* if (drupal_is_front_page()) {
+      //$form['#action'] = url('browse');
+      } */
+    //echo '<pre>';
+    //print_r($form);
+    //echo '</pre>';
+    //die(); 
+    //} 
+    if ($form_id == 'views_form_playlist_page_2') {
+        //$form_state['redirect'] = '?destination=my-playlist';
+        //echo '<pre>';
+        //print_r($form);
+        //echo '</pre>';die();
+        //$form['#action'] = '?destination=my-playlist';
+        //add function to complete to at the end of array
+        // drupal_set_message($form_id);
+        //echo '<pre>';
+        //echo '</pre>';die();
+        $form['actions']['submit'] = array(
+            '#type' => 'submit',
+            '#value' => t('Save'),
+            '#weight' => 5,
+            '#prefix' => '<strong>' . l('cancel', 'my-playlist') . '</strong>',
+            '#submit' => array('custom_ovl_views_form_playlist_page_2_submit_handler'),
+        );
+        //      $form['actions']['submit']['#submit'][0] = 'custom_ovl_views_form_playlist_page_2_submit_handler';
+        //$form['#redirect'] = '<front>';
+        //$form_state['rebuild'] = TRUE;
+        //print_r($form_state);
+    }
+    if ($form_id == 'simplenews_subscriptions_page_form') {
+        $form['subscriptions']['#description'] = 'Select your email notification preferences';
+        // $form['update']['#value'] = 'Save';
+        $form['subscriptions']['new'] = array(
+            '#type' => 'item',
+            '#markup' => 'Frequency of notification',
+            '#weight' => -4,
+        );
+        $form['subscriptions']['emai_textl'] = array(
+            '#type' => 'item',
+            '#markup' => 'Email Content',
+            '#weight' => -3,
+        );
+        /*  $form['subscriptions']['new_1'] = array(
+          '#type' => 'item',
+          '#markup' => 'ONLY new videos added to these categories',
+          '#weight' => 56,
+          ); */
+    }
+}
+
+/**
+ *
+ * @staticvar array $count
+ * @param type $tid
+ * @param type $type
+ * @return number of node count
+ */
+function custom_helper_taxonomy_term_count_nodes($tid, $type = 0) {
+    static $count;
+
+    if (isset($count[$type][$tid])) {
+        return $count[$type][$tid];
+    }
+
+    $query = db_select('taxonomy_index', 't');
+    $query->condition('tid', $tid, '=');
+    $query->addExpression('COUNT(*)', 'count_nodes');
+
+    // Restrict query by Content Type
+    if (!empty($type)) {
+        $query->join('node', 'n', 't.nid = n.nid');
+        $query->condition('type', $type, '=');
+    }
+
+    $count[$type][$tid] = $query->execute()->fetchField();
+
+    return $count[$type][$tid];
+}
+
+/**
+ * Implements hook_menu_alter().
+ */
+function custom_ovl_menu_alter(&$items) {
+    unset($items['admin/structure/taxonomy/%taxonomy_vocabulary_machine_name/add']['title']);
+    $items['admin/structure/taxonomy/%taxonomy_vocabulary_machine_name/add']['title callback'] = 'term_title';
+    $items['admin/structure/taxonomy/%taxonomy_vocabulary_machine_name/add']['title arguments'] = array(3);
+    $items['admin/structure/taxonomy/%taxonomy_vocabulary_machine_name/add']['access arguments'] = array('administer taxonomy');
+}
+
+function term_title($arg) {
+    $title = arg(3);
+    return "Add " . $title;
+}
+
+function custom_ovl_views_form_playlist_page_2_submit_handler(&$form, &$form_state) {
+    $form_state['rebuild'] = TRUE;
+    $form_state['redirect'] = 'node/';
+}
+
+function _custom_avl_tags_autocomplete($string) {
+
+    $query = new EntityFieldQuery;
+    $result = $query
+            ->entityCondition('entity_type', 'taxonomy_term')
+            ->propertyCondition('name', '%' . $string . '%', 'LIKE')
+            ->propertyCondition('vid', array(1, 4), 'IN')
+            ->range(0, 10)
+            ->execute();
+
+    if (isset($result['taxonomy_term'])) {
+        $term_tids = array_keys($result['taxonomy_term']);
+        $term_obj = entity_load('taxonomy_term', $term_tids);
+        foreach ($term_obj as $term) {
+            $matches[$term->name] = check_plain($term->name);
+        }
+    }
+
+    //print_r($query);
+    // return for JS
+    drupal_json_output($matches);
+}
+
+/**
+ * Implements hook_insert().
+ */
+// function custom_ovl_node_insert($node) {
+//   $types=node_type_get_names();
+//     $type= $types[upload_video];
+//     if ($type == "Upload Video") {
+//   db_insert('field_data_field_duration')
+//     ->fields(array(
+//       'field_duration_value' => '11:11',
+//     ))
+//     ->execute();
+// }
+//}
+/**
+ * Implements hook_block_info().
+ */
+function custom_ovl_block_info() {
+    $blocks = array();
+    $blocks['noti_block'] = array(
+        'info' => t('My Notification'),
+    );
+
+    return $blocks;
+}
+
+function custom_ovl_block_view($delta = '') {
+    switch ($delta) {
+        case 'noti_block':
+            $block['subject'] = null; // Most forms don't have a subject
+//    $block['content'] = noti_block_view();
+            $block['content'] = simlenews_form();
+            break;
+    }
+    return $block;
+}
+
+function simlenews_form() {
+    //load simple news form
+    $content = array();
+    module_load_include('inc', 'simplenews', 'includes/simplenews.subscription');
+    $content = array(
+        'button' => array(
+            '#prefix' => '<button type="button" class="close">&times;</button>',
+            '#type' => 'markup',
+            '#markup' => '',
+        ),
+        'text' => array(
+            '#prefix' => '<h2>',
+            '#type' => 'markup',
+            '#markup' => 'My Notification',
+            '#suffix' => '</h2>',
+        ),
+        'form' => array(
+            '#prefix' => '',
+            '#type' => 'markup',
+            '#markup' => render(drupal_get_form('simplenews_subscriptions_page_form')),
+        ),
+    );
+    //   $content .= render(drupal_get_form('simplenews_subscriptions_page_form'));
+
+    return $content;
+}
+
+// function noti_block_view() {
+//     $block = array();
+//  $block = array(
+//    'text' => array(
+//        '#prefix' => '<button type="button" class="close">&times;</button>',
+//        '#type' => 'markup',
+//        '#markup' => 'My notification',
+//      ),);
+//   return $block;
+// }
+
+/* function custom_ovl_taxonomy_term_insert($term) {
+  if($term->vocabulary_machine_name == category) {
+  $plid =  db_query("SELECT mlid FROM {menu_links} where link_title='browse by category'")->fetchField();
+  $menu_item = array(
+  'link_title' => $term->name,
+  'menu_name'  => 'menu-main-menu-mobile', // It uses '-', not '_'
+  'customized' => 1, // Must be 1 in order to not dispaly the link in any language
+  'link_path'  => 'taxonomy/term/' . $term->tid, // menu_link_save() does not like aliases. Then 'nid' is used
+  'language'  => 'en', // language is required in order to make the item translatable
+  'plid' => $plid,
+  'weight' => '-50',
+  );
+  $mlid = menu_link_save($menu_item); // You don't need to receive it in a variable
+  $ml = menu_link_load($mlid); // I'm loading $mlid just to display the result and verify it
+  }
+  } */
+
+/**
+ *
+ * @param type $path
+ * @return video duration
+ */
+global $ffmpeg_path;
+$ffmpeg_path = variable_get('video_ffmpeg_path');
+
+function video_library_get_video_duration($path) {
+    global $ffmpeg_path;
+    // $videoPath = '';
+    // $videoPath = DRUPAL_ROOT . '/sites/default/files/videos/original/' . $path;
+    $videoPath = drupal_realpath($path);
+    /* $results = db_select('variable', 'v')
+      ->fields('v')
+      ->condition('name', 'video_ffmpeg_path', '=')
+      ->execute()
+      ->fetchAssoc();
+      $path_result = $results['value'];
+      $explode_path = explode('"', $path_result);
+      $explode_path1 = variable_get('video_ffmpeg_path');
+      echo unserialize($path_result) .'<br>'.$explode_path1;
+
+      // $ffmpeg_path = $explode_path[1]; */
+    // echo $videoPath;
+    //echo getcwd();
+    // echo '<pre>$ffmpeg_path='. $ffmpeg_path.'====$videoPath='.$videoPath.'</pre>';
+    //$ffmpeg_path = variable_get('video_ffmpeg_path');
+    $cmd = "$ffmpeg_path -i $videoPath 2>&1 | grep 'Duration' | cut -d ' ' -f 4 | sed s/,//";
+    exec($cmd, $output, $return_var);
+    $time = $output[0];
+    $no_micro = explode('.', $time, 2);
+    $upto_min = $no_micro[0];
+    //  $str_time = escapeshellarg($output[0]);
+//   echo $str_time;
+    $array = preg_split('#(?<!\\\)\:#', $upto_min);
+    $hr = $array[0];
+    $min = $array[1];
+    $sec = $array[2];
+    if ($hr > 00) {
+        $formatted_time = $hr . ':' . $min . ':' . $sec;
+    } else {
+        $formatted_time = $min . ':' . $sec;
+    }
+    return $formatted_time;
+}
