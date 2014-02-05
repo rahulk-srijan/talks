@@ -28,11 +28,12 @@ if (isset($node->field_tags['und'])) {
         <?php endif; ?>
         <div class='upload-video'><?php print render($content['field_upload_video']); ?></div>
         <?php
+        // Get the current child library configuration variables.
+        global $library_subsite_variable;
+        // Get the current child library name
+        global $subsite_home_page_url;
         $video_file_name = $node->field_upload_video['und'][0]['filename'];
         $video_file_uri = $node->field_upload_video['und'][0]['uri'];
-        // $root_path = $_SERVER['DOCUMENT_ROOT'];
-        // $root_path = DRUPAL_ROOT;
-        //$video_path = $root_path.'/sites/default/files/videos/original/'. $video_file_name;
         $video_duration = video_library_get_video_duration($video_file_uri);
         ?>
         <div class="video-duration"><?php print $video_duration; ?></div> 
@@ -54,7 +55,7 @@ if (isset($node->field_tags['und'])) {
             $url = current_path();
             $path_alias = drupal_lookup_path('alias', $url);
             $break = "%0D%0D%0D";
-            $subject = $user->name . " recommended an Org in Action video.";
+            $subject = $user->name . $library_subsite_variable[$subsite_home_page_url]['recommend_text'];
             $body = "View the video '" . $title . "' here: " . $base_url . "/" . $path_alias . $break;
             //       $body = "Here is the link " . url($node_url, array('absolute' => TRUE));
             print '<a href="mailto:?Subject=' . $subject . '&body=' . $body . ' ">' . t('> Recommend to a colleague') . '</a>';
@@ -91,7 +92,7 @@ if (isset($node->field_tags['und'])) {
             $url = current_path();
             $path_alias = drupal_lookup_path('alias', $url);
             $break = "%0D%0D%0D";
-            $subject = $user->name . " recommended an Org in Action video.";
+            $subject = $user->name . $library_subsite_variable[$subsite_home_page_url]['recommend_text'];
             $body = "View the video '" . $title . "' here: " . $base_url . "/" . $path_alias . $break;
             //       $body = "Here is the link " . url($node_url, array('absolute' => TRUE));
             print '<a href="mailto:?Subject=' . $subject . '&body=' . $body . ' ">' . t('Recommend to a colleague') . '</a>';

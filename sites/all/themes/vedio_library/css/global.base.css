@@ -767,7 +767,10 @@
         border: none;
         /*margin-left: 2px;*/
     }
-
+/*hide slideshow by default and show by js*/
+    #block-views-featured-vedios-block{
+        display: none;
+    }
     #block-views-featured-vedios-block {
         background: none repeat scroll 0 0 #333333;
         height: 217px;

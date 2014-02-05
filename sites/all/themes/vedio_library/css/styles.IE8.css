@@ -120,7 +120,7 @@ input.form-autocomplete::-ms-clear {display: none;}
     display:inline;
     font-weight:bold;}
 #edit-tid-wrapper .jcarousel-skin-default .jcarousel-item a {color:#000000; float: left; text-align: left; width: 180px; overflow: hidden; padding: 3px; clear: both; font-size: 12px; display: inline-block; height: 15px;}
-#edit-tid-wrapper .jcarousel-skin-default .jcarousel-item a.active-tag {color: green;}
+#edit-tid-wrapper .jcarousel-skin-default .jcarousel-item a.active-tag {color: #E37222;}
 #edit-tid-wrapper .jcarousel-skin-default .jcarousel-item .form-type-bef-link {height:18px; font-size:12px; text-align: left;}
 
 #edit-tid-wrapper .jcarousel-skin-default .jcarousel-prev-horizontal, #edit-tid-wrapper .jcarousel-skin-default .jcarousel-next-horizontal {width:21px; height:21px; top:45px; cursor:pointer;}

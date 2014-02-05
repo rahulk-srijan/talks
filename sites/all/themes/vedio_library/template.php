@@ -51,6 +51,12 @@ function vedio_library_preprocess_html(&$vars) {
     if (($current_url[0] == $subsite_home_page_url) && (!empty($current_url[1]))) {
         $vars['classes_array'][] = 'body-'.$subsite_home_page_url;
     }
+    if ($current_url[1] == "browse") {
+        $vars['classes_array'][] = 'page-browse';
+    }
+    if ($current_url[1] == "tags") {
+        $vars['classes_array'][] = 'page-tags';
+    }
 }
 
 function vedio_library_preprocess_page(&$vars) {
@@ -91,7 +97,9 @@ jQuery("#block-views-featured-vedios-block").show();
 jQuery("#block-views-comments-recent-block").show();
 jQuery("#block-views-views-by-category-block .view-all").addClass("homepage_link");
 jQuery("#block-views-views-by-category-block .homepage_link a").attr("href","' . $url . '");
-jQuery("#menu-bar li.menu-item-218 a").addClass("active");
+jQuery(".main_menu_across li.menu-item-218 a").addClass("active");
+jQuery(".main_menu_across li.menu-item-2259 a").addClass("active");
+jQuery(".main_menu_across li.menu-item-2264 a").addClass("active");
 
 
   });', 'inline');
@@ -102,8 +110,15 @@ jQuery(document).ready(function () {
 jQuery("#block-views-featured-vedios-block").hide();
 jQuery("#block-views-comments-recent-block").hide();
 jQuery("#block-views-views-by-category-block").removeClass("homepage_link");
-jQuery("#menu-bar li.menu-item-218 a").removeClass("active");
-jQuery("#menu-bar li.menu-item-519 a").removeClass("active");
+jQuery(".main_menu_across li.menu-item-218 a").removeClass("active");
+jQuery(".main_menu_across li.menu-item-519 a").removeClass("active");
+
+jQuery(".main_menu_across li.menu-item-2259 a").removeClass("active");
+jQuery(".main_menu_across li.menu-item-2260 a").removeClass("active");
+
+jQuery(".main_menu_across li.menu-item-2264 a").removeClass("active");
+jQuery(".main_menu_across li.menu-item-2265 a").removeClass("active");
+
 
   });', 'inline');
     }
@@ -111,7 +126,9 @@ jQuery("#menu-bar li.menu-item-519 a").removeClass("active");
     if (isset($_SESSION['browse_page'])) {
         drupal_add_js('
 jQuery(document).ready(function () {
-jQuery("#menu-bar li.menu-item-519 a").addClass("active");
+jQuery(".main_menu_across li.menu-item-519 a").addClass("active");
+jQuery(".main_menu_across li.menu-item-2260 a").addClass("active");
+jQuery(".main_menu_across li.menu-item-2265 a").addClass("active");
 
   });', 'inline');
     }
@@ -119,7 +136,7 @@ jQuery("#menu-bar li.menu-item-519 a").addClass("active");
     if (arg(1) == 'playlist' && arg(1) == 'edit') {
         drupal_add_js('
 jQuery(document).ready(function () {
-jQuery("#menu-bar li.menu-item-520 a").addClass("active");
+jQuery(".main_menu_across li.menu-item-520 a").addClass("active");
 
   });', 'inline');
     }
@@ -131,8 +148,14 @@ function vedio_library_preprocess_node(&$vars) {
     if ($vars['type'] == "upload_video") {
         drupal_add_js('
 jQuery(document).ready(function () {
-jQuery("#menu-bar li.menu-item-519 a").addClass("active");
-jQuery("#menu-bar li.menu-item-218 a").removeClass("active");
+jQuery(".main_menu_across li.menu-item-519 a").addClass("active");
+jQuery(".main_menu_across li.menu-item-218 a").removeClass("active");
+
+jQuery(".main_menu_across li.menu-item-2260 a").addClass("active");
+jQuery(".main_menu_across li.menu-item-2259 a").removeClass("active");
+
+jQuery(".main_menu_across li.menu-item-2265 a").addClass("active");
+jQuery(".main_menu_across li.menu-item-2264 a").removeClass("active");
   });', 'inline');
     }
 

@@ -11,20 +11,23 @@ $library_subsite_variable = array(
     array('to' => 'organization_practice_learning_team@mckinsey.com',
         'from_email' => 'organization_practice_learning_team@mckinsey.com',
         'subject' => 'Suggest a video',
-        'msg' => 'I recommend adding the following video to the video library',
-        'site_name' => 'Org in Action: Video Library'),
+        'msg' => 'I recommend adding the following video to the Org in Action video library',
+        'site_name' => 'Org in Action: Video Library',
+        'recommend_text' => ' recommended an Org in Action video.'),
     'opsinaction' =>
     array('to' => 'global_ops_learning_team@mckinsey.com,Ops_Feedback@mckinsey.com',
         'from_email' => 'global_ops_learning_team@mckinsey.com',
         'subject' => 'Suggest a video',
-        'msg' => 'I recommend adding the following video to the video library',
-        'site_name' => 'Ops in Action: Video Library'),
+        'msg' => 'I recommend adding the following video to the Ops in Action video library',
+        'site_name' => 'Ops in Action: Video Library',
+        'recommend_text' => ' recommended an Ops in Action video.'),
     'btoacademy' =>
     array('to' => 'bt_learning_registration@mckinsey.com',
         'from_email' => 'bt_learning_registration@mckinsey.com',
         'subject' => 'Suggest a video',
-        'msg' => 'I recommend adding the following video to the video library',
-        'site_name' => 'BTO Academy')
+        'msg' => 'I recommend adding the following video to the BTO Academy video library',
+        'site_name' => 'BTO Academy',
+        'recommend_text' => ' recommended a BTO Academy video.')
 );
 
 
