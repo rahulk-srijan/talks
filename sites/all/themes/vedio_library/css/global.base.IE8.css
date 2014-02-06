@@ -722,11 +722,11 @@ header[role=banner],
     margin-bottom: 0px;
 }
 
-#block-system-main-menu {
+.main_menu_across {
     z-index: 101;
 }
 
-#block-system-main-menu ul.menu li {
+.main_menu_across ul.menu li {
     background: #EDEFEE;
     height: 38px;
 }
@@ -743,21 +743,21 @@ header[role=banner],
 background: #666;
 }**/
 
-#block-system-main-menu ul.menu li a {
+.main_menu_across ul.menu li a {
     color: #00aaef;
     margin-top: 9px;
     border-right: 1px solid #666666;
     font-size: 13px;
     font-weight: bold;
 }
-#block-system-main-menu ul.menu li.remove-border a{
+.main_menu_across ul.menu li.remove-border a{
     border-right: 0;
 }
-#block-system-main-menu ul.menu li.active-trail a {
+.main_menu_across ul.menu li.active-trail a {
     color: #fff;
 }
 
-#block-system-main-menu ul.menu li a.active {
+.main_menu_across ul.menu li a.active {
     color: white;
     background: #666;
     height: 28px;
