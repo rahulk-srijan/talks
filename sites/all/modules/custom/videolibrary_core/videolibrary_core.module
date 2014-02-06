@@ -30,7 +30,6 @@ $library_subsite_variable = array(
         'recommend_text' => ' recommended a BTO Academy video.')
 );
 
-
 /**
  * Implements hook_block_info().
  */
@@ -166,7 +165,7 @@ function user_top_menu_link() {
         $content .='<li class="first"><a href="' . url('user') . '">' . t('Login') . '</a></li>';
     }
     $content .='
-<li class="last hidden-phone"><a href="mailto:' . $mail_to . '?Subject='.$subject.'&body='.$msg.'">
+<li class="last hidden-phone"><a href="mailto:' . $mail_to . '?Subject=' . $subject . '&body=' . $msg . '">
 Suggest a Video</a></li>
 <li class="last"><a href="#">How to suggest a video</a>
 <div class="modal">
@@ -184,16 +183,16 @@ Suggest a Video</a></li>
 }
 
 function videolibrary_core_views_api() {
-  return array(
-    'api' => 3,
-  );
+    return array(
+        'api' => 3,
+    );
 }
 
 function videolibrary_core_views_query_alter(&$view, &$query) {
-  if ($view->name == 'logging') {
-    //dsm($query, 'before');
-    // Adding OR condition for the contextual filters.
-    $query->where[0]['type'] = 'OR';
-    //dsm($query, 'after');
-  }
+    if ($view->name == 'logging') {
+        //dsm($query, 'before');
+        // Adding OR condition for the contextual filters.
+        $query->where[0]['type'] = 'OR';
+        //dsm($query, 'after');
+    }
 }
