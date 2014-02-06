@@ -1343,7 +1343,7 @@
   /*
    * "Main menu" block
    */
-  #block-system-main-menu {
+  .main_menu_across{
     float: left;
     margin-right: 4.7%;
     margin-left: 0px;

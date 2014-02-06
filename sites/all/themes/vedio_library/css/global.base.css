@@ -2583,3 +2583,7 @@ font-weight: bold;
 #block-videolibrary-core-category-menu .block-content.content li.by-category {
         color: #666666;
     }
+    .sites_switch li a{
+        color: #E37222;
+        font-size: 20px;
+    }
