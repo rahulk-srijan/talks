@@ -152,13 +152,13 @@ function user_top_menu_link() {
     }
     if ($user->uid != 0) {
         $content .='<li class="first">' . t('Welcome ') . '<a href="' . $profile_url . '" target="_blank">' . $user->name . '</a></li>';
-        $content .='<li class="second"><a href="' . url('newsletter/subscriptions') . '">My Notifications</a></li>';
+        $content .='<li class="second"><a href="' . url('<front>') . '">My Notifications</a></li>';
 
         $adminRoles = array('web master', 'administrator');
         $device = array('ipad', 'iphone');
         foreach ($adminRoles as $role) {
             if (in_array($role, array_values($user->roles)) && !(bool) strpos($_SERVER['HTTP_USER_AGENT'], 'iPad') && !(bool) strpos($_SERVER['HTTP_USER_AGENT'], 'iPhone')) {
-                $content .='<li class="third">' . l("Admin", "admin/dashboard") . '</li>';
+                $content .='<li class="third">' . l("Admin", "<front>") . '</li>';
             }
         }
     } else {
