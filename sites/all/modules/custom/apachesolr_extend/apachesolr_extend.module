@@ -281,7 +281,7 @@ function apachesolr_extend_form_alter(&$form, &$form_state, $form_id) {
         }
         $form['actions']['#attributes']['class'][] = 'element-invisible';
         $form['search_block_form']['#attributes']['title'] = 'Search videos';
-        $form['#submit'][] = 'apachesolr_search_submit';
+        //$form['#submit'][] = 'apachesolr_search_submit';
     }
 }
 /**
