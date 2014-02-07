@@ -21,44 +21,6 @@ function apachesolr_extend_menu() {
     return $items;
 }
 
-function search_api_solr($str) {
-    $args = urlencode($str);
-    drupal_add_http_header('Content-Type', 'application/javascript; utf-8');
-
-    $environments = apachesolr_load_all_environments();
-    $field_bias = $environments['solr']['conf']['field_bias'];
-    ///$qf = apachesolr_environment_variable_get($env_id, 'field_bias', $defaults);
-    $solr_url = $environments['solr']['url'];
-    $field = '&fl=label+entity_id+ts_comments+ts_field_upload_video+ts_field_video_duration+is_comment_count+is_comment_count+is_number_of_like+is_total_node_views+ts_custom_teaser+sm_vid_Category+sm_vid_Tags+sm_vid_Author+bm_field_share+url+ts_field_upload_video_url';
-    //  $field = '&fl=entity_id';
-    $search_in = '&qf=content^' . $field_bias['content'] . '&qf=label^' . $field_bias['label'] . '&qf=ts_comments^' . $field_bias['ts_comments'];
-    $params = $args . $field . $search_in;
-    if (isset($_GET['format'])) {
-        $format = $_GET['format'];
-
-        if ($format == 'jsonp') {
-
-            if (isset($_GET['callback'])) {
-                $callback = $_GET['callback'];
-                $path_format = "/select?q=$params&wt=json&json.wrf=$callback&indent=true&start=0&rows=5000";
-            } else {
-                $path_format = "/select?q=$params&wt=json&json.wrf=callback&indent=true&start=0&rows=5000";
-            }
-        } else {
-            $path_format = "/select?q=$params&wt=$format&indent=true&start=0&rows=5000";
-        }
-    } else {
-        $path_format = "/select?q=$params&wt=json&indent=true&start=0&rows=5000";
-    }
-
-
-    // $content = drupal_http_request($solr_url . $path_format);
-    //drupal_set_header('Content-Type: text/plain');
-    //  drupal_add_http_header('Content-Type', 'application/json');
-    $content = file_get_contents($solr_url . $path_format);
-    echo $content;
-    drupal_exit();
-}
 
 global $total_node_views;
 $total_node_views = number_of_node_views();
@@ -93,6 +55,33 @@ function apachesolr_extend_apachesolr_index_document_build(ApacheSolrDocument $d
         $document->addField('ts_custom_teaser', $custom_teaser_text);
     }
 }
+
+
+/*
+ * Hook_query_prepare
+ */
+function apachesolr_extend_apachesolr_query_prepare(DrupalSolrQueryInterface &$query, &$caller) {
+    global $subsite_home_page_url;
+    $query->addParam('fl', 'is_comment_count');
+    $query->addParam('fl', 'is_number_of_like');
+    $query->addParam('fl', 'is_total_node_views');
+    $query->addParam('fl', 'ds_created');
+    
+    //pass default search library tid
+    $default_filter_tid = default_filter_term_id();
+    $query->addFilter('im_field_library', $default_filter_tid[$subsite_home_page_url]);
+
+    // $query->set_available_sort('ds_created', array('title' => t('Latest'), 'default' => 'desc'));
+    //  $query->removeAvailableSort('score');
+    $query->setAvailableSort('ds_created', array('title' => t('Newest Additions'), 'default' => 'desc'));
+    $query->setAvailableSort('is_total_node_views', array('title' => t('Most Viewed'), 'default' => 'desc'));
+    $query->setAvailableSort('is_number_of_like', array('title' => t('Most Liked'), 'default' => 'desc'));
+    $query->setAvailableSort('is_comment_count', array('title' => t('Most Commented'), 'default' => 'desc'));
+    //$query->setSolrsort('sort_comment_count', 'desc');
+    // print_r($query->getAvailableSorts());
+    //$query->setAvailableSort('score', array('title' => t('Relevance'), 'default' => 'desc'));
+}
+
 
 /*
  * hook_apachesolr_query_alter()
@@ -129,10 +118,14 @@ function apachesolr_extend_apachesolr_process_results(&$results) {
       } */
 }
 
+/**
+ * hook_preprocess_search_result
+ * @param type $variables
+ */
 function apachesolr_extend_preprocess_search_result(&$variables) {
     //print_r($variables);
-    if (arg(0) == 'search') {
-        $search_key = arg(2);
+    if (arg(1) == 'search') {
+        $search_key = arg(3);
     }
 
     if ($variables["result"]["snippets"]["ts_custom_teaser"]) {
@@ -172,30 +165,16 @@ function apachesolr_extend_preprocess_search_result(&$variables) {
     }
 }
 
-function apachesolr_extend_apachesolr_query_prepare(DrupalSolrQueryInterface &$query, &$caller) {
-    $query->addParam('fl', 'is_comment_count');
-    $query->addParam('fl', 'is_number_of_like');
-    $query->addParam('fl', 'is_total_node_views');
-    $query->addParam('fl', 'ds_created');
-
-    // $query->set_available_sort('ds_created', array('title' => t('Latest'), 'default' => 'desc'));
-    //  $query->removeAvailableSort('score');
-    $query->setAvailableSort('ds_created', array('title' => t('Newest Additions'), 'default' => 'desc'));
-    $query->setAvailableSort('is_total_node_views', array('title' => t('Most Viewed'), 'default' => 'desc'));
-    $query->setAvailableSort('is_number_of_like', array('title' => t('Most Liked'), 'default' => 'desc'));
-    $query->setAvailableSort('is_comment_count', array('title' => t('Most Commented'), 'default' => 'desc'));
-    //$query->setSolrsort('sort_comment_count', 'desc');
-    // print_r($query->getAvailableSorts());
-    //$query->setAvailableSort('score', array('title' => t('Relevance'), 'default' => 'desc'));
-}
-
+/*
+ * return number of like
+ */
 function number_of_like($nid) {
     $flag = flag_get_flag('lke');
     return $flag->get_count($nid);
 }
 
 /*
- * Views count
+ * node Views count
  */
 
 function number_of_node_views() {
@@ -211,6 +190,10 @@ function number_of_node_views() {
     return $total_views;
 }
 
+/**
+ * hook_block_info
+ * @return string
+ */
 function apachesolr_extend_block_info() {
     $blocks['apachesolr_get_total_result'] = array(
         'info' => t('Apache solr search result total'),
@@ -224,6 +207,10 @@ function apachesolr_extend_block_info() {
 
     return $blocks;
 }
+
+/*
+ * Hook_block_view
+ */
 
 function apachesolr_extend_block_view($dela = '') {
 
@@ -241,6 +228,9 @@ function apachesolr_extend_block_view($dela = '') {
     return $block;
 }
 
+/*
+ * total search result
+ */
 function apachesolr_get_total_result() {
     $search_key = ''; // arg(2);
     $total = ''; // $GLOBALS['pager_total_items'][0];
@@ -252,10 +242,14 @@ function apachesolr_get_total_result() {
         return '';
     }
 }
+/*
+ * Clear search block
+ */
 
 function clear_search_result() {
-    $search_key = arg(2);
-    $url = url("search/site/$search_key");
+        global $subsite_home_page_url;
+    $search_key = arg(3);
+    $url = url($subsite_home_page_url."/search/site/$search_key");
     $content = '<div class="clear-search-result"><p>' . t('Search Options:') . '</p>';
     if (isset($_GET['f']) && !empty($_GET['f'])) {//check facet is clicked
         $content .='<p><a href="' . $url . '">Clear Filter</a></p>';
@@ -270,7 +264,7 @@ function clear_search_result() {
 }
 
 /*
- * 
+ * hook_form_alter
  */
 
 function apachesolr_extend_form_alter(&$form, &$form_state, $form_id) {
@@ -281,15 +275,29 @@ function apachesolr_extend_form_alter(&$form, &$form_state, $form_id) {
         $form['actions']['#attributes']['class'][] = 'element-invisible';
     }
     if ($form_id == "search_block_form") {
-        //print_r($form);
-        if ((arg(0) == 'search') && (arg(1) == 'site')) {
-            $form['search_block_form']['#default_value'] = arg(2);
+      //  print_r($form);
+        if ((arg(1) == 'search') && (arg(2) == 'site')) {
+            $form['search_block_form']['#default_value'] = arg(3);
         }
         $form['actions']['#attributes']['class'][] = 'element-invisible';
         $form['search_block_form']['#attributes']['title'] = 'Search videos';
+        $form['#submit'][] = 'apachesolr_search_submit';
     }
 }
+/**
+* Implementation of form submit function
+*/
+function apachesolr_search_submit($form, &$form_state) {
+    global $subsite_home_page_url;
+    // Get form ID
+  $form_id = $form['form_id']['#value'];
+  // Create new redirect
+  $form_state['redirect'] =$subsite_home_page_url.'/search/site/'. trim($form_state['values'][$form_id]);
+}
 
+/*
+ * Update node on view
+ */
 function apachesolr_extend_node_view($node, $view_mode, $langcode) {
     if ($node->type == "upload_video") {
         // Mark video forindexing. Number of views increase each time a user visits a page.
@@ -297,6 +305,9 @@ function apachesolr_extend_node_view($node, $view_mode, $langcode) {
     }
 }
 
+/*
+ * Hightlight Snippet
+ */
 function trim_highlight_snippet($string, $search_key) {
     // if ($search_key && empty($string)) {
     $custom_teaser = strip_tags($string);
@@ -339,4 +350,62 @@ function highlightWords($string, $term) {
         $highlighted[] = "<strong>" . $word . "</strong>";
     }
     return str_ireplace($words, $highlighted, $string);
+}
+
+
+/**
+ * 
+ * @return default filter term id for default search
+ */
+function default_filter_term_id(){
+    $library = array(
+        'orginaction'=>455,
+        'opsinaction'=>456,
+        'btoacademy'=>457,
+    );
+    return $library;
+}
+
+
+
+/*
+ * search_api_solr()
+ */
+function search_api_solr($str) {
+    $args = urlencode($str);
+    drupal_add_http_header('Content-Type', 'application/javascript; utf-8');
+
+    $environments = apachesolr_load_all_environments();
+    $field_bias = $environments['solr']['conf']['field_bias'];
+    ///$qf = apachesolr_environment_variable_get($env_id, 'field_bias', $defaults);
+    $solr_url = $environments['solr']['url'];
+    $field = '&fl=label+entity_id+ts_comments+ts_field_upload_video+ts_field_video_duration+is_comment_count+is_comment_count+is_number_of_like+is_total_node_views+ts_custom_teaser+sm_vid_Category+sm_vid_Tags+sm_vid_Author+bm_field_share+url+ts_field_upload_video_url';
+    //  $field = '&fl=entity_id';
+    $search_in = '&qf=content^' . $field_bias['content'] . '&qf=label^' . $field_bias['label'] . '&qf=ts_comments^' . $field_bias['ts_comments'];
+    $params = $args . $field . $search_in;
+    if (isset($_GET['format'])) {
+        $format = $_GET['format'];
+
+        if ($format == 'jsonp') {
+
+            if (isset($_GET['callback'])) {
+                $callback = $_GET['callback'];
+                $path_format = "/select?q=$params&wt=json&json.wrf=$callback&indent=true&start=0&rows=5000";
+            } else {
+                $path_format = "/select?q=$params&wt=json&json.wrf=callback&indent=true&start=0&rows=5000";
+            }
+        } else {
+            $path_format = "/select?q=$params&wt=$format&indent=true&start=0&rows=5000";
+        }
+    } else {
+        $path_format = "/select?q=$params&wt=json&indent=true&start=0&rows=5000";
+    }
+
+
+    // $content = drupal_http_request($solr_url . $path_format);
+    //drupal_set_header('Content-Type: text/plain');
+    //  drupal_add_http_header('Content-Type', 'application/json');
+    $content = file_get_contents($solr_url . $path_format);
+    echo $content;
+    drupal_exit();
 }
