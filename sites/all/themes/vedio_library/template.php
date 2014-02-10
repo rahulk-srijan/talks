@@ -57,6 +57,10 @@ function vedio_library_preprocess_html(&$vars) {
     if ($current_url[1] == "tags") {
         $vars['classes_array'][] = 'page-tags';
     }
+    if ($current_url[1] == "search") {
+        $vars['classes_array'][] = 'page-search';
+        $vars['classes_array'][] = 'page-search-site';
+    }
 }
 
 function vedio_library_preprocess_page(&$vars) {
