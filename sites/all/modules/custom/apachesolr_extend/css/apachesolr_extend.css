@@ -107,7 +107,7 @@ No Assertion Received. Please sign in again.
     border-bottom: 1px solid #666666;
     margin-bottom: 20px;
 }
-ul#facetapi-facet-apachesolrsolr-block-im-field-category li.leaf, ul#facetapi-facet-apachesolrsolr-block-created li.leaf{
+ul.facetapi-facetapi-checkbox-links li.leaf, ul#facetapi-facet-apachesolrsolr-block-created li.leaf{
     list-style-image: none;
     list-style-type: none;
     margin-left: 2px;
