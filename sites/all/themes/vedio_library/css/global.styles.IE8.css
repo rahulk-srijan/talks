@@ -1336,11 +1336,11 @@ ul.action-links li {}
 /*
  * "Main menu" block
  */
-#block-system-main-menu {
-  float: left;
-  margin-right: 4.7%;
-  margin-left: 0px;
-}
+.main_menu_across {
+   float: left;
+   margin-right: 4.7%;
+   margin-left: 0px;
+ }
 
 /*
  * "Management" block for Drupal management menu
