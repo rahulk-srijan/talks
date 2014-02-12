@@ -51,6 +51,8 @@
  * @see adaptivetheme_preprocess_html()
  * @see adaptivetheme_process_html()
  */
+global $base_url;
+global $subsite_home_page_url;
 ?><!DOCTYPE html>
 <!--[if IEMobile 7]><html class="iem7"<?php print $html_attributes; ?>><![endif]-->
 <!--[if lte IE 6]><html class="lt-ie9 lt-ie8 lt-ie7"<?php print $html_attributes; ?>><![endif]-->
@@ -58,10 +60,17 @@
 <!--[if IE 8]><html class="lt-ie9"<?php print $html_attributes; ?>><![endif]-->
 <!--[if (gte IE 9)|(gt IEMobile 7)]><!--><html<?php print $html_attributes . $rdf_namespaces; ?>><!--<![endif]-->
 <head>
+  <?php if($subsite_home_page_url == "btoacademy") { ?>
+    <link rel="shortcut icon" href="<?php print $base_url . '/' . path_to_theme() . '/favicon.ico' ?>" type="image/x-icon" />
+  <?php }
+    else {      
+   ?>
+   <link rel="shortcut icon" href="<?php print $base_url . '/' . path_to_theme() . '/favicon2.ico' ?>" type="image/x-icon" />
+   <?php } ?>
+  
   <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 <?php print $head; ?>
 <title><?php 
-global $library_subsite_variable;
 global $subsite_home_page_url;
 //$head_title
 print $library_subsite_variable[$subsite_home_page_url]['site_name']; ?>
