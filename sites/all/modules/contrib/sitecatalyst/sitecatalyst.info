@@ -1,0 +1,14 @@
+name = SiteCatalyst
+description = Adds SiteCatalyst javascript tracking code to your site's pages.
+core = 7.x
+files[] = sitecatalyst.module
+files[] = sitecatalyst.install
+files[] = tests/sitecatalyst.test
+package = Statistics
+
+; Information added by drupal.org packaging script on 2013-01-21
+version = "7.x-1.0-beta1"
+core = "7.x"
+project = "sitecatalyst"
+datestamp = "1358805821"
+

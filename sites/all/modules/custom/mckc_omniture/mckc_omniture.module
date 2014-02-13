@@ -1,0 +1,52 @@
+<?php
+
+
+
+/**
+ * Implements hook_init().
+ */
+function mckc_omniture_init() {
+  if(module_exists('sitecatalyst')){
+    drupal_add_js('var omni_suit_id= "' . variable_get('omni_suit_id', '') . '";', 'inline');
+  }
+}
+
+
+/**
+ * Implements hook_form_alter().
+ */
+function mckc_omniture_form_alter(&$form, &$form_state, $form_id) {
+  if( $form_id == 'sitecatalyst_admin_settings'){
+    $form['omni_suit_id'] = array(
+      '#type' => 'textfield',
+      '#weight' => -100, 
+      '#title' => t('Omniture suit id for this Instance or Site.'),
+      '#description' => t('Example mckinseydev, mckinseyprod etc!'),
+      '#default_value' => variable_get('omni_suit_id', ''),
+    );
+    $form['#submit'][] = 'mckc_omniture_settings_submit';
+  }
+}
+
+/*
+ Settings submission handler
+*/
+function mckc_omniture_settings_submit(&$form, &$form_state) {
+  $omni_id = $form_state['values']['omni_suit_id'];
+  if(!empty($omni_id)) {
+    variable_set('omni_suit_id', $omni_id);
+  }
+}
+
+
+/**
+ * Implements hook_omniture_variables().
+ */
+function mckc_omniture_sitecatalyst_variables() {
+  $variables = array();
+  if(isset($_SERVER['HTTP_PERSON_ID'])) {
+    $visitor_id = $_SERVER['HTTP_PERSON_ID'];
+    $variables['s.prop1'] = $visitor_id; 
+    return array('variables' => $variables);
+  }
+}
