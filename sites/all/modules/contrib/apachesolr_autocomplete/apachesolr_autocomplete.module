@@ -277,7 +277,7 @@ function apachesolr_autocomplete_suggest_additional_term($keys, $suggestions_to_
 
   return $suggestions;
 }
-
+dfb(arg(1),'test2');
 
 function apachesolr_autocomplete_suggest($keys, $params, $theme_callback, $orig_keys, $suggestions_to_return = 5) {
   $matches = array();
@@ -302,6 +302,11 @@ function apachesolr_autocomplete_suggest($keys, $params, $theme_callback, $orig_
   foreach ($params as $param => $paramValue) {
     $query->addParam($param, $paramValue);
   }
+
+  //var_dump($_SESSION['home_page']);exit();
+  $default_filter_tid = default_filter_term_id_search();
+  $query->addFilter('im_field_library', $default_filter_tid[$_SESSION['home_page']]);
+
   apachesolr_search_add_boost_params($query);
 
   // Query Solr
@@ -381,6 +386,19 @@ function apachesolr_autocomplete_suggest($keys, $params, $theme_callback, $orig_
     'suggestions' => $suggestions,
     'response' => &$response
   );
+}
+
+/**
+ * 
+ * @return default filter term id for default search
+ */
+function default_filter_term_id_search(){
+    $library = array(
+        'orginaction'=>455,
+        'opsinaction'=>456,
+        'btoacademy'=>457,
+    );
+    return $library;
 }
 
 /**

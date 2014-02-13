@@ -1,14 +1,23 @@
 <?php
+global $subsite_home_page_url;
+
 if (isset($node->field_tags['und'])) {
-    $tags_obj = $node->field_tags['und'];
-    foreach ($tags_obj as $taxonomy_term) {
+  $tags_obj = $node->field_tags['und'];
+}
+elseif (isset($node->field_ops_tags['und'])) {
+  $tags_obj = $node->field_ops_tags['und'];
+}
+elseif (isset($node->field_bto_tags['und'])) {
+  $tags_obj = $node->field_bto_tags['und'];
+}
 
-        $tags_tid = $taxonomy_term['taxonomy_term']->tid;
-        $tags_name = $taxonomy_term['taxonomy_term']->name;
-        $tags_link .='<li class="field-item">' . l($tags_name, 'tags', array('query' => array('tid' => $tags_tid))) . '</li>';
-    }
-
-    $tags_content = '<h2 class="field-label">Tags: </h2><ul class="field-items">' . $tags_link . '</ul>';
+if (isset($tags_obj)) {
+  foreach ($tags_obj as $taxonomy_term) {
+    $tags_tid = $taxonomy_term['taxonomy_term']->tid;
+    $tags_name = $taxonomy_term['taxonomy_term']->name;
+    $tags_link .='<li class="field-item">' . l($tags_name, $subsite_home_page_url . '/tags', array('query' => array('tid' => $tags_tid))) . '</li>';
+  }
+  $tags_content = '<h2 class="field-label">Tags: </h2><ul class="field-items">' . $tags_link . '</ul>';
 }
 ?>
 <script src="/sites/all/libraries/jwplayer/jwplayer.js"></script>
@@ -82,7 +91,21 @@ if (isset($node->field_tags['und'])) {
             ?>
         </div>
         <div class="body"><?php print render($node->body['und'][0]['value']); ?></div>
-        <div class="category"><?php print render($content['field_category']); ?></div>
+        <div class="category">
+            <?php
+              switch ($subsite_home_page_url) {
+                  case 'orginaction':
+                      print render($content['field_category']);
+                      break;
+                  case 'opsinaction':
+                      print render($content['field_ops_category']);
+                      break;
+                  case 'btoacademy':
+                      print render($content['field_bto_category']);
+                      break;
+              } 
+             ?>
+        </div>
         <div class="tags">
             <section class="field field-name-field-tags field-type-taxonomy-term-reference field-label-inline clearfix view-mode-full">
                 <?php print $tags_content; //render($content['field_tags']); ?></section></div>

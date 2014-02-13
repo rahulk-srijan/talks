@@ -23,7 +23,7 @@ drupal_add_css(drupal_get_path('module', 'apachesolr_extend') . '/css/apachesolr
 drupal_add_js(drupal_get_path('module', 'apachesolr_extend') . '/js/jquery.imagesloaded.min.js', array('group' => JS_THEME, 'every_page' => FALSE));
 drupal_add_js(drupal_get_path('module', 'apachesolr_extend') . '/js/jquery.infinitescroll.min.js', array('group' => JS_THEME, 'every_page' => FALSE));
 drupal_add_js(drupal_get_path('module', 'apachesolr_extend') . '/js/infinitescroll.js', array('group' => JS_THEME, 'every_page' => FALSE));
-$search_key = arg(2);
+$search_key = arg(3);
 $total = $GLOBALS['pager_total_items'][0];
 ?>
 <?php if ($total >0): ?>

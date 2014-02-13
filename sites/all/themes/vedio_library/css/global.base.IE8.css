@@ -1292,7 +1292,7 @@ width: 100%;
 
 /** css for innner pages **/
 .node-author .field-name-field-author h2.field-label,
-.category .field-name-field-category h2.field-label,
+.category .field-type-taxonomy-term-reference h2.field-label,
 .tags .field-name-field-tags h2.field-label {
     margin: 0;
 }

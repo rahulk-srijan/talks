@@ -470,7 +470,7 @@
   }
 
   .region-sidebar-first .block-content.content {
-    padding-left: 0;
+    padding-left: 1.125em;
     padding-bottom: 5px;
     padding-top: 5px;
   }

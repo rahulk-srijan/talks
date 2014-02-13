@@ -32,11 +32,21 @@ No Assertion Received. Please sign in again.
 .search-results .video-title{
     clear: both;
 }
+/* ishan */
 .search-results .video-title a{
-    color: #d65917;
     font-size: 0.86em;
     font-weight: bold;
 }
+.body-orginaction .search-results .video-title a{
+    color: #d65917;
+}
+.body-opsinaction .search-results .video-title a{
+    color: #ad0059;
+}
+.body-btoacademy .search-results .video-title a{
+    color: #642f7a;
+}
+
 .search-results .image-block, .search-results .search-snippet{
     float: left;
 }
@@ -96,17 +106,39 @@ No Assertion Received. Please sign in again.
 #block-apachesolr-extend-clear-search-result{
     margin-bottom: 0;
 }
-#block-apachesolr-extend-clear-search-result p{
+
+/* ishan */
+.body-orginaction #block-apachesolr-extend-clear-search-result p{
     font-weight: bold;
     color: #d65917;
-
 }
+.body-opsinaction #block-apachesolr-extend-clear-search-result p{
+    font-weight: bold;
+    color: #ad0059;
+}
+.body-btoacademy #block-apachesolr-extend-clear-search-result p{
+    font-weight: bold;
+    color: #642f7a;
+}
+
 .search-results .result-found{
     font-weight: bold;
-    color: #d65917;
     border-bottom: 1px solid #666666;
     margin-bottom: 20px;
 }
+.body-orginaction .search-results .result-found{
+    color: #d65917;
+}
+.body-opsinaction .search-results .result-found{
+    color: #ad0059;
+}
+.body-btoacademy .search-results .result-found{
+    color: #642f7a;
+}
+
+
+
+
 ul.facetapi-facetapi-checkbox-links li.leaf, ul#facetapi-facet-apachesolrsolr-block-created li.leaf{
     list-style-image: none;
     list-style-type: none;
@@ -188,12 +220,20 @@ ul.facetapi-facetapi-checkbox-links li.leaf, ul#facetapi-facet-apachesolrsolr-bl
 }
 .search-results #infscr-loading {text-align: center!important;}
 
-#block-apachesolr-extend-apachesolr-get-total-result h2{
+/* ishan */
+.body-orginaction #block-apachesolr-extend-apachesolr-get-total-result h2{
     margin: 20px 0 10px 0;
     color: #d65917;
-
-
 }
+.body-opsinaction #block-apachesolr-extend-apachesolr-get-total-result h2{
+    margin: 20px 0 10px 0;
+    color: #ad0059;
+}
+.body-btoacademy #block-apachesolr-extend-apachesolr-get-total-result h2{
+    margin: 20px 0 10px 0;
+    color: #642f7a;
+}
+
 #block-apachesolr-extend-apachesolr-get-total-result{
     margin-bottom: 0;
 
