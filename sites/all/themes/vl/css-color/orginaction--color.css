@@ -1,0 +1,14 @@
+#views_slideshow_cycle_teaser_section_logging-block .views-field-message-render .title {
+        float: left;
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        background: url("images/quotes_org.png") no-repeat scroll 8px center transparent;
+        height: 52px;
+        width: 600px;
+        padding: 10px 80px 10px 60px;
+        font-size: 11px;
+        position: absolute;
+        left: 270px;
+        top: 0;
+    }

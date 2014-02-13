@@ -1,4 +1,4 @@
-
+@media screen and (min-width: 701px) {
 // _base.scss imports _custom.scss (variables and mixins) and other partials.
 @import "base";
 @import "compass";
@@ -114,7 +114,7 @@ body{
 #main-content {
   margin: 16px 0 0 24px;
 }
-.front #tasks {
+#tasks {
   display: none;
 }
 
@@ -476,23 +476,39 @@ ul.menu li.last a {
       margin-right: 0.6em;
     }
   }
+  .share {
+    left: 345px;
+    position: relative;
+    top: -20px;
+  }
 }
-
-.node-statistics-like {
+.node-author{
+  font-size: 11px;
+  font-weight: bold;
+  margin-left: 14px;
+  strong {
+    color: a__headerlinks;
+  }
+  field.field-name-field-author{
     display: inline-block;
-    font-size: 11px;
-    font-weight: bold;
-    margin-right: 10px;
-    margin-top: 5px;
+    margin: 5px 0;
+  }
+}
+.node-statistics-like {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: bold;
+  margin-right: 10px;
+  margin-top: 5px;
 }
 
 .like-video {
-    display: inline-block;
+  display: inline-block;
 }
 .download-video{
   display: inline-block;
   a{
-      background: url("images/download_bg.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    background: url("images/download_bg.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
     border: medium none;
     color: #FFFFFF;
     display: inline-block;
@@ -505,22 +521,16 @@ ul.menu li.last a {
     width: 62px;
   }
 }
-// .recommend {
-//     font-weight: bold;
-//     left: 345px;
-//     position: relative;
-//     top: -20px;
-// }
 .add-to-palylist,.recommend {
-    color: #00ACEE;
-    font-size: 11px;
-    font-weight: bold;
-    left: 345px;
-    position: relative;
-    top: -20px;
+  color: #00ACEE;
+  font-size: 11px;
+  font-weight: bold;
+  left: 345px;
+  position: relative;
+  top: -20px;
 }
 .flag-wrapper {
-    position: relative;
+  position: relative;
 }
 .node-statistics {
   border-right: 1px solid #666666;
@@ -541,6 +551,7 @@ ul.menu li.last a {
 
 #block-block-3 {
   background: none repeat scroll 0 0 #002454;
+  margin: 0;
   p{
     color: #FFFFFF;
     font-size: 11px;
@@ -650,18 +661,65 @@ ul.menu li.last a {
   margin-right: 0;
 }
 
-
+#columns .region-sidebar-second {
+  background: none repeat scroll 0 0 #EDEFEE;
+  margin: 32px 0 0 -391px;
+  padding: 18px 26px 30px 29px;
+  width: 327px;
+  .block-inner h2 {
+    border-bottom: 1px solid #666666;
+    color: #E37222;
+    font-size: 13px;
+    letter-spacing: -0.2px;
+    padding-bottom: 4px;
+  }
+  .views-row {
+    margin-bottom: 19px;
+    margin-top: 19px;
+    min-height: 100px;
+    position: relative;
+  }
+  .views-field.views-field-field-upload-video {
+    display: inline-block;
+    float: left;
+    height: 95px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 151px;
+    .field-content {
+      height: 85px;
+      position: relative;
+      width: 151px;
+    }
+  }
+  .views-field-title {
+    bottom: 4px;
+    display: inline-block;
+    float: right;
+    font-size: 11px;
+    font-weight: bold;
+    position: relative;
+    width: 165px;
+    a {
+      color: $a__headerlinks;
+    }
+  }
+  .views-field.views-field-body {
+    display: inline-block;
+    float: right;
+    font-size: 11px;
+    width: 165px;
+  }
+}
 #main-content {
-  margin-left: 3.5%;
   .region {
     margin: 0;
   }
 }
 .content-inner{
   #main-content {
-    margin-left: 0;
-    margin-right: 0;
-    margin-top: 16px;
+    margin: 16px 0 0 24px;
   }
 }
 
@@ -898,17 +956,17 @@ ul.menu li.last a {
 }
 }
 .form-submit, .like-video a {
-    background: url("images/bluebtn_bg.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
-    border: medium none;
-    color: #FFFFFF;
-    display: inline-block;
-    font-size: 11px;
-    font-weight: bold;
-    height: 18px;
-    padding: 0;
-    text-align: center;
-    text-decoration: none;
-    width: 38px;
+  background: url("images/bluebtn_bg.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+  border: medium none;
+  color: #FFFFFF;
+  display: inline-block;
+  font-size: 11px;
+  font-weight: bold;
+  height: 18px;
+  padding: 0;
+  text-align: center;
+  text-decoration: none;
+  width: 38px;
 }
 /*************************
 Display None
@@ -2568,4 +2626,5 @@ tr.error {
     min-height: 260px;
     width: auto;
   }
+}
 }

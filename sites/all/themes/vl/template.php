@@ -39,7 +39,7 @@ function vl_preprocess_html(&$vars) {
         'preprocess' => FALSE
     ));
 
-    drupal_add_css(drupal_get_path('theme', 'vl') . '/css/' . $subsite_home_page_url . '--color.css', array(
+    drupal_add_css(drupal_get_path('theme', 'vl') . '/css-color/' . $subsite_home_page_url . '--color.css', array(
         'group' => CSS_THEME,
         'preprocess' => FALSE,
         'type' => 'file',

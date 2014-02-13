@@ -1,0 +1,3105 @@
+/*
+ * @file
+ * global.base
+ *
+ * - normalize with small modifications for Drupal and AT: http://necolas.github.com/normalize.css/
+ * - Gutter widths, see $gutter-width in _custom.scss
+ * - Default container alignment.
+ * - Flexible images and media declarations.
+ * - Copies of the SCSS mixins for reference, which includes an improved
+ *   element-invisible and focusable styles.
+ */
+/* =============================================================================
+    HTML5 display definitions
+   ========================================================================== */
+/*
+ * Corrects block display not defined in IE6/7/8/9 & FF3
+ */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.base\.scss}line{font-family:\0000334}}
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+nav,
+section,
+summary {
+  display: block;
+}
+
+/*
+ * Corrects inline-block display not defined in IE6/7/8/9 & FF3
+ */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.base\.scss}line{font-family:\0000344}}
+audio,
+canvas,
+video {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+}
+
+/*
+ * Prevents modern browsers from displaying 'audio' without controls
+ * Remove excess height in iOS5 devices
+ */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.base\.scss}line{font-family:\0000355}}
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+/*
+ * Addresses styling for 'hidden' attribute not present in IE7/8/9, FF3, S4
+ * Known issue: no IE6 support
+ */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.base\.scss}line{font-family:\0000365}}
+[hidden] {
+  display: none;
+}
+
+/* =============================================================================
+    Base
+   ========================================================================== */
+/*
+ * If you are using the themes Responsive JS feature (media_queries.js) do not
+ * set a font-family on the html element, use body.
+ *
+ * 1. Corrects text resizing oddly in IE6/7 when body font-size is set using em units
+ *    http://clagnut.com/blog/348/#c790
+ * 2. Prevents iOS text size adjust after orientation change, without disabling user zoom
+ *    www.456bereastreet.com/archive/201012/controlling_text_size_in_safari_for_ios_without_disabling_user_zoom/
+ */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.base\.scss}line{font-family:\0000383}}
+html {
+  font-size: 100%;
+  -webkit-text-size-adjust: 100%;
+  line-height: 1.5;
+  height: 100%;
+  overflow-y: scroll;
+}
+
+/*
+ * 1 . Addresses margins handled incorrectly in IE6/7
+ */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.base\.scss}line{font-family:\0000395}}
+body {
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  text-rendering: optimizeLegibility\9;
+  /* Only IE, can mess with Android */
+}
+
+/*
+ * Addresses font-family inconsistency between 'textarea' and other form elements.
+ */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.base\.scss}line{font-family:\00003111}}
+button,
+input,
+select,
+textarea {
+  font-family: sans-serif;
+}
+
+/* =============================================================================
+    Links
+   ========================================================================== */
+/*
+ * Addresses outline displayed oddly in Chrome
+ */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.base\.scss}line{font-family:\00003123}}
+a:focus {
+  outline: thin dotted;
+}
+
+/*
+ * Improves readability when focused and also mouse hovered in all browsers
+ * people.opera.com/patrickl/experiments/keyboard/test
+ */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.base\.scss}line{font-family:\00003133}}
+a:hover,
+a:active {
+  outline: 0;
+}
+
+/* =============================================================================
+    Typography
+   ========================================================================== */
+/*
+ * Headings
+ *
+ * Addresses font sizes and margins set differently in IE6/7
+ * Addresses font sizes within 'section' and 'article' in FF4+, Chrome, S5
+ */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.base\.scss}line{font-family:\00003149}}
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.base\.scss}line{font-family:\00003155}}
+h2 {
+  font-size: 1.5em;
+  margin: 0.83em 0;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.base\.scss}line{font-family:\00003161}}
+h3 {
+  font-size: 1.17em;
+  margin: 1em 0;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.base\.scss}line{font-family:\00003167}}
+h4 {
+  font-size: 1em;
+  margin: 1.33em 0;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.base\.scss}line{font-family:\00003173}}
+h5 {
+  font-size: 0.83em;
+  margin: 1.67em 0;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.base\.scss}line{font-family:\00003179}}
+h6 {
+  font-size: 0.75em;
+  margin: 2.33em 0;
+}
+
+/*
+ * Addresses styling not present in IE7/8/9, S5, Chrome
+ */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.base\.scss}line{font-family:\00003188}}
+abbr[title] {
+  border-bottom: 1px dotted;
+}
+
+/*
+ * Addresses style set to 'bolder' in FF3+, S4/5, Chrome
+ */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.base\.scss}line{font-family:\00003197}}
+b,
+strong {
+  font-weight: bold;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.base\.scss}line{font-family:\00003202}}
+blockquote {
+  margin: 1em 40px;
+}
+
+/*
+ * Addresses styling not present in S5, Chrome
+ */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.base\.scss}line{font-family:\00003210}}
+dfn {
+  font-style: italic;
+}
+
+/*
+ * Addresses styling not present in IE6/7/8/9
+ */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.base\.scss}line{font-family:\00003218}}
+mark {
+  background: #ff0;
+  color: #000;
+}
+
+/*
+ * Addresses margins set differently in IE6/7
+ */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.base\.scss}line{font-family:\00003228}}
+p,
+pre {
+  margin: 0 0 1.5em;
+}
+
+/*
+ * Corrects font family set oddly in IE6, S4/5, Chrome
+ * en.wikipedia.org/wiki/User:Davidgothberg/Test59
+ */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.base\.scss}line{font-family:\00003240}}
+pre,
+code,
+kbd,
+samp {
+  font-family: monospace, serif;
+  _font-family: 'courier new', monospace;
+  font-size: 1em;
+}
+
+/*
+ * Improves readability of pre-formatted text in all browsers
+ */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.base\.scss}line{font-family:\00003250}}
+pre {
+  white-space: pre;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+/*
+ * 1. Addresses CSS quotes not supported in IE6/7
+ * 2. Addresses quote property not supported in S4
+ */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.base\.scss}line{font-family:\00003262}}
+q {
+  quotes: none;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.base\.scss}line{font-family:\00003268}}
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.base\.scss}line{font-family:\00003274}}
+small {
+  font-size: 75%;
+}
+
+/*
+ * Prevents sub and sup affecting line-height in all browsers
+ * gist.github.com/413930
+ */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.base\.scss}line{font-family:\00003284}}
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.base\.scss}line{font-family:\00003292}}
+sup {
+  top: -0.5em;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.base\.scss}line{font-family:\00003297}}
+sub {
+  bottom: -0.25em;
+}
+
+/* =============================================================================
+    Lists
+   ========================================================================== */
+/*
+ * Addresses margins set differently in IE6/7
+ */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.base\.scss}line{font-family:\00003312}}
+dl,
+menu,
+ol,
+ul {
+  margin: 1em 0;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.base\.scss}line{font-family:\00003317}}
+dd {
+  margin: 0 0 0 40px;
+}
+
+/*
+ * Addresses paddings set differently in IE6/7
+ */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.base\.scss}line{font-family:\00003327}}
+menu,
+ol,
+ul {
+  padding: 0 0 0 40px;
+}
+
+/*
+ * Corrects list images handled incorrectly in IE7
+ */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.base\.scss}line{font-family:\00003336}}
+nav ul,
+nav ol {
+  list-style: none;
+  list-style-image: none;
+}
+
+/* =============================================================================
+    Embedded content
+   ========================================================================== */
+/*
+ * 1. Remove border when inside 'a' element in IE6/7/8/9, FF3
+ * 2. Improves image quality when scaled in IE7
+ *    code.flickr.com/blog/2008/11/12/on-ui-quality-the-little-things-client-side-image-resizing/
+ */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.base\.scss}line{font-family:\00003351}}
+img {
+  /* border: 0; */
+  /* Drupal core already does this, uncomment if you need it */
+  -ms-interpolation-mode: bicubic;
+}
+
+/*
+ * Corrects overflow displayed oddly in IE9
+ */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.base\.scss}line{font-family:\00003360}}
+svg:not(:root) {
+  overflow: hidden;
+}
+
+/* =============================================================================
+    Figures
+   ========================================================================== */
+/*
+ * Addresses margin not present in IE6/7/8/9, S5, O11
+ */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.base\.scss}line{font-family:\00003372}}
+figure {
+  margin: 0;
+}
+
+/* =============================================================================
+    Forms
+   ========================================================================== */
+/*
+ * Corrects margin displayed oddly in IE6/7
+ */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.base\.scss}line{font-family:\00003384}}
+form {
+  margin: 0;
+}
+
+/*
+ * Define consistent margin, and padding
+ */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.base\.scss}line{font-family:\00003392}}
+fieldset {
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em;
+}
+
+/*
+ * 1. Corrects color not being inherited in IE6/7/8/9
+ * 2. Corrects text not wrapping in FF3
+ * 3. Corrects alignment displayed oddly in IE6/7
+ */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.base\.scss}line{font-family:\00003403}}
+legend {
+  border: 0;
+  padding: 0;
+  white-space: normal;
+  *margin-left: -7px;
+}
+
+/*
+ * 1. Corrects font size not being inherited in all browsers
+ * 2. Addresses margins set differently in IE6/7, FF3+, S5, Chrome
+ * 3. Improves appearance and consistency in all browsers
+ */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.base\.scss}line{font-family:\00003419}}
+button,
+input,
+select,
+textarea {
+  font-size: 100%;
+  margin: 0;
+  vertical-align: baseline;
+  *vertical-align: middle;
+}
+
+/*
+ * Addresses FF3/4 setting line-height on 'input' using !important in the UA stylesheet
+ */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.base\.scss}line{font-family:\00003431}}
+button,
+input {
+  line-height: normal;
+}
+
+/*
+ * 1. Improves usability and consistency of cursor style between image-type 'input' and others
+ * 2. Corrects inability to style clickable 'input' types in iOS
+ * 3. Removes inner spacing in IE7 without affecting normal text inputs
+ *    Known issue: inner spacing remains in IE6
+ */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.base\.scss}line{font-family:\00003445}}
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  cursor: pointer;
+  -webkit-appearance: button;
+  *overflow: visible;
+}
+
+/*
+ * Re-set default cursor for disabled elements
+ */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.base\.scss}line{font-family:\00003456}}
+button[disabled],
+input[disabled] {
+  cursor: default;
+}
+
+/*
+ * 1. Addresses box sizing set to content-box in IE8/9
+ * 2. Removes excess padding in IE8/9
+ * 3. Removes excess padding in IE7
+ *    Known issue: excess padding remains in IE6
+ */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.base\.scss}line{font-family:\00003468}}
+input[type="checkbox"],
+input[type="radio"] {
+  box-sizing: border-box;
+  padding: 0;
+  *height: 13px;
+  *width: 13px;
+}
+
+/*
+ * 1. Addresses appearance set to searchfield in S5, Chrome
+ * 2. Addresses box-sizing set to border-box in S5, Chrome (include -moz to future-proof)
+ */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.base\.scss}line{font-family:\00003480}}
+input[type="search"] {
+  -webkit-appearance: textfield;
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+}
+
+/*
+ * Removes inner padding and search cancel button in S5, Chrome on OS X
+ */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.base\.scss}line{font-family:\00003492}}
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+}
+
+/*
+ * Removes inner padding and border in FF3+
+ * www.sitepen.com/blog/2008/05/14/the-devils-in-the-details-fixing-dojos-toolbar-buttons/
+ */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.base\.scss}line{font-family:\00003502}}
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+/*
+ * 1. Removes default vertical scrollbar in IE6/7/8/9
+ * 2. Improves readability and alignment in all browsers
+ */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.base\.scss}line{font-family:\00003512}}
+textarea {
+  overflow: auto;
+  vertical-align: top;
+}
+
+/* =============================================================================
+    Tables
+   ========================================================================== */
+/*
+ * 1. Remove most spacing between table cells
+ */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.base\.scss}line{font-family:\00003525}}
+table {
+  border: 1px solid;
+  border-spacing: 0;
+  border-collapse: collapse;
+  font-size: inherit;
+  font: 100%;
+}
+
+/* =============================================================================
+    Gutters
+   ========================================================================== */
+/*
+ * If gutters are set in theme settings they will override these values,
+ * see Extensions > Modify Output > Design
+ * $gutter-width is set in _base.scss
+ */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.base\.scss}line{font-family:\00003552}}
+#main-content,
+.block-inner,
+.pane-inner,
+.menu-wrapper,
+.branding-elements,
+.breadcrumb-wrapper,
+.attribution,
+.at-panel .rounded-corner,
+.block-panels-mini > .block-title,
+div.messages {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+/*
+ * Panel pages need negative margin equal to the gutter width applied to #content,
+ * this is taken care of in theme settings as per above for normal gutters
+ */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.base\.scss}line{font-family:\00003562}}
+#content .panel-display,
+#content .panel-flexible {
+  margin-left: -10px;
+  margin-right: -10px;
+}
+
+/* =============================================================================
+    Flexible Media and Cross browser improvements
+   ========================================================================== */
+/*
+ * - This can cause issues in table cells where no width is set on the column,
+ *   only in some versions of webkit and IE 7/8.
+ * - declaring the width attribute on image elements and using max-width causes
+ *   the "dissappering images" bug in IE8.
+ * - Mapping services such as Google Maps may break also, see below for fixes.
+ */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.base\.scss}line{font-family:\00003580}}
+img {
+  height: auto;
+  -ms-interpolation-mode: bicubic;
+}
+
+/* Ethan Marcotte - http://front.ie/l8rJaA */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.base\.scss}line{font-family:\00003590}}
+img,
+embed,
+object,
+video {
+  max-width: 100%;
+}
+
+/* Disable flexiblity for IE8 and below */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.base\.scss}line{font-family:\00003599}}
+.lt-ie9 img,
+.lt-ie9 object,
+.lt-ie9 embed,
+.lt-ie9 video {
+  max-width: none;
+}
+
+/* Override max-width 100% for map displays */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.base\.scss}line{font-family:\00003612}}
+#map img,
+.gmap img,
+.view-gmap img,
+.openlayers-map img,
+#getlocations_map_canvas img,
+#locationmap_map img,
+.geofieldMap img,
+.views_horizontal_slider img {
+  max-width: none !important;
+}
+
+/* =============================================================================
+    Misc helpers, Accessibility classes etc
+   ========================================================================== */
+/* Prevent overflowing content */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.base\.scss}line{font-family:\00003629}}
+header[role=banner],
+.content-inner,
+.nav,
+.region-sidebar-first,
+.region-sidebar-second,
+.region-secondary-content,
+.region-tertiary-content,
+.region-footer {
+  overflow: visible;
+  word-wrap: break-word;
+}
+
+/**
+ * General classes for hiding content. These are all included as SASS mixins.
+ * @SEE: sass/_custom.scss
+ */
+/**
+ * Image replacement
+ * Kellum Method: http://www.zeldman.com/2012/03/01/replacing-the-9999px-hack-new-image-replacement
+ * Additional helpers from http://html5boilerplate.com/docs/css/
+ */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.base\.scss}line{font-family:\00003645}}
+.ir {
+  /* Kellum Method */
+  display: block !important;
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  /* Remove the default border from elements like button */
+  border: 0;
+  /* Crush the text down to take up no space */
+  font: 0/0 a;
+  /* Remove any text shadows */
+  text-shadow: none;
+  /* Hide any residual text in Safari 4 and any mobile devices that may need it */
+  color: transparent;
+  /* Hide the default background color on elements like button */
+  background-color: transparent;
+}
+
+/* More robust element-invisible and element-focuable classes */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.base\.scss}line{font-family:\00003665}}
+.element-invisible {
+  border: 0;
+  clip: rect(1px 1px 1px 1px);
+  /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.base\.scss}line{font-family:\00003678}}
+.element-invisible.element-focusable:active,
+.element-invisible.element-focusable:focus {
+  clip: auto;
+  height: auto;
+  overflow: visible;
+  position: static;
+  width: auto;
+}
+
+/* Shift content offscreen, can be usefull when you reall need to do this */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.base\.scss}line{font-family:\00003688}}
+.offscreen {
+  position: absolute;
+  top: -99999em;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  outline: 0;
+}
+
+/* Hide content from all users */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.base\.scss}line{font-family:\00003699}}
+.element-hidden {
+  display: none;
+}
+
+/* Welcome to Compass. Use this file to write IE specific override styles.
+ * Import this file using the following HTML or equivalent:
+ * <!--[if IE]>
+ *   <link href="/stylesheets/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
+ * <![endif]--> */
+/*
+ * Target IE 6, 7 and 8 (less than IE9)
+ */
+/*
+ * Assuming a mobile first approach with respond.js OFF, we must reset the font
+ * size for lt IE9
+ */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/lt-ie9\.scss}line{font-family:\0000313}}
+html {
+  font-size: 81.3%;
+}
+
+/* Welcome to Compass. Use this file to define print styles.
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/print.css" media="print" rel="stylesheet" type="text/css" /> */
+/*
+ * responsive.custom.css is for custom media queries that are not set via the
+ * theme settings, such as cascading media queries.
+ *
+ * By default all the other responsive stylesheets used in Adaptivetheme use a
+ * "stacking method", however cascading media queries use a waterfall method so
+ * you can leverage the cascade and inheritance for all browsers that support
+ * media queries, regardless of screen size.
+ *
+ * @SEE http://zomigi.com/blog/essential-considerations-for-crafting-quality-media-queries/#mq-overlap-stack
+ *
+ * NOTE: this file loads by default, to disable got to your theme settings and
+ * look under the "CSS" settings tab.
+ */
+/*
+ * Really small screens and up
+ */
+/* @media only screen and (min-width: 220px) {} */
+/*
+ * Smartphone sizes and up
+ */
+/* @media only screen and (min-width: 320px) {} */
+/*
+ * Smartphone sizes and down
+ */
+@media only screen and (max-width: 480px) {
+  /* 
+   * Float Region blocks example:
+   * In smaller screen sizes we can remove the float and widths so all blocks
+   * stack instead of displaying horizonally. The selector used here is an
+   * "attribute selector" which will match on any float block class. Use your
+   * inspector or Firebug to get the classes from the page output if you need
+   * more granular control over block alignment and stacking.
+   * 
+   * "Float Region blocks" is an extension for floating blocks in regions, see
+   * your themes appearance settings, under the Extensions tab.
+   */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/responsive\.custom\.scss}line{font-family:\0000349}}
+  .region[class*="float-blocks"] .block {
+    float: none;
+    width: 100%;
+  }
+}
+/*
+ * Tablet sizes and up
+ */
+/* @media only screen and (min-width: 768px) {} */
+/*
+ * Desktops/laptops and up
+ */
+/* @media only screen and (min-width: 1025px) {} */
+/*
+ *   Important Information about this CSS File
+ *
+ * - Do not delete or rename this file, if you do not use it leave it blank (delete
+ *   everything) and the file will be skipped when you enable Production Mode in
+ *   the Global theme settings.
+ *
+ * - Read the _README file in this directory, it contains useful help and other information.
+ */
+/*
+ *   Important Information about this CSS File
+ *
+ * - Do not delete or rename this file, if you do not use it leave it blank (delete
+ *   everything) and the file will be skipped when you enable Production Mode in
+ *   the Global theme settings.
+ *
+ * - Read the _README file in this directory, it contains useful help and other information.
+ */
+/* Increase the body font size on small devices */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/responsive\.smartphone\.landscape\.scss}line{font-family:\0000316}}
+html {
+  font-size: 112.5%;
+}
+
+/*
+ *   Important Information about this CSS File
+ *
+ * - Do not delete or rename this file, if you do not use it leave it blank (delete
+ *   everything) and the file will be skipped when you enable Production Mode in
+ *   the Global theme settings.
+ *
+ * - Read the _README file in this directory, it contains useful help and other information.
+ */
+/* Increase the default font size on small devices */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/responsive\.smartphone\.portrait\.scss}line{font-family:\0000316}}
+html {
+  font-size: 112.5%;
+}
+
+/*
+ *   Important Information about this CSS File
+ *
+ * - Do not delete or rename this file, if you do not use it leave it blank (delete 
+ *   everything) and the file will be skipped when you enable Production Mode in
+ *   the Global theme settings.
+ *
+ * - Read the _README file in this directory, it contains useful help and other information.
+ */
+/*
+ *   Important Information about this CSS File
+ *
+ * - Do not delete or rename this file, if you do not use it leave it blank (delete
+ *   everything) and the file will be skipped when you enable Production Mode in
+ *   the Global theme settings.
+ *
+ * - Read the _README file in this directory, it contains useful help and other information.
+ */
+/* Increase the body font size on small devices */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/responsive\.tablet\.portrait\.scss}line{font-family:\0000316}}
+html {
+  font-size: 81.3%;
+}
+
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Ruby193\/lib\/ruby\/gems\/1\.9\.1\/gems\/compass-0\.12\.2\/frameworks\/compass\/stylesheets\/compass\/reset\/_utilities\.scss}line{font-family:\0000317}}
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Ruby193\/lib\/ruby\/gems\/1\.9\.1\/gems\/compass-0\.12\.2\/frameworks\/compass\/stylesheets\/compass\/reset\/_utilities\.scss}line{font-family:\0000322}}
+html {
+  line-height: 1;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Ruby193\/lib\/ruby\/gems\/1\.9\.1\/gems\/compass-0\.12\.2\/frameworks\/compass\/stylesheets\/compass\/reset\/_utilities\.scss}line{font-family:\0000324}}
+ol, ul {
+  list-style: none;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Ruby193\/lib\/ruby\/gems\/1\.9\.1\/gems\/compass-0\.12\.2\/frameworks\/compass\/stylesheets\/compass\/reset\/_utilities\.scss}line{font-family:\0000326}}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Ruby193\/lib\/ruby\/gems\/1\.9\.1\/gems\/compass-0\.12\.2\/frameworks\/compass\/stylesheets\/compass\/reset\/_utilities\.scss}line{font-family:\0000328}}
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Ruby193\/lib\/ruby\/gems\/1\.9\.1\/gems\/compass-0\.12\.2\/frameworks\/compass\/stylesheets\/compass\/reset\/_utilities\.scss}line{font-family:\0000330}}
+q, blockquote {
+  quotes: none;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Ruby193\/lib\/ruby\/gems\/1\.9\.1\/gems\/compass-0\.12\.2\/frameworks\/compass\/stylesheets\/compass\/reset\/_utilities\.scss}line{font-family:\00003103}}
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Ruby193\/lib\/ruby\/gems\/1\.9\.1\/gems\/compass-0\.12\.2\/frameworks\/compass\/stylesheets\/compass\/reset\/_utilities\.scss}line{font-family:\0000332}}
+a img {
+  border: none;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Ruby193\/lib\/ruby\/gems\/1\.9\.1\/gems\/compass-0\.12\.2\/frameworks\/compass\/stylesheets\/compass\/reset\/_utilities\.scss}line{font-family:\00003116}}
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
+  display: block;
+}
+
+@media screen and (min-width: 701px) {
+  /**********************************
+  ***********Mixins******************
+  **********************************/
+  /**********************************
+  *****Variable Declaration*********
+  **********************************/
+  /****************************
+  ****** General Classes
+  ****************************/
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\0000346}}
+  body {
+    background: white;
+    font-size: 14px;
+    line-height: 1.5;
+    font-family: Arial, sans-serif;
+    color: #666666;
+    min-height: 100%;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\0000356}}
+  .page {
+    background: #cecccd;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\0000359}}
+  .container {
+    max-width: 1024px;
+    width: 100%;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\0000364}}
+  .page-content {
+    background: white;
+    width: 955px;
+    margin: 0 auto;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\0000370}}
+  #branding {
+    margin: 0;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\0000373}}
+  #header {
+    margin-left: 1%;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\0000377}}
+  #logo {
+    padding: 10px 0;
+    float: right;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\0000380}}
+  #logo img {
+    position: relative;
+    top: 9px;
+    vertical-align: bottom;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\0000387}}
+  #name-and-slogan {
+    clear: both;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\0000391}}
+  #site-name {
+    float: left;
+    font-family: 'Georgia',serif;
+    letter-spacing: -1px;
+    margin: 8px 0 0;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\0000396}}
+  #site-name a {
+    font-size: 34px;
+    font-weight: 400;
+    color: #e37222;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003103}}
+  #columns {
+    margin-left: 10px;
+    margin-right: 15px;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003108}}
+  .content-column, div.sidebar {
+    clear: none;
+    float: left;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003114}}
+  #main-content {
+    margin: 16px 0 0 24px;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003117}}
+  #tasks {
+    display: none;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003121}}
+  #main-content .region {
+    margin: 0;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003126}}
+  .region {
+    margin-left: 0.8%;
+    margin-right: 2.7%;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003131}}
+  #block-block-4 {
+    float: right;
+    margin-bottom: 0;
+    margin-top: 30px;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003136}}
+  #block-block-4 .block-inner.clearfix {
+    margin-right: 0;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003139}}
+  #block-block-4 .user {
+    float: right;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003142}}
+  #block-block-4 li {
+    color: #666666;
+    display: inline;
+    font-size: 11px;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003150}}
+  #block-block-4 li.last.hidden-phone {
+    display: inline-block;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003153}}
+  #block-block-4 li.last {
+    display: none;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003156}}
+  #block-block-4 li.last.hidden-phone {
+    display: inline-block;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003159}}
+  #block-block-4 li a {
+    border-right: 1px solid #666666;
+    color: #00AAEF;
+    font-size: 1em;
+    padding: 0 5px;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003165}}
+  #block-block-4 li.first a {
+    color: #666666;
+    padding-left: 1px;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003169}}
+  #block-block-4 li.last a {
+    border-right: medium none;
+  }
+
+  /***********************
+  Menu
+  **********************/
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003179}}
+  #menu-bar {
+    margin: 0 2.7% 0 1%;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003183}}
+  .nav .ul, .nav ul.menu {
+    margin: 12px 0 0;
+    padding: 0;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003188}}
+  .main_menu_across {
+    float: left;
+    margin-left: 0;
+    margin-right: 4.7%;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003192}}
+  .main_menu_across ul.menu li {
+    background: none repeat scroll 0 0 #EDEFEE;
+    height: 38px;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003195}}
+  .main_menu_across ul.menu li a {
+    border-right: 1px solid #666666;
+    color: #00AAEF;
+    font-size: 13px;
+    font-weight: bold;
+    margin-top: 9px;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003203}}
+  .main_menu_across ul.menu li a.active {
+    background: none repeat scroll 0 0 #666666;
+    border: medium none;
+    color: #FFFFFF;
+    height: 28px;
+    margin-top: 0;
+    padding-top: 10px;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003214}}
+  ul.menu li.first,
+  ul.menu li.last a {
+    border: medium none !important;
+  }
+
+  /**********************
+  **Search form*******************
+  *************************/
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003222}}
+  #block-search-form {
+    float: right;
+    margin-left: 0;
+    margin-right: -0.8%;
+    width: 42.2%;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003227}}
+  #block-search-form .form-type-textfield input {
+    background: url("images/icon_search.png") no-repeat scroll 98% center white;
+    border: 1px solid #666666;
+    font-size: 12px;
+    height: 32px;
+    margin-top: 13px;
+    padding: 0 10px;
+    width: 91.8%;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003237}}
+  #block-search-form .form-type-textfield input.defaultTextActive {
+    color: #999999;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003243}}
+  .block-content ul, .block-content ol {
+    padding: 0 0 0 15px;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003248}}
+  .region-secondary-content {
+    margin-top: 15px;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003251}}
+  .more-hidden {
+    display: none;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003254}}
+  #block-views-featured-vedios-block {
+    background: none repeat scroll 0 0 #333333;
+    height: 217px;
+    margin-left: 3px;
+    overflow: hidden;
+    position: relative;
+    width: 915px;
+    display: block;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003262}}
+  #block-views-featured-vedios-block .block-inner {
+    margin-right: 0;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003265}}
+  #block-views-featured-vedios-block .views-field.views-field-field-upload-video {
+    float: left;
+    margin-left: 10px;
+    margin-right: 14px;
+    width: 387px;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003270}}
+  #block-views-featured-vedios-block .views-field.views-field-field-upload-video .field-content {
+    width: 387px;
+    height: 85px;
+    position: relative;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003277}}
+  .image-style-featured-video-thumbnail {
+    width: 387px;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003280}}
+  #views_slideshow_controls_text_next_featured_vedios-block {
+    left: 75px !important;
+    position: relative;
+    z-index: 1;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003285}}
+  #views_slideshow_controls_text_previous_featured_vedios-block a {
+    background: url("images/arrow-l.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    display: inline-block;
+    height: 21px;
+    text-indent: -9999em;
+    width: 23px;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003292}}
+  #views_slideshow_cycle_teaser_section_featured_vedios-block {
+    z-index: 1;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003295}}
+  #views_slideshow_controls_text_next_featured_vedios-block a {
+    background: url("images/arrow-r.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    display: inline-block;
+    height: 23px;
+    text-indent: -9999em;
+    width: 23px;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003302}}
+  .image-style-featured-video-thumbnail {
+    width: 387px;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003306}}
+  .views-slideshow-cycle-main-frame-row {
+    width: 100% !important;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003310}}
+  .view-featured-vedios {
+    position: relative;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003313}}
+  .view-featured-vedios .views-slideshow-controls-bottom {
+    left: 62px !important;
+    position: absolute;
+    top: 180px;
+    z-index: 1;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003319}}
+  .view-featured-vedios .views-field-nothing span.field-content {
+    width: 387px;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003322}}
+  .view-featured-vedios .play-button {
+    left: 152px;
+    opacity: 0.8;
+    position: absolute;
+    top: 65px;
+    width: 100%;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003329}}
+  .view-featured-vedios .video_duration {
+    display: none;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003332}}
+  .view-featured-vedios .views-field-nothing-1 span {
+    width: 387px;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003335}}
+  .view-featured-vedios .slideshow-bottom-content {
+    border-bottom: 1px solid;
+    color: #FFFFFF;
+    float: left;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: -0.2px;
+    line-height: 14px;
+    margin-bottom: 15px;
+    margin-top: 14px;
+    padding-bottom: 15px;
+    width: 100px;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003348}}
+  .view-featured-vedios .share {
+    color: #FF0000;
+    font-size: 11px;
+    font-weight: bold;
+    position: absolute;
+    right: 10px;
+    top: 55px;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003356}}
+  .view-featured-vedios .views-slideshow-controls-bottom {
+    left: 62px !important;
+    position: absolute;
+    top: 180px;
+    z-index: 1;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003364}}
+  #views_slideshow_cycle_teaser_section_logging-block .play-button, #views_slideshow_cycle_teaser_section_logging-block .video_duration {
+    display: none;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003369}}
+  #views_slideshow_controls_text_previous_logging-block,
+  #views_slideshow_controls_text_pause_logging-block {
+    display: none;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003373}}
+  #widget_pager_bottom_featured_vedios-block {
+    left: 94px;
+    z-index: 1;
+    position: relative;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003377}}
+  #widget_pager_bottom_featured_vedios-block .views-slideshow-pager-field-item {
+    display: inline-block;
+    position: relative;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003382}}
+  #widget_pager_bottom_featured_vedios-block .views-content-counter {
+    background: url("images/pager.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    display: inline-block;
+    height: 16px;
+    text-indent: -9999em;
+    width: 16px;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003390}}
+  #widget_pager_bottom_featured_vedios-block .views_slideshow_pager_field_item.active .views-content-counter {
+    background: url("images/pager-active.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    display: inline-block;
+    height: 16px;
+    text-indent: -9999em;
+    width: 16px;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003399}}
+  #views_slideshow_controls_text_featured_vedios-block {
+    bottom: 23px;
+    left: 63px;
+    z-index: 1;
+    position: relative;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003406}}
+  .video_duration {
+    background: none repeat scroll 0 0 #CFCDCC;
+    bottom: 0;
+    display: inline-block;
+    font-size: 11px;
+    font-weight: bold;
+    height: 16px;
+    padding-top: 4px;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    width: 39px;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003420}}
+  .slideshow-content {
+    float: left;
+    margin-left: 18px;
+    margin-right: 10px;
+    width: 360px;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003427}}
+  .feat-videos {
+    color: #FFFFFF;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: -0.2px;
+    margin-top: 18px;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003435}}
+  .feat-videos-title {
+    font-family: 'Georgia',serif;
+    font-size: 19px;
+    margin-top: 3px;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003439}}
+  .feat-videos-title a {
+    color: #e37222;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003445}}
+  .feat-videos-view a {
+    border-right: medium none;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: -0.5px;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003453}}
+  .slideshow-body {
+    color: #FFFFFF;
+    font-size: 11px;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003459}}
+  .node {
+    margin-bottom: 20px;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003461}}
+  .node .node-content {
+    background: none repeat scroll 0 0 #EDEFEE;
+    font-size: 11px;
+    width: 509px;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003469}}
+  .node-upload-video .field-type-taxonomy-term-reference, .node-upload-video .upload-video, .node-upload-video .node-statistics {
+    margin-bottom: 5px;
+    margin-top: 5px;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003474}}
+  .node-upload-video .node-statistics .views-field-totalcount, .node-upload-video .node-statistics views-field-count {
+    display: inline-block;
+    margin-right: 0.6em;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003479}}
+  .node-upload-video .share {
+    left: 345px;
+    position: relative;
+    top: -20px;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003485}}
+  .node-author {
+    font-size: 11px;
+    font-weight: bold;
+    margin-left: 14px;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003489}}
+  .node-author strong {
+    color: a__headerlinks;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003492}}
+  .node-author field.field-name-field-author {
+    display: inline-block;
+    margin: 5px 0;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003497}}
+  .node-statistics-like {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: bold;
+    margin-right: 10px;
+    margin-top: 5px;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003505}}
+  .like-video {
+    display: inline-block;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003508}}
+  .download-video {
+    display: inline-block;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003510}}
+  .download-video a {
+    background: url("images/download_bg.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    border: medium none;
+    color: #FFFFFF;
+    display: inline-block;
+    font-size: 11px;
+    font-weight: bold;
+    height: 18px;
+    padding: 0;
+    text-align: center;
+    text-decoration: none;
+    width: 62px;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003524}}
+  .add-to-palylist, .recommend {
+    color: #00ACEE;
+    font-size: 11px;
+    font-weight: bold;
+    left: 345px;
+    position: relative;
+    top: -20px;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003532}}
+  .flag-wrapper {
+    position: relative;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003535}}
+  .node-statistics {
+    border-right: 1px solid #666666;
+    display: inline-block;
+    font-size: 11px;
+    font-weight: bold;
+    margin: 5px 5px 5px 15px;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003542}}
+  .jwplayer-video .jwplayer {
+    opacity: 1;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003545}}
+  #footer {
+    margin-top: 30px;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003547}}
+  #footer .region-footer {
+    margin: 0;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003552}}
+  #block-block-3 {
+    background: none repeat scroll 0 0 #002454;
+    margin: 0;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003555}}
+  #block-block-3 p {
+    color: #FFFFFF;
+    font-size: 11px;
+    margin: 0 20px 0 0;
+    padding-bottom: 0.8em;
+    padding-top: 0.8em;
+    text-align: right;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003564}}
+  #simplenews-subscriptions-page-form {
+    background: none repeat scroll 0 0 #EDEFEF;
+    color: #333333;
+    font-weight: bold;
+    padding: 20px 35px 75px;
+    position: relative;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003571}}
+  #simplenews-subscriptions-page-form #edit-subscriptions {
+    border: medium none;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003575}}
+  #block-views-logging-block {
+    background-color: #EDEFEF;
+    height: 52px;
+    margin: 0 2px 20px;
+    overflow: hidden;
+    position: relative;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003581}}
+  #block-views-logging-block .views-field-field-upload-video .field-content {
+    height: auto;
+    width: auto;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003585}}
+  #block-views-logging-block .latest {
+    -moz-box-sizing: border-box;
+    background-color: #e37222;
+    color: #FFFFFF;
+    float: left;
+    font-family: 'Georgia',serif;
+    font-size: 17px;
+    height: 52px;
+    line-height: 17px;
+    padding: 10px;
+    width: 102px;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003597}}
+  #block-views-logging-block .author {
+    -moz-box-sizing: border-box;
+    color: #e37222;
+    float: left;
+    font-size: 13px;
+    font-weight: bold;
+    padding: 10px;
+    width: 170px;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003605}}
+  #block-views-logging-block .author a {
+    color: #e37222 !important;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003609}}
+  #block-views-logging-block .title {
+    -moz-box-sizing: border-box;
+    background: url("images/quotes_org.png") no-repeat scroll 8px center rgba(0, 0, 0, 0);
+    float: left;
+    font-size: 11px;
+    height: 52px;
+    left: 270px;
+    padding: 10px 80px 10px 60px;
+    position: absolute;
+    top: 0;
+    width: 600px;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003621}}
+  #block-views-logging-block .block-inner {
+    margin: 0;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003625}}
+  #views_slideshow_controls_text_next_logging-block a {
+    background: url("images/arrow-r-big.png") no-repeat scroll center center #e37222;
+    display: inline-block;
+    height: 33px;
+    padding: 8px 11px;
+    position: absolute;
+    right: 0;
+    text-indent: -9999em;
+    top: 3px;
+    width: 22px;
+    z-index: 100;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003638}}
+  #block-block-6 {
+    background: none repeat scroll 0 0 #EDEFEE;
+    font-size: 11px;
+    height: 40px;
+    margin-bottom: 0;
+    padding-left: 5px;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003644}}
+  #block-block-6 .browse-videos {
+    float: left;
+    padding-top: 11px;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003647}}
+  #block-block-6 .browse-videos span {
+    color: #e37222;
+    font-weight: bold;
+    padding-left: 1.125em;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003655}}
+  #content-column, .content-column, div.sidebar {
+    clear: none;
+    float: left;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003659}}
+  .sidebar-first .content-inner {
+    margin-left: 26%;
+    margin-right: 0;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003664}}
+  #columns .region-sidebar-second {
+    background: none repeat scroll 0 0 #EDEFEE;
+    margin: 32px 0 0 -391px;
+    padding: 18px 26px 30px 29px;
+    width: 327px;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003669}}
+  #columns .region-sidebar-second .block-inner h2 {
+    border-bottom: 1px solid #666666;
+    color: #E37222;
+    font-size: 13px;
+    letter-spacing: -0.2px;
+    padding-bottom: 4px;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003676}}
+  #columns .region-sidebar-second .views-row {
+    margin-bottom: 19px;
+    margin-top: 19px;
+    min-height: 100px;
+    position: relative;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003682}}
+  #columns .region-sidebar-second .views-field.views-field-field-upload-video {
+    display: inline-block;
+    float: left;
+    height: 95px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 151px;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003690}}
+  #columns .region-sidebar-second .views-field.views-field-field-upload-video .field-content {
+    height: 85px;
+    position: relative;
+    width: 151px;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003696}}
+  #columns .region-sidebar-second .views-field-title {
+    bottom: 4px;
+    display: inline-block;
+    float: right;
+    font-size: 11px;
+    font-weight: bold;
+    position: relative;
+    width: 165px;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003704}}
+  #columns .region-sidebar-second .views-field-title a {
+    color: #e37222;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003708}}
+  #columns .region-sidebar-second .views-field.views-field-body {
+    display: inline-block;
+    float: right;
+    font-size: 11px;
+    width: 165px;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003716}}
+  #main-content .region {
+    margin: 0;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003721}}
+  .content-inner #main-content {
+    margin: 16px 0 0 24px;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003730}}
+  .view-home-page-video-listing .view-filters,
+  .view-listing-by-tags .view-filters,
+  .view-listing-by-category .view-filters,
+  .view-playlist .view-filters {
+    bottom: 66px;
+    height: 37px;
+    padding: 17px 0 0;
+    position: relative;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003737}}
+  .views-exposed-form .views-exposed-widget.views-widget-sort-by {
+    position: absolute;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003743}}
+  .view-home-page-video-listing .view-filters form {
+    height: auto;
+    margin: 0 !important;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003748}}
+  .view-home-page-video-listing .view-content {
+    position: relative;
+    top: -20px;
+    clear: both;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003753}}
+  .view-home-page-video-listing .views-row {
+    float: left;
+    margin-bottom: 25px;
+    min-height: 116px;
+    position: relative;
+    width: 45%;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003760}}
+  .view-home-page-video-listing .views-field-field-upload-video {
+    position: relative;
+    float: left;
+    margin-right: 5%;
+    width: 51%;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003765}}
+  .view-home-page-video-listing .views-field-field-upload-video .field-content {
+    height: 85px;
+    position: relative;
+    width: 151px;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003771}}
+  .view-home-page-video-listing .views-row-odd {
+    margin-right: 63px;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003774}}
+  .view-home-page-video-listing .video_duration {
+    background: none repeat scroll 0 0 #EDEFEE;
+    font-size: 12px;
+    font-weight: bold;
+    position: absolute;
+    right: 0;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003781}}
+  .view-home-page-video-listing .views-field.views-field-title {
+    float: left;
+    font-weight: bold;
+    line-height: 14px;
+    width: 42%;
+    color: #e37222;
+    font-size: 0.85em;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003788}}
+  .view-home-page-video-listing .views-field.views-field-title a {
+    color: #e37222;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003792}}
+  .view-home-page-video-listing .views-field-body {
+    float: left;
+    line-height: 15px;
+    margin-bottom: 2%;
+    width: 40%;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003797}}
+  .view-home-page-video-listing .views-field-body span {
+    font-size: 11px;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003803}}
+  .content-statistics {
+    color: #333333;
+    float: right;
+    font-size: 11px;
+    font-weight: bold;
+    left: -5px;
+    position: relative;
+    width: 42%;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003812}}
+  .comment_count {
+    color: #00ACEE;
+    float: left;
+    padding-right: 8px;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003818}}
+  .image-style-vedio-thumbnail {
+    height: 85px;
+    width: 151px;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003824}}
+  .video_duration {
+    background: none repeat scroll 0 0 #CFCDCC;
+    bottom: 0;
+    display: inline-block;
+    font-size: 11px;
+    font-weight: bold;
+    height: 16px;
+    padding-top: 4px;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    width: 39px;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003839}}
+  .field-content .play-button {
+    left: 49px;
+    opacity: 0.8;
+    position: absolute;
+    top: 21px;
+    width: 43px;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003849}}
+  .views-exposed-form .views-exposed-widget {
+    color: #666666;
+    line-height: 1.2em;
+    padding: 5px 0 0;
+    position: relative;
+    right: 0;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003855}}
+  .views-exposed-form .views-exposed-widget .views-widget-sort-by {
+    position: absolute;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003858}}
+  .views-exposed-form .views-exposed-widget label {
+    float: left;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003862}}
+  .views-exposed-form .views-exposed-widgets {
+    position: relative;
+    right: 10px;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003869}}
+  .bef-select-as-links {
+    float: left;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003871}}
+  .bef-select-as-links .form-item {
+    font-size: 11px;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003873}}
+  .bef-select-as-links .form-item .form-item {
+    border-left: 1px solid #666666;
+    float: left;
+    font-weight: bold;
+    line-height: 1em;
+    margin-top: 3px;
+    padding: 0 0.65em;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003881}}
+  .bef-select-as-links .form-item .form-item:first-child {
+    border-left: 0 none;
+    padding-left: 1em;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003889}}
+  .form-item.selected.form-type-bef-link.form-item a {
+    color: #000000;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003894}}
+  #edit-submit-home-page-video-listing {
+    display: none;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003899}}
+  .region-sidebar-first {
+    margin-left: -932px !important;
+    width: 238px !important;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003902}}
+  .region-sidebar-first .block {
+    background: none repeat scroll 0 0 #EDEFEE;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003905}}
+  .region-sidebar-first .block-inner {
+    margin: 0;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003908}}
+  .region-sidebar-first .block-content {
+    padding-bottom: 5px;
+    padding-left: 0;
+    padding-top: 5px;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003912}}
+  .region-sidebar-first .block-content ul {
+    padding: 0;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003918}}
+  #block-views-views-by-category-block li {
+    color: #00ACEE;
+    padding-bottom: 5px;
+    padding-left: 25px;
+    padding-top: 5px;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003923}}
+  #block-views-views-by-category-block li a {
+    color: #00ACEE;
+    font-weight: bold;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003928}}
+  #block-views-views-by-category-block li.selected {
+    background: none repeat scroll 0 0 #666666;
+    color: #FFFFFF;
+    padding-bottom: 5px;
+    padding-top: 5px;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003933}}
+  #block-views-views-by-category-block li.selected a {
+    color: #FFFFFF;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003937}}
+  #block-views-views-by-category-block li.by-tags {
+    font-weight: bold;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003940}}
+  #block-views-views-by-category-block li.by-category {
+    color: #666666;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003945}}
+  #block-views-views-by-category-block .category-list li {
+    margin: 7px 1px 0;
+    padding: 0;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003949}}
+  #block-views-views-by-category-block .category-list a {
+    color: #00ACEE;
+    display: block;
+    line-height: normal;
+    padding: 0 10px 0 39px;
+    font-weight: normal;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003958}}
+  .form-submit, .like-video a {
+    background: url("images/bluebtn_bg.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    border: medium none;
+    color: #FFFFFF;
+    display: inline-block;
+    font-size: 11px;
+    font-weight: bold;
+    height: 18px;
+    padding: 0;
+    text-align: center;
+    text-decoration: none;
+    width: 38px;
+  }
+
+  /*************************
+  Display None
+  *************************/
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\00003996}}
+  #block-block-4 .copyright,
+  .mobile-nav, #lightbox2-overlay,
+  .slideshow-body .more-link, .all-mobile,
+  #breadcrumb,
+  #edit-tid-1-wrapper,
+  .page-taxonomy #content .view-header,
+  #block-custom-ovl-noti-block,
+  .recommend-mobile,
+  .add-to-palylist-mobile,
+  .view-comment,
+  button.close,
+  #edit-emai-textl,
+  body.page-node .node-content > .video-duration,
+  .welcome-mobile-block,
+  .reset-cat,
+  #block-menu-menu-main-menu-mobile,
+  #block-menu-menu-main-menu-mobile-ops,
+  #block-menu-menu-main-menu-mobile-bto,
+  body.page-admin-user-list .form-item-name,
+  #block-search-form #edit-actions,
+  #block-search-form #edit-actions--2,
+  #views_slideshow_controls_text_pause_featured_vedios-block {
+    display: none !important;
+  }
+
+  /* =============================================================================
+   *   HTML Elements
+   * ========================================================================== */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\000031006}}
+  h1 {
+    font-size: 2em;
+    color: #e37222;
+    margin: 0.67em 0;
+    font-weight: normal;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\000031014}}
+  ol, ul, li, div {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\000031020}}
+  a {
+    color: #00acee;
+    text-decoration: none;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\000031024}}
+  a:hover {
+    color: #00acee;
+  }
+
+  /*
+   * Logo
+   */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\000031038}}
+  #logo {
+    padding: 10px 0;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\000031041}}
+  #logo img {
+    vertical-align: bottom;
+  }
+
+  /*
+   * Site slogan (h2)
+   */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\000031049}}
+  #site-slogan {
+    margin: 0;
+  }
+
+  /*
+   * The main page title (h1)
+   */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\000031057}}
+  #page-title {
+    color: #E27121;
+    font-family: 'georgia',serif;
+    font-size: 18px;
+    font-weight: normal;
+    letter-spacing: -0.7px;
+    margin: 0 0 8px;
+    width: 509px;
+  }
+
+  /* =============================================================================
+   *   Misc Global Styles
+   * ========================================================================== */
+  /*
+   * Feed icons
+   */
+  /*
+   * Aggregator feed source
+   */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\000031081}}
+  #aggregator .feed-source .feed-icon {
+    display: inline;
+    float: none;
+    margin-right: 10px;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\000031089}}
+  .feed-details dt,
+  .feed-details dd {
+    display: inline;
+    margin: 0;
+  }
+
+  /*
+   * Generic styles for the more link
+   */
+  /*
+   * Generic styles for links. See the ul.links declaration in node and comment stylesheets
+   */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\000031104}}
+  ul.links {
+    margin: 0;
+    padding: 0;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\000031108}}
+  ul.links.inline {
+    display: block;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\000031112}}
+  ul.links li {
+    display: inline;
+    list-style: none;
+    padding: 0 10px 0 0;
+  }
+
+  /*
+   * Search results are an ordered list so reset the margin
+   */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\000031123}}
+  .search-results {
+    margin: 0;
+  }
+
+  /* =============================================================================
+   *   Regions
+   * ========================================================================== */
+  /*
+   * Standard region wrapper, don't add width to any regions, you will bork the layout - no margin, padding or borders etc
+   */
+  /*
+   * Regions have an inner div - perfect for adding margin, padding or borders
+   */
+  /*
+   * Regions can be nested, such as when using Panels
+   */
+  /*
+   * Header region, embedded in the #header
+   */
+  /*
+   * Generally used to output Drupals help block, if the help module is enabled
+   */
+  /*
+   * Secondary content
+   */
+  /*
+   * Sits above the main content header, like a content-top region
+   */
+  /*
+   * Sits below the main content, like a content-bottom region
+   */
+  /*
+   * Sidebars - targets both
+   */
+  /*
+   * First sidebar
+   */
+  /*
+   * Second sidebar
+   */
+  /*
+   * Tertiary content
+   */
+  /*
+   * Footer region
+   */
+  /* =============================================================================
+   *   Links
+   * ========================================================================== */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\000031214}}
+  a {
+    text-decoration: none;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\000031224}}
+  a:hover, a:focus {
+    text-decoration: underline;
+  }
+
+  /* =============================================================================
+   *   Primary, Secondary and Menu Bar region menus
+   * ========================================================================== */
+  /*
+   * Use one of the following id's for granular control:
+   *  - #menu-bar (menu bar region)
+   *  - #primary-menu (main menu)
+   *  - #secondary-menu (secondary/user menu)
+   * You can target all of these with .nav or div[id$="menu-bar"]
+   */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\000031242}}
+  .nav {
+    clear: both;
+    margin: 10px 0;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\000031248}}
+  .nav li,
+  .nav ul.menu li {
+    display: inline;
+    float: left;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\000031257}}
+  .nav li a,
+  .nav ul.menu li a {
+    display: block;
+    white-space: nowrap;
+    padding: 0 10px;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\000031268}}
+  .nav .block {
+    margin-bottom: 0;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\000031274}}
+  ul,
+  ul.menu {
+    margin: 0;
+    padding: 0;
+  }
+
+  /* =============================================================================
+   *   Superfish
+   * ========================================================================== */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\000031283}}
+  ul.sf-menu {
+    margin-bottom: 0;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\000031286}}
+  ul.sf-menu a {
+    border-left: 0;
+    border-top: 0;
+    padding: 0 10px;
+    text-decoration: none;
+    height: 2.5em;
+    line-height: 2.5em;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\000031300}}
+  ul.sf-menu li:hover, ul.sf-menu li.sfHover {
+    outline: 0;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\000031308}}
+  ul.sf-menu a:focus, ul.sf-menu a:hover, ul.sf-menu a:active {
+    outline: 0;
+  }
+
+  /*
+   * Superfish blocks
+   */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\000031322}}
+  .block-superfish ul {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\000031333}}
+  .block-superfish li {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /*
+   * Vertical style
+   */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\000031343}}
+  .sf-vertical {
+    width: 100%;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\000031346}}
+  .sf-vertical li {
+    width: 100%;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\000031352}}
+  .sf-vertical li:hover ul, .sf-vertical li.sfHover ul {
+    left: 100%;
+    top: 0;
+    margin: 0;
+    padding: 0;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\000031359}}
+  .sf-vertical li a {
+    padding: 0 10px;
+  }
+
+  /*
+   * Navbar style
+   */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\000031369}}
+  .sf-navbar {
+    padding-bottom: 0 !important;
+  }
+
+  /*
+   * Sensible padding for the default style
+   */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\000031377}}
+  .sf-menu.sf-style-default a {
+    padding: 0 10px;
+  }
+
+  /* =============================================================================
+   *   Menus, usually blocks
+   * ========================================================================== */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\000031386}}
+  ul.menu {
+    padding-left: 15px;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\000031389}}
+  ul.menu ul {
+    padding-left: 15px;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\000031397}}
+  ul.menu li {
+    margin: 0;
+  }
+
+  /* If li.content exists it's a problem, so reset the padding */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\000031426}}
+  .block .menu li.content {
+    padding: 0;
+  }
+
+  /* =============================================================================
+   *   Book navigation menu
+   * ========================================================================== */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\000031443}}
+  .book-navigation .page-up {
+    /* Prevent text wrapping to a new line, assumes English "up" is used (two characters) */
+    min-width: 2em;
+    white-space: nowrap;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\000031449}}
+  .book-navigation .menu {
+    margin-left: 0;
+  }
+
+  /* =============================================================================
+   *   Breadcrumbs
+   * ========================================================================== */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\000031459}}
+  #breadcrumb {
+    margin: 10px 0;
+    /* If the label is set to show in theme settings the label class is added */
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\000031463}}
+  #breadcrumb .breadcrumb-label {
+    font-size: 1em;
+    display: inline;
+    padding-right: 10px;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\000031468}}
+  #breadcrumb .breadcrumb-label:after {
+    content: ":";
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\000031473}}
+  #breadcrumb ol {
+    margin: 0;
+    padding: 0;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\000031478}}
+  #breadcrumb .with-breadcrumb-label ol {
+    display: inline;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\000031482}}
+  #breadcrumb li {
+    list-style: none;
+    display: inline;
+  }
+
+  /* =============================================================================
+   *   Pagers
+   * ========================================================================== */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\000031509}}
+  ul.pager {
+    clear: both;
+    margin: 0;
+    text-align: center;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\000031516}}
+  .item-list ul.pager li {
+    margin: 0;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\000031521}}
+  ul.pager li {
+    background-image: none;
+    display: inline;
+    list-style-type: none;
+    padding: .5em;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\000031527}}
+  ul.pager li.pager-current {
+    font-weight: 700;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\000031533}}
+  .block ul.pager li {
+    margin: 0;
+  }
+
+  /*
+   * Theme the various states of pager links
+   */
+  /* =============================================================================
+   *   Skip Navigation
+   * ========================================================================== */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\000031570}}
+  #skip-link {
+    left: 50%;
+    margin-left: -6.5em;
+    margin-top: 0;
+    padding: 0 0.5em;
+    position: absolute;
+    width: 12em;
+    z-index: 50;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\000031579}}
+  #skip-link a {
+    background: #444;
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    display: block;
+    line-height: 2;
+    padding: 0;
+    text-align: center;
+    text-decoration: none;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\000031590}}
+  #skip-link a:link, #skip-link a:visited {
+    background: #444;
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    display: block;
+    line-height: 2;
+    padding: 0;
+    text-align: center;
+    text-decoration: none;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\000031602}}
+  #skip-link a:hover, #skip-link a:focus, #skip-link a:active {
+    outline: 0;
+  }
+
+  /* =============================================================================
+   *   Tabs (local tasks)
+   * ========================================================================== */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\000031613}}
+  #tasks {
+    margin-bottom: 15px;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\000031618}}
+  ul.primary {
+    border-bottom-color: #cccccc;
+    margin: 20px 0;
+    padding: 0 0 0 5px;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\000031623}}
+  ul.primary li {
+    display: block;
+    float: left;
+    margin: 0 1px -1px;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\000031628}}
+  ul.primary li a {
+    background-color: whitesmoke;
+    border-color: #cccccc;
+    margin-right: 1px;
+    padding: 0 10px;
+    display: block;
+    float: left;
+    height: 1.5em;
+    line-height: 1.5em;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\000031639}}
+  ul.primary li a:hover, ul.primary li a:focus {
+    background-color: #eeeeee;
+    border-color: #cccccc;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\000031649}}
+  ul.primary li.active a,
+  ul.primary li.active a:hover,
+  ul.primary li.active a:focus {
+    background-color: white;
+    border-bottom-color: white;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\000031657}}
+  ul.secondary {
+    border-bottom: 1px solid #cccccc;
+    margin: 1em 0 0;
+    padding: 0 .3em 1em;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\000031662}}
+  ul.secondary li {
+    border-right: 0;
+    list-style: none;
+    padding: 0 10px 0 0;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\000031669}}
+  ul.secondary li a:hover, ul.secondary li a.active {
+    border-bottom: none;
+    text-decoration: underline;
+  }
+
+  /* =============================================================================
+   *   Action links
+   * ========================================================================== */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\000031682}}
+  ul.action-links {
+    margin: 20px 0 0;
+    list-style: none;
+  }
+
+  /* =============================================================================
+   *  Field Styling
+   * ========================================================================== */
+  /*
+   * Wrapper for any field
+   */
+  /*
+   * Above and inline classes are on the field wrapper
+   */
+  /*
+   * When labels are set to inline in field display settings the clearfix class is automatically added
+   */
+  /*
+   * Labels are h2 in Adaptivetheme. Use a strong selector to mitigate unwanted ineritance issues
+   */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\000031715}}
+  .field-label {
+    font-size: 1em;
+    font-weight: 700;
+    font-family: inherit;
+    line-height: inherit;
+    margin-bottom: 0;
+  }
+
+  /*
+   * Field types (Core)
+   */
+  /*
+   * Image fields use the <figure> and <figcaption> elements from HTML5
+   */
+  /*
+   * Taxonomy
+   */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\000031744}}
+  .field-type-taxonomy-term-reference {
+    /* The same bottom margin as p, blockquote, ul, ol and dl */
+    margin-bottom: 1.5em;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\000031749}}
+  .field-type-taxonomy-term-reference.field-label-inline .field-items {
+    margin: 0;
+    padding: 0;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\000031754}}
+  .field-type-taxonomy-term-reference.field-label-inline .field-item {
+    display: inline;
+    list-style: none;
+    padding: 0 10px 0 0;
+  }
+
+  /*
+   * Text
+   */
+  /*
+   * Long text
+   */
+  /*
+   * Text with summary
+   */
+  /*
+   * File
+   */
+  /*
+   * Number/Integer
+   */
+  /*
+   * Decimal
+   */
+  /*
+   * Number float
+   */
+  /*
+   * List
+   */
+  /*
+   * List boolean
+   */
+  /*
+   * List integer
+   */
+  /*
+   * List float
+   */
+  /*
+   * Field types (Contrib)
+   */
+  /*
+   * Named fields
+   */
+  /*
+   * Underscores in field name are replaced with dashes
+   */
+  /*
+   * Image Alignment Theme Settings - included here so you can easily override 
+   */
+  /*
+   * Float none setting
+   */
+  /*
+   * Float left setting
+   */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\000031869}}
+  .ia-l .field-type-image figure,
+  .iat-l .field-type-image figure {
+    margin: 5px 20px 15px 0;
+  }
+
+  /*
+   * Centered setting
+   */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\000031878}}
+  .ia-c .field-type-image figure,
+  .iat-c .field-type-image figure {
+    margin: 5px auto 15px;
+  }
+
+  /*
+   * Float right setting
+   */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\000031887}}
+  .ia-r .field-type-image figure,
+  .iat-r .field-type-image figure {
+    margin: 5px 0 15px 20px;
+  }
+
+  /* =============================================================================
+   *   Block Styling
+   * ========================================================================== */
+  /*
+   * Main wrapper for most blocks, block_system_main does not have it
+   */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\000031900}}
+  .block {
+    margin-bottom: 20px;
+  }
+
+  /*
+   * Inner wrapper for most blocks, good for margin, padding and borders, block_system_main does not have it
+   */
+  /*
+   * The first block in the region
+   */
+  /*
+   * The last block in the region
+   */
+  /*
+   * Zebra striping for each block in the region
+   */
+  /*
+   * Zebra striping for each block in the region
+   */
+  /*
+   * Block title
+   */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\000031938}}
+  .block-title {
+    margin: 0;
+  }
+
+  /*
+   * Block content wrapper
+   */
+  /*
+   * Match item list and block menu margin and padding
+   */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\000031955}}
+  .block-content ul,
+  .block-content ol {
+    padding: 0 0 0 15px;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\000031959}}
+  .block-content li {
+    margin: 0;
+    padding: 0;
+  }
+
+  /*
+   * Block for the latest news items in the first category
+   */
+  /*
+   * Block for the latest news items in the first feed
+   */
+  /*
+   * First block created with "Add block" link
+   */
+  /*
+   * "Recent blog posts" block
+   */
+  /*
+   * "Book navigation" block for the current book's table of contents
+   */
+  /*
+   * "Recent comments" block
+   */
+  /*
+   * "Active forum topics" block
+   */
+  /*
+   * "New forum topics" block
+   */
+  /*
+   * Language switcher block
+   */
+  /*
+   * Custom menu block
+   */
+  /*
+   * "Recent content" block
+   */
+  /*
+   * "Syndicate" block for primary RSS feed; see also page.css's .feed-icon
+   */
+  /*
+   * "Most recent poll" block
+   */
+  /*
+   * "Author information" block for the profile of the page's author
+   */
+  /*
+   * "Search form" block
+   */
+  /*
+   * "Shortcuts" block
+   */
+  /*
+   * "Popular content" block
+   */
+  /*
+   * "Main menu" block
+   */
+  /*
+   * "Management" block for Drupal management menu
+   */
+  /*
+   * "Navigation" block for Drupal navigation menu
+   */
+  /*
+   * "User menu" block for Drupal user menu
+   */
+  /*
+   * "System help" block
+   */
+  /*
+   * "Main page content" block
+   */
+  /*
+   * "Powered by Drupal" block
+   */
+  /*
+   * "User login form" block
+   */
+  /*
+   * "Who's new" block for a list of the newest users
+   */
+  /*
+   * "Who's online" block for a list of the online users
+   */
+  /* =============================================================================
+   *   Node Styling
+   * ========================================================================== */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\000032132}}
+  .node {
+    margin-bottom: 20px;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\000032149}}
+  .node .node-title {
+    margin: 0;
+  }
+
+  /*
+   * All nodes are given a node-FOO class that describes the type of content that
+   * it is. If you create a new content type called "my-custom-type", it will
+   * receive a "node-my-custom-type" class.
+   */
+  /* =============================================================================
+   *   Comment Styling - Comments, comment wrapper, comment form
+   * ========================================================================== */
+  /*
+   * Wrapper for the list of comments and its titles
+   */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\000032207}}
+  #comments {
+    margin: 1.5em 0;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\000032211}}
+  #comments h2.comment-title {
+    margin: 0;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\000032215}}
+  #comments h2.comment-form {
+    margin: 0;
+  }
+
+  /*
+   * Wrapper for a single comment
+   */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\000032225}}
+  .comment {
+    margin-bottom: 20px;
+  }
+
+  /*
+   * Comment title
+   */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\000032256}}
+  .comment-title {
+    margin: 0;
+  }
+
+  /*
+   * Comment states
+   */
+  /*
+   * Preview of the comment before submitting new or updated comment
+   */
+  /*
+   * "New" marker for comments that are new for the current user
+   */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\000032288}}
+  .new {
+    color: #cc0000;
+  }
+
+  /*
+   * Nested comments are indented
+   */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\000032296}}
+  .indented {
+    margin-left: 40px;
+  }
+
+  /* =============================================================================
+   *   Forms
+   * ========================================================================== */
+  /*
+   * Wrapper for a form element (or group of form elements) and its label
+   */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\000032312}}
+  .form-item input.error,
+  .form-item textarea.error,
+  .form-item select.error {
+    border: 1px solid #cc0000;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\000032316}}
+  .form-item label {
+    font-weight: 700;
+    font-size: 0.8em;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\000032324}}
+  .form-item .description {
+    font-size: 0.85em;
+  }
+
+  /*
+   * Highlight marks and form required mark
+   */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\000032338}}
+  .marker,
+  .form-required {
+    color: #cc0000;
+  }
+
+  /*
+   * The submit button
+   */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\000032352}}
+  .container-inline div,
+  .container-inline label {
+    display: inline;
+  }
+
+  /*
+   * Define consistent borders
+   */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\000032360}}
+  fieldset {
+    border: 1px solid #cccccc;
+  }
+
+  /*
+   * Tips for Drupal's input formats
+   */
+  /*
+   * Buttons used by contrib modules like Media
+   */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\000032374}}
+  a.button {
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+  }
+
+  /*
+   * Password confirmation
+   */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\000032383}}
+  .password-parent,
+  .confirm-parent {
+    margin: 0;
+  }
+
+  /* =============================================================================
+   *   Tables
+   * ========================================================================== */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\000032392}}
+  table {
+    margin: 10px 0;
+    padding: 0;
+    width: 100%;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\000032397}}
+  table.sticky-header {
+    z-index: 10;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\000032408}}
+  table,
+  thead,
+  tbody,
+  tr,
+  th,
+  td {
+    border-color: #cccccc;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\000032415}}
+  table,
+  td,
+  th {
+    vertical-align: middle;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\000032422}}
+  caption,
+  th,
+  td {
+    text-align: left;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\000032427}}
+  thead tr {
+    font-weight: 700;
+    background-color: #e5e5e5;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\000032434}}
+  td,
+  th {
+    border-bottom: 0;
+    margin: 0;
+    padding: 5px 7px;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\000032444}}
+  tbody tr {
+    border-top: 1px solid #cccccc;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\000032448}}
+  tr {
+    /* Table row striping */
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\000032450}}
+  tr.odd {
+    background: white;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\000032457}}
+  tr.info, tr.even, tr:nth-child(2n+2) {
+    border-bottom: 0;
+    background-color: whitesmoke;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\000032466}}
+  tr.odd td.active {
+    background-color: #eeeeee;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\000032470}}
+  tr.even td.active {
+    background-color: #ebebeb;
+  }
+
+  /*
+   * Forum tables
+   * Core sets white-space to nowrap, which makes no sense
+   */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\000032498}}
+  #forum td .created,
+  #forum td .posts,
+  #forum td .topics,
+  #forum td .last-reply,
+  #forum td .replies,
+  #forum td .pager {
+    white-space: normal;
+  }
+
+  /* =============================================================================
+   *   Messages
+   * ========================================================================== */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\000032509}}
+  div.messages {
+    margin-bottom: 10px;
+    margin-top: 10px;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\000032514}}
+  div.messages ul {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  /*
+   * Unpublished nodes
+   */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\000032555}}
+  .node-unpublished p.unpublished,
+  .comment-unpublished p.unpublished {
+    color: pink;
+    color: rgba(239, 170, 170, 0.4);
+    font-family: Impact, Haettenschweiler, "Franklin Gothic Bold", Charcoal, "Helvetica Inserat", "Bitstream Vera Sans Bold", "Arial Black", sans-serif;
+    font-size: 50px;
+    font-weight: 700;
+    line-height: 1.2;
+    height: 0;
+    margin: 0;
+    padding: 0;
+    overflow: visible;
+    text-align: center;
+    text-transform: uppercase;
+    word-wrap: break-word;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/_custom\.scss}line{font-family:\00003187}}
+  .ie6-7 .node-unpublished p.unpublished > *, .ie6-7
+  .comment-unpublished p.unpublished > * {
+    position: relative;
+  }
+
+  /* =============================================================================
+   *    Maintenance pages
+   * ========================================================================== */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\000032566}}
+  .maintenance-page .container {
+    padding: 40px 0;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\000032571}}
+  .maintenance-page #site-name,
+  .maintenance-page #page-title {
+    margin: 0;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\000032578}}
+  .db-offline .container {
+    margin: 0 auto;
+    padding: 40px 0;
+    width: 100%;
+    max-width: 960px;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\000032585}}
+  .db-offline div.messages {
+    margin: 20px 0 0;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\000032589}}
+  .db-offline #content {
+    padding: 20px 0;
+  }
+
+  /* =============================================================================
+   *   Misc overrides for contrib modules
+   * ========================================================================== */
+  /*
+   * Admin menu overrides
+   */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\000032602}}
+  #admin-menu {
+    margin: 0;
+    padding: 0;
+  }
+
+  /*
+   * Devel Module
+   */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\000032611}}
+  .dev-query {
+    background: #eeeeee;
+    padding: 30px;
+  }
+
+  /*
+   * Styleguide module tweaks
+   */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\000032620}}
+  #styleguide-header {
+    padding: 0 10px;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/wamp\/www\/videolibrary\/sites\/all\/themes\/vl\/sass\/global\.styles\.scss}line{font-family:\000032623}}
+  #styleguide-header .item-list {
+    font-family: inherit;
+    margin: 0 20px 20px 0;
+    min-height: 260px;
+    width: auto;
+  }
+}
