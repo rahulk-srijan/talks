@@ -199,7 +199,6 @@ function videolibrary_core_views_query_alter(&$view, &$query) {
 
 function videolibrary_core_form_alter(&$form, &$form_state, $form_id) {
     if($form_id =='upload_video_node_form') {
-        dsm($form);
         global $user;
         $roles = user_roles();
         $current_user_role = $user->roles;
@@ -211,14 +210,14 @@ function videolibrary_core_form_alter(&$form, &$form_state, $form_id) {
                 unset($form['field_ops_category']);
                 unset($form['field_ops_tags']);
         }
-            if(in_array('ops web master', $current_user_role)) {
+            elseif(in_array('ops web master', $current_user_role)) {
                 unset($form['field_library']);
                 unset($form['field_bto_category']);
                 unset($form['field_bto_tags']);
                 unset($form['field_category']);
                 unset($form['field_tags']);
         }
-            if(in_array('bto web master', $current_user_role)) {
+            elseif(in_array('bto web master', $current_user_role)) {
                 unset($form['field_library']);
                 unset($form['field_category']);
                 unset($form['field_tags']);
