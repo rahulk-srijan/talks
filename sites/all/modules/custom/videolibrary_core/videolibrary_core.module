@@ -62,7 +62,7 @@ function videolibrary_core_block_view($delta = '') {
 }
 
 /*
- * 
+ *
  */
 
 function site_switching() {
@@ -117,7 +117,7 @@ function category_menu() {
 <li class="by-tags ' . $tagsclass . '"><a href="' . $tag_url . '">By Tags</a></li>
 <li class="by-category">By Category</li></ul>';
 
-        $query = db_query("SELECT taxonomy_term_data.name AS taxonomy_term_data_name, taxonomy_term_data.vid AS taxonomy_term_data_vid, taxonomy_term_data.tid AS tid, taxonomy_vocabulary.machine_name AS taxonomy_vocabulary_machine_name FROM 
+        $query = db_query("SELECT taxonomy_term_data.name AS taxonomy_term_data_name, taxonomy_term_data.vid AS taxonomy_term_data_vid, taxonomy_term_data.tid AS tid, taxonomy_vocabulary.machine_name AS taxonomy_vocabulary_machine_name FROM
 {taxonomy_term_data} taxonomy_term_data LEFT JOIN {taxonomy_vocabulary} taxonomy_vocabulary ON taxonomy_term_data.vid = taxonomy_vocabulary.vid WHERE (( (taxonomy_vocabulary.machine_name IN  ('$vocab')) ))")->fetchAll();
         $content .= '<ul class="category-list">';
         foreach ($query as $row) {
@@ -194,5 +194,38 @@ function videolibrary_core_views_query_alter(&$view, &$query) {
         // Adding OR condition for the contextual filters.
         $query->where[0]['type'] = 'OR';
         //dsm($query, 'after');
+    }
+}
+
+function videolibrary_core_form_alter(&$form, &$form_state, $form_id) {
+    if($form_id =='upload_video_node_form') {
+        dsm($form);
+        global $user;
+        $roles = user_roles();
+        $current_user_role = $user->roles;
+//        foreach ($current_user_role as $role_value) {
+            if(in_array('org web master', $current_user_role)) {
+                unset($form['field_library']);
+                unset($form['field_bto_category']);
+                unset($form['field_bto_tags']);
+                unset($form['field_ops_category']);
+                unset($form['field_ops_tags']);
+        }
+            if(in_array('ops web master', $current_user_role)) {
+                unset($form['field_library']);
+                unset($form['field_bto_category']);
+                unset($form['field_bto_tags']);
+                unset($form['field_category']);
+                unset($form['field_tags']);
+        }
+            if(in_array('bto web master', $current_user_role)) {
+                unset($form['field_library']);
+                unset($form['field_category']);
+                unset($form['field_tags']);
+                unset($form['field_ops_category']);
+                unset($form['field_ops_tags']);
+        }
+ //   }
+
     }
 }
