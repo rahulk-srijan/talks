@@ -1,0 +1,4 @@
+name = Migrate child video library
+description = Migrate child video library to umbrella video library
+core = 7.x
+files[] = video_migration.module

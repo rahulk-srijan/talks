@@ -1,0 +1,189 @@
+<?php
+
+/**
+ * You must implement hook_migrate_api(), setting the API level to 2, for
+ * your migration classes to be recognized by the Migrate module (for the 7.x-2.x branch).
+ */
+function video_migration_migrate_api() {
+  $api = array(
+    'api' => 2,
+  );
+  return $api;
+}
+
+/*
+ * Implements hook_flush_caches().
+ */
+function video_migration_flush_caches() {
+  // Specify the DB connection and the source Drupal version.
+  $common_arguments_bto = array(
+    'source_connection' => 'bto',
+    'source_version' => 7,
+  );
+
+  $common_arguments_ops = array(
+    'source_connection' => 'ops',
+    'source_version' => 7,
+  );
+
+  $common_arguments_org = array(
+    'source_connection' => 'org',
+    'source_version' => 7,
+  );
+
+  // Register migrations
+
+_video_migration_org_users($common_arguments_org);
+_video_migration_bto_users($common_arguments_bto);
+_video_migration_ops_users($common_arguments_ops);
+_video_migration_bto_authors($common_arguments_bto);
+_video_migration_ops_authors($common_arguments_ops);
+_video_migration_org_authors($common_arguments_org);
+//_video_migration_video_upload_node_bto($common_arguments_bto);
+}
+
+/*
+ * @param $common_arguments
+ */
+function _video_migration_org_users($common_arguments_org) {
+  $args = $common_arguments_org + array(
+    'description' => 'User Migration orginaction',
+    'machine_name' => 'user_migration_org',
+  //  'role_migration' => 'role_migration',
+  );
+  Migration::registerMigration($migration_class="orginaction_user_migration", $args['machine_name'], $args);
+}
+
+class orginaction_user_migration extends DrupalUser7Migration {
+  public function __construct(array $arguments) {
+    parent::__construct($arguments);
+
+    // vendor_id mapping.
+    $this->addFieldMapping('field_vendor_id', 'field_vendor_id');
+    $this->addFieldMapping('roles')
+      ->defaultValue(DRUPAL_AUTHENTICATED_RID);
+  }
+}
+
+/*
+ * @param $common_arguments
+ */
+function _video_migration_bto_users($common_arguments_bto) {
+  $args = $common_arguments_bto + array(
+    'description' => 'User Migration btoinaction',
+    'machine_name' => 'user_migration_bto',
+  //  'role_migration' => 'role_migration',
+  );
+  Migration::registerMigration($migration_class="btoinaction_user_migration", $args['machine_name'], $args);
+}
+
+class btoinaction_user_migration extends DrupalUser7Migration {
+  public function __construct(array $arguments) {
+    parent::__construct($arguments);
+
+    // vendor_id mapping.
+//    $this->addFieldMapping('field_vendor_id', 'field_vendor_id');
+    $this->addFieldMapping('roles')
+      ->defaultValue(DRUPAL_AUTHENTICATED_RID);
+  }
+}
+
+/*
+ * @param $common_arguments
+ */
+function _video_migration_ops_users($common_arguments_ops) {
+  $args = $common_arguments_ops + array(
+    'description' => 'User Migration opsinaction',
+    'machine_name' => 'user_migration_ops',
+  //  'role_migration' => 'role_migration',
+  );
+  Migration::registerMigration($migration_class="opsinaction_user_migration", $args['machine_name'], $args);
+}
+
+class opsinaction_user_migration extends DrupalUser7Migration {
+  public function __construct(array $arguments) {
+    parent::__construct($arguments);
+
+    // vendor_id mapping.
+    $this->addFieldMapping('field_vendor_id', 'field_vendor_id');
+    $this->addFieldMapping('roles')
+      ->defaultValue(DRUPAL_AUTHENTICATED_RID);
+  }
+}
+/**
+ * @param $common_arguments
+ */
+function _video_migration_bto_authors($common_arguments_bto) {
+  $args = $common_arguments_bto + array(
+    'description' => 'BTO author tags',
+    'machine_name' => 'bto_author_migration',
+    'source_vocabulary' => 'author', // The Vocab Id of the tags on the D6 instance.
+    'destination_vocabulary' => 'author',
+  );
+
+  Migration::registerMigration($migration_class="DrupalTerm7Migration", $args['machine_name'], $args);
+}
+
+/**
+ * @param $common_arguments
+ */
+function _video_migration_ops_authors($common_arguments_ops) {
+  $args = $common_arguments_ops + array(
+    'description' => 'ops author tags',
+    'machine_name' => 'ops_author_migration',
+    'source_vocabulary' => 'author', // The Vocab Id of the tags on the D6 instance.
+    'destination_vocabulary' => 'author',
+  );
+
+  Migration::registerMigration($migration_class="DrupalTerm7Migration", $args['machine_name'], $args);
+}
+
+function _video_migration_org_authors($common_arguments_org) {
+  $args = $common_arguments_org + array(
+    'description' => 'org author tags',
+    'machine_name' => 'org_author_migration',
+    'source_vocabulary' => 'author', // The Vocab Id of the tags on the D6 instance.
+    'destination_vocabulary' => 'author',
+  );
+
+  Migration::registerMigration($migration_class="DrupalTerm7Migration", $args['machine_name'], $args);
+}
+
+/**
+ * @param $common_arguments
+
+function _video_migration_video_upload_node_bto($common_arguments_bto) {
+  $args = $common_arguments_bto + array(
+    'description' => 'Migrate video upload nodes for bto',
+    'machine_name' => 'video_migration_bto',
+    'source_type' => 'upload_video', // Change this to your content type.
+    'destination_type' => 'upload_video',
+    'user_migration' => 'user_migration_org',
+    'dependencies' => array('bto_author_migration'),
+  );
+
+  Migration::registerMigration($migration_class="video_node_migration", $args['machine_name'], $args);
+}
+
+class video_node_migration extends DrupalNode7Migration {
+  public function __construct(array $arguments) {
+    parent::__construct($arguments);
+
+    // Tag mapping.
+    $this->addFieldMapping('field_upload_video','field_upload_video');
+    $this->addFieldMapping('field_upload_video:thumbnail','field_upload_video:thumbnail');
+    $this->addFieldMapping('field_author', 'field_author')
+      ->sourceMigration('bto_author_migration')
+      ->arguments(array('source_type' => 'tid'));
+    $this->addFieldMapping('field_library')
+      ->arguments(array('source_type' => 'tid'))
+      ->defaultValue($tid=458);
+    $this->addFieldMapping('field_category','field_category');
+    $this->addFieldMapping('field_tags','field_tags');
+    $this->addFieldMapping('field_share','field_share');
+    $this->addFieldMapping('field_download_link','field_download_link');
+
+
+  }
+}
+*/
