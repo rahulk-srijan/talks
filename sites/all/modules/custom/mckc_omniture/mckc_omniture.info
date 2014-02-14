@@ -1,0 +1,4 @@
+name = McKc Omniture
+description = Omniture Configuration
+core = 7.x
+package = Statistics

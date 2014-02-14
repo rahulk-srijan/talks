@@ -1365,15 +1365,16 @@
 		}
 	}
 
-	// Latest Comments page
-	body.page-latest-comment {
+	// Latest Comments page org
+	body.page-orginaction-latest-comment {
 		#columns {
 			#content-column {
 
 				header#main-content-header {
 					margin-top: 10px;
 					h1#page-title {
-						@extend .subheader;
+					    @extend .subheader;
+						color: $orange;
 					}
 				}
 
@@ -1396,7 +1397,8 @@
 										margin: 0;
 
 										&.views-field-name {
-											@extend .subheader;
+										    @extend .subheader;
+											color: $orange;
 											font-size: $font-size-normal;
 											margin-bottom: 0;
 										}
@@ -1422,6 +1424,126 @@
 			}
 		}
 	}
+
+	// Latest Comments page ops
+	body.page-opsinaction-latest-comment {
+		#columns {
+			#content-column {
+
+				header#main-content-header {
+					margin-top: 10px;
+					h1#page-title {
+					    @extend .subheader;
+						color: $orange-ops;
+					}
+				}
+
+				.content-inner {
+					#block-system-main {
+						.view-latest-comment-mobile {
+							@extend .escape-view;
+							@extend .mobile-box;
+
+							.view-content {
+								.views-row {
+									position: relative;
+									margin: 10px 0;
+									padding: 10px;
+									padding-right: 10%;
+									@include border-radius(7px);
+									background: url('../../css/images/arrow-r-orange.png') 96% 55% no-repeat $light-gray;
+
+									.views-field {
+										margin: 0;
+
+										&.views-field-name {
+										    @extend .subheader;
+											color: $orange-ops;
+											font-size: $font-size-normal;
+											margin-bottom: 0;
+										}
+
+										&.views-field-comment-body {
+											@extend .body-text;
+										}
+
+										&.views-field-nothing a {
+											position: absolute;
+											left: 0;
+											width: 100%;
+											height: 100%;
+											top: 0;
+											text-indent: -9999em;
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	// Latest Comments page bto
+	body.page-btoacademy-latest-comment {
+		#columns {
+			#content-column {
+
+				header#main-content-header {
+					margin-top: 10px;
+					h1#page-title {
+					    @extend .subheader;
+						color: $orange-bto;
+					}
+				}
+
+				.content-inner {
+					#block-system-main {
+						.view-latest-comment-mobile {
+							@extend .escape-view;
+							@extend .mobile-box;
+
+							.view-content {
+								.views-row {
+									position: relative;
+									margin: 10px 0;
+									padding: 10px;
+									padding-right: 10%;
+									@include border-radius(7px);
+									background: url('../../css/images/arrow-r-orange.png') 96% 55% no-repeat $light-gray;
+
+									.views-field {
+										margin: 0;
+
+										&.views-field-name {
+										    @extend .subheader;
+											color: $orange-bto;
+											font-size: $font-size-normal;
+											margin-bottom: 0;
+										}
+
+										&.views-field-comment-body {
+											@extend .body-text;
+										}
+
+										&.views-field-nothing a {
+											position: absolute;
+											left: 0;
+											width: 100%;
+											height: 100%;
+											top: 0;
+											text-indent: -9999em;
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}		
 
 	// Browse By Category page
 	body.page-taxonomy {

@@ -39,7 +39,9 @@ _video_migration_ops_users($common_arguments_ops);
 _video_migration_bto_authors($common_arguments_bto);
 _video_migration_ops_authors($common_arguments_ops);
 _video_migration_org_authors($common_arguments_org);
-//_video_migration_video_upload_node_bto($common_arguments_bto);
+_video_migration_video_upload_node_bto($common_arguments_bto);
+_video_migration_video_upload_node_ops($common_arguments_ops);
+_video_migration_video_upload_node_org($common_arguments_org);
 }
 
 /*
@@ -62,6 +64,8 @@ class orginaction_user_migration extends DrupalUser7Migration {
     $this->addFieldMapping('field_vendor_id', 'field_vendor_id');
     $this->addFieldMapping('roles')
       ->defaultValue(DRUPAL_AUTHENTICATED_RID);
+    $this->addFieldMapping('status')
+     ->defaultValue(0);      
   }
 }
 
@@ -82,9 +86,11 @@ class btoinaction_user_migration extends DrupalUser7Migration {
     parent::__construct($arguments);
 
     // vendor_id mapping.
-//    $this->addFieldMapping('field_vendor_id', 'field_vendor_id');
+    $this->addFieldMapping('field_vendor_id', 'field_vendor_id');
     $this->addFieldMapping('roles')
       ->defaultValue(DRUPAL_AUTHENTICATED_RID);
+    $this->addFieldMapping('status')
+     ->defaultValue(0);      
   }
 }
 
@@ -108,6 +114,8 @@ class opsinaction_user_migration extends DrupalUser7Migration {
     $this->addFieldMapping('field_vendor_id', 'field_vendor_id');
     $this->addFieldMapping('roles')
       ->defaultValue(DRUPAL_AUTHENTICATED_RID);
+    $this->addFieldMapping('status')
+     ->defaultValue(0);      
   }
 }
 /**
@@ -151,14 +159,14 @@ function _video_migration_org_authors($common_arguments_org) {
 
 /**
  * @param $common_arguments
-
+*/
 function _video_migration_video_upload_node_bto($common_arguments_bto) {
   $args = $common_arguments_bto + array(
     'description' => 'Migrate video upload nodes for bto',
     'machine_name' => 'video_migration_bto',
     'source_type' => 'upload_video', // Change this to your content type.
     'destination_type' => 'upload_video',
-    'user_migration' => 'user_migration_org',
+    'user_migration' => 'user_migration_bto',
     'dependencies' => array('bto_author_migration'),
   );
 
@@ -176,14 +184,84 @@ class video_node_migration extends DrupalNode7Migration {
       ->sourceMigration('bto_author_migration')
       ->arguments(array('source_type' => 'tid'));
     $this->addFieldMapping('field_library')
-      ->arguments(array('source_type' => 'tid'))
-      ->defaultValue($tid=458);
-    $this->addFieldMapping('field_category','field_category');
-    $this->addFieldMapping('field_tags','field_tags');
+      ->defaultValue("btoacademy");  
+    //$this->addFieldMapping('field_category','field_category');
+    //$this->addFieldMapping('field_tags','field_tags');
     $this->addFieldMapping('field_share','field_share');
     $this->addFieldMapping('field_download_link','field_download_link');
-
-
   }
 }
+
+// ops video migration
+
+/**
+ * @param $common_arguments
 */
+function _video_migration_video_upload_node_ops($common_arguments_ops) {
+  $args = $common_arguments_ops + array(
+    'description' => 'Migrate video upload nodes for ops',
+    'machine_name' => 'video_migration_ops',
+    'source_type' => 'upload_video', // Change this to your content type.
+    'destination_type' => 'upload_video',
+    'user_migration' => 'user_migration_ops',
+    'dependencies' => array('ops_author_migration'),
+  );
+
+  Migration::registerMigration($migration_class="ops_video_node_migration", $args['machine_name'], $args);
+}
+
+class ops_video_node_migration extends DrupalNode7Migration {
+  public function __construct(array $arguments) {
+    parent::__construct($arguments);
+
+    // Tag mapping.
+    $this->addFieldMapping('field_upload_video','field_upload_video');
+    $this->addFieldMapping('field_upload_video:thumbnail','field_upload_video:thumbnail');
+    $this->addFieldMapping('field_author', 'field_author')
+      ->sourceMigration('ops_author_migration')
+      ->arguments(array('source_type' => 'tid'));
+    $this->addFieldMapping('field_library')
+      ->defaultValue("opsinaction");  
+    //$this->addFieldMapping('field_category','field_category');
+    //$this->addFieldMapping('field_tags','field_tags');
+    $this->addFieldMapping('field_share','field_share');
+    $this->addFieldMapping('field_download_link','field_download_link');
+  }
+}
+
+// Org video migration
+
+/**
+ * @param $common_arguments
+*/
+function _video_migration_video_upload_node_org($common_arguments_org) {
+  $args = $common_arguments_org + array(
+    'description' => 'Migrate video upload nodes for org',
+    'machine_name' => 'video_migration_org',
+    'source_type' => 'upload_video', // Change this to your content type.
+    'destination_type' => 'upload_video',
+    'user_migration' => 'user_migration_org',
+    'dependencies' => array('org_author_migration'),
+  );
+
+  Migration::registerMigration($migration_class="org_video_node_migration", $args['machine_name'], $args);
+}
+
+class org_video_node_migration extends DrupalNode7Migration {
+  public function __construct(array $arguments) {
+    parent::__construct($arguments);
+
+    // Tag mapping.
+    $this->addFieldMapping('field_upload_video','field_upload_video');
+    $this->addFieldMapping('field_upload_video:thumbnail','field_upload_video:thumbnail');
+    $this->addFieldMapping('field_author', 'field_author')
+      ->sourceMigration('ops_author_migration')
+      ->arguments(array('source_type' => 'tid'));
+    $this->addFieldMapping('field_library')
+      ->defaultValue("orginaction");  
+    //$this->addFieldMapping('field_category','field_category');
+    //$this->addFieldMapping('field_tags','field_tags');
+    $this->addFieldMapping('field_share','field_share');
+    $this->addFieldMapping('field_download_link','field_download_link');
+  }
+}
