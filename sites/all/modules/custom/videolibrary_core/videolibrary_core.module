@@ -158,7 +158,7 @@ function user_top_menu_link() {
         $device = array('ipad', 'iphone');
         foreach ($adminRoles as $role) {
             if (in_array($role, array_values($user->roles)) && !(bool) strpos($_SERVER['HTTP_USER_AGENT'], 'iPad') && !(bool) strpos($_SERVER['HTTP_USER_AGENT'], 'iPhone')) {
-                $content .='<li class="third">' . l("Admin", "<front>") . '</li>';
+                $content .='<li class="third">' . l("Admin", "admin/dashboard/". $subsite_home_page_url) . '</li>';
             }
         }
     } else {
@@ -200,8 +200,12 @@ function videolibrary_core_views_query_alter(&$view, &$query) {
 function videolibrary_core_form_alter(&$form, &$form_state, $form_id) {
     if($form_id =='upload_video_node_form') {
         global $user;
+        $library_roles = array('org web master','ops web master','bto web master' );
         $roles = user_roles();
         $current_user_role = $user->roles;
+        $result = array_intersect($library_roles, $current_user_role);
+        $result_count = count($result);
+        if($result_count==1) {
 //        foreach ($current_user_role as $role_value) {
             if(in_array('org web master', $current_user_role)) {
                 unset($form['field_library']);
@@ -227,4 +231,21 @@ function videolibrary_core_form_alter(&$form, &$form_state, $form_id) {
  //   }
 
     }
+} else {
+    return;
 }
+}
+
+function videolibrary_core_custom_theme() {
+    if(arg(2)==('orginaction' OR 'btoacademy' OR 'opsinaction') && (arg(1)=='dashboard')) {
+        dsm("hello janta");
+    return variable_get('admin_theme');
+}
+}
+/*
+function videolibrary_core_menu_alter(&$items) {
+        if(arg(0) == 'orginaction') {
+    $items['admin/dashboard'] =;
+}
+}
+*/
