@@ -154,12 +154,15 @@ function user_top_menu_link() {
         $content .='<li class="first">' . t('Welcome ') . '<a href="' . $profile_url . '" target="_blank">' . $user->name . '</a></li>';
         $content .='<li class="second"><a href="' . url('<front>') . '">My Notifications</a></li>';
 
-        $adminRoles = array('org web master', 'ops web master', 'bto web master' ,'administrator');
+        $adminRoles = array("orginaction"=>"org web master", "opsinaction"=> "ops web master", "btoacademy" => "bto web master" ,"admin"=>"administrator");
         $device = array('ipad', 'iphone');
-        foreach ($adminRoles as $role) {
+        foreach ($adminRoles as $value=>$role) {
             if (in_array($role, array_values($user->roles)) && !(bool) strpos($_SERVER['HTTP_USER_AGENT'], 'iPad') && !(bool) strpos($_SERVER['HTTP_USER_AGENT'], 'iPhone')) {
-                $content .='<li class="third">' . l("Admin", "admin/dashboard/". $subsite_home_page_url) . '</li>';
+                    $lib_name = arg(0);
+                    if($lib_name == $value OR $user->roles=='administrator') {
+                        $content .='<li class="third">' . l("Admin", "admin/dashboard/". $value) . '</li>';
             }
+        }
         }
     } else {
         $content .='<li class="first"><a href="' . url('user') . '">' . t('Login') . '</a></li>';
