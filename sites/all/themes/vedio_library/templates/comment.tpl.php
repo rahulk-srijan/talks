@@ -88,7 +88,7 @@ $commenter_uid= $content['comment_body']['#object']->uid;
 $profile_url = mck_user_profile($commenter_uid);
 print '<a href="' . $profile_url .'" target="_blank">' .render(check_plain($comment->name)).'</a>';?></div>
 <div class="foramt-date"><?php
-$formatted_time = format_date($comment->changed,'short');
+$formatted_time = format_date($comment->created,'short');
 print render($formatted_time); ?></div>
 <div class="comment-content"><?php print nl2br(render($content['comment_body'])); ?></div>
 <div class="links"><?php print render($content['links']);?></div>
