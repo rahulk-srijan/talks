@@ -235,14 +235,14 @@ function videolibrary_core_form_alter(&$form, &$form_state, $form_id) {
     return;
 }
 }
-
+/*
 function videolibrary_core_custom_theme() {
     if(arg(2)==('orginaction' OR 'btoacademy' OR 'opsinaction') && (arg(1)=='dashboard')) {
         dsm("hello janta");
     return variable_get('admin_theme');
 }
 }
-/*
+
 function videolibrary_core_menu_alter(&$items) {
         if(arg(0) == 'orginaction') {
     $items['admin/dashboard'] =;
