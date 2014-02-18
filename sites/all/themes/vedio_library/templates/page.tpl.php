@@ -89,7 +89,7 @@
  */
 if (isset($_SERVER['HTTP_X_FORWARDED_FOR'])) {
 
-    drupal_add_js(drupal_get_path('theme', 'vedio_library') . '/scripts/url_file.js', 'file');
+  drupal_add_js(drupal_get_path('theme', 'vedio_library') . '/scripts/url_file.js', 'file');
 }
 global $base_url;
 global $subsite_home_page_url;
@@ -103,46 +103,46 @@ $site_logo = '<a href="'.$url_front.'">'. strip_tags($site_logo, '<img>').'</a>'
 <div id="page" class="container <?php print $classes; ?>">
 	<div class="page-content">
 
-  <!-- region: Leaderboard -->
-  <?php print render($page['leaderboard']); ?>
+    <!-- region: Leaderboard -->
+    <?php print render($page['leaderboard']); ?>
 
-  <header<?php print $header_attributes; ?>>
+    <header<?php print $header_attributes; ?>>
 
     <?php if ($site_logo || $site_name || $site_slogan): ?>
-      <!-- start: Branding -->
-      <div<?php print $branding_attributes; ?>>
+    <!-- start: Branding -->
+    <div<?php print $branding_attributes; ?>>
 
-        <?php if ($site_logo): ?>
-          <div id="logo">
-            <?php print $site_logo; ?>
-          </div>
-        <?php endif; ?>
+    <?php if ($site_logo): ?>
+    <div id="logo">
+      <?php print $site_logo; ?>
+    </div>
+  <?php endif; ?>
 
-        <?php if ($site_name || $site_slogan): ?>
-          <!-- start: Site name and Slogan hgroup -->
-          <hgroup<?php print $hgroup_attributes; ?>>
+  <?php if ($site_name || $site_slogan): ?>
+  <!-- start: Site name and Slogan hgroup -->
+  <hgroup<?php print $hgroup_attributes; ?>>
 
-            <?php if ($site_name): ?>
-              <h1<?php print $site_name_attributes; ?>><?php print $site_name; ?></h1>
-            <?php endif; ?>
+  <?php if ($site_name): ?>
+  <h1<?php print $site_name_attributes; ?>><?php print $site_name; ?></h1>
+<?php endif; ?>
 
-            <?php if ($site_slogan): ?>
-              <h2<?php print $site_slogan_attributes; ?>><?php print $site_slogan; ?></h2>
+<?php if ($site_slogan): ?>
+  <h2<?php print $site_slogan_attributes; ?>><?php print $site_slogan; ?></h2>
 
-            <?php endif; ?>
-             <?php print render($page['menu_top']); ?>
-          </hgroup><!-- /end #name-and-slogan -->
-        <?php endif; ?>
+<?php endif; ?>
+<?php print render($page['menu_top']); ?>
+</hgroup><!-- /end #name-and-slogan -->
+<?php endif; ?>
 
-      </div><!-- /end #branding -->
-    <?php endif; ?>
+</div><!-- /end #branding -->
+<?php endif; ?>
 
-    <!-- region: Header -->
-    <?php print render($page['header']); ?>
-    </header>
+<!-- region: Header -->
+<?php print render($page['header']); ?>
+</header>
 
-  <!-- Navigation elements -->
-  <?php print render($page['menu_bar']); ?>
+<!-- Navigation elements -->
+<?php print render($page['menu_bar']); ?>
   <!--<?php if ($primary_navigation): print $primary_navigation; endif; ?>
   <?php if ($secondary_navigation): print $secondary_navigation; endif; ?>-->
 
@@ -165,79 +165,86 @@ $site_logo = '<a href="'.$url_front.'">'. strip_tags($site_logo, '<img>').'</a>'
 
         <<?php print $tag; ?> id="main-content">
 
-          <?php print render($title_prefix); // Does nothing by default in D7 core ?>
-    <?php print render($title_prefix); ?>
-    <?php 
-    $uri = $_SERVER['HTTP_REFERER'];
-    $search = strpos($uri, 'search/site/');
-  
-    if ($search != false && arg(0)=='node'){
-    print '<a class="back-to-search" id="back-to-search" href="' . $uri . '" title="Back to Search Results"><strong>> Back to Search Results</strong></a>'; }
-?> 
+        <?php print render($title_prefix); // Does nothing by default in D7 core ?>
+        <?php print render($title_prefix); ?>
+        <?php 
+        $uri = $_SERVER['HTTP_REFERER'];
+        $search = strpos($uri, 'search/site/');
+        
+        if ($search != false && arg(0)=='node'){
+          print '<a class="back-to-search" id="back-to-search" href="' . $uri . '" title="Back to Search Results"><strong>> Back to Search Results</strong></a>'; }
+          ?> 
           <?php if ($title || $primary_local_tasks || $secondary_local_tasks || $action_links = render($action_links)): ?>
-            <header<?php print $content_header_attributes; ?>>
+          <header<?php print $content_header_attributes; ?>>
 
-              <?php if (!$is_front): if ($title): ?>
-                <h1 id="page-title">
-                  <?php print $title; ?>
-                </h1>
-              <?php endif; endif; ?>
+          <?php if (!$is_front): if ($title): ?>
+          <h1 id="page-title">
+            <?php print $title; ?>
+          </h1>
+        <?php endif; endif; ?>
 
-              <?php if ($primary_local_tasks || $secondary_local_tasks || $action_links): ?>
-                <div id="tasks">
+        <?php if ($primary_local_tasks || $secondary_local_tasks || $action_links): ?>
+        <div id="tasks">
 
-                  <?php if ($primary_local_tasks): ?>
-                    <ul class="tabs primary clearfix"><?php print render($primary_local_tasks); ?></ul>
-                  <?php endif; ?>
+          <?php if ($primary_local_tasks): ?>
+          <ul class="tabs primary clearfix"><?php print render($primary_local_tasks); ?></ul>
+        <?php endif; ?>
 
-                  <?php if ($secondary_local_tasks): ?>
-                    <ul class="tabs secondary clearfix"><?php print render($secondary_local_tasks); ?></ul>
-                  <?php endif; ?>
+        <?php if ($secondary_local_tasks): ?>
+        <ul class="tabs secondary clearfix"><?php print render($secondary_local_tasks); ?></ul>
+      <?php endif; ?>
 
-                  <?php if ($action_links = render($action_links)): ?>
-                    <ul class="action-links clearfix"><?php print $action_links; ?></ul>
-                  <?php endif; ?>
+      <?php if ($action_links = render($action_links)): ?>
+      <ul class="action-links clearfix"><?php print $action_links; ?></ul>
+    <?php endif; ?>
 
-                </div>
-              <?php endif; ?>
+  </div>
+<?php endif; ?>
 
-            </header>
-          <?php endif; ?>
+</header>
+<?php endif; ?>
 
-          <!-- region: Main Content -->
-          <?php if ($content = render($page['content'])): ?>
-            <div id="content" class="region">
-              <?php print $content; ?>
-            </div>
-          <?php endif; ?>
+<!-- region: Main Content -->
+<?php if ($content = render($page['content'])): ?>
+  <div id="content" class="region">
+    <?php print $content; ?>
+  </div>
+<?php endif; ?>
 
-          <!-- Feed icons (RSS, Atom icons etc -->
-          <?php print $feed_icons; ?>
+<!-- Feed icons (RSS, Atom icons etc -->
+<?php print $feed_icons; ?>
 
-          <?php print render($title_suffix); // Prints page level contextual links ?>
+<?php print render($title_suffix); // Prints page level contextual links ?>
 
-        </<?php print $tag; ?>><!-- /end #main-content -->
+</<?php print $tag; ?>><!-- /end #main-content -->
 
-        <!-- region: Content Aside -->
-        <?php print render($page['content_aside']); ?>
+<!-- region: Content Aside -->
+<?php print render($page['content_aside']); ?>
 
-      </div><!-- /end .content-inner -->
-    </div><!-- /end #content-column -->
+</div><!-- /end .content-inner -->
+</div><!-- /end #content-column -->
 
-    <!-- regions: Sidebar first and Sidebar second -->
-    <?php $sidebar_first = render($page['sidebar_first']); print $sidebar_first; ?>
-    <?php $sidebar_second = render($page['sidebar_second']); print $sidebar_second; ?>
+<!-- regions: Sidebar first and Sidebar second -->
+<?php $sidebar_first = render($page['sidebar_first']); print $sidebar_first; ?>
+<?php $sidebar_second = render($page['sidebar_second']); print $sidebar_second; ?>
 
-  </div><!-- /end #columns -->
+</div><!-- /end #columns -->
 
-  <!-- region: Tertiary Content -->
-  <?php print render($page['tertiary_content']); ?>
-
-  <!-- region: Footer -->
-  <?php if ($page['footer']): ?>
-    <footer<?php print $footer_attributes; ?>>
-      <?php print render($page['footer']); ?>
-    </footer>
-  <?php endif; ?>
- </div>
+<!-- region: Tertiary Content -->
+<div class="tertiary-content">
+  <?php if($page['tertiary_left']): ?>
+  <div class="tertiary-left float-left">  <?php print render($page['tertiary_left']); ?></div>
+<?php endif; ?>
+<?php if($page['tertiary_right']): ?>
+  <div class="tertiary-right float-left"><?php print render($page['tertiary_right']); ?></div>
+<?php endif; ?>
+<div class="clear"></div>
+</div>
+<!-- region: Footer -->
+<?php if ($page['footer']): ?>
+  <footer<?php print $footer_attributes; ?>>
+  <?php print render($page['footer']); ?>
+</footer>
+<?php endif; ?>
+</div>
 </div>
