@@ -62,7 +62,6 @@ function vedio_library_preprocess_html(&$vars) {
         $vars['classes_array'][] = 'page-search-site';
     }
 }
-
 function vedio_library_preprocess_page(&$vars) {
     global $subsite_home_page_url;
 

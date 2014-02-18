@@ -9,11 +9,11 @@
 
   #edit-name-wrapper {padding:0 1em 0 0;}
   #edit-name-wrapper label {
-      float: left;
-      font-size: 0.8em;
-      left: -15px;
-      position: relative;
-      top: 5px;
+    float: left;
+    font-size: 0.8em;
+    left: -15px;
+    position: relative;
+    top: 5px;
   }
   #edit-name.form-text.form-autocomplete {
     background-position: 100% 6px;
@@ -36,74 +36,74 @@
   .bef-select-as-links, .view-listing-by-tags .bef-select-as-links {float:left;}
   .bef-select-as-links .form-item {float:left;}
   .bef-select-as-links .form-item .form-item {float:left; padding:0 .65em; border-left:1px solid #666666; font-weight:bold; line-height:1em; margin-top:3px;}
-  .bef-select-as-links .form-item .form-item:first-child {padding-left:1em; border-left:0; /*color:#000;*/}
-  /*.bef-select-as-links .form-item .form-item:first-child a {color:#000;} */
+.bef-select-as-links .form-item .form-item:first-child {padding-left:1em; border-left:0; /*color:#000;*/}
+/*.bef-select-as-links .form-item .form-item:first-child a {color:#000;} */
 
-  .view-listing-by-tags .views-exposed-widgets {position:relative;}
-  .view-listing-by-tags .views-exposed-widgets .views-widget-sort-by {position:absolute; /*left:240px; width:410px;*/}
-  /*.view-listing-by-tags .views-exposed-widgets #edit-sort-by-created a {color:#000;}*/
-
-
-  #edit-tid-wrapper {clear:both; width:98.5%; margin-top:8px; padding:10px 1.05em; position:relative; left:-20px; background:#EDEFEE;}
-  #edit-tid-wrapper .views-widget {clear:both; width:100%;}
-  #edit-tid-wrapper .bef-select-as-links .form-item .form-item {width:31.5%; margin:0; padding:10px .5em 5px 0; border:none; color:#000; font-size:12px;}
-  #edit-tid-wrapper .bef-select-as-links .form-item .form-item a {color:#000;}
-  #edit-tid-wrapper .bef-select-as-links .form-item .form-item.selected a {color:#e37222;}
+.view-listing-by-tags .views-exposed-widgets {position:relative;}
+.view-listing-by-tags .views-exposed-widgets .views-widget-sort-by {position:absolute; /*left:240px; width:410px;*/}
+/*.view-listing-by-tags .views-exposed-widgets #edit-sort-by-created a {color:#000;}*/
 
 
-
-  #content-column .view-home-page-video-listing .view-content, #content-column .view-listing-by-category .view-content {position:relative; top:-20px;}
-  #content-column .view-listing-by-tags .view-content {top:-30px;}
-  .page-my-playlist #content-column .view-playlist .view-content {position:relative; /*top:-30px;*/ clear:both;}
-  /*.page-playlist-edit .view-playlist .view-content {position:relative; top:0px;} */
-
-  .view-playlist .views-row {width:440px; position:relative; margin-bottom:0 !important; padding-bottom:25px;}
+#edit-tid-wrapper {clear:both; width:98.5%; margin-top:8px; padding:10px 1.05em; position:relative; left:-20px; background:#EDEFEE;}
+#edit-tid-wrapper .views-widget {clear:both; width:100%;}
+#edit-tid-wrapper .bef-select-as-links .form-item .form-item {width:31.5%; margin:0; padding:10px .5em 5px 0; border:none; color:#000; font-size:12px;}
+#edit-tid-wrapper .bef-select-as-links .form-item .form-item a {color:#000;}
+#edit-tid-wrapper .bef-select-as-links .form-item .form-item.selected a {color:#e37222;}
 
 
-  .content-statistics {color:#333333;}
 
-  .page-my-playlist #block-block-6, .page-playlist-edit #block-block-6 {height:20px; padding:10px 0;}
-  .page-my-playlist #block-block-6 .browse-videos, .page-playlist-edit #block-block-6 .browse-videos {display:none;}
-  .page-my-playlist .view-playlist .view-header a {background:url(images/bluebtn_bg.png) 0 0 no-repeat; font-size:11px; font-weight:bold; color:#fff; padding:1px 7px; display: inline-block; height: 16px;}
-  .page-my-playlist .view-playlist .view-header a:hover {background:url(images/bluebtn_bg_h.png) 0 0 no-repeat; text-decoration: none;}
+#content-column .view-home-page-video-listing .view-content, #content-column .view-listing-by-category .view-content {position:relative; top:-20px;}
+#content-column .view-listing-by-tags .view-content {top:-30px;}
+.page-my-playlist #content-column .view-playlist .view-content {position:relative; /*top:-30px;*/ clear:both;}
+/*.page-playlist-edit .view-playlist .view-content {position:relative; top:0px;} */
 
-  .page-playlist-edit .view-header {background-color:transparent; padding:10px 0 30px; height:20px; font-weight:bold;}
+.view-playlist .views-row {width:440px; position:relative; margin-bottom:0 !important; padding-bottom:25px;}
+
+
+.content-statistics {color:#333333;}
+
+.page-my-playlist #block-block-6, .page-playlist-edit #block-block-6 {height:20px; padding:10px 0;}
+.page-my-playlist #block-block-6 .browse-videos, .page-playlist-edit #block-block-6 .browse-videos {display:none;}
+.page-my-playlist .view-playlist .view-header a {background:url(images/bluebtn_bg.png) 0 0 no-repeat; font-size:11px; font-weight:bold; color:#fff; padding:1px 7px; display: inline-block; height: 16px;}
+.page-my-playlist .view-playlist .view-header a:hover {background:url(images/bluebtn_bg_h.png) 0 0 no-repeat; text-decoration: none;}
+
+.page-playlist-edit .view-header {background-color:transparent; padding:10px 0 30px; height:20px; font-weight:bold;}
 
 
 
 /*newsletter page css*/
-  .page-newsletter .region-sidebar-first {display:none;}
-  .page-newsletter #columns header, .page-newsletter #columns fieldset legend {display:none;}
-  #simplenews-subscriptions-page-form {padding: 20px 35px 75px 35px; background: #edefef; position: relative; color: #333333; font-weight: bold;}
-  #simplenews-subscriptions-page-form #edit-subscriptions {border: none;}
-  #simplenews-subscriptions-page-form #edit-subscriptions #edit-new {font-size: 11px; margin: 25px 0 0 0;}
-  #simplenews-subscriptions-page-form input#reset:hover {text-decoration: underline;}
-  #simplenews-subscriptions-page-form input#reset {font-size: 11px; background: none; border: none; border-right: 1px solid #999999; color: #333333; position: absolute; right: 60px; bottom: 20px; margin-right: 10px; padding-right: 10px;}
-  #simplenews-subscriptions-page-form input#edit-update {position: absolute; bottom: 18px; right: 20px; font-size: 9px;}
-  .page-newsletter #columns fieldset {border:0 none; margin:0; padding:20px 35px; background:#edefef;}
-  .page-newsletter #columns fieldset .fieldset-description {color:#333; font-weight:bold;}
-  .page-newsletter #columns fieldset #edit-newsletters .fequency { width: 100%; overflow: hidden;clear: both;}
-  .page-newsletter #columns fieldset #edit-newsletters .fequency .form-item {float:left; width:35%; margin: 0;}
-  .page-newsletter #columns fieldset #edit-newsletters .fequency .form-item-newsletters-54, .page-newsletter #columns fieldset #edit-newsletters .fequency .form-item-newsletters-52 { margin-right: 5%; }
-  .page-newsletter #columns fieldset #edit-newsletters .category_label { display: inline-block; margin: 0; margin-top: 10px; }
-  #simplenews-subscriptions-page-form .form-item-newsletters-4{margin-top: 3%;}
-  .page-newsletter #columns fieldset #edit-newsletters .form-item-newsletters-50 {margin-top: 3%;}
+.page-newsletter .region-sidebar-first {display:none;}
+.page-newsletter #columns header, .page-newsletter #columns fieldset legend {display:none;}
+#simplenews-subscriptions-page-form {padding: 20px 35px 75px 35px; background: #edefef; position: relative; color: #333333; font-weight: bold;}
+#simplenews-subscriptions-page-form #edit-subscriptions {border: none;}
+#simplenews-subscriptions-page-form #edit-subscriptions #edit-new {font-size: 11px; margin: 25px 0 0 0;}
+#simplenews-subscriptions-page-form input#reset:hover {text-decoration: underline;}
+#simplenews-subscriptions-page-form input#reset {font-size: 11px; background: none; border: none; border-right: 1px solid #999999; color: #333333; position: absolute; right: 60px; bottom: 20px; margin-right: 10px; padding-right: 10px;}
+#simplenews-subscriptions-page-form input#edit-update {position: absolute; bottom: 18px; right: 20px; font-size: 9px;}
+.page-newsletter #columns fieldset {border:0 none; margin:0; padding:20px 35px; background:#edefef;}
+.page-newsletter #columns fieldset .fieldset-description {color:#333; font-weight:bold;}
+.page-newsletter #columns fieldset #edit-newsletters .fequency { width: 100%; overflow: hidden;clear: both;}
+.page-newsletter #columns fieldset #edit-newsletters .fequency .form-item {float:left; width:35%; margin: 0;}
+.page-newsletter #columns fieldset #edit-newsletters .fequency .form-item-newsletters-54, .page-newsletter #columns fieldset #edit-newsletters .fequency .form-item-newsletters-52 { margin-right: 5%; }
+.page-newsletter #columns fieldset #edit-newsletters .category_label { display: inline-block; margin: 0; margin-top: 10px; }
+#simplenews-subscriptions-page-form .form-item-newsletters-4{margin-top: 3%;}
+.page-newsletter #columns fieldset #edit-newsletters .form-item-newsletters-50 {margin-top: 3%;}
 
-  /*newsletter page css end*/
+/*newsletter page css end*/
 
-  #edit-tid-wrapper .jcarousel-skin-default .jcarousel-container-horizontal, #edit-tid-wrapper .jcarousel-skin-default .jcarousel-clip-horizontal {width:580px; height:65px; overflow: hidden;}
+#edit-tid-wrapper .jcarousel-skin-default .jcarousel-container-horizontal, #edit-tid-wrapper .jcarousel-skin-default .jcarousel-clip-horizontal {width:580px; height:65px; overflow: hidden;}
 
-  /*#edit-tid-wrapper .jcarousel-skin-default ul.jcarousel-list {height:auto; width:1720px !important;}*/
-  #edit-tid-wrapper .jcarousel-skin-default .jcarousel-item {
-      background: none repeat scroll 0 0 transparent;
-      border:0 none;
-      height: auto;
-      list-style: none outside none;
-      overflow: hidden;
-      /*padding:3px 3px 0 3px;*/
-      width:185px;
-      display:inline;
-      font-weight:bold;}
+/*#edit-tid-wrapper .jcarousel-skin-default ul.jcarousel-list {height:auto; width:1720px !important;}*/
+#edit-tid-wrapper .jcarousel-skin-default .jcarousel-item {
+  background: none repeat scroll 0 0 transparent;
+  border:0 none;
+  height: auto;
+  list-style: none outside none;
+  overflow: hidden;
+  /*padding:3px 3px 0 3px;*/
+  width:185px;
+  display:inline;
+  font-weight:bold;}
   #edit-tid-wrapper .jcarousel-skin-default .jcarousel-item a {color:#000000; float: left; text-align: left; width: 180px; overflow: hidden; padding: 3px; clear: both; font-size: 12px; display: inline-block; height: 15px;}
   #edit-tid-wrapper .jcarousel-skin-default .jcarousel-item a.active-tag {color: #E37222;}
   #edit-tid-wrapper .jcarousel-skin-default .jcarousel-item .form-type-bef-link {height:18px; font-size:12px; text-align: left;}
@@ -134,4 +134,48 @@
   }
   /*hide jw player logo*/
   #content .jwplayer .jwlogo{display: none !important;}
+
+
+  /** Parent Site Main menu**/
+.block-superfish ul {
+    background: none repeat scroll 0 0 #F5F5F5;
+    margin: 0;
+    padding: 1em 2em;
+}
+.sf-menu-main-navigation a.sf-depth-1{
+  background: #333;
+  color: #fff;
+}
+#superfish-1 li.sf-depth-1{
+  margin: 0 1px !important ;
+}
+.sf-menu-main-navigation a.sf-depth-1:hover{
+  background: #002664;
+}
+#superfish-1 a.sf-depth-2{
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #DADADA;
+    color: #002664;
+    height: 5em;
+    line-height: 1.5em;
+    padding: 0.5em ;
+    white-space: normal ;
+}
+#superfish-1 a.sf-depth-2:hover{
+  border: 1px solid #c1c1c1;
+}
+.sf-menu-main-navigation .sf-description{
+     color: #666666;
+    display: inline-block;
+}
+.sf-menu-main-navigation li.sf-depth-1 ul{
+   /* max-width: 62em;*/
+    width: 64em !important;
+}
+#superfish-1 li.sf-depth-1 ul li {
+    display: inline-block ;
+    float: left ;
+    margin: 0.5em 1em ;
+    width: 15em;
+}
 }
