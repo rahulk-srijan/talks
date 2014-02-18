@@ -1,7 +1,6 @@
 @media screen and (min-width: 701px) {
-// _base.scss imports _custom.scss (variables and mixins) and other partials.
-@import "base";
-@import "compass";
+  @import "base";
+  @import "compass";
 
 /**********************************
 ***********Mixins******************
@@ -465,21 +464,30 @@ ul.menu li.last a {
  }
 }
 
+#block-system-main {
+  .body {
+    line-height: 15px;
+    margin-left: 14px;
+    margin-right: 15px;
+  }
+}
 .node-upload-video {
-  .field-type-taxonomy-term-reference, .upload-video, .node-statistics {
+  .field-type-taxonomy-term-reference, 
+  .upload-video, .node-statistics {
     margin-bottom: 5px;
     margin-top: 5px;
   }
-  .node-statistics{
-    .views-field-totalcount, ,views-field-count{
-      display: inline-block;
-      margin-right: 0.6em;
-    }
-  }
+
   .share {
     left: 345px;
     position: relative;
     top: -20px;
+  }
+}
+.node-statistics{
+  .views-field-totalcount, ,views-field-count{
+    display: inline-block;
+    margin-right: 0.6em;
   }
 }
 .node-author{
@@ -489,10 +497,43 @@ ul.menu li.last a {
   strong {
     color: a__headerlinks;
   }
-  field.field-name-field-author{
+  .field-name-field-author{
     display: inline-block;
     margin: 5px 0;
   }
+}
+.node-upload-video {
+  .category{
+   margin-left: 12px;
+   margin-top: 10px;
+ }
+ .tags {
+  margin-left: 12px;
+  h2{
+    float: left;
+    margin: 0;
+    display: inline-block;
+  }
+  ul.field-items {
+    display: inline-block;
+    float: left;
+    margin: 0;
+    padding: 0;
+    width: 450px;
+    li{
+         border-left: 1px solid #999999;
+    display: inline;
+    list-style: none outside none;
+    margin-left: 5px;
+    padding: 0 0 0 5px;
+    }
+    li:first-child {
+    border: medium none;
+    padding-left: 0;
+    }
+  }
+
+
 }
 .node-statistics-like {
   display: inline-block;
@@ -719,7 +760,7 @@ ul.menu li.last a {
 }
 .content-inner{
   #main-content {
-    margin: 16px 0 0 24px;
+    margin: 16px 0 0 0;
   }
 }
 

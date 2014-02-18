@@ -638,8 +638,8 @@
   .block-superfish .block-inner .content {}
 
   .block-superfish ul {
-    margin: 0 !important;
-    padding: 0 !important;
+    margin: 0;
+    padding: 0;
   }
 
   .block-superfish ul ul {}
@@ -649,8 +649,6 @@
   .block-superfish ul ul ul ul {}
 
   .block-superfish li {
-    margin: 0 !important;
-    padding: 0 !important;
   }
 
   /*
@@ -733,7 +731,7 @@
 
   ul.menu li.first,
   ul.menu li.last a {
-    border: none !important;
+    border: none ;
   }
 
   /* If li.content exists it's a problem, so reset the padding */
