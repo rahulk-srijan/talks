@@ -143,14 +143,14 @@ $site_name = '<a href=' . $url_front . '>Video Library</a>';
         endif; ?>
 <?php if ($secondary_navigation): print $secondary_navigation;
 endif; ?>-->
-
+<?php print render($page['help']); ?>
 <!-- Breadcrumbs -->
 <?php if ($breadcrumb): print $breadcrumb;
 endif; ?>
 
 <!-- Messages and Help -->
 <?php print $messages; ?>
-<?php print render($page['help']); ?>
+
 
 <!-- region: Secondary Content -->
 <?php print render($page['secondary_content']); ?>

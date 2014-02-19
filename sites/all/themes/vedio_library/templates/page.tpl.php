@@ -97,6 +97,10 @@ global $library_subsite_variable;
 $url_front = url($subsite_home_page_url);
 
 
+
+
+$site_name ='<a href='.$url_front.'>'.$library_subsite_variable[$subsite_home_page_url]['site_name'].'</a>';
+
 $site_name ='<a href='.$url_front.'><img src="'.$base_url.'/'.path_to_theme().'/title_'.$subsite_home_page_url.'.png" title="'.$library_subsite_variable[$subsite_home_page_url]['site_name'].'" alt="'.$library_subsite_variable[$subsite_home_page_url]['site_name'].'"/></a>';
 $site_logo = '<a href="'.$url_front.'">'. strip_tags($site_logo, '<img>').'</a>';
 ?>
@@ -145,13 +149,13 @@ $site_logo = '<a href="'.$url_front.'">'. strip_tags($site_logo, '<img>').'</a>'
 <?php print render($page['menu_bar']); ?>
   <!--<?php if ($primary_navigation): print $primary_navigation; endif; ?>
   <?php if ($secondary_navigation): print $secondary_navigation; endif; ?>-->
-
+  <?php print render($page['help']); ?>
   <!-- Breadcrumbs -->
   <?php if ($breadcrumb): print $breadcrumb; endif; ?>
 
   <!-- Messages and Help -->
   <?php print $messages; ?>
-  <?php print render($page['help']); ?>
+  
 
   <!-- region: Secondary Content -->
   <?php print render($page['secondary_content']); ?>
