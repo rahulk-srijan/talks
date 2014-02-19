@@ -1,7 +1,7 @@
 /*var inNum;
  var outNum;
  var COOKIE_NAME = "my_carousel_position";
- 
+
  // MANAGE COOKIES
  function setCookie(cName, cValue, cDaysNum)
  {
@@ -10,12 +10,12 @@
  jQuery.cookie(cName, cValue, {  expires: date });
  return false;
  }
- 
+
  function getCookie(cName)
  {
  return jQuery.cookie(cName);
  }
- 
+
  function delCookie(cName)
  {
  date = "Thu, 01-Jan-70 00:00:01 GMT";
@@ -23,18 +23,18 @@
  return false;
  }
  // END MANAGE COOKIES
- 
+
  function mycarousel_itemVisibleOutCallback(carousel, item, i, state, evt)
  {
  outNum = i;
  setPosition();
  };
- 
+
  function mycarousel_itemVisibleInCallback(carousel, item, i, state, evt)
  {
  inNum = i;
  };
- 
+
  // calculate first visible item
  function getFirstVisibleItemId(inNum, outNum)
  {
@@ -44,7 +44,7 @@
  }
  return minVal;
  }
- 
+
  //set new carousel position in cookie
  function setPosition()
  {
@@ -54,7 +54,7 @@
  setCookie(COOKIE_NAME, value, 1);
  }
  }
- 
+
  //retrieves carousel position from cookie
  function getPosition()
  {
@@ -97,7 +97,7 @@ jQuery('document').ready(function() {
     //     jQuery("body.page-my-playlist a.flag").text("Remove");
     //   }
     // });
-
+    tooglechild();
     carousel();
     activetag();
     trigger();
@@ -148,7 +148,7 @@ function toggleControls() {
       e.stopPropagation(); // stop document clicking and hiding dropdown.
       //return false;
     });
-   
+
 }
 
 function sort_autosubmit() {
@@ -178,7 +178,7 @@ function mobileTweaks() {
 
     search_trim();
 
-    
+
 
     // Featured Height
     featHeight();
@@ -329,7 +329,7 @@ function popupModal(triggerLink, modalBlock) {
         });
         //Center modal window
         jQuery(modalBlock).css("top", (jQuery(window).height() - modalHeight) / 2 - 10 + "px");
-        // jQuery(modalBlock).css("top", (jQuery(window).height()-modalHeight)/2 + "px"); 
+        // jQuery(modalBlock).css("top", (jQuery(window).height()-modalHeight)/2 + "px");
         jQuery(modalBlock).css("max-height", jQuery(window).height());
         jQuery(modalBlock).css("overflow", "auto");
         if (parseInt(jQuery(modalBlock).css("top")) < 0) {
@@ -383,7 +383,7 @@ function menuMobile() {
     jQuery("li.expanded").toggleClass("collapsed");
     jQuery("li.expanded").toggleClass("expanded");
 
-    jQuery(".nav-btn").click(function() {        
+    jQuery(".nav-btn").click(function() {
         //jQuery(".mobile-menu-common > ul.menu").slideToggle("fast");
         jQuery("#block-menu-menu-main-menu-mobile > ul.menu,#block-menu-menu-main-menu-mobile-ops > ul.menu,#block-menu-menu-main-menu-mobile-bto > ul.menu").slideToggle("fast");
         jQuery("#lightbox2-overlay").toggle();
@@ -629,4 +629,27 @@ function toogleSearch() {
         jQuery(".mobile-search").toggleClass("unpressed");
     });
 }
- 
+function tooglechild() {
+        //$('.applytoggle_title, .block-tellafriend').click(function() {
+        //jQuery('#block-views-child-library-block-block-2, #block-views-child-library-block-block-5').toggle();
+        //jQuery('#block-views-child-library-block-block-4, #block-views-child-library-block-block-1').toggle();
+        //jQuery('#block-views-child-library-block-block, #block-views-child-library-block-block-3').toggle();
+}
+
+var value = null; //set a default value
+
+setTimeout( function(){
+     value =  jQuery('#block-views-child-library-block-block, #block-views-child-library-block-block-3').toggle();
+}, 10000); //5 seconds
+setTimeout();
+
+setTimeout( function(){
+     value =  jQuery('#block-views-child-library-block-block-4, #block-views-child-library-block-block-1').toggle();
+}, 12000); //5 seconds
+setTimeout();
+
+setTimeout( function(){
+     value =  jQuery('#block-views-child-library-block-block-2, #block-views-child-library-block-block-5').toggle();
+}, 14000); //5 seconds
+setTimeout();
+
