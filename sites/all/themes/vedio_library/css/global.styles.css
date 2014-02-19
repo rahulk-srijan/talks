@@ -475,6 +475,10 @@
     padding-top: 5px;
   }
 
+  .region-sidebar-first .block-videolibrary-core .block-content.content {
+    padding-top: 0px;
+  }  
+
   .region-sidebar-first .block-content ul {
     padding: 0px;
   }
