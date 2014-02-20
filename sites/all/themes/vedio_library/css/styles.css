@@ -398,14 +398,15 @@ font-size: 12px;
     margin: 63px 0 0;
 }
 #block-views-most-trending-block .block-content{
-  margin: 5px;
+    margin: 5px 8px 12px;
 }
 #block-views-most-trending-block h2{
- font-size: 14px;
-    margin: 2px 0 10px;
+   font-size: 14px;
+    margin: 8px 4px 10px;
 }
 #block-views-most-trending-block .views-field-field-upload-video{
   float: left;
+  margin-right: 4px;
 }
 #block-views-most-trending-block .image-style-vedio-thumbnail {
     float: left;
@@ -423,5 +424,9 @@ font-size: 12px;
 
 #block-views-most-trending-block .field-content .play-button {
     left: 27px;
+}
+#block-views-most-trending-block .views-row{
+   font-size: 11px;
+    margin: 6px 0;
 }
 }
