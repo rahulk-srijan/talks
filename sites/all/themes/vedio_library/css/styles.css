@@ -251,8 +251,7 @@ margin: 1em 4em 0 0;
   background: #808080;
 }
 .tertiary-left{
-  width: 550px;
-  margin-right: 20px;
+  width: 600px;
 }
 .tertiary-right{
   width: 325px;
@@ -289,9 +288,94 @@ font-weight: bold;
     width: 21%;
 }
 
+#block-views-global-popular-video-block .block-title,
+#block-block-35 h1 {
+    color: #868686;
+      margin-left: 1em;
+      font-size: 18px;
+}
 
+#block-views-global-popular-video-block .block-title{
+  margin-left: 1em;
+}
+.available_channels_block {
+    border: 1px solid #666666;
+    float: left;
+    margin: 12px;
+    width: 260px;
+}
+.available_channels_block .block-inner{
+/*  clear: both;*/
+}
+.available_channels_block .view-header{
+      background: none repeat scroll 0 0 #C9C9C9;
+    border-bottom: 1px solid #333333;
+    margin: 0 0 6px;
+    overflow: hidden;
+    padding: 5px 4px 3px;
+}
+.available_channels_block .view-content,
+.available_channels_block .view-footer{
+  margin: 0 10px;
+}
+.available_channels_block .view-header h4{
+  display: inline;
+  float: left;
+  margin: 0;
+}
+.available_channels_block .lib_count{
+  display: inline;
+    float: right;
+    font-size: 11px;
+    font-style: italic;
+    margin: 0;
+}
+.available_channels_block .views-field-field-upload-video .field-content {
+    border: 1px solid;
+    height: 148px;
+    position: relative;
+    width: 238px;
+}
+.available_channels_block .views-field-field-upload-video .field-content img{
+height: auto;
+    width: 238px;
+}
 
-
-
-
+.available_channels_block .views-field-totalcount ,
+.available_channels_block .views-field-count,
+.available_channels_block .views-field-comment-count{
+  color: #868686;
+    display: inline;
+    font-size: 11px;
+    margin: 0 4px;
+}
+.available_channels_block .views-field-totalcount {
+  margin-left: 12px;
+}
+.available_channels_block .views-field-totalcount ,
+.available_channels_block .views-field-count{
+   border-right: 1px solid #D1D1D1;
+    padding-right: 4px;
+}
+.available_channels_block .views-field-title{
+margin-top: 10px;
+}
+.available_channels_block .views-field-title a{
+  color: #000;
+}
+.available_channels_block .views-field-body p{
+margin: 0;
+font-size: 12px;
+}
+.available_channels_block .view-footer a{
+  font-size: 11px;
+  text-decoration: underline;
+}
+.available_channels_block  .field-content .play-button {
+    left: 100px;
+    opacity: 0.8;
+    position: absolute;
+    top: 50px;
+    width: 43px;
+}
 }
