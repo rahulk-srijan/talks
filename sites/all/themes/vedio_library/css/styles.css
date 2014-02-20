@@ -340,6 +340,10 @@ font-weight: bold;
 height: auto;
     width: 238px;
 }
+.available_channels_block .views-field-field-upload-video .field-content .play-button img{
+height: 43px;
+    width: 43px;
+}
 
 .available_channels_block .views-field-totalcount ,
 .available_channels_block .views-field-count,
@@ -377,5 +381,12 @@ font-size: 12px;
     position: absolute;
     top: 50px;
     width: 43px;
+}
+#block-block-35{
+  margin-bottom: 0;
+}
+.front .content-inner section#main-content,
+.front #content .block {
+    margin: 0;
 }
 }
