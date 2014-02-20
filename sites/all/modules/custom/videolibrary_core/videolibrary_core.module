@@ -154,13 +154,18 @@ function user_top_menu_link() {
         $content .='<li class="first">' . t('Welcome ') . '<a href="' . $profile_url . '" target="_blank">' . $user->name . '</a></li>';
         $content .='<li class="second"><a href="' . url('<front>') . '">My Notifications</a></li>';
 
-        $adminRoles = array("orginaction"=>"org web master", "opsinaction"=> "ops web master", "btoacademy" => "bto web master" ,"admin"=>"administrator");
+        $adminRoles = array("orginaction"=>"org web master", "opsinaction"=> "ops web master", "btoacademy" => "bto web master" ,"admin"=>"administrator","super admin"=>"super admin");
         $device = array('ipad', 'iphone');
         foreach ($adminRoles as $value=>$role) {
-            if (in_array($role, array_values($user->roles)) && !(bool) strpos($_SERVER['HTTP_USER_AGENT'], 'iPad') && !(bool) strpos($_SERVER['HTTP_USER_AGENT'], 'iPhone')) {
+            if (in_array($role, $user->roles) && !(bool) strpos($_SERVER['HTTP_USER_AGENT'], 'iPad') && !(bool) strpos($_SERVER['HTTP_USER_AGENT'], 'iPhone')) {
                     $lib_name = arg(0);
-                    if($lib_name == $value OR $user->roles=='administrator') {
+                    if($role=="super admin") {
+                        $content .='<li class="third">' . l("Admin", "admin/dashboard") . '</li>';
+                        break;
+                    }
+                    elseif($lib_name == $value OR $user->roles=='administrator') {
                         $content .='<li class="third">' . l("Admin", "admin/dashboard/". $value) . '</li>';
+                        break;
             }
         }
         }
