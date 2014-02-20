@@ -640,10 +640,10 @@ ul.sf-menu a:active {
 
 .block-superfish .block-inner .content {}
 
-.block-superfish ul {
-  margin: 0 !important;
-  padding: 0 !important;
-}
+  .block-superfish ul {
+    margin: 0;
+    padding: 0;
+  }
 
 .block-superfish ul ul {}
 
@@ -652,8 +652,6 @@ ul.sf-menu a:active {
 .block-superfish ul ul ul ul {}
 
 .block-superfish li {
-  margin: 0 !important;
-  padding: 0 !important;
 }
 
 /*
@@ -736,7 +734,7 @@ ul.menu li.active-trail a {}
 
 ul.menu li.first,
 ul.menu li.last a {
-  border: none !important;
+  border: none ;
 }
 
 /* If li.content exists it's a problem, so reset the padding */
@@ -1317,19 +1315,26 @@ ul.action-links li {}
   display: none;
 }
 
-#block-search-form .form-type-textfield input{
-  background: url("images/icon_search.png") no-repeat scroll 98% center #FFFFFF;
-  border: 1px solid #666666;
-  height: 24px;
-  margin-top: 13px;
-  padding: 0 10px;
-  width: 91.8%;
-  padding-top: 8px;
-}
-/*
- * "Shortcuts" block
- */
-#block-shortcut-shortcuts {}
+  #block-search-form .form-type-textfield input{
+    background: url("images/icon_search.png") no-repeat scroll 98% center #FFFFFF;
+    border: 1px solid #666666;
+    height: 32px;
+    margin-top: 13px;
+    padding: 0 10px;
+    width: 91.8%;
+    font-size: 12px;
+
+  }
+  #block-search-form .form-type-textfield input.defaultTextActive {
+       color: #999999;
+  }
+  #block-search-form .form-type-textfield input:focus{
+      outline: none;
+  }
+  /*
+   * "Shortcuts" block
+   */
+  #block-shortcut-shortcuts {}
 
 /*
  * "Popular content" block
