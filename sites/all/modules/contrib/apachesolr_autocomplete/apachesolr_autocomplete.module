@@ -39,6 +39,9 @@ function apachesolr_autocomplete_form_search_form_alter(&$form, $form_state) {
  * Implementation of hook_form_FORM_ID_alter().
  */
 function apachesolr_autocomplete_form_search_block_form_alter(&$form, $form_state) {
+  // ishan: temp code
+  global $subsite_home_page_url;
+  $_SESSION['current_path'] = $subsite_home_page_url;
   $element = &$form['search_block_form'];
   apachesolr_autocomplete_do_alter($element);
 }
@@ -303,9 +306,10 @@ function apachesolr_autocomplete_suggest($keys, $params, $theme_callback, $orig_
     $query->addParam($param, $paramValue);
   }
 
-  //var_dump($_SESSION['home_page']);exit();
+  //var_dump($_SESSION['current_path']);exit();
+  // ishan: temp code
   $default_filter_tid = default_filter_term_id_search();
-  $query->addFilter('im_field_library', $default_filter_tid[$_SESSION['home_page']]);
+  $query->addFilter('im_field_library', $default_filter_tid[$_SESSION['current_path']]);
 
   apachesolr_search_add_boost_params($query);
 
