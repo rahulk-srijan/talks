@@ -640,16 +640,13 @@ var value = null; //set a default value
 
 setTimeout( function(){
      value =  jQuery('#block-views-child-library-block-block, #block-views-child-library-block-block-3').toggle();
-}, 10000); //5 seconds
-setTimeout();
+}, 10000); //10 seconds
 
 setTimeout( function(){
      value =  jQuery('#block-views-child-library-block-block-4, #block-views-child-library-block-block-1').toggle();
-}, 12000); //5 seconds
-setTimeout();
+}, 12000); //12 seconds
 
 setTimeout( function(){
      value =  jQuery('#block-views-child-library-block-block-2, #block-views-child-library-block-block-5').toggle();
-}, 14000); //5 seconds
-setTimeout();
+}, 14000); //14 seconds
 
