@@ -252,6 +252,15 @@ else {
     return;
 }
 }
+
+elseif ($form_id =='user_profile_form') {
+    //echo "<pre>";print_r($form['account']['roleassign_roles']['#options']);die();
+    global $user;
+    $current_user_roles = $user->roles;
+    $valid_roles = $form['account']['roleassign_roles']['#options'];
+    unset($current_user_roles["2"]);
+    $form['account']['roleassign_roles']['#options'] = $current_user_roles; 
+  }
 }
 
 function videolibrary_core_custom_theme() {
