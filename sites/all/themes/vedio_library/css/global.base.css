@@ -1671,7 +1671,7 @@
         box-sizing: border-box;
     }
 
- /* it is removed to subsite color css file 
+ /* it is removed to subsite color css file
  #views_slideshow_cycle_teaser_section_logging-block .views-field-message-render .title {
         float: left;
         -moz-box-sizing: border-box;
@@ -2587,3 +2587,7 @@ font-weight: bold;
         color: #E37222;
         font-size: 20px;
     }
+
+#block-views-child-library-block-block-3, #block-views-child-library-block-block-1 , #block-views-child-library-block-block-5{
+    display: none;
+}
