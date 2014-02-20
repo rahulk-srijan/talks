@@ -133,7 +133,6 @@ function category_menu() {
 }
 
 function user_top_menu_link() {
-
     global $library_subsite_variable;
     global $subsite_home_page_url;
     global $user;
@@ -158,7 +157,7 @@ function user_top_menu_link() {
         $device = array('ipad', 'iphone');
         foreach ($adminRoles as $value=>$role) {
             if (in_array($role, $user->roles) && !(bool) strpos($_SERVER['HTTP_USER_AGENT'], 'iPad') && !(bool) strpos($_SERVER['HTTP_USER_AGENT'], 'iPhone')) {
-                    $lib_name = arg(0);
+                    $lib_name = $subsite_home_page_url;
                     if($role=="super admin") {
                         $content .='<li class="third">' . l("Admin", "admin/dashboard") . '</li>';
                         break;
@@ -202,6 +201,9 @@ function videolibrary_core_views_query_alter(&$view, &$query) {
         // Adding OR condition for the contextual filters.
         $query->where[0]['type'] = 'OR';
         //dsm($query, 'after');
+    }
+    if($view->name=='global_popular_video') {
+       // dsm($view->query);
     }
 }
 
