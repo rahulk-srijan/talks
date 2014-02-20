@@ -277,7 +277,7 @@ function apachesolr_autocomplete_suggest_additional_term($keys, $suggestions_to_
 
   return $suggestions;
 }
-dfb(arg(1),'test2');
+
 
 function apachesolr_autocomplete_suggest($keys, $params, $theme_callback, $orig_keys, $suggestions_to_return = 5) {
   $matches = array();
