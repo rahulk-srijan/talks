@@ -174,8 +174,6 @@ function user_top_menu_link() {
     $content .='
 <li class="last hidden-phone"><a href="mailto:' . $mail_to . '?Subject=' . $subject . '&body=' . $msg . '">
 Suggest a Video</a></li>
-<li class="feedback"><a href="mailto:someemail@McKinsey.com?Subject=Feedback&body=Please share your feedback">
-Feedback</a></li>
 <li class="last"><a href="#">How to suggest a video</a>
 <div class="modal">
   <div class="modal-header">
