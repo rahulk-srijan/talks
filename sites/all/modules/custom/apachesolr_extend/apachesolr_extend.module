@@ -68,7 +68,7 @@ function apachesolr_extend_apachesolr_query_prepare(DrupalSolrQueryInterface &$q
     $query->addParam('fl', 'ds_created');
 
     //pass default search library tid
-    if($subsite_home_page_url!='global') {
+    if($subsite_home_page_url!=Null) {
     $default_filter_tid = default_filter_term_id();
     $query->addFilter('im_field_library', $default_filter_tid[$subsite_home_page_url]);
     }
