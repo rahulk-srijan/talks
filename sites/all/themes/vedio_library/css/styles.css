@@ -204,9 +204,15 @@
   margin-top: 2em;
 }
 .video-title a{
-   color: #666666;
-    font-size: 1.1em;
-    font-weight: bold;
+    color: #666666;
+    font-family: georgia,serif;
+    font-size: 19px;
+    font-weight: normal;
+    line-height: 21px;
+}
+.video-body{
+  font-size: 11px;
+  margin: 6px 0 0;
 }
 .pl-bn{
   position: relative;
@@ -319,9 +325,11 @@ font-weight: bold;
   margin: 0 10px;
 }
 .available_channels_block .view-header h4{
-  display: inline;
-  float: left;
-  margin: 0;
+   display: inline;
+    float: left;
+    font-size: 12px;
+    font-weight: normal;
+    margin: 0;
 }
 .available_channels_block .lib_count{
   display: inline;
@@ -331,7 +339,6 @@ font-weight: bold;
     margin: 0;
 }
 .available_channels_block .views-field-field-upload-video .field-content {
-    border: 1px solid;
     height: 167px;
     position: relative;
     width: 268px;
@@ -362,14 +369,18 @@ height: 43px;
     padding-right: 4px;
 }
 .available_channels_block .views-field-title{
-margin-top: 10px;
+   font-family: georgia;
+    font-size: 1em;
+    font-weight: normal;
+    line-height: 21px;
+    margin-top: 10px;
 }
 .available_channels_block .views-field-title a{
   color: #000;
 }
 .available_channels_block .views-field-body p{
 margin: 0;
-font-size: 12px;
+font-size: 11px;
 }
 .available_channels_block .view-footer a{
   font-size: 11px;
