@@ -66,11 +66,10 @@ function apachesolr_extend_apachesolr_query_prepare(DrupalSolrQueryInterface &$q
     $query->addParam('fl', 'is_number_of_like');
     $query->addParam('fl', 'is_total_node_views');
     $query->addParam('fl', 'ds_created');
-    
-    //pass default search library tid
-    $default_filter_tid = default_filter_term_id();
-    $query->addFilter('im_field_library', $default_filter_tid[$subsite_home_page_url]);
 
+    //pass default search library tid
+//    $default_filter_tid = default_filter_term_id();
+//    $query->addFilter('im_field_library', $default_filter_tid[$subsite_home_page_url]);
     // $query->set_available_sort('ds_created', array('title' => t('Latest'), 'default' => 'desc'));
     //  $query->removeAvailableSort('score');
     $query->setAvailableSort('ds_created', array('title' => t('Newest Additions'), 'default' => 'desc'));
@@ -90,7 +89,7 @@ function apachesolr_extend_apachesolr_query_prepare(DrupalSolrQueryInterface &$q
 function apachesolr_extend_apachesolr_query_alter(DrupalSolrQueryInterface $query) {
     $lower_key = strtolower($query->getParam('q'));
     $query->replaceParam('q', $lower_key);
-    
+
     $query->addParam('fl', 'ts_field_upload_video');
     $query->addParam('fl', 'is_comment_count');
     $query->addParam('fl', 'is_number_of_like');
@@ -354,7 +353,7 @@ function highlightWords($string, $term) {
 
 
 /**
- * 
+ *
  * @return default filter term id for default search
  */
 function default_filter_term_id(){
