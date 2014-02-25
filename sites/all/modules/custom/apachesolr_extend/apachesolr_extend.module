@@ -72,6 +72,7 @@ function apachesolr_extend_apachesolr_query_prepare(DrupalSolrQueryInterface &$q
     $default_filter_tid = default_filter_term_id();
     $query->addFilter('im_field_library', $default_filter_tid[$subsite_home_page_url]);
     }
+
     // $query->set_available_sort('ds_created', array('title' => t('Latest'), 'default' => 'desc'));
     //  $query->removeAvailableSort('score');
     $query->setAvailableSort('ds_created', array('title' => t('Newest Additions'), 'default' => 'desc'));
