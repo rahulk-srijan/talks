@@ -19,7 +19,7 @@ function simplenews_extend_menu() {
 }
 
 /**
- * 
+ *
  * @global type $daily
  */
 function newsletterSubscriptions_daily($frequency) {
@@ -128,7 +128,7 @@ function newsletterSubscriptions_daily($frequency) {
                 }
 
                 if (in_array($all_video_cat_tid, $cat_tid)) {
-                    
+
                 } else {
 
                     $body_mail_content_cat_views = views_embed_view('newsletter_mail', 'page_2', implode(',', $nids), implode(",", $cat_tid));
@@ -153,7 +153,7 @@ function newsletterSubscriptions_daily($frequency) {
         }//end foreach loop
     } else {
         return t(' No Subscriber For This Newsletter');
-       
+
     }
 }
 
@@ -169,7 +169,7 @@ function newsletterSubscriptions_daily($frequency) {
 
 //   if (isset($term->tid) && $term->vid == 2 && $term->op == 'Save') {
 // print_r($term);
-//exit(); 
+//exit();
 // db_update('simplenews_category' , array('tid'=>$term->tid, 'my_weight'=>$term->weight));
 //   $result = db_query("UPDATE {simplenews_category} SET my_weight = :weight WHERE tid = :tid", array('tid' => $term->tid, 'weight' => $term->weight));
 //$term_status = findNewslettertid($term->tid);
@@ -197,14 +197,16 @@ function newsletterSubscriptions_daily($frequency) {
 // }
 //}
 
-function simplenews_extend_taxonomy_term_insert($term) {
-    if (isset($term->tid) && $term->vid == 2 && $term->op == 'Save') {
+function simplenews_extend_taxonomy_term_update($term) {
+    $vids =array(2,5);
+    $vid= $term->vid;
+    if (isset($term->tid) && in_array($vid,$vids) && $term->op == 'Save') {
         $address_default = variable_get('site_mail', ini_get('sendmail_from'));
         $name_default = variable_get('site_name', 'Drupal');
         $address = variable_get('simplenews_from_address', $address_default);
         $name = variable_get('simplenews_from_name', $name_default);
         //get taxonomy weight
-        $term_weight = db_query("Select max(weight) from {taxonomy_term_data} where vid =:vid", array(':vid' => 2))->fetchField() + 1;
+        $term_weight = db_query("Select max(weight) from {taxonomy_term_data} where vid =:vid", array(':vid' => $vid))->fetchField() + 1;
         db_insert('simplenews_category')->fields(array(
             'tid' => $term->tid,
             'format' => 'html',
@@ -247,7 +249,7 @@ function findNewslettertid($tid) {
  * @param type $form
  * @param type $form_state
  * @param type $form_id
- * 
+ *
  */
 function simplenews_extend_form_alter(&$form, &$form_state, $form_id) {
     // drupal_set_message($form_id);  // print form ID to messages
@@ -367,9 +369,9 @@ function find_user_commented_nid($uid) {
 
 /**
  * Implementation of hook_mail().
- * 
+ *
  * A very simple hook_mail() implementation, for module "mymodule".
- * This implementation expects to receive a $body, $subject, and $headers 
+ * This implementation expects to receive a $body, $subject, and $headers
  * inside the $params sent from drupal_mail(), rather than construct
  * those here in the hook.
  * @see drupal_mail()
@@ -385,24 +387,24 @@ function simplenews_extend_mail($key, &$message, $params) {
         $message['headers'] += $params['headers'];
     }
 
-    // You should really have hook_mail() doing most of the formatting, 
-    // rather than pass in a complete $body or a $subject from drupal_mail().  
+    // You should really have hook_mail() doing most of the formatting,
+    // rather than pass in a complete $body or a $subject from drupal_mail().
     // To accomplish that, you'd branch this formatting based on the value of
     // $key sent with drupal_mail(), and using code like this:
     // switch ($key) {
     //  case 'key1':
     //    // do something specific for mails of type key1
-    //    break;      
+    //    break;
     //  case 'key2':
     //    // do something specific for mails of type key2
     //    break;
     // }
     // That's it - You don't do anything in your hook_mail() to actually
-    // send the mail, that is taken care of by the mail system automatically. 
+    // send the mail, that is taken care of by the mail system automatically.
 }
 
 /**
- * 
+ *
  * @param type $snid
  * @return type
  */
@@ -428,7 +430,7 @@ function subscriber_category($snid) {
 }
 
 /**
- * 
+ *
  * @param type $snid
  * @return type
  */
@@ -497,7 +499,7 @@ function findFrequency_user($frequency, $snid) {
 
 function menu_save_alter($term) {
 
-    //get menu weight 
+    //get menu weight
     $weight = db_query("SELECT MAX( weight ) FROM  {menu_links} WHERE plid =1004")->fetchField() + 1;
 
     $plid = db_query("SELECT mlid FROM {menu_links} where mlid='1004'")->fetchField();

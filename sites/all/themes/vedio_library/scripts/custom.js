@@ -109,12 +109,19 @@ jQuery('document').ready(function() {
     checkedAllCategory();
     addLabel();
     sort_autosubmit();
+    addChildNewsText();
     toogleSearch()
+
     if (jQuery(window).width() < 700)
         mobileTweaks();
 
     defaultText();
 });
+
+function addChildNewsText() {
+    alert('helo');
+    jQuery("#edit-newsletters .form-item-newsletters-455" ).prepend( "<p class='fieldset-description'>Select subscription for child libraries.</p>" );
+}
 
 function toggleControls() {
     jQuery(".category-filter-toggle .filter-search-facet").click(function() {
