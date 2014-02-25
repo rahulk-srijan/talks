@@ -640,7 +640,7 @@ var value = null; //set a default value
 
 setInterval( function(){
      value =  jQuery('#block-views-child-library-block-block, #block-views-child-library-block-block-3').toggle();
-}, 10000); //10 seconds
+}, 14000); //14 seconds
 
 setInterval( function(){
      value =  jQuery('#block-views-child-library-block-block-4, #block-views-child-library-block-block-1').toggle();
@@ -648,5 +648,5 @@ setInterval( function(){
 
 setInterval( function(){
      value =  jQuery('#block-views-child-library-block-block-2, #block-views-child-library-block-block-5').toggle();
-}, 14000); //14 seconds
+}, 10000); //10 seconds
 
