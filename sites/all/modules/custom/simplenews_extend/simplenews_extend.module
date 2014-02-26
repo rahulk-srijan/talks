@@ -198,7 +198,7 @@ function newsletterSubscriptions_daily($frequency) {
 //}
 
 function simplenews_extend_taxonomy_term_update($term) {
-    $vids =array(2,5);
+    $vids =array(2,5,6,7);
     $vid= $term->vid;
     if (isset($term->tid) && in_array($vid,$vids) && $term->op == 'Save') {
         $address_default = variable_get('site_mail', ini_get('sendmail_from'));
@@ -273,15 +273,41 @@ function simplenews_extend_form_alter(&$form, &$form_state, $form_id) {
     if ($form_id == 'taxonomy_overview_terms') {
         //update the simple news category weight
         if ($form['#vocabulary']->vid == 2 && $form['actions']['submit']['#value'] == 'Save') {
+            $weight = db_query('SELECT my_weight FROM {simplenews_category} WHERE tid=:tid', array(':tid'=>455))->fetchField();
             foreach ($form as $val) {
                 $term = array_shift($val);
                 //update newsletter category weight
-                db_query("UPDATE {simplenews_category} SET my_weight = :weight WHERE tid = :tid", array(':tid' => $term['tid'], ':weight' => $term['weight']));
+                $weight= $weight +1;
+                db_query("UPDATE {simplenews_category} SET my_weight = :weight WHERE tid = :tid", array(':tid' => $term['tid'], ':weight' => $weight));
 
 
                 //update menu weight
                 $link_path = 'taxonomy/term/' . $term['tid'];
                 db_query("UPDATE {menu_links} SET weight = :weight WHERE link_path = :link_path AND plid = 1004", array(':link_path' => $link_path, ':weight' => $term['weight']));
+            }
+        }
+        if ($form['#vocabulary']->vid == 6 && $form['actions']['submit']['#value'] == 'Save') {
+             $weight = db_query('SELECT my_weight FROM {simplenews_category} WHERE tid=:tid', array(':tid'=> 456))->fetchField();
+            foreach($form as $val) {
+                  $term = array_shift($val);
+                $weight = $weight + 1;
+                db_query("UPDATE {simplenews_category} SET my_weight = :weight WHERE tid = :tid", array(':tid' => $term['tid'], ':weight' => $weight));
+            }
+        }
+        if ($form['#vocabulary']->vid == 7 && $form['actions']['submit']['#value'] == 'Save') {
+             $weight = db_query('SELECT my_weight FROM {simplenews_category} WHERE tid=:tid', array(':tid'=> 457))->fetchField();
+            foreach($form as $val) {
+                  $term = array_shift($val);
+                $weight = $weight + 1;
+                db_query("UPDATE {simplenews_category} SET my_weight = :weight WHERE tid = :tid", array(':tid' => $term['tid'], ':weight' => $weight));
+            }
+        }
+        if ($form['#vocabulary']->vid == 5 && $form['actions']['submit']['#value'] == 'Save') {
+            $weight =0;
+            foreach($form as $val) {
+                  $term = array_shift($val);
+                $weight = $weight + 100;
+                db_query("UPDATE {simplenews_category} SET my_weight = :weight WHERE tid = :tid", array(':tid' => $term['tid'], ':weight' => $weight));
             }
         }
     }
@@ -515,3 +541,4 @@ function menu_save_alter($term) {
     $mlid = menu_link_save($menu_item); // You don't need to receive it in a variable
     $ml = menu_link_load($mlid);
 }
+

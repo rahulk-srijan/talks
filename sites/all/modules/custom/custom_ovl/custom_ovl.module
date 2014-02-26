@@ -108,8 +108,8 @@ function custom_ovl_form_alter(&$form, &$form_state, $form_id) {
     //echo '<pre>';
     //print_r($form);
     //echo '</pre>';
-    //die(); 
-    //} 
+    //die();
+    //}
     if ($form_id == 'views_form_playlist_page_2') {
         //$form_state['redirect'] = '?destination=my-playlist';
         //echo '<pre>';
