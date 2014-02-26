@@ -72,8 +72,8 @@ global $subsite_home_page_url;
 <?php print $head; ?>
 <title><?php 
 global $subsite_home_page_url;
-//$head_title
-print $library_subsite_variable[$subsite_home_page_url]['site_name']; ?>
+global $library_subsite_variable;
+print $head_title_array["title"] . ' | ' . $library_subsite_variable[$subsite_home_page_url]['site_name']; ?>
 </title>
 <?php print $styles; ?>
 <?php print $scripts; ?>

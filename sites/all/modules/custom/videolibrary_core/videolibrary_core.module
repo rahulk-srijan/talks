@@ -158,7 +158,7 @@ function user_top_menu_link() {
     }
     if ($user->uid != 0) {
         $content .='<li class="first">' . t('Welcome ') . '<a href="' . $profile_url . '" target="_blank">' . $user->name . '</a></li>';
-        $content .='<li class="second"><a href="' . url('<front>') . '">My Notifications</a></li>';
+        $content .='<li class="second"><a href="' . url('newsletter/subscriptions') . '">My Notifications</a></li>';
 
         $adminRoles = array("orginaction"=>"org web master", "opsinaction"=> "ops web master", "btoacademy" => "bto web master" ,"admin"=>"administrator","super admin"=>"super admin");
         $device = array('ipad', 'iphone');
@@ -179,8 +179,10 @@ function user_top_menu_link() {
         $content .='<li class="first"><a href="' . url('user') . '">' . t('Login') . '</a></li>';
     }
     $content .='
-<li class="last hidden-phone"><a href="mailto:' . $mail_to . '?Subject=' . $subject . '&body=' . $msg . '">
+<li class="last hidden-phone"><a href="mailto:?Subject=Feedback will be great&body=">
 Suggest a Video</a></li>
+<li class="feedback"><a href="mailto:?Subject=' . $subject . '&body=' . $msg . '">
+Feedback</a></li>
 <li class="last"><a href="#">How to suggest a video</a>
 <div class="modal">
   <div class="modal-header">
@@ -209,9 +211,22 @@ function videolibrary_core_views_query_alter(&$view, &$query) {
         $query->where[0]['type'] = 'OR';
         //dsm($query, 'after');
     }
-    if($view->name=='global_popular_video') {
-       // dsm($view->query);
-    }
+}
+
+function videolibrary_core_views_pre_render(&$view) {
+  if($view->name=='global_popular_video') {
+    // Get most popular from 1st library
+    $result1 = $view->result;
+    // Get most popular from 2nd library
+    $result2 = views_get_view_result('global_popular_video', $display_id = 'block_1');
+    // Get most popular from 3rd library
+    $result3 = views_get_view_result('global_popular_video', $display_id = 'block_2');
+    // Merge the result arrays
+    $new_double = array_merge($result1, $result2);
+    $new_triple = array_merge($new_double, $result3);
+    // Final result array is a combination of the 2 libraries
+    $view->result = $new_triple;
+  }
 }
 
 function videolibrary_core_form_alter(&$form, &$form_state, $form_id) {
