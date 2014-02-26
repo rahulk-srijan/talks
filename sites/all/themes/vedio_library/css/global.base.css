@@ -969,7 +969,7 @@
         display: none;
     }
 
-    #views_slideshow_controls_text_previous_featured_vedios-block a{
+  /*  #views_slideshow_controls_text_previous_featured_vedios-block a{
         background: url(images/arrow-l.png) no-repeat;
         text-indent: -9999em;
         height: 21px;
@@ -983,7 +983,7 @@
         height: 23px;
         width: 23px;
         display:inline-block;
-    }
+    }*/
     #views_slideshow_cycle_teaser_section_featured_vedios-block {
         z-index: 1;
     }
