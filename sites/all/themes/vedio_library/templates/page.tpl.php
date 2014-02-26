@@ -134,19 +134,20 @@ $site_logo = '<a href="'.$url_front.'">'. strip_tags($site_logo, '<img>').'</a>'
   <h2<?php print $site_slogan_attributes; ?>><?php print $site_slogan; ?></h2>
 
 <?php endif; ?>
-<?php print render($page['menu_top']); ?>
+
 </hgroup><!-- /end #name-and-slogan -->
 <?php endif; ?>
-
+<div class="clear"></div>
 </div><!-- /end #branding -->
 <?php endif; ?>
-
+<?php print render($page['menu_top']); ?>
 <!-- region: Header -->
 <?php print render($page['header']); ?>
+<?php print render($page['menu_bar']); ?>
 </header>
 
 <!-- Navigation elements -->
-<?php print render($page['menu_bar']); ?>
+
   <!--<?php if ($primary_navigation): print $primary_navigation; endif; ?>
   <?php if ($secondary_navigation): print $secondary_navigation; endif; ?>-->
   <?php print render($page['help']); ?>

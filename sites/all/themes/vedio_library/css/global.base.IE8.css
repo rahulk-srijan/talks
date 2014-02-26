@@ -623,17 +623,17 @@ header[role=banner],
     outline: 0;
 }
 
-#name-and-slogan #site-name a:hover {
-    text-decoration: none;
-}
-/* Hide content from all users */
-.element-hidden {
-    display: none;
-}
-/** custom css **/
-#logo {
-    float: right;
-}
+    #name-and-slogan #site-name a:hover {
+        text-decoration: none;
+    }
+    /* Hide content from all users */
+    .element-hidden {
+        display: none;
+    }
+    /** custom css **/
+    #logo {
+        /*        float: right;*/
+    }
 
 /** css for page background **/
 #page {
@@ -665,12 +665,12 @@ header[role=banner],
     background: white;
 }
 
-/**css for user menu **/
-#block-block-4 {
-    float: right;
-    margin-top: 30px;
-    margin-bottom: 0px;
-}
+    /**css for user menu **/
+    #block-block-4 {
+        float: right;
+        margin-bottom: 0;
+        margin-top: 6px;
+    }
 
 #block-block-4 .user {
     float: right;
@@ -968,24 +968,24 @@ left: 185px;
     display: none;
 }
 
-#views_slideshow_controls_text_previous_featured_vedios-block a{
-    background: url(images/arrow-l.png) no-repeat;
-    text-indent: -9999em;
-    height: 21px;
-    width: 23px;
-    display:inline-block;
-}
+  /*  #views_slideshow_controls_text_previous_featured_vedios-block a{
+        background: url(images/arrow-l.png) no-repeat;
+        text-indent: -9999em;
+        height: 21px;
+        width: 23px;
+        display:inline-block;
+    }
 
-#views_slideshow_controls_text_next_featured_vedios-block a  {
-    background: url(images/arrow-r.png) no-repeat;
-    text-indent: -9999em;
-    height: 23px;
-    width: 23px;
-    display:inline-block;
-}
-#views_slideshow_cycle_teaser_section_featured_vedios-block {
-    z-index: 1;
-}
+    #views_slideshow_controls_text_next_featured_vedios-block a  {
+        background: url(images/arrow-r.png) no-repeat;
+        text-indent: -9999em;
+        height: 23px;
+        width: 23px;
+        display:inline-block;
+        }*/
+        #views_slideshow_cycle_teaser_section_featured_vedios-block {
+            z-index: 1;
+        }
 
 .views-slideshow-pager-field-item.views_slideshow_pager_field_item.active .views-content-counter {
     background: url(images/pager-active.png) no-repeat;
@@ -1003,16 +1003,13 @@ left: 185px;
     display:inline-block;
 }
 
-/** slide show ends **/
-/** css for right side bar block view all front page**/
-#block-views-views-by-category-block{
-    margin-left:-15px
-    
-}
-#block-views-views-by-category-block .block-content.content{
-    padding-left: 0;
-    padding-top: 0;
-}
+        /** slide show ends **/
+        /** css for right side bar block view all front page**/
+
+        #block-views-views-by-category-block .block-content.content{
+            padding-left: 0;
+            padding-top: 0;
+        }
 
 #block-views-views-by-category-block .block-content.content li {
     padding-left: 25px;
@@ -1199,13 +1196,13 @@ left: 185px;
     margin-right: 63px;
 }
 
-.view-home-page-video-listing .views-field-title a,
-.view-listing-by-category .views-field-title a,
-.view-listing-by-tags .views-field-title a,
-.view-playlist .views-field-title a {
-    font-size: 0.85em;
-    color: #d65917;
-}
+        .view-home-page-video-listing .views-field-title a,
+        .view-listing-by-category .views-field-title a,
+        .view-listing-by-tags .views-field-title a,
+        .view-playlist .views-field-title a {
+            font-size: 0.85em;
+            color: #E37222;
+        }
 
 .view-playlist .views-field-ops {
     clear: both;
@@ -1297,9 +1294,9 @@ width: 100%;
     margin: 0;
 }
 
-#site-name a, .feat-videos-title a{
-    color: #d65b18;
-}
+    #site-name a, .feat-videos-title a{
+        color: #E37222;
+    }
 
 .feat-videos-title {
     font-size: 19px;
@@ -1342,11 +1339,12 @@ width: 100%;
     margin-top: 10px;
 }
 
-.node-upload-video .field-type-taxonomy-term-reference,
-.node-upload-video .upload-video,
-.node-upload-video .node-statistics {
-    margin-bottom: 5px;
-}
+    .node-upload-video .field-type-taxonomy-term-reference,
+    .node-upload-video .upload-video,
+    .node-upload-video .node-statistics {
+        margin-bottom: 5px;
+        margin-top: 5px;
+    }
 
 
 .views-slideshow-cycle-main-frame-row {

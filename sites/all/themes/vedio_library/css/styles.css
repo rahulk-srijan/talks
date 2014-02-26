@@ -137,6 +137,13 @@
 
 
   /** Parent Site Main menu**/
+
+#header {
+    background: url("images/header-g.jpg") no-repeat scroll 0 0 #002440;
+}
+
+
+  
   .block-superfish {
     position: relative;
     top: 6px;
@@ -243,8 +250,12 @@
   font-family: georgia,serif;
   line-height: 20px;
 }
-.video-body, .video-view{
+.video-body{
   font-size: 11px;
+}
+.video-view{
+  font-size: 11px;
+  font-weight: bold;
 }
 .video-body p{
   margin: 0;
@@ -296,7 +307,7 @@
 }
 .view-global-popular-video .views-slideshow-pager-fields{
  position: relative;
- left: 80px;}
+ left: 86px;}
  .views-slideshow-pager-field-item{
   display: inline-block;
 }

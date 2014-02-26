@@ -94,7 +94,6 @@ if (isset($_SERVER['HTTP_X_FORWARDED_FOR'])) {
 $url_front = url("<front>");
 global $base_url;
 global $subsite_home_page_url;
-$site_name = '<a href=' . $url_front . '>Video Library</a>';
 ?>
 <div id="page" class="container <?php print $classes; ?>">
     <div class="page-content">
@@ -126,19 +125,20 @@ $site_name = '<a href=' . $url_front . '>Video Library</a>';
     <h2<?php print $site_slogan_attributes; ?>><?php print $site_slogan; ?></h2>
 
 <?php endif; ?>
-<?php print render($page['menu_top']); ?>
+
 </hgroup><!-- /end #name-and-slogan -->
 <?php endif; ?>
-
+<div class="clear"></div>
 </div><!-- /end #branding -->
 <?php endif; ?>
-
+<?php print render($page['menu_top']); ?>
 <!-- region: Header -->
 <?php print render($page['header']); ?>
+<?php print render($page['menu_bar']); ?>
 </header>
 
 <!-- Navigation elements -->
-<?php print render($page['menu_bar']); ?>
+
         <!--<?php if ($primary_navigation): print $primary_navigation;
         endif; ?>
 <?php if ($secondary_navigation): print $secondary_navigation;

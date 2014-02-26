@@ -124,12 +124,12 @@ var {
 #page {}
 #page .container {}
 
-/*
- * Wraps all header elements - branding and .region-header
- */
-#header {
-  margin-left: 1%;
-}
+  /*
+   * Wraps all header elements - branding and .region-header
+   */
+  #header {
+ 
+  }
 
 /*
  * Wraps the sidebars the content column
@@ -245,19 +245,23 @@ var {
  *   Branding
  * ========================================================================== */
 
-/*
- * Wraps all the branding elements, logo, name and slogan
- */
-#branding {
-  margin: 0px;
-}
+  /*
+   * Wraps all the branding elements, logo, name and slogan
+   */
+  #branding {
+    float: left;
+    margin: 0;
+    width: 370px;
+  }
 
-/*
- * Logo
- */
-#logo {
-  padding: 10px 0;
-}
+  /*
+   * Logo
+   */
+  #logo {
+    float: left;
+    margin: 0 10px;
+    padding: 10px;
+  }
 
 #logo img {
   vertical-align: bottom;
@@ -265,11 +269,15 @@ var {
   top: 9px;
 }
 
-/*
- * Wrapper for the site name and slogan (hgroup)
- */
-#name-and-slogan {
-  clear: both;
+  /*
+   * Wrapper for the site name and slogan (hgroup)
+   */
+ #name-and-slogan {
+    float: left;
+}
+.region-menu-top{
+    float: right;
+    width: 540px;
 }
 
 /*
@@ -282,11 +290,12 @@ var {
   letter-spacing: -1px;
 }
 
-#site-name a {
-  /**font-family: ‘Metrophobic’, Arial, serif; font-weight: 400;**/
-  font-weight: 400;
-  font-size: 34px;
-}
+  #site-name a {
+    color: #FFFFFF;
+    font-family: helvetica,arial;
+    font-size: 24px;
+    font-weight: 400;
+  }
 
 #site-name a:link,
 #site-name a:visited {
@@ -469,10 +478,11 @@ ul.links li {
   color: #00ACEE;
 }
 
-.region-sidebar-first .block-content.content {
-  padding-left: 1.125em;
-  padding-bottom: 5px;
-}
+  .region-sidebar-first .block-content.content {
+    padding-left: 1.125em;
+    padding-bottom: 5px;
+    padding-top: 5px;
+  }
 
 .region-sidebar-first .block-videolibrary-core .block-content.content {
     padding-top: 0px;
@@ -1301,15 +1311,15 @@ ul.action-links li {}
  */
 #block-profile-author-information {}
 
-/*
- * "Search form" block
- */
-#block-search-form {
-  float: right;
-  margin-left:0px;
-  width: 42.2%;
-  margin-right: -0.8%;
-}
+  /*
+   * "Search form" block
+   */
+  #block-search-form {
+     float: right;
+    margin-left: 0;
+    margin-right: -0.8%;
+    width: 68%;
+  }
 
 #block-search-form #edit-actions, #block-search-form #edit-actions--2{
   display: none;
@@ -1901,8 +1911,12 @@ tr.error {}
   clear: both;
 }
 
-.comment_count {
-    color: #00ACEE;
-    float: left;
-    padding-right: 8px;
+  .comment_count {
+      color: #00ACEE;
+      float: left;
+      padding-right: 8px;
+  }
+}
+.search-results .category-filter-toggle .filter-pipe {
+  display: none;
 }
