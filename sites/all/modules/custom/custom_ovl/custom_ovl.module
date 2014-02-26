@@ -108,8 +108,8 @@ function custom_ovl_form_alter(&$form, &$form_state, $form_id) {
     //echo '<pre>';
     //print_r($form);
     //echo '</pre>';
-    //die(); 
-    //} 
+    //die();
+    //}
     if ($form_id == 'views_form_playlist_page_2') {
         //$form_state['redirect'] = '?destination=my-playlist';
         //echo '<pre>';
@@ -133,6 +133,7 @@ function custom_ovl_form_alter(&$form, &$form_state, $form_id) {
         //print_r($form_state);
     }
     if ($form_id == 'simplenews_subscriptions_page_form') {
+      dsm($form);
         $form['subscriptions']['#description'] = 'Select your email notification preferences';
         // $form['update']['#value'] = 'Save';
         $form['subscriptions']['new'] = array(
@@ -145,7 +146,9 @@ function custom_ovl_form_alter(&$form, &$form_state, $form_id) {
             '#markup' => 'Email Content',
             '#weight' => -3,
         );
-        /*  $form['subscriptions']['new_1'] = array(
+        $form['subscriptions']['newsletters']['#options'][456]=' All New Videos Added to opsinaction';
+        $form['subscriptions']['newsletters']['#options'][455]=' All New Videos Added to orgianction';
+        $form['subscriptions']['newsletters']['#options'][457]=' All New Videos Added to btoacademy';        /*  $form['subscriptions']['new_1'] = array(
           '#type' => 'item',
           '#markup' => 'ONLY new videos added to these categories',
           '#weight' => 56,
