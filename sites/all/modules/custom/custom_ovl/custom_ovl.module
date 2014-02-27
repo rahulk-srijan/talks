@@ -133,7 +133,6 @@ function custom_ovl_form_alter(&$form, &$form_state, $form_id) {
         //print_r($form_state);
     }
     if ($form_id == 'simplenews_subscriptions_page_form') {
-      dsm($form);
         $form['subscriptions']['#description'] = 'Select your email notification preferences';
         // $form['update']['#value'] = 'Save';
         $form['subscriptions']['new'] = array(
