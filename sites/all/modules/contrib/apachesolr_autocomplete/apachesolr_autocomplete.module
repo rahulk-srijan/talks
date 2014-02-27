@@ -306,10 +306,11 @@ function apachesolr_autocomplete_suggest($keys, $params, $theme_callback, $orig_
     $query->addParam($param, $paramValue);
   }
 
-  //var_dump($_SESSION['current_path']);exit();
   // ishan: temp code
-  $default_filter_tid = default_filter_term_id_search();
-  $query->addFilter('im_field_library', $default_filter_tid[$_SESSION['current_path']]);
+  if ($_SESSION['current_path'] != NULL) {
+    $default_filter_tid = default_filter_term_id_search();
+    $query->addFilter('im_field_library', $default_filter_tid[$_SESSION['current_path']]);
+  }
 
   apachesolr_search_add_boost_params($query);
 
