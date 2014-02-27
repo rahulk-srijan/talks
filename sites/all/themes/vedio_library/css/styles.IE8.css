@@ -518,6 +518,9 @@ background: url("images/bullet.png") no-repeat 0 5px transparent;
    padding-right: 4px;
    border-right: 1px solid #D1D1D1;
  }
+   .available_channels_block .views-field-totalcount{
+    margin-left: 0;
+   }
  .available_channels_block .views-field-title{
   margin-top: 6px;
   margin-bottom: 2px;
@@ -577,8 +580,9 @@ background: url("images/bullet.png") no-repeat 0 5px transparent;
 }
 #block-views-most-trending-block .views-field-field-upload-video{
    float: left;
+    margin-bottom: 12px;
     margin-right: 10px;
-    padding-bottom: 8px;
+    padding-bottom: 12px;
 }
 #block-views-most-trending-block .image-style-vedio-thumbnail {
   float: left;
@@ -618,5 +622,5 @@ background: url("images/bullet.png") no-repeat 0 5px transparent;
     padding: 0 8px;
   }
    .view-most-trending .views-field-totalcount{border-right: 1px solid #333333;}
-  .view-most-trending .views-field-comment-count{display: block;}
+  .view-most-trending .views-field-comment-count{display: inline-block;}
 }
