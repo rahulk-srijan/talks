@@ -73,7 +73,6 @@
 
 
 jQuery('document').ready(function() {
-
     if (jQuery(window).width() > 700) {
         jQuery(".slideshow-body").more({length: 200, moreText: 'more', lessText: 'less'});
         jQuery(".views-field-message-render .title .comment-body").more({length: 145, moreText: ''});
@@ -97,6 +96,7 @@ jQuery('document').ready(function() {
     //     jQuery("body.page-my-playlist a.flag").text("Remove");
     //   }
     // });
+
     tooglechild();
     carousel();
     activetag();
@@ -109,7 +109,6 @@ jQuery('document').ready(function() {
     checkedAllCategory();
     addLabel();
     sort_autosubmit();
-    addChildNewsText();
     toogleSearch()
 
     if (jQuery(window).width() < 700)
@@ -118,11 +117,10 @@ jQuery('document').ready(function() {
     defaultText();
 });
 
-function addChildNewsText() {
-    alert('helo');
-    jQuery("#edit-newsletters .form-item-newsletters-455" ).prepend( "<p class='fieldset-description'>Select subscription for child libraries.</p>" );
+function testt() {
+    alert('hello world');
+    console.log('hello');
 }
-
 function toggleControls() {
     jQuery(".category-filter-toggle .filter-search-facet").click(function() {
         jQuery(".region-sidebar-first").toggle();

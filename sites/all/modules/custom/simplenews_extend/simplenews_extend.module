@@ -36,7 +36,6 @@ function newsletterSubscriptions_daily($frequency) {
         return FALSE;
     }
     $subscriber_info = findAllSubscribed_user($frequency);
-
     if ($subscriber_info) {
         $nids = allupdateContent($frequency); //get all update content
         $cid = allUpdatedComments($frequency); //get all New content
@@ -252,7 +251,7 @@ function findNewslettertid($tid) {
  *
  */
 function simplenews_extend_form_alter(&$form, &$form_state, $form_id) {
-    // drupal_set_message($form_id);  // print form ID to messages
+     //drupal_set_message($form_id);  // print form ID to messages
     //drupal_set_message(print_r($form));  // print array to messages
 
     if ($form_id == 'simplenews_subscriptions_page_form') {
