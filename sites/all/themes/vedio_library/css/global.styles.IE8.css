@@ -251,7 +251,7 @@ var {
   #branding {
     float: left;
     margin: 0;
-    width: 370px;
+    width: 380px;
   }
 
   /*
@@ -280,21 +280,24 @@ var {
     width: 540px;
 }
 
-/*
- * Site name (h1)
- */
-#site-name {
-  margin: 8px 0 0 0;
-  float: left;
-  font-family: 'Georgia', serif;
-  letter-spacing: -1px;
-}
+  /*
+   * Site name (h1)
+   */
+  #site-name {
+ border-left: 1px dotted #F5F5F5;
+    float: left;
+    font-family: 'Georgia',serif;
+    letter-spacing: -1px;
+    line-height: 26px;
+    margin: 15px 0;
+  }
 
   #site-name a {
-    color: #FFFFFF;
+   color: #FFFFFF;
     font-family: helvetica,arial;
     font-size: 24px;
     font-weight: 400;
+    margin-left: 12px;
   }
 
 #site-name a:link,
@@ -430,12 +433,12 @@ ul.links li {
  */
 .region-help {}
 
-/*
- * Secondary content
- */
-.region-secondary-content {
-  margin-top: 15px;
-}
+  /*
+   * Secondary content
+   */
+  .region-secondary-content {
+    margin-top: 0;
+  }
 
 /*
  * Sits above the main content header, like a content-top region
@@ -588,12 +591,12 @@ a:focus {
   padding: 0;
 }
 
-.nav li a,
-.nav ul.menu li a {
-  display: block;
-  white-space: nowrap;
-  padding: 0 10px;
-}
+  .nav li a,
+  .nav ul.menu li a {
+    display: block;
+    white-space: nowrap;
+    padding: 2px 10px;
+  }
 
 .nav li a:visited,
 .nav ul.menu li a:visited {}
@@ -1770,11 +1773,11 @@ tr.even td.active {
  *   Messages
  * ========================================================================== */
 
-/* Left and right margin are set by the global gutter width */
-div.messages {
-  margin-bottom: 10px;
-  margin-top: 10px;
-}
+  /* Left and right margin are set by the global gutter width */
+  div.messages {
+    margin-bottom: 0px;
+    margin-top: 0px;
+  }
 
 div.messages ul {
   margin-top: 0;
