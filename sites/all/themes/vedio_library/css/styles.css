@@ -212,9 +212,11 @@ background: url("images/bullet.png") no-repeat 0 5px transparent;
 .clear{
   clear: both;
 }
+  .front  .region-secondary-content {
+    margin: 0;
+  }
 .popular-video-slide{
- margin-right: -25px;
- margin-left: -8px;
+/* margin-right: -25px;*/
  background: none repeat scroll 0 0 #EDEFEE;
 }
 .color-orange{
@@ -247,13 +249,15 @@ background: url("images/bullet.png") no-repeat 0 5px transparent;
   background: #333;
 }
 .cooment-info{
-  margin-right: -10px;
-  width: 99px;
-  height: 265px;
-  background: none repeat scroll 0 0 #333333;
-  color: #FFFFFF;
-  font-size: 11px;
+    background: none repeat scroll 0 0 #333333;
+    color: #FFFFFF;
+    display: block;
+    font-size: 11px;
+    height: 265px;
+    margin-right: -10px;
+    width: 99px
 }
+
 .video-title a{
   color: #E37222;
   font-weight: normal;
@@ -271,8 +275,15 @@ background: url("images/bullet.png") no-repeat 0 5px transparent;
 .video-body p{
   margin: 0;
 }
+/*.video-viewthumb{
+  display: inline-block;
+}*/
 .popular-video-slide .image-style-featured-video-thumbnail {
-  width: 460px;
+   display: inline;
+    float: left;
+    height: 265px;
+    overflow: hidden;
+    width: 460px;
 }
 .pl-bn{
   position: relative;
@@ -296,11 +307,11 @@ background: url("images/bullet.png") no-repeat 0 5px transparent;
     padding-bottom: 12px;
     }
     .pl-bn .play-button {
-     position: absolute;
-     top: -150px;
-     left: 135px;
-     width: auto;
-     opacity: 0.8;
+   left: 200px;
+    opacity: 0.8;
+    position: absolute;
+    top: 85px;
+    width: auto;
    }
    .pl-bn .video_duration {
     bottom: 6px;
@@ -409,6 +420,9 @@ background: url("images/bullet.png") no-repeat 0 5px transparent;
 .mstrip a{
   color: #fff;
 }
+.region-help {
+    margin: 0;
+}
 .lib-name{
   width: 60%;
   background: #6b6b6b;
@@ -421,7 +435,7 @@ background: url("images/bullet.png") no-repeat 0 5px transparent;
   font-size: 0.85em;
 }
 .resources{
-  width: 21%;
+  width: 21.6%;
   background: none repeat scroll 0 0 #797979;
   text-align: center;
 }
@@ -596,6 +610,12 @@ background: url("images/bullet.png") no-repeat 0 5px transparent;
     line-height: 17px;
     margin: 2px 0 20px;
   }
+    .view-most-trending .view-header h4{
+        font-family: georgia;
+    font-size: 14px;
+    font-weight: normal;
+    margin: 12px 0;
+    }
   .view-most-trending .views-field-totalcount,
   .view-most-trending .views-field-count,
   .view-most-trending .views-field-comment-count{
