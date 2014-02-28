@@ -1726,20 +1726,21 @@ div.modal-forms-modal-content .form-item label {
     box-sizing: border-box;
 }
 
-#views_slideshow_cycle_teaser_section_logging-block .views-field-message-render .title {
-    float: left;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    background: url("images/quotes.png") no-repeat scroll 8px center transparent;
-    height: 52px;
-    width: 600px;
-    padding: 10px 80px 10px 60px;
-    font-size: 11px;
-    position: absolute;
-    left: 270px;
-    top: 0;
-}
+ /* it is removed to subsite color css file
+ #views_slideshow_cycle_teaser_section_logging-block .views-field-message-render .title {
+        float: left;
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        background: url("images/quotes.png") no-repeat scroll 8px center transparent;
+        height: 52px;
+        width: 600px;
+        padding: 10px 80px 10px 60px;
+        font-size: 11px;
+        position: absolute;
+        left: 270px;
+        top: 0;
+        }*/
 
 #views_slideshow_cycle_teaser_section_logging-block .views-field-message-render .author {
     float: left;
@@ -2488,12 +2489,13 @@ div.modal-forms-modal-content .form-item label {
 
 }
 
-.region-secondary-content .region-inner #block-block-7 .block-inner .block-content.content p, .region-secondary-content .region-inner #block-block-9 .block-inner .block-content.content p, .region-secondary-content .region-inner #block-block-8 .block-inner .block-content.content p {
-    color: #E37222;
-    font-size: 19px;
-    font-weight: bold;
-    margin-bottom: 0;
-}
+      .region-secondary-content .region-inner #block-block-9 .block-inner .block-content.content p,
+      .region-secondary-content .region-inner #block-block-8 .block-inner .block-content.content p {
+        color: #E37222;
+        font-size: 19px;
+        font-weight: bold;
+        margin-bottom: 0;
+    }
 
 .region-secondary-content .region-inner #block-block-9.block {margin-bottom:0;}
 .form-item.selected.form-type-bef-link.form-item a {
@@ -2572,4 +2574,57 @@ body.page-admin-user-list .form-item-name {
 
 #block-block-4 .user li.last.hidden-phone {
     display: inline-block;
+}
+
+}
+#back-to-search {
+    text-decoration: none;
+    padding: 3px 5px;
+    color: #00ACEE;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+
+#block-videolibrary-core-category-menus .block-content.content ul li {
+    padding-left: 25px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    color: #00ACEE;
+}
+#block-videolibrary-core-category-menu .block-content.content li.by-category {
+    color: #666666;
+}
+#block-videolibrary-core-category-menu .block-content.content li.view-allselected , #block-videolibrary-core-category-menu .block-content.content li.by-tags {
+    font-weight: bold;
+}
+#block-videolibrary-core-category-menu .block-content.content .category-list li {
+    padding:0;
+    margin: 7px 1px 0;
+}
+
+#block-videolibrary-core-category-menu .block-content.content .category-list li a{
+    color: #00ACEE;
+    padding: 0 10px 0 39px;
+    display: block;
+    line-height: normal;
+}
+
+#block-videolibrary-core-category-menu .block-content.content .category-list li a.active{
+    background: #666;
+    display: block;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    color: white;
+}
+#block-videolibrary-core-category-menu .block-content.content li.by-category {
+    color: #666666;
+}
+.sites_switch li a{
+    color: #E37222;
+    font-size: 20px;
+}
+
+#block-views-child-library-block-block-3, #block-views-child-library-block-block-1 , #block-views-child-library-block-block-5{
+    display: none;
 }

@@ -436,14 +436,16 @@ ul.links li {
   /*
    * Secondary content
    */
-  .region-secondary-content {
+  .front .region-secondary-content {
     margin-top: 0;
   }
-
-/*
- * Sits above the main content header, like a content-top region
- */
-.region-highlighted {}
+.region-secondary-content {
+    margin-top: 20px;
+  }
+  /*
+   * Sits above the main content header, like a content-top region
+   */
+  .region-highlighted {}
 
 /*
  * Sits below the main content, like a content-bottom region

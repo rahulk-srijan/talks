@@ -677,10 +677,10 @@
     }
 
     #block-block-4 .user li {
-    color: #FFFFFF;
-    display: inline;
-    font-size: 11px;
-    font-weight: bold;
+        color: #FFFFFF;
+        display: inline;
+        font-size: 11px;
+        font-weight: bold;
     }
 
     #authorize li.first a {
@@ -1316,50 +1316,50 @@
     }
 
     #authorize li a, #block-block-5 a {
-       border-right: 1px solid #666666;
-    color: #97DDF6;
-    font-size: 1em;
-    padding-right: 10px;
-    }
+     border-right: 1px solid #666666;
+     color: #97DDF6;
+     font-size: 1em;
+     padding-right: 10px;
+ }
 
-    #authorize li a{
-        padding: 0 5px;
-    }
-    #authorize li a.last{
-        border-right: 0;
-        position: relative;
-        left: -5px;
-    }
-    .node-upload-video .node-statistics .views-field-totalcount, .node-upload-video .node-statistics .views-field-count {
-        display: inline-block;
-        margin-right: .6em;
-    }
+ #authorize li a{
+    padding: 0 5px;
+}
+#authorize li a.last{
+    border-right: 0;
+    position: relative;
+    left: -5px;
+}
+.node-upload-video .node-statistics .views-field-totalcount, .node-upload-video .node-statistics .views-field-count {
+    display: inline-block;
+    margin-right: .6em;
+}
 
-    .node-upload-video .category {
-        margin-top: 10px;
-    }
+.node-upload-video .category {
+    margin-top: 10px;
+}
 
-    .node-upload-video .field-type-taxonomy-term-reference,
-    .node-upload-video .upload-video,
-    .node-upload-video .node-statistics {
-        margin-bottom: 5px;
-        margin-top: 5px;
-    }
+.node-upload-video .field-type-taxonomy-term-reference,
+.node-upload-video .upload-video,
+.node-upload-video .node-statistics {
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
 
 
-    .views-slideshow-cycle-main-frame-row {
-        width: 100% !important;
-    }
+.views-slideshow-cycle-main-frame-row {
+    width: 100% !important;
+}
 
-    #block-views-featured-vedios-block .block-inner {
-        margin-right: 0;
-    }
+#block-views-featured-vedios-block .block-inner {
+    margin-right: 0;
+}
 
-    /** css for filter **/
-    .region {
-        position: relative\9;
-    }
-    /** css for tags filter **/
+/** css for filter **/
+.region {
+    position: relative\9;
+}
+/** css for tags filter **/
     /*.view-listing-by-tags .view-filters {
       position: relative;
       top: -168px;
@@ -2452,7 +2452,8 @@
 
       }
 
-      .region-secondary-content .region-inner #block-block-7 .block-inner .block-content.content p, .region-secondary-content .region-inner #block-block-9 .block-inner .block-content.content p, .region-secondary-content .region-inner #block-block-8 .block-inner .block-content.content p {
+      .region-secondary-content .region-inner #block-block-9 .block-inner .block-content.content p,
+      .region-secondary-content .region-inner #block-block-8 .block-inner .block-content.content p {
         color: #E37222;
         font-size: 19px;
         font-weight: bold;
@@ -2461,10 +2462,10 @@
 
     .region-secondary-content .region-inner #block-block-9.block {margin-bottom:0;}
     .form-item.selected.form-type-bef-link.form-item a {
-       color: #000000;
-   }
+     color: #000000;
+ }
 
-   .views-exposed-form .views-exposed-widgets {
+ .views-exposed-form .views-exposed-widgets {
     position: relative;
     right: 10px;
 }

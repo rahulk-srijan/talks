@@ -436,10 +436,12 @@
   /*
    * Secondary content
    */
-  .region-secondary-content {
+  .front .region-secondary-content {
     margin-top: 0;
   }
-
+.region-secondary-content {
+    margin-top: 20px;
+  }
   /*
    * Sits above the main content header, like a content-top region
    */
