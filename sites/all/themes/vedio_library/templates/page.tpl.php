@@ -96,13 +96,15 @@ global $subsite_home_page_url;
 global $library_subsite_variable;
 $url_front = url($subsite_home_page_url);
 
-
-
-
-$site_name ='<a href='.$url_front.'>'.$library_subsite_variable[$subsite_home_page_url]['site_name'].'</a>';
-
-$site_name ='<a href='.$url_front.'><img src="'.$base_url.'/'.path_to_theme().'/title_'.$subsite_home_page_url.'.png" title="'.$library_subsite_variable[$subsite_home_page_url]['site_name'].'" alt="'.$library_subsite_variable[$subsite_home_page_url]['site_name'].'"/></a>';
-$site_logo = '<a href="'.$url_front.'">'. strip_tags($site_logo, '<img>').'</a>';
+/*
+ //$site_name ='<a href='.$url_front.'>'.$library_subsite_variable[$subsite_home_page_url]['site_name'].'</a>';
+if($subsite_home_page_url !='') {
+  $site_name ='<a href='.$url_front.'><img src="'.$base_url.'/'.path_to_theme().'/title_'.$subsite_home_page_url.'.png" title="'.$library_subsite_variable[$subsite_home_page_url]['site_name'].'" alt="'.$library_subsite_variable[$subsite_home_page_url]['site_name'].'"/></a>';
+}else{
+  $sitename = variable_get('site_name');
+  $site_name = '<a href='.$url_front.'>' .$sitename . ' title='.$sitename.' alt='.$sitename.'/></a>';
+}
+$site_logo = '<a href="'.$url_front.'">'. strip_tags($site_logo, '<img>').'</a>';*/
 ?>
 <div id="page" class="container <?php print $classes; ?>">
 	<div class="page-content">
@@ -156,7 +158,7 @@ $site_logo = '<a href="'.$url_front.'">'. strip_tags($site_logo, '<img>').'</a>'
 
   <!-- Messages and Help -->
   <?php print $messages; ?>
-  
+
 
   <!-- region: Secondary Content -->
   <?php print render($page['secondary_content']); ?>
@@ -172,13 +174,13 @@ $site_logo = '<a href="'.$url_front.'">'. strip_tags($site_logo, '<img>').'</a>'
 
         <?php print render($title_prefix); // Does nothing by default in D7 core ?>
         <?php print render($title_prefix); ?>
-        <?php 
+        <?php
         $uri = $_SERVER['HTTP_REFERER'];
         $search = strpos($uri, 'search/site/');
-        
+
         if ($search != false && arg(0)=='node'){
           print '<a class="back-to-search" id="back-to-search" href="' . $uri . '" title="Back to Search Results"><strong>> Back to Search Results</strong></a>'; }
-          ?> 
+          ?>
           <?php if ($title || $primary_local_tasks || $secondary_local_tasks || $action_links = render($action_links)): ?>
           <header<?php print $content_header_attributes; ?>>
 
