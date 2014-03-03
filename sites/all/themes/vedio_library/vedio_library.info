@@ -16,12 +16,13 @@
   stylesheets[screen][] = css/global.base.css
   stylesheets[screen][] = css/global.styles.css
   stylesheets[screen][] = css/styles.css
-  ;stylesheets[screen][] = mobile/css/custom.css
+
   stylesheets[screen][] = mobile/stylesheets/custom.css
   stylesheets[screen][] = scripts/jquery.more.css
   stylesheets[screen][] = scripts/select2.css
 
   ; stylesheets[screen][] = css/custom.css
+  ;stylesheets[screen][] = mobile/css/custom.css
 
   ; Print - uncomment to load basic print styles.
   ; stylesheets[print][] = css/print.css
