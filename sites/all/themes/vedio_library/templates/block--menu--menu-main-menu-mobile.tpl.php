@@ -85,28 +85,23 @@ global $subsite_home_page_url;
 global $library_subsite_variable;
 ?>
 <?php print $outer_prefix . $inner_prefix; ?>
-<?php print render($title_prefix); ?>
+	<?php print render($title_prefix); ?>
 
-<div class="mobile-nav clearfix">
-	<button class="nav-btn">
-		<span class="icon-bar"></span>
-		<span class="icon-bar"></span>
-		<span class="icon-bar"></span>
-	</button>
-	<?php
-	if($site_name == '')
-		$site_name= "Mckinsey Talks";
-	?>
+	<div class="mobile-nav clearfix">
+		<button class="nav-btn">
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+		</button>
 
-	<?php if ($title): ?>
-	<!-- <h2<?php// print str_replace('element-invisible', '', $title_attributes); ?>><?php //print $library_subsite_variable[$subsite_home_page_url]['site_name']; ?></h2>-->
-	<h2><?php print $site_name;?></h2>
-<?php endif; ?>
-<div class="mobile-search"><img src=<?php print $base_url . "/sites/all/themes/vedio_library/css/images/search-icon-mobile.png"?>></div>
-</div>
+		<?php if ($title): ?>
+			<h2<?php print str_replace('element-invisible', '', $title_attributes); ?>><?php print $library_subsite_variable[$subsite_home_page_url]['site_name']; ?></h2>
+		<?php endif; ?>
+	<div class="mobile-search"><img src=<?php print $base_url . "/sites/all/themes/vedio_library/css/images/search-icon-mobile.png"?>></div>
+	</div>
 
-<?php print $content_processed; ?>
+	<?php print $content_processed; ?>
+	 
 
-
-<?php print render($title_suffix); ?>
+	<?php print render($title_suffix); ?>
 <?php print $inner_suffix . $outer_suffix; ?>
