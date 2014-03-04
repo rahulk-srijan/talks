@@ -96,7 +96,7 @@ jQuery('document').ready(function() {
     //     jQuery("body.page-my-playlist a.flag").text("Remove");
     //   }
     // });
-
+    addDivNewsletter();
     tooglechild();
     carousel();
     activetag();
@@ -117,10 +117,22 @@ jQuery('document').ready(function() {
     defaultText();
 });
 
-function testt() {
-    alert('hello world');
-    console.log('hello');
+function addDivNewsletter() {
+   // jQuery( ".form-item-newsletters-457" ).insertBefore( "<div id='bto-newsletter'><p>Org in Action notification</p>" );
+   // jQuery( "</div>" ).insertAfter( ".form-item-newsletters-463" );
+   jQuery('#edit-newsletters .form-item:gt(5):lt(7)').wrapAll('<div id="bto-newsletter" />');
+   jQuery('#edit-newsletters .form-item:gt(12):lt(9)').wrapAll('<div id="ops-newsletter" />');
+   jQuery('#edit-newsletters .form-item:gt(21):lt(25)').wrapAll('<div id="org-newsletter" />');
+   jQuery('#bto-newsletter').before('<p class="main-cat" id="bto-collapsible">BtoAcademy newsletter</p>').hide();
+   jQuery('#ops-newsletter').before('<p class="main-cat" id="ops-collapsible">Ops in Action newsletter</p>').hide();
+   jQuery('#org-newsletter').before('<p class="main-cat" id="org-collapsible">Org in Action newsletter</p>').hide();
+   jQuery('.main-cat').each(function() {
+        jQuery(this).click(function(){
+            jQuery(this).next().toggle();
+        });
+   });
 }
+
 function toggleControls() {
     jQuery(".category-filter-toggle .filter-search-facet").click(function() {
         jQuery(".region-sidebar-first").toggle();
@@ -623,7 +635,7 @@ function defaultText() {
 
 
 function addLabel() {
-    jQuery('.all-new-videos').after('<h5 class="category_label">ONLY new videos added to these categories</h5>');
+    jQuery('.form-item-newsletters-457,.form-item-newsletters-455,.form-item-newsletters-456').after('<h5 class="category_label">ONLY new videos added to these categories</h5>');
 }
 
 function toogleSearch() {
