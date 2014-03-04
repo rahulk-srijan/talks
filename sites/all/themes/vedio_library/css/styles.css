@@ -140,7 +140,6 @@
 #bto-collapsible{
   background-color: #632F7A;
 }
-}
 #ops-collapsible{
   background-color: #ad0059;
 }
@@ -191,7 +190,6 @@
 #org-newsletter .form-item-newsletters-11,
 #org-newsletter .form-item-newsletters-12,
 #org-newsletter .form-item-newsletters-13{
-  float: left;
   width: 60%;
 }
 #simplenews-subscriptions-page-form #reset,

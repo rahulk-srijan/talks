@@ -323,8 +323,6 @@ a {
 				@extend .subheader;
 				margin-top: 0;
 			}
-
-			
 		}
 
 		.modal-body {
@@ -984,8 +982,8 @@ a {
 			}
 			.video_duration {
 				position: absolute;
-				bottom: 10px;
-				right: 10px;
+				bottom: 2px;
+				right: 1px;
 				padding: 5px;
 				font-size: $font-size-big;
 				font-weight: bold;
