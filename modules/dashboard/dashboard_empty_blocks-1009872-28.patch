@@ -1,0 +1,84 @@
+diff --git a/modules/dashboard/dashboard.module b/modules/dashboard/dashboard.module
+index 4cf654f..2795753 100644
+--- a/modules/dashboard/dashboard.module
++++ b/modules/dashboard/dashboard.module
+@@ -174,25 +174,34 @@ function dashboard_page_build(&$page) {
+         }
+       }
+ 
+-      // Find blocks which were not yet displayed on the page (were empty), and
+-      // add placeholder items in their place for rendering.
+-      $block_list = db_select('block')
+-        ->condition('theme', $theme_key)
+-        ->condition('status', 1)
+-        ->condition('region', $region)
+-        ->fields('block')
+-        ->execute();
+-      foreach ($block_list as $block) {
+-        if (!isset($blocks_found[$block->module . '_' . $block->delta])) {
+-          $block->enabled = $block->page_match = TRUE;
+-          $block->content = array('#markup' => '<div class="dashboard-block-empty">(empty)</div>');
+-          if (!isset($block_info[$block->module])) {
+-            $block_info[$block->module] = module_invoke($block->module, 'block_info');
++
++      // Add placeholder items for empty blocks so that users that have the
++      // right to do so can move them.
++      if (user_access('administer blocks')) {
++        $block_list = db_select('block')
++          ->condition('theme', $theme_key)
++          ->condition('status', 1)
++          ->condition('region', $region)
++          ->fields('block')
++          ->execute();
++
++        // Collect the blocks into an array keyed by bid--for this is what
++        // hook_block_list_alter expects.
++        $block_list = $block_list->fetchAllAssoc('bid');
++        drupal_alter('block_list', $block_list);
++
++        foreach ($block_list as $block) {
++          if (!isset($blocks_found[$block->module . '_' . $block->delta])) {
++            $block->enabled = $block->page_match = TRUE;
++            $block->content = array('#markup' => '<div class="dashboard-block-empty">(empty)</div>');
++            if (!isset($block_info[$block->module])) {
++              $block_info[$block->module] = module_invoke($block->module, 'block_info');
++            }
++            $block->subject = t('@title', array('@title' => $block_info[$block->module][$block->delta]['info']));
++            $block_render = array($block->module . '_' . $block->delta => $block);
++            $build = _block_get_renderable_array($block_render);
++            $page['content']['dashboard'][$block->region][] = $build;
+           }
+-          $block->subject = t('@title', array('@title' => $block_info[$block->module][$block->delta]['info']));
+-          $block_render = array($block->module . '_' . $block->delta => $block);
+-          $build = _block_get_renderable_array($block_render);
+-          $page['content']['dashboard'][$block->region][] = $build;
+         }
+       }
+     }
+diff --git a/modules/dashboard/dashboard.test b/modules/dashboard/dashboard.test
+index 56bdb13..6087c06 100644
+--- a/modules/dashboard/dashboard.test
++++ b/modules/dashboard/dashboard.test
+@@ -138,4 +138,22 @@ class DashboardBlocksTestCase extends DrupalWebTestCase {
+     $this->drupalGet('admin/dashboard/drawer');
+     $this->assertNoText(t('Recent comments'), t('Drawer of disabled blocks excludes enabled blocks.'));
+   }
++  /**
++   * Tests that blocks that a user should not see are actually not displayed.
++   */
++  function testBlockVisibility() {
++
++    // Add a new custom block that is only visible to administrators.
++    $custom_block = array();
++    $custom_block['info'] = $this->randomName(8);
++    $title = $custom_block['title'] = $this->randomName(8);
++    $custom_block['body[value]'] = $this->randomName(32);
++    $custom_block['regions[stark]'] = 'dashboard_main';
++    $custom_block['roles[3]'] = TRUE;
++    $this->drupalPost('admin/structure/block/add', $custom_block, t('Save block'));
++
++    $this->drupalGet('admin/dashboard');
++    $this->assertNoRaw('<div id="block-block-1"', "Block that is set invisible for user's role is not displayed on dashboard.");
++
++  }
+ }
