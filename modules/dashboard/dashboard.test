@@ -138,4 +138,22 @@ class DashboardBlocksTestCase extends DrupalWebTestCase {
     $this->drupalGet('admin/dashboard/drawer');
     $this->assertNoText(t('Recent comments'), t('Drawer of disabled blocks excludes enabled blocks.'));
   }
+  /**
+   * Tests that blocks that a user should not see are actually not displayed.
+   */
+  function testBlockVisibility() {
+
+    // Add a new custom block that is only visible to administrators.
+    $custom_block = array();
+    $custom_block['info'] = $this->randomName(8);
+    $title = $custom_block['title'] = $this->randomName(8);
+    $custom_block['body[value]'] = $this->randomName(32);
+    $custom_block['regions[stark]'] = 'dashboard_main';
+    $custom_block['roles[3]'] = TRUE;
+    $this->drupalPost('admin/structure/block/add', $custom_block, t('Save block'));
+
+    $this->drupalGet('admin/dashboard');
+    $this->assertNoRaw('<div id="block-block-1"', "Block that is set invisible for user's role is not displayed on dashboard.");
+
+  }
 }
