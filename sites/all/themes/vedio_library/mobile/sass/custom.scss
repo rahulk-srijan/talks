@@ -909,6 +909,7 @@ a {
 			margin: 3px 12px;
 			font-weight: bold;
 		}
+
 		.child-lib-name{
 			float: left;
 			color: #fff;
@@ -921,11 +922,11 @@ a {
 		}
 		.post-menu-strip{
 			display: none;
-			background: none repeat scroll 0 0 #333333;
+			background: $darker-gray;
 			color: #FFFFFF;
 			position: absolute;
 			right: 0;
-			top: 28px;
+			top: 26px;
 			width: 34%;
 			li{
 				border-bottom: 1px solid #EBEBEB;
