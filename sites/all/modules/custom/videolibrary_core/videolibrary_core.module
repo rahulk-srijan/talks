@@ -13,7 +13,6 @@ $library_subsite_variable = array(
         'subject' => 'Suggest a video',
         'msg' => 'I recommend adding the following video to the Org in Action video library',
         'site_name' => 'Org in Action: Video Library',
-         'tid'=>'455',
         'recommend_text' => ' recommended an Org in Action video.'),
     'opsinaction' =>
     array('to' => 'global_ops_learning_team@mckinsey.com,Ops_Feedback@mckinsey.com',
@@ -21,7 +20,6 @@ $library_subsite_variable = array(
         'subject' => 'Suggest a video',
         'msg' => 'I recommend adding the following video to the Ops in Action video library',
         'site_name' => 'Ops in Action: Video Library',
-        'tid'=>'456',
         'recommend_text' => ' recommended an Ops in Action video.'),
     'btoacademy' =>
     array('to' => 'bt_learning_registration@mckinsey.com',
@@ -29,7 +27,6 @@ $library_subsite_variable = array(
         'subject' => 'Suggest a video',
         'msg' => 'I recommend adding the following video to the BTO Academy video library',
         'site_name' => 'BTO Academy',
-        'tid'=>'457',
         'recommend_text' => ' recommended a BTO Academy video.'),
     'miscellaneous' =>
     array('to' => '',
@@ -37,9 +34,8 @@ $library_subsite_variable = array(
         'subject' => 'Suggest a video',
         'msg' => 'I recommend adding the following video to the miscellaneous library',
         'site_name' => 'Miscellaneous: Video Library',
-        'tid'=>'536',
-        'recommend_text' => ' recommended a Miscellaneous video.'),
-        );
+        'recommend_text' => ' recommended a Miscellaneous video.')
+);
 
 /**
  * Implements hook_block_info().
