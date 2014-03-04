@@ -146,6 +146,7 @@ function addDivNewsletter() {
    jQuery('.main-cat').each(function() {
         jQuery(this).click(function(){
             jQuery(this).next().toggle();
+            jQuery(this).toggleClass('expanded-newsletter');
         });
    });
 }
@@ -200,6 +201,7 @@ function mobileTweaks() {
     // Top Nav
     menuMobile();
 
+    menustripMobile();
     //Notification Order Fix
     notifiReorder();
 

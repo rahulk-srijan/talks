@@ -1316,13 +1316,13 @@
     }
 
     #authorize li a, #block-block-5 a {
-     border-right: 1px solid #666666;
-     color: #97DDF6;
-     font-size: 1em;
-     padding-right: 10px;
- }
+       border-right: 1px solid #666666;
+       color: #97DDF6;
+       font-size: 1em;
+       padding-right: 10px;
+   }
 
- #authorize li a{
+   #authorize li a{
     padding: 0 5px;
 }
 #authorize li a.last{
@@ -2302,17 +2302,18 @@
         }
 
         .form-submit, .like-video a {
-            padding: 0;
-            background: url("images/bluebtn_bg.png") no-repeat scroll 0 0 transparent;
-            border: medium none;
+            background: url("images/submit_button.png") repeat-x scroll 0 0 rgba(0, 0, 0, 0);
+            border: 1px solid #1478A9;
+            border-radius: 4px;
             color: #FFFFFF;
-            font-weight: bold;
-            height: 18px;
-            text-align: center;
-            width: 38px;
             display: inline-block;
-            text-decoration: none;
             font-size: 11px;
+            font-weight: bold;
+            height: auto;
+            padding: 3px 12px;
+            text-align: center;
+            text-decoration: none;
+            width: auto;
         }
 
         .like-video a:hover {
@@ -2320,31 +2321,36 @@
             background: url("images/bluebtn_bg_h.png") no-repeat scroll 0 0 transparent;
         }
 
-        .form-submit:hover {
+/*        .form-submit:hover {
             text-decoration: none;
             background: url("images/bluebtn_bg_h.png") no-repeat scroll 0 0 transparent;
-        }
-        .download-video{
-            display:inline-block;
-        }
-        .download-video a {
-            padding: 0;
-            background: url("images/download_bg.png") no-repeat scroll 0 0 transparent;
-            border: medium none;
-            color: #FFFFFF;
-            font-weight: bold;
-            height: 18px;
-            text-align: center;
-            width: 62px;
-            display: inline-block;
-            text-decoration: none;
-            font-size: 11px;
-        }
+            }  */   
+            .form-submit:hover {
+                text-decoration: none;
+                background:  #0974aa;
+            }
 
-        .download-video a:hover {
-            text-decoration: none;
-            background: url("images/download_bg_h.png") no-repeat scroll 0 0 transparent;
-        }
+            .download-video{
+                display:inline-block;
+            }
+            .download-video a {
+                padding: 0;
+                background: url("images/download_bg.png") no-repeat scroll 0 0 transparent;
+                border: medium none;
+                color: #FFFFFF;
+                font-weight: bold;
+                height: 18px;
+                text-align: center;
+                width: 62px;
+                display: inline-block;
+                text-decoration: none;
+                font-size: 11px;
+            }
+
+            .download-video a:hover {
+                text-decoration: none;
+                background: url("images/download_bg_h.png") no-repeat scroll 0 0 transparent;
+            }
   /*  .myplaylist .views-field-php{
         float: left;
         position: relative;
@@ -2452,7 +2458,7 @@
 
       }
 
-      .region-secondary-content .region-inner #block-block-9 .block-inner .block-content.content p,
+      
       .region-secondary-content .region-inner #block-block-8 .block-inner .block-content.content p {
         color: #E37222;
         font-size: 19px;
@@ -2462,10 +2468,10 @@
 
     .region-secondary-content .region-inner #block-block-9.block {margin-bottom:0;}
     .form-item.selected.form-type-bef-link.form-item a {
-     color: #000000;
- }
+       color: #000000;
+   }
 
- .views-exposed-form .views-exposed-widgets {
+   .views-exposed-form .views-exposed-widgets {
     position: relative;
     right: 10px;
 }
