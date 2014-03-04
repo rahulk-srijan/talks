@@ -302,3 +302,13 @@ function videolibrary_core_menu_alter(&$items) {
 }
 }
 */
+function videolibrary_core_user_login(&$edit, $account) {
+   // $flag=flag_get_user_flags('taxonomy_term');
+    $flag = flag_get_flag('default_library');
+    $libs=array('455'=>'orginaction','456'=>'opsinaction','457'=>'btoacademy');
+    foreach($libs as $key=>$value) {
+    if ($flag->is_flagged($key)) {
+      drupal_goto($value);
+    }
+    }
+    }
