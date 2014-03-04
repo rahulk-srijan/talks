@@ -280,12 +280,14 @@ else {
 }
 
 elseif ($form_id =='user_profile_form') {
-    //echo "<pre>";print_r($form['account']['roleassign_roles']['#options']);die();
     global $user;
     $current_user_roles = $user->roles;
-    $valid_roles = $form['account']['roleassign_roles']['#options'];
-    unset($current_user_roles["2"]);
-    $form['account']['roleassign_roles']['#options'] = $current_user_roles;
+    // Show all assignable roles to the super admin role
+    if (!array_key_exists('8', $current_user_roles)) {
+      $valid_roles = $form['account']['roleassign_roles']['#options'];
+      unset($current_user_roles["2"]);
+      $form['account']['roleassign_roles']['#options'] = $current_user_roles;    
+    }
   }
 }
 
