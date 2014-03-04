@@ -404,7 +404,11 @@ function popupModal(triggerLink, modalBlock) {
     // setFeatHeightPatch();
     // });
 }
-
+function menustripMobile(){
+    jQuery("#menu-strip-name").click(function() {
+      jQuery(".post-menu-strip").toggle();
+  });
+}
 function menuMobile() {
     jQuery("#block-menu-menu-main-menu-mobile > ul.menu,#block-menu-menu-main-menu-mobile-ops > ul.menu,#block-menu-menu-main-menu-mobile-bto > ul.menu").css("max-height", jQuery(window).height() - 40);
     //jQuery(".mobile-menu-common > ul.menu").css("max-height", jQuery(window).height() - 40);
