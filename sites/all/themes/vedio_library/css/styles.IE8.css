@@ -415,16 +415,11 @@ input.form-autocomplete::-ms-clear {display: none;}
 .inline-block{
   display: inline-block;
 }
-#menu-strip-name,
-.child-lib-name{
-  display: none;
-}
-.block-content .post-menu-strip{
+.post-menu-strip{
   width: 100%;
   color: #fff;
-  padding: 0;
 }
-.block-content .mstrip{
+.mstrip{
   padding: 0 1em;
   height: 40px;
   line-height: 40px;

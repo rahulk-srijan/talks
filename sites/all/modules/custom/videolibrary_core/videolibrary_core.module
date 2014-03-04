@@ -13,6 +13,7 @@ $library_subsite_variable = array(
         'subject' => 'Suggest a video',
         'msg' => 'I recommend adding the following video to the Org in Action video library',
         'site_name' => 'Org in Action: Video Library',
+         'tid'=>'455',
         'recommend_text' => ' recommended an Org in Action video.'),
     'opsinaction' =>
     array('to' => 'global_ops_learning_team@mckinsey.com,Ops_Feedback@mckinsey.com',
@@ -20,6 +21,7 @@ $library_subsite_variable = array(
         'subject' => 'Suggest a video',
         'msg' => 'I recommend adding the following video to the Ops in Action video library',
         'site_name' => 'Ops in Action: Video Library',
+        'tid'=>'456',
         'recommend_text' => ' recommended an Ops in Action video.'),
     'btoacademy' =>
     array('to' => 'bt_learning_registration@mckinsey.com',
@@ -27,6 +29,7 @@ $library_subsite_variable = array(
         'subject' => 'Suggest a video',
         'msg' => 'I recommend adding the following video to the BTO Academy video library',
         'site_name' => 'BTO Academy',
+        'tid'=>'457',
         'recommend_text' => ' recommended a BTO Academy video.'),
     'miscellaneous' =>
     array('to' => '',
@@ -34,8 +37,9 @@ $library_subsite_variable = array(
         'subject' => 'Suggest a video',
         'msg' => 'I recommend adding the following video to the miscellaneous library',
         'site_name' => 'Miscellaneous: Video Library',
-        'recommend_text' => ' recommended a Miscellaneous video.')
-);
+        'tid'=>'536',
+        'recommend_text' => ' recommended a Miscellaneous video.'),
+        );
 
 /**
  * Implements hook_block_info().
@@ -276,14 +280,12 @@ else {
 }
 
 elseif ($form_id =='user_profile_form') {
+    //echo "<pre>";print_r($form['account']['roleassign_roles']['#options']);die();
     global $user;
     $current_user_roles = $user->roles;
-    // Show all assignable roles to the super admin role
-    if (!array_key_exists('8', $current_user_roles)) {
-      $valid_roles = $form['account']['roleassign_roles']['#options'];
-      unset($current_user_roles["2"]);
-      $form['account']['roleassign_roles']['#options'] = $current_user_roles;    
-    }
+    $valid_roles = $form['account']['roleassign_roles']['#options'];
+    unset($current_user_roles["2"]);
+    $form['account']['roleassign_roles']['#options'] = $current_user_roles;
   }
 }
 
@@ -300,3 +302,13 @@ function videolibrary_core_menu_alter(&$items) {
 }
 }
 */
+function videolibrary_core_user_login(&$edit, $account) {
+   // $flag=flag_get_user_flags('taxonomy_term');
+    $flag = flag_get_flag('default_library');
+    $libs=array('455'=>'orginaction','456'=>'opsinaction','457'=>'btoacademy');
+    foreach($libs as $key=>$value) {
+    if ($flag->is_flagged($key)) {
+      drupal_goto($value);
+    }
+    }
+    }

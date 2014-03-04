@@ -886,58 +886,17 @@ a {
 				width: 16px;
 			}
 		}
-		#block-block-36{
-			position: relative;
-		}
-		.menu-strip{
-			background: none repeat scroll 0 0 #333333;
-			color: #FFFFFF;
-			left: 0;
-			opacity: 0.85;
-			padding: 6px 4px;
-			position: fixed;
-			text-align: right;
-			top: 35px;
-			width: 100%;
-			z-index: 100;
-
-		}
-		#menu-strip-name{
-			cursor: pointer;
-			display: inline-block;
-			float: right;
-			margin: 3px 12px;
-			font-weight: bold;
-		}
-
-		.child-lib-name{
-			float: left;
-			color: #fff;
-			margin: 3px 12px;
-			a{
-				color: #fff;
-				font-weight: bold;
-				font-size: $font-size-huge;
-			}
-		}
 		.post-menu-strip{
+			// width: 100%;
+			// position: fixed;
+			// top: 36px;
+			// left: 0;
+			// z-index: 100;
+			// background: $darker-gray;
+			// color: $white;
+			// opacity: 0.85;
+			// text-align: right;
 			display: none;
-			background: $darker-gray;
-			color: #FFFFFF;
-			position: absolute;
-			right: 0;
-			top: 26px;
-			width: 34%;
-			li{
-				border-bottom: 1px solid #EBEBEB;
-				display: block;
-				padding: 4px;
-				width: 100%;
-				text-align: left;
-				a{
-					color: $white;
-				}
-			}
 		}
 
 		#block-block-35{
@@ -2304,10 +2263,10 @@ a {
 	.download-link, .download-video {
 		display: none;
 	}
-	}@media screen and (max-width: 700px) {
+}@media screen and (max-width: 700px) {
 
-		@import "compass";
-		@import "compass/reset";
+	@import "compass";
+	@import "compass/reset";
 
 //Variables
 
@@ -3191,6 +3150,18 @@ a {
 				text-indent: -9999em;
 				width: 16px;
 			}
+		}
+		.post-menu-strip{
+			// width: 100%;
+			// position: fixed;
+			// top: 36px;
+			// left: 0;
+			// z-index: 100;
+			// background: $darker-gray;
+			// color: $white;
+			// opacity: 0.85;
+			// text-align: right;
+			display: none;
 		}
 
 		#block-block-35{
