@@ -73,7 +73,16 @@ global $subsite_home_page_url;
 <title><?php 
 global $subsite_home_page_url;
 global $library_subsite_variable;
-print $head_title_array["title"] . ' | ' . $library_subsite_variable[$subsite_home_page_url]['site_name']; ?>
+  // Adding conditions for page title tag
+  if ($subsite_home_page_url && !arg(1)) {
+    print "Home | " . $library_subsite_variable[$subsite_home_page_url]['site_name'];
+  }
+  elseif ($head_title_array["title"] && $subsite_home_page_url) {
+    print $head_title_array["title"] . ' | ' . $library_subsite_variable[$subsite_home_page_url]['site_name'];
+  }
+  else {
+    print $head_title;
+  } ?>
 </title>
 <?php print $styles; ?>
 <?php print $scripts; ?>
