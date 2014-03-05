@@ -37,7 +37,7 @@ function generate_user_csv_export($interval = 0.5) {
   return $data;
 }
 
-function generate_video_csv_export($interval = 0.5) {
+function generate_video_csv_export($interval = 0.5,$tid) {
   $key = 'csv-generate2';
   $content = cache_get($key);
   $reload_tree = (isset($content->created)) ? csv_export_check_expire_time($content->created, $interval) : TRUE;
@@ -48,7 +48,7 @@ function generate_video_csv_export($interval = 0.5) {
     }
   }
   if ($reload_tree == TRUE) {
-    $data = export_video_stat();
+    $data = export_video_stat($tid);
     cache_set($key, $data);
   }
   return $data;
@@ -106,8 +106,8 @@ function export_user_stat() {
         $total_views = (isset($video_view_count[$row->uid])) ? intval($video_view_count[$row->uid]) : 0;
         $content .= '<tr><td>' . $row->authmap_authname . '</td><td>' . $total_comments . '</td><td>' . $total_views . '</td><td>' . date("m/d/Y", $row->users_access) . '</td> </tr>';
     }
-    // print_r($rows); 
-    //$output = theme('table', array('header' => $header, 'rows' => $rows,  'sticky' => FALSE)); 
+    // print_r($rows);
+    //$output = theme('table', array('header' => $header, 'rows' => $rows,  'sticky' => FALSE));
     //print $output;
     $content .= '<tbody></table>';
     return $content;
@@ -117,16 +117,30 @@ function export_user_stat() {
  * exoort user stat in a table
  */
 
-function export_video_stat() {
+function export_video_stat($tid) {
+  global $library_subsite_variable;
+  $lib_tid = $library_subsite_variable[$tid][tid];
   $video_viewers_count = viewers();
+  if($lib_tid){
     $result = db_query("SELECT node.title AS node_title, node.nid AS nid, node_counter.totalcount AS node_counter_totalcount, flag_counts_node.count AS flag_counts_node_count, node_comment_statistics.comment_count AS node_comment_statistics_comment_count, node.created AS node_created
-FROM 
+FROM
+{node} node
+LEFT JOIN {flag_counts} flag_counts_node ON node.nid = flag_counts_node.content_id AND flag_counts_node.fid = '3'
+LEFT JOIN {field_data_field_library} field_data_field_library ON node.nid = field_data_field_library.entity_id AND (field_data_field_library.entity_type = 'node' AND field_data_field_library.deleted = '0')
+LEFT JOIN {node_counter} node_counter ON node.nid = node_counter.nid
+INNER JOIN {node_comment_statistics} node_comment_statistics ON node.nid = node_comment_statistics.nid
+WHERE (( (field_data_field_library.field_library_tid = :tid ) )AND(( (node.status = '1') AND (node.type IN  ('upload_video')) )))
+ORDER BY node_created DESC", array(':tid' => $lib_tid));}
+    else{
+      $result = db_query("SELECT node.title AS node_title, node.nid AS nid, node_counter.totalcount AS node_counter_totalcount, flag_counts_node.count AS flag_counts_node_count, node_comment_statistics.comment_count AS node_comment_statistics_comment_count, node.created AS node_created
+FROM
 {node} node
 LEFT JOIN {flag_counts} flag_counts_node ON node.nid = flag_counts_node.content_id AND flag_counts_node.fid = '3'
 LEFT JOIN {node_counter} node_counter ON node.nid = node_counter.nid
 INNER JOIN {node_comment_statistics} node_comment_statistics ON node.nid = node_comment_statistics.nid
 WHERE (( (node.status = '1') AND (node.type IN  ('upload_video')) ))
 ORDER BY node_created DESC");
+    }
 
     if (!$result)
           watchdog('export_video_stat', 'Exporting CSV: Not found video_stat in the database');
@@ -146,8 +160,8 @@ ORDER BY node_created DESC");
         $total_viewers = (isset($video_viewers_count['node/' . $row->nid])) ? intval($video_viewers_count['node/' . $row->nid]) : 0;
         $content .= '<tr><td>' . $row->node_title . '</td><td>' . $row->node_counter_totalcount . '</td><td>' . $row->flag_counts_node_count . '</td><td>' . $row->node_comment_statistics_comment_count . '</td> <td>' . $total_viewers . '</td> </tr>';
     }
-    // print_r($rows); 
-    //$output = theme('table', array('header' => $header, 'rows' => $rows,  'sticky' => FALSE)); 
+    // print_r($rows);
+    //$output = theme('table', array('header' => $header, 'rows' => $rows,  'sticky' => FALSE));
     //print $output;
     $content .= '<tbody></table>';
     return $content;
@@ -155,7 +169,8 @@ ORDER BY node_created DESC");
 
 function export($gitinterval = 0.5) {
     $q = $_GET['file'];
-    $file = $q . "-stats.xls";
+    $tid = $_GET['tid'];
+    $file = $q .$tid. "-stats.xls";
 
 
     if ($q == 'user') {
@@ -169,7 +184,7 @@ function export($gitinterval = 0.5) {
         header("Content-Disposition: attachment; filename=$file");
         header("Pragma: no-cache");
         header("Expires: 0");
-        $table_content = generate_video_csv_export($interval);
+        $table_content = generate_video_csv_export($interval,$tid);
     } elseif ($q == 'table') {
         $table_content = generate_user_csv_export($interval);
     }
