@@ -75,7 +75,7 @@ global $subsite_home_page_url;
 global $library_subsite_variable;
   // Adding conditions for page title tag
   if ($subsite_home_page_url && !arg(1)) {
-    print "Home | " . $library_subsite_variable[$subsite_home_page_url]['site_name'];
+    print "Video Library Home | " . $library_subsite_variable[$subsite_home_page_url]['site_name'];
   }
   elseif ($head_title_array["title"] && $subsite_home_page_url) {
     print $head_title_array["title"] . ' | ' . $library_subsite_variable[$subsite_home_page_url]['site_name'];
