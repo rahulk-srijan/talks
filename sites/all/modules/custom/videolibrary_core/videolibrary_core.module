@@ -171,6 +171,7 @@ function user_top_menu_link() {
                     //$lib_name = $subsite_home_page_url;
                     //if($role=="super admin") {
                         $content .='<li class="third">' . l("Admin", "admin/dashboard") . '</li>';
+                        break;
                         //break;
                     //}
                     //elseif($lib_name == $value OR $user->roles=='administrator') {
