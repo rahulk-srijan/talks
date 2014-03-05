@@ -165,15 +165,7 @@ endif; ?>
             <<?php print $tag; ?> id="main-content">
 
             <?php print render($title_prefix); // Does nothing by default in D7 core ?>
-            <?php print render($title_prefix); ?>
-            <?php
-            $uri = $_SERVER['HTTP_REFERER'];
-            $search = strpos($uri, 'search/site/');
-
-            if ($search != false && arg(0) == 'node') {
-                print '<a class="back-to-search" id="back-to-search" href="' . $uri . '" title="Back to Search Results"><strong>> Back to Search Results</strong></a>';
-            }
-            ?> 
+            <?php print render($title_prefix); ?> 
             <?php if ($title || $primary_local_tasks || $secondary_local_tasks || $action_links = render($action_links)): ?>
             <header<?php print $content_header_attributes; ?>>
 

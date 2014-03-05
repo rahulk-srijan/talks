@@ -177,8 +177,8 @@ $site_logo = '<a href="'.$url_front.'">'. strip_tags($site_logo, '<img>').'</a>'
         <?php
         $uri = $_SERVER['HTTP_REFERER'];
         $search = strpos($uri, 'search/site/');
-
-        if ($search != false && arg(0)=='node'){
+        // Show the back to results link only on video details pages.
+        if ($search != false && $node->type == "upload_video"){
           print '<a class="back-to-search" id="back-to-search" href="' . $uri . '" title="Back to Search Results"><strong>> Back to Search Results</strong></a>'; }
           ?>
           <?php if ($title || $primary_local_tasks || $secondary_local_tasks || $action_links = render($action_links)): ?>
