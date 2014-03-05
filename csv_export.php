@@ -170,7 +170,7 @@ ORDER BY node_created DESC");
 function export($gitinterval = 0.5) {
     $q = $_GET['file'];
     $tid = $_GET['tid'];
-    $file = $q .$tid. "-stats.xls";
+    $file = $q.'-'.$tid. "-stats.xls";
 
 
     if ($q == 'user') {
