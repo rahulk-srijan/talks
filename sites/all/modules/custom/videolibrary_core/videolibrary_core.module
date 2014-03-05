@@ -168,15 +168,15 @@ function user_top_menu_link() {
         $device = array('ipad', 'iphone');
         foreach ($adminRoles as $value=>$role) {
             if (in_array($role, $user->roles) && !(bool) strpos($_SERVER['HTTP_USER_AGENT'], 'iPad') && !(bool) strpos($_SERVER['HTTP_USER_AGENT'], 'iPhone')) {
-                    $lib_name = $subsite_home_page_url;
-                    if($role=="super admin") {
+                    //$lib_name = $subsite_home_page_url;
+                    //if($role=="super admin") {
                         $content .='<li class="third">' . l("Admin", "admin/dashboard") . '</li>';
-                        break;
-                    }
-                    elseif($lib_name == $value OR $user->roles=='administrator') {
-                        $content .='<li class="third">' . l("Admin", "admin/dashboard/". $value) . '</li>';
-                        break;
-            }
+                        //break;
+                    //}
+                    //elseif($lib_name == $value OR $user->roles=='administrator') {
+                        //$content .='<li class="third">' . l("Admin", "admin/dashboard/". $value) . '</li>';
+                        //break;
+                    //}
         }
         }
     } else {
