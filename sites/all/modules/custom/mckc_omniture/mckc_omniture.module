@@ -46,7 +46,16 @@ function mckc_omniture_sitecatalyst_variables() {
   $variables = array();
   if(isset($_SERVER['HTTP_PERSON_ID'])) {
     $visitor_id = $_SERVER['HTTP_PERSON_ID'];
-    $variables['s.prop1'] = $visitor_id; 
+    $variables['s.prop1'] = $visitor_id;
+
+    $uri = $_SERVER['REQUEST_URI'];
+    $search = strpos($uri, 'search/site/');
+    if ($search != false) {
+      $search_term1 = explode('site/', $uri);
+      $search_term2 = explode('?', $search_term1[1]);
+      // passing search result key word
+      $variables['s.prop4'] = $search_term2[0];
+    }
     return array('variables' => $variables);
   }
 }
