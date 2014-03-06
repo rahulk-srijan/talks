@@ -698,7 +698,7 @@ a {
 
 				a {
 
-					padding: 15px 20px;
+					padding: 12px 20px;
 					text-decoration: none;
 					color: $white;
 					border-bottom: 2px groove rgba($light-gray, 0.75);
@@ -717,7 +717,7 @@ a {
 					color: $white;
 					float: right;
 					margin: 20px;
-					font-size: $font-size-huge;
+					font-size: $font-size-big;
 				}
 
 				&.collapsed::before {
@@ -927,45 +927,60 @@ a {
 			top: 35px;
 			width: 100%;
 			z-index: 99;
+			@extend .clearfix;
+			.menu-container{
+				float: right;
+
+				li{
+					float: none;
+					font-size: $font-size-small;
+					display: inline;
+					padding: 0 4px;
+					a{
+						color: $white;
+					}
+				}
+				.lib-name{
+					display: none;
+				}
+			}
+			.post-menu-strip{
+				  color: #FFFFFF;
+    margin: 4px 10px;
+				.lib-name{
+					@extend hidden-phone;
+				}
+				.resources {
+					border-left: 1px solid $white;
+				}
+				.deault{
+					font-style: italic;
+				}
+
+			}
+			.child-lib-name{
+				float: left;
+				color: #fff;
+				margin: 3px 12px;
+				a{
+					color: $white;
+					font-family: $font-face-title;
+					font-size: $font-size-huge;
+				}
+			}
 
 		}
 		#menu-strip-name{
-			cursor: pointer;
-			display: inline-block;
-			float: right;
-			margin: 3px 12px;
-			font-weight: bold;
+			// cursor: pointer;
+			// display: inline-block;
+			// float: right;
+			// margin: 3px 12px;
+			// font-weight: bold;
+			display: none;
 		}
 
-		.child-lib-name{
-			float: left;
-			color: #fff;
-			margin: 3px 12px;
-			a{
-				color: $white;
-				font-family: $font-face-title;
-				font-size: $font-size-huge;
-			}
-		}
-		.post-menu-strip{
-			display: none;
-			background: $darker-gray;
-			color: #FFFFFF;
-			position: absolute;
-			right: 0;
-			top: 26px;
-			width: 34%;
-			li{
-				border-bottom: 1px solid #EBEBEB;
-				display: block;
-				padding: 4px;
-				width: 100%;
-				text-align: left;
-				a{
-					color: $white;
-				}
-			}
-		}
+
+
 
 		#block-block-35{
 			h1{
