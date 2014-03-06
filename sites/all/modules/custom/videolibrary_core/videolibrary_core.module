@@ -287,7 +287,7 @@ elseif ($form_id =='user_profile_form') {
     if (!array_key_exists('8', $current_user_roles)) {
       $valid_roles = $form['account']['roleassign_roles']['#options'];
       unset($current_user_roles["2"]);
-      $form['account']['roleassign_roles']['#options'] = $current_user_roles;    
+      $form['account']['roleassign_roles']['#options'] = $current_user_roles;
     }
   }
 }
@@ -305,13 +305,16 @@ function videolibrary_core_menu_alter(&$items) {
 }
 }
 */
-function videolibrary_core_user_login(&$edit, $account) {
-   // $flag=flag_get_user_flags('taxonomy_term');
-    $flag = flag_get_flag('default_library');
+
+function videolibrary_core_node_view($node, $view_mode, $langcode) {
+    global $base_url;
+    if(($_SERVER['HTTP_REFERER']==NULL) || ($base_url != $GLOBALS['base_url'])) {
+    $flag = flag_get_flag('default');
     $libs=array('455'=>'orginaction','456'=>'opsinaction','457'=>'btoacademy');
     foreach($libs as $key=>$value) {
     if ($flag->is_flagged($key)) {
       drupal_goto($value);
     }
     }
-    }
+}
+}
