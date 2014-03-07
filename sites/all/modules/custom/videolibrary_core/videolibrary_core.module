@@ -315,8 +315,6 @@ function videolibrary_core_menu_alter(&$items) {
 */
 
 function videolibrary_core_node_view($node, $view_mode, $langcode) {
-    dsm($GLOBALS['_GET']['q']);
-    global $base_url;
     if(($_SERVER['HTTP_REFERER']==NULL) && ($GLOBALS['_GET']['q'] == 'node/5')) {
     $flag = flag_get_flag('default');
     $libs=array('455'=>'orginaction','456'=>'opsinaction','457'=>'btoacademy');
