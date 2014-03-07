@@ -678,8 +678,11 @@ function tooglechild() {
         //jQuery('#block-views-child-library-block-block, #block-views-child-library-block-block-3').toggle();
 }
 function suggestLink() {
+if(jQuery("#suggest-link").text()=="How to Suggest a Video") {
+    jQuery("#suggest-link").attr('href','#');
  jQuery("#suggest-link").click(function() {
         alert('We appreciate your suggestions of new videos to add to the library. To suggest a video, go to the relevant page using the library selector, and click on "Suggest a Video".');});
+}
 }
 // function checkChildCategory() {
 //     jQuery('.form-item-newsletters-457').on('click', function (e) {
