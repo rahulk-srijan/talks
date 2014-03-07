@@ -190,7 +190,7 @@ function user_top_menu_link() {
         $content .='<li class="first"><a href="' . url('user') . '">' . t('Login') . '</a></li>';
     }
     $content .='
-<li class="last hidden-phone"><a id="suggest-link" rel="" href="#">'.$suggest.'</a></li>
+<li class="last hidden-phone"><a id="suggest-link" rel="" href="mailto:' . $mail_to . '?Subject=' . $subject . '&body=' . $msg . '">'.$suggest.'</a></li>
 <div id="mymodal" style="display: none">
   <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
 </div>
