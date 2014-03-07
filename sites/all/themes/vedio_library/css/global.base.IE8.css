@@ -2350,14 +2350,26 @@ div.modal-forms-modal-content .form-item label {
     top: -35px;
 }*/
 
-#comment-form {
-    font-size: 11px;
-    margin-bottom: 60px;
-    /*position: relative;*/
-    /*top: -20px;*/
-}
-
-        .form-submit, .like-video a {
+        #comment-form {
+            font-size: 11px;
+            margin-bottom: 60px;
+            /*position: relative;*/
+            /*top: -20px;*/
+        }
+       .form-submit, .like-video a {
+            padding: 0;
+            background: url("images/bluebtn_bg.png") no-repeat scroll 0 0 transparent;
+            border: medium none;
+            color: #FFFFFF;
+            font-weight: bold;
+            height: 18px;
+            text-align: center;
+            width: 38px;
+            display: inline-block;
+            text-decoration: none;
+            font-size: 11px;
+        }
+       #simplenews-subscriptions-page-form #edit-update {
             background: url("images/submit_button.png") repeat-x scroll 0 0 rgba(0, 0, 0, 0);
             border: 1px solid #1478A9;
             border-radius: 4px;
@@ -2377,11 +2389,12 @@ div.modal-forms-modal-content .form-item label {
     background: url("images/bluebtn_bg_h.png") no-repeat scroll 0 0 transparent;
 }
 
-/*        .form-submit:hover {
+        .form-submit:hover {
             text-decoration: none;
             background: url("images/bluebtn_bg_h.png") no-repeat scroll 0 0 transparent;
-            }  */   
-            .form-submit:hover {
+            }   
+              
+          #simplenews-subscriptions-page-form #edit-update:hover {
                 text-decoration: none;
                 background:  #0974aa;
             }
@@ -2494,7 +2507,7 @@ div.modal-forms-modal-content .form-item label {
 
 }
 
-      .region-secondary-content .region-inner #block-block-9 .block-inner .block-content.content p,
+      
       .region-secondary-content .region-inner #block-block-8 .block-inner .block-content.content p {
         color: #E37222;
         font-size: 19px;

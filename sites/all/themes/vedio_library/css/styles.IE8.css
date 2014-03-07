@@ -409,16 +409,25 @@ input.form-autocomplete::-ms-clear {display: none;}
 .cooment-info .video-views{
   margin: 12px 6px 0;
 }
-.video-commentcount{
+/*.video-commentcount{
  padding-bottom: 12px;
  border-bottom: 1px solid #C1C1C1;
-}
+}*/
 .pl-bn .play-button {
  position: absolute;
  top: 85px;
  left: 200px;
  width: auto;
  opacity: 0.8;
+}
+.cooment-info .share{
+    border-top: 1px solid #DADADA;
+    color: #FFFFFF;
+    font-weight: normal;
+    line-height: 13px;
+    margin: 12px 10px 12px 7px;
+    padding: 8px 0 0;
+    position: static;
 }
 
 #block-views-global-popular-video-block{
