@@ -109,6 +109,8 @@ jQuery('document').ready(function() {
     checkedAllCategory();
     addLabel();
     sort_autosubmit();
+    checkChildCategory();
+    suggestLink();
     toogleSearch()
 
     if (jQuery(window).width() < 700)
@@ -137,9 +139,9 @@ setTimeout( function(){
 function addDivNewsletter() {
    // jQuery( ".form-item-newsletters-457" ).insertBefore( "<div id='bto-newsletter'><p>Org in Action notification</p>" );
    // jQuery( "</div>" ).insertAfter( ".form-item-newsletters-463" );
-   jQuery('#edit-newsletters .form-item:gt(5):lt(7)').wrapAll('<div id="bto-newsletter" />');
-   jQuery('#edit-newsletters .form-item:gt(12):lt(9)').wrapAll('<div id="ops-newsletter" />');
-   jQuery('#edit-newsletters .form-item:gt(21):lt(25)').wrapAll('<div id="org-newsletter" />');
+   jQuery('#edit-newsletters .form-item:gt(5):lt(7)').wrapAll('<div id="bto-newsletter" class="newsletter-block" />');
+   jQuery('#edit-newsletters .form-item:gt(12):lt(9)').wrapAll('<div id="ops-newsletter" class="newsletter-block" />');
+   jQuery('#edit-newsletters .form-item:gt(21):lt(25)').wrapAll('<div id="org-newsletter" class="newsletter-block" />');
    jQuery('#bto-newsletter').before('<p class="main-cat" id="bto-collapsible">BtoAcademy newsletter</p>').hide();
    jQuery('#ops-newsletter').before('<p class="main-cat" id="ops-collapsible">Ops in Action newsletter</p>').hide();
    jQuery('#org-newsletter').before('<p class="main-cat" id="org-collapsible">Org in Action newsletter</p>').hide();
@@ -675,5 +677,33 @@ function tooglechild() {
         //jQuery('#block-views-child-library-block-block-4, #block-views-child-library-block-block-1').toggle();
         //jQuery('#block-views-child-library-block-block, #block-views-child-library-block-block-3').toggle();
 }
+function suggestLink() {
+ jQuery("#suggest-link").click(function() {
+        alert('We appreciate your suggestions of new videos to add to the library. To suggest a video, go to the relevant page using the library selector, and click on "Suggest a Video".');});
+}
+// function checkChildCategory() {
+//     jQuery('.form-item-newsletters-457').on('click', function (e) {
+//      if (e.target.className == "#bto-newsletter") {
+//          var cnt = jQuery('input[type="checkbox"]:checked').length;
+//          var cntSel = jQuery('select').val();
+//          var fin = cntSel - cnt;
+//          jQuery(this).find('input[type="checkbox"]:lt(' + fin + ')').prop('checked', true);
+//      }
+//  });
+// }
 
-
+function checkChildCategory() {
+    var blocks = jQuery(".newsletter-block");
+    blocks.each(function() {
+        var _parentthis = jQuery(this);
+        _parentthis.find(".form-type-checkbox:first-child input").click(function() {
+          var $this = jQuery(this);
+          if($this.is(":checked")) {
+            _parentthis.find(".form-type-checkbox input").attr("checked", "checked");
+          }
+          else {
+            _parentthis.find(".form-type-checkbox input").removeAttr("checked");
+          }
+        });
+    });
+}
