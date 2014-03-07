@@ -203,7 +203,7 @@ function mobileTweaks() {
     // Top Nav
     menuMobile();
 
-    menustripMobile();
+   // menustripMobile();
     //Notification Order Fix
     notifiReorder();
 
@@ -414,10 +414,10 @@ function menustripMobile(){
   });
 }
 function menuMobile() {
-    jQuery("#block-menu-menu-main-menu-mobile > ul.menu,#block-menu-menu-main-menu-mobile-ops > ul.menu,#block-menu-menu-main-menu-mobile-bto > ul.menu").css("max-height", jQuery(window).height() - 40);
+    jQuery("#block-menu-menu-main-menu-mobile > ul.menu,#block-menu-menu-main-menu-mobile-ops > ul.menu,#block-menu-menu-main-menu-mobile-bto > ul.menu,#block-menu-menu-global-mobile-menu > ul.menu").css("max-height", jQuery(window).height() - 40);
     //jQuery(".mobile-menu-common > ul.menu").css("max-height", jQuery(window).height() - 40);
     jQuery(window).resize(function() {
-        jQuery("#block-menu-menu-main-menu-mobile > ul.menu,#block-menu-menu-main-menu-mobile-ops > ul.menu,#block-menu-menu-main-menu-mobile-bto > ul.menu").css("max-height", jQuery(window).height() - 40);
+        jQuery("#block-menu-menu-main-menu-mobile > ul.menu,#block-menu-menu-main-menu-mobile-ops > ul.menu,#block-menu-menu-main-menu-mobile-bto > ul.menu,#block-menu-menu-global-mobile-menu > ul.menu").css("max-height", jQuery(window).height() - 40);
         //jQuery(".mobile-menu-common > ul.menu").css("max-height", jQuery(window).height() - 40);
     });
 
@@ -427,7 +427,7 @@ function menuMobile() {
 
     jQuery(".nav-btn").click(function() {
         //jQuery(".mobile-menu-common > ul.menu").slideToggle("fast");
-        jQuery("#block-menu-menu-main-menu-mobile > ul.menu,#block-menu-menu-main-menu-mobile-ops > ul.menu,#block-menu-menu-main-menu-mobile-bto > ul.menu").slideToggle("fast");
+        jQuery("#block-menu-menu-main-menu-mobile > ul.menu,#block-menu-menu-main-menu-mobile-ops > ul.menu,#block-menu-menu-main-menu-mobile-bto > ul.menu, #block-menu-menu-global-mobile-menu > ul.menu").slideToggle("fast");
         jQuery("#lightbox2-overlay").toggle();
     });
 
@@ -453,7 +453,7 @@ function carousel() {
     var mainctr = 1;
     jQuery('.menu-item-521 > a').attr({'target': '_blank'});
 //          jQuery('.menu-item-934 > a').attr({'target': '_blank'});
-    jQuery('#block-menu-menu-main-menu-mobile .menu .menu-depth-1.last > a,#block-menu-menu-main-menu-mobile-ops .menu .menu-depth-1.last > a,#block-menu-menu-main-menu-mobile-bto .menu .menu-depth-1.last > a').attr({'target': '_blank'});
+    jQuery('#block-menu-menu-main-menu-mobile .menu .menu-depth-1.last > a,#block-menu-menu-main-menu-mobile-ops .menu .menu-depth-1.last > a,#block-menu-menu-main-menu-mobile-bto .menu .menu-depth-1.last > a,#block-menu-menu-global-mobile-menu .menu .menu-depth-1.last > a').attr({'target': '_blank'});
     //jQuery('.mobile-menu-common .menu .menu-depth-1.last > a').attr({'target': '_blank'});
     jQuery('#edit-tid-wrapper .bef-select-as-links').find('.form-item div').each(function() {
         if (mainctr % 3 == 0) {
