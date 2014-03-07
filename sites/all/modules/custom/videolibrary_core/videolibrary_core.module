@@ -147,6 +147,12 @@ function user_top_menu_link() {
     global $library_subsite_variable;
     global $subsite_home_page_url;
     global $user;
+    $is_front = drupal_is_front_page();
+    if($is_front==TRUE) {
+        $suggest='How to Suggest a Video';
+    }else{
+        $suggest='Suggest a Video';
+    }
     $mail_to = $library_subsite_variable[$subsite_home_page_url]['to'];
     $subject = $library_subsite_variable[$subsite_home_page_url]['subject'];
     $msg = $library_subsite_variable[$subsite_home_page_url]['msg'];
@@ -184,9 +190,11 @@ function user_top_menu_link() {
         $content .='<li class="first"><a href="' . url('user') . '">' . t('Login') . '</a></li>';
     }
     $content .='
-<li class="last hidden-phone"><a href="mailto:?Subject=Feedback will be great&body=">
-Suggest a Video</a></li>
-<li class="feedback"><a href="mailto:?Subject=' . $subject . '&body=' . $msg . '">
+<li class="last hidden-phone"><a id="suggest-link" rel="" href="#">'.$suggest.'</a></li>
+<div id="mymodal" style="display: none">
+  <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
+</div>
+<li class="feedback"><a href="mailto:?Subject=Feedback will be great&body=">
 Feedback</a></li>
 <li class="last"><a href="#">How to suggest a video</a>
 <div class="modal">
@@ -307,8 +315,9 @@ function videolibrary_core_menu_alter(&$items) {
 */
 
 function videolibrary_core_node_view($node, $view_mode, $langcode) {
+    dsm($GLOBALS['_GET']['q']);
     global $base_url;
-    if(($_SERVER['HTTP_REFERER']==NULL) || ($base_url != $GLOBALS['base_url'])) {
+    if(($_SERVER['HTTP_REFERER']==NULL) && ($GLOBALS['_GET']['q'] == 'node/5')) {
     $flag = flag_get_flag('default');
     $libs=array('455'=>'orginaction','456'=>'opsinaction','457'=>'btoacademy');
     foreach($libs as $key=>$value) {
