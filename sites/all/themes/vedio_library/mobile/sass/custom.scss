@@ -583,7 +583,7 @@ a {
 		@extend .fixed-bottom;
 		font-size: $font-size-small;
 		font-weight: bold;
-		padding: 3px;
+		padding: 5px 4px;
 		background: $mck_footer_blue;
 		color: #ffffff;
 
@@ -594,6 +594,7 @@ a {
 		ul.user {
 			@include inline-block-list;
 			margin-bottom: 3px;
+			display: none;
 
 			li {
 				@include inline-block-list-item;
@@ -822,6 +823,9 @@ a {
 				float: left;
 				min-height: 24px;
 			}
+			.video-thumb{
+				position: relative;
+			}
 			.video-view {
 				@extend .link-text;
 				a{
@@ -983,13 +987,32 @@ a {
 			}
 		}
 
-#simplenews-subscriptions-page-form {
-	#reset, #edit-update {
-    display: inline-block;
-    float: right;
-    margin: 6px 6px 0;
-}
-}
+		#simplenews-subscriptions-page-form {
+			#reset, #edit-update {
+				display: inline-block;
+				float: right;
+				margin: 6px 6px 0;
+			}
+			#edit-update {
+				background: url("../../css/images/submit_button.png") repeat-x scroll 0 0 rgba(0, 0, 0, 0);
+				border: 1px solid #1478A9;
+				border-radius: 4px;
+				color: #FFFFFF;
+				display: inline-block;
+				font-size: 11px;
+				font-weight: bold;
+				height: auto;
+				padding: 3px 4px;
+				text-align: center;
+				text-decoration: none;
+				width: auto;
+			}
+			#edit-update:hover {
+				text-decoration: none;
+				background:  #0974aa;
+			}
+
+		}
 		#edit-subscriptions{
 			margin: 12px;
 
@@ -1027,7 +1050,7 @@ a {
 			}
 			#org-collapsible, #bto-collapsible, #ops-collapsible {
 				background-image: url("../../css/images/drop-right.png");
-				background-position: 97% center;
+				background-position: 99% center;
 				background-repeat: no-repeat;
 			}
 			.main-cat {
