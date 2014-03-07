@@ -8,6 +8,7 @@
 function mckc_omniture_init() {
   if(module_exists('sitecatalyst')){
     drupal_add_js('var omni_suit_id= "' . variable_get('omni_suit_id', '') . '";', 'inline');
+    drupal_add_js(drupal_get_path('module', 'mckc_omniture') . '/omniture_js/custom_variables.js', array('scope' => 'footer', 'weight' => 10)); // adding last after omniture load js
   }
 }
 
