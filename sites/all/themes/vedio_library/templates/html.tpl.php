@@ -63,19 +63,19 @@ global $subsite_home_page_url;
   <?php if($subsite_home_page_url == "btoacademy") { ?>
     <link rel="shortcut icon" href="<?php print $base_url . '/' . path_to_theme() . '/favicon.ico' ?>" type="image/x-icon" />
   <?php }
-    else {      
+    else {
    ?>
    <link rel="shortcut icon" href="<?php print $base_url . '/' . path_to_theme() . '/favicon2.ico' ?>" type="image/x-icon" />
    <?php } ?>
-  
+
   <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 <?php print $head; ?>
-<title><?php 
+<title><?php
 global $subsite_home_page_url;
 global $library_subsite_variable;
   // Adding conditions for page title tag
   if ($subsite_home_page_url && !arg(1)) {
-    print "Video Library Home | " . $library_subsite_variable[$subsite_home_page_url]['site_name'];
+    print "McKinsey Talks | " . $library_subsite_variable[$subsite_home_page_url]['site_name'];
   }
   elseif ($head_title_array["title"] && $subsite_home_page_url) {
     print $head_title_array["title"] . ' | ' . $library_subsite_variable[$subsite_home_page_url]['site_name'];

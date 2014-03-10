@@ -12,7 +12,7 @@ $library_subsite_variable = array(
         'from_email' => 'organization_practice_learning_team@mckinsey.com',
         'subject' => 'Suggest a video',
         'msg' => 'I recommend adding the following video to the Org in Action video library',
-        'site_name' => 'Org in Action: Video Library',
+        'site_name' => 'Org in Action',
          'tid'=>'455',
         'recommend_text' => ' recommended an Org in Action video.'),
     'opsinaction' =>
@@ -20,7 +20,7 @@ $library_subsite_variable = array(
         'from_email' => 'global_ops_learning_team@mckinsey.com',
         'subject' => 'Suggest a video',
         'msg' => 'I recommend adding the following video to the Ops in Action video library',
-        'site_name' => 'Ops in Action: Video Library',
+        'site_name' => 'Ops in Action',
         'tid'=>'456',
         'recommend_text' => ' recommended an Ops in Action video.'),
     'btoacademy' =>
@@ -317,11 +317,19 @@ function videolibrary_core_menu_alter(&$items) {
 function videolibrary_core_node_view($node, $view_mode, $langcode) {
     if(($_SERVER['HTTP_REFERER']==NULL) && ($GLOBALS['_GET']['q'] == 'node/5')) {
     $flag = flag_get_flag('default');
+    if($flag) {
     $libs=array('455'=>'orginaction','456'=>'opsinaction','457'=>'btoacademy');
     foreach($libs as $key=>$value) {
     if ($flag->is_flagged($key)) {
       drupal_goto($value);
     }
     }
+}else {
+    return;
 }
+}
+}
+
+function videolibrary_core_nodequeue_autocomplete($queue, $subqueue, $string, $where, $where_args) {
+    drupal_add_js('jQuery(document).ready(function () { alert("Hello!"); });', 'inline');
 }
