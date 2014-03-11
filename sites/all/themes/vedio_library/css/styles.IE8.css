@@ -266,7 +266,7 @@ input.form-autocomplete::-ms-clear {display: none;}
   padding: 1em 2em;
   background: none repeat scroll 0 0 #F5F5F5;
 }
-#superfish-1 .sf-menu-main-navigation a.sf-depth-1{
+#menu-bar .sf-menu-main-navigation a.sf-depth-1{
   width: 150px;
   background: url("images/menu-g.png") repeat-x scroll 0 0 transparent;
   color: #FFFFFF;
@@ -277,7 +277,7 @@ input.form-autocomplete::-ms-clear {display: none;}
 #superfish-1 li.sf-depth-1{
   margin: 0 1px !important ;
 }
-.sf-menu-main-navigation a.sf-depth-1:hover{
+#menu-bar .sf-menu-main-navigation a.sf-depth-1:hover{
   background-image: url("images/menu-active.png");
 }
 #superfish-1 a.sf-depth-2{
