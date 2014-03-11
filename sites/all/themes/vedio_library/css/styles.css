@@ -258,15 +258,15 @@
    position: relative;
    top: 4px;
    display: inline-block;
-   margin-left: 19px;
+   margin-left: 22px;
  }
  .block-superfish ul {
   margin: 0;
   padding: 1em 2em;
   background: none repeat scroll 0 0 #F5F5F5;
 }
-.sf-menu-main-navigation a.sf-depth-1{
-  width: 130px;
+#superfish-1 .sf-menu-main-navigation a.sf-depth-1{
+  width: 150px;
   background: url("images/menu-g.png") repeat-x scroll 0 0 transparent;
   color: #FFFFFF;
   text-align: center;
