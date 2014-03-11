@@ -1977,8 +1977,7 @@
 
     .node .node-content {
         font-size: 11px;
-        width: 509px;
-        background: #EDEFEE;
+        width: auto;
     }
 
     .node-statistics {
@@ -2314,7 +2313,7 @@
             font-size: 11px;
         }
        #simplenews-subscriptions-page-form #edit-update {
-            background: url("images/submit_button.png") repeat-x scroll 0 0 rgba(0, 0, 0, 0);
+            background: url("images/submit_button.png") repeat-x scroll 0 0 transparent;
             border: 1px solid #1478A9;
             border-radius: 4px;
             color: #FFFFFF;

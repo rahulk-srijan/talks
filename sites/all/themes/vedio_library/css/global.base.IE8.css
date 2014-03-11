@@ -2031,11 +2031,10 @@ div.modal-forms-modal-content .form-item label {
     margin-right: 0;
 }
 
-.node .node-content {
-    font-size: 11px;
-    width: 509px;
-    background: #EDEFEE;
-}
+    .node .node-content {
+        font-size: 11px;
+        width: auto;
+    }
 
 .node-statistics {
     border-right: 1px solid #666666;
@@ -2370,7 +2369,7 @@ div.modal-forms-modal-content .form-item label {
             font-size: 11px;
         }
        #simplenews-subscriptions-page-form #edit-update {
-            background: url("images/submit_button.png") repeat-x scroll 0 0 rgba(0, 0, 0, 0);
+            background: url("images/submit_button.png") repeat-x scroll 0 0 transparent;
             border: 1px solid #1478A9;
             border-radius: 4px;
             color: #FFFFFF;

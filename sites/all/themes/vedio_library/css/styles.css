@@ -751,4 +751,19 @@
     font-weight: bold;
     margin-bottom: 0;
 }
+#splash-page{
+
+    color: #FFFFFF;
+    font-family: georgia;
+    font-size: 24px;
+}
+.splash-arrow{
+    width: 16%;
+}
+.splash-text-url{
+   background: none repeat scroll 0 0 #FFFFFF;
+    color: #333333;
+    margin-left: 2%;
+    width: 82%;
+}
 }
