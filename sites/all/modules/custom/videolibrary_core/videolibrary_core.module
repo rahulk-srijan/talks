@@ -152,9 +152,11 @@ function user_top_menu_link() {
     global $subsite_home_page_url;
     global $user;
     $is_front = drupal_is_front_page();
-    if($is_front==TRUE) {
+    //if($is_front==TRUE) {
+    if(!($subsite_home_page_url)) {
         $suggest='How to Suggest a Video';
-    }else{
+    }
+    else{
         $suggest='Suggest a Video';
     }
     $mail_to = $library_subsite_variable[$subsite_home_page_url]['to'];
