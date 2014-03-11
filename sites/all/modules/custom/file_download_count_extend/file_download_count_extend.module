@@ -21,6 +21,13 @@ function file_download_count_extend_menu() {
         'access callback' => TRUE,
         'title' => 'File Download Reports Csv',
     );
+    $items['admin/reports/csv/%'] = array(
+        'page callback' => 'file_download_reports_csv',
+        'access arguments' => array('authenticated user'),
+        'type' => MENU_NORMAL_ITEM,
+        'access callback' => TRUE,
+        'title' => 'File Download Reports Csv',
+    );
     return $items;
 }
 
@@ -47,10 +54,14 @@ function file_download_file() {
 }
 
 function file_download_reports_csv() {
+    $child_lib_context = arg(3);
     //global $get_node_title;
-    $view_result = views_get_view_result('file_download_count', 'page_1');
+    $view_result = views_get_view_result('file_download_count', 'page_1',$child_lib_context);
+//    print_r($view_result);
+//    die();
+  //  $view_result =  views_add_contextual_links($view_result'page','file_download_count','page_1');
     // print_r($view_result);
-    //exit();  
+    //exit();
     $headers = array('Name', 'Video', 'Date');
     $fp = fopen('php://output', 'w');
     if ($view_result) {
