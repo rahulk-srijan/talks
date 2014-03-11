@@ -753,17 +753,20 @@ input.form-autocomplete::-ms-clear {display: none;}
     margin-bottom: 0;
 }
 #splash-page{
-
+  background: none repeat scroll 0 0 #002440;
+    border: 1px solid #002440;
+    box-shadow: 0 4px 5px rgba(0, 0, 0, 0.5);
     color: #FFFFFF;
     font-family: georgia;
     font-size: 24px;
 }
 .splash-arrow{
-    width: 16%;
+ clear: both;
+    height: 171px;
+    width: 14%;
 }
 .splash-text-url{
-   background: none repeat scroll 0 0 #FFFFFF;
-    color: #333333;
+   color: #FFFFFF;
     margin-left: 2%;
     width: 82%;
 }
