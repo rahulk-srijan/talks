@@ -249,6 +249,12 @@ function videolibrary_core_views_pre_render(&$view) {
 }
 
 function videolibrary_core_form_alter(&$form, &$form_state, $form_id) {
+    if($form_id=='views_exposed_form') {
+    $form['field_library_tid']['#options'][536] ='Miscellaneous';
+    $form['field_library_tid']['#options'][457] ='BTO Academy';
+    $form['field_library_tid']['#options'][456] ='Ops in Action';
+    $form['field_library_tid']['#options'][455] ='Org in Action';
+}
     if($form_id =='upload_video_node_form') {
         global $user;
     //    $orginaction =  "$form['field_library']['und']['#options'][455]";
@@ -334,8 +340,4 @@ function videolibrary_core_node_view($node, $view_mode, $langcode) {
     return;
 }
 }
-}
-
-function videolibrary_core_nodequeue_autocomplete($queue, $subqueue, $string, $where, $where_args) {
-    drupal_add_js('jQuery(document).ready(function () { alert("Hello!"); });', 'inline');
 }
