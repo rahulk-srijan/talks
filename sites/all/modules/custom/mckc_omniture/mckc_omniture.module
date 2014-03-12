@@ -49,6 +49,11 @@ function mckc_omniture_sitecatalyst_variables() {
     $visitor_id = $_SERVER['HTTP_PERSON_ID'];
     $variables['s.prop1'] = $visitor_id;
 
+    $omniture_settings = array(
+      'pidX' => $visitor_id
+     );
+    drupal_add_js(array('myOmniture' => $omniture_settings), 'setting');
+
     $uri = $_SERVER['REQUEST_URI'];
     $search = strpos($uri, 'search/site/');
     if ($search != false) {
