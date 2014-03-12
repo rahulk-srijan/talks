@@ -7,7 +7,8 @@
         s.linkTrackEvents = 'None';
         s.prop5 = pageTitle;
         var pidx = Drupal.settings.myOmniture.pidX;
-        s.prop3 = pidx; 
+        s.prop3 = pidx;
+        s.prop8 = pidx;
         s.tl(this, 'd');
 	});
 })(jQuery);
