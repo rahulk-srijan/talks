@@ -153,12 +153,12 @@ function user_top_menu_link() {
     global $user;
     $is_front = drupal_is_front_page();
     //if($is_front==TRUE) {
-    if(!($subsite_home_page_url)) {
+   /* if(!($subsite_home_page_url)) {
         $suggest='How to Suggest a Video';
     }
     else{
         $suggest='Suggest a Video';
-    }
+    }*/
     $mail_to = $library_subsite_variable[$subsite_home_page_url]['to'];
     $subject = $library_subsite_variable[$subsite_home_page_url]['subject'];
     $msg = $library_subsite_variable[$subsite_home_page_url]['msg'];
@@ -196,10 +196,8 @@ function user_top_menu_link() {
         $content .='<li class="first"><a href="' . url('user') . '">' . t('Login') . '</a></li>';
     }
     $content .='
-<li class="last hidden-phone"><a id="suggest-link" rel="" href="mailto:' . $mail_to . '?Subject=' . $subject . '&body=' . $msg . '">'.$suggest.'</a></li>
-<div id="mymodal" style="display: none">
-  <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
-</div>
+<li class="last hidden-phone"><a id="suggest-link" class="ctools-use-modal ctools-modal-modal-popup-small" href="suggest/nojs">Suggest a Video</a></li>
+
 <li class="feedback"><a href="mailto:?Subject=Feedback will be great&body=">
 Feedback</a></li>
 <li class="last"><a href="#">How to suggest a video</a>
@@ -340,4 +338,122 @@ function videolibrary_core_node_view($node, $view_mode, $langcode) {
     return;
 }
 }
+}
+
+function videolibrary_core_menu() {
+    $items = array();
+
+  $items['suggest/%ctools_js'] = array(
+    'page callback' => 'videolibrary_core_callback',
+    'page arguments' => array(1),
+    'access callback' => TRUE,
+    'type' => MENU_CALLBACK,
+  );
+
+  return $items;
+}
+
+/**
+ * Ajax menu callback.
+ */
+function videolibrary_core_callback($ajax) {
+  if ($ajax) {
+    ctools_include('ajax');
+    ctools_include('modal');
+
+    $form_state = array(
+      'ajax' => TRUE,
+      'title' => t('Suggest a Video'),
+    );
+
+    // Use ctools to generate ajax instructions for the browser to create
+    // a form in a modal popup.
+    $output = ctools_modal_form_wrapper('videolibrary_core_form', $form_state);
+
+    // If the form has been submitted, there may be additional instructions
+    // such as dismissing the modal popup.
+    if (!empty($form_state['ajax_commands'])) {
+      $output = $form_state['ajax_commands'];
+    }
+
+    // Return the ajax instructions to the browser via ajax_render().
+    print ajax_render($output);
+    drupal_exit();
+  }
+  else {
+    return drupal_get_form('videolibrary_core_form');
+  }
+}
+/**
+ * Drupal form to be put in a modal.
+ */
+function videolibrary_core_form($form, $form_state) {
+    global $library_subsite_variable;
+    global $subsite_home_page_url;
+    $mail_to_ = $library_subsite_variable[$subsite_home_page_url]['to'];
+    $subject = $library_subsite_variable[$subsite_home_page_url]['subject'];
+    $msg = $library_subsite_variable[$subsite_home_page_url]['msg'];
+    $mail_to_bto = $library_subsite_variable['btoacademy']['to'];
+    $subject_bto = $library_subsite_variable['btoacademy']['subject'];
+    $msg_bto = $library_subsite_variable['btoacademy']['msg'];
+    $mail_to_ops = $library_subsite_variable['opsinaction']['to'];
+    $subject_ops = $library_subsite_variable['opsinaction']['subject'];
+    $msg_ops = $library_subsite_variable['opsinaction']['msg'];
+    $mail_to_org = $library_subsite_variable['orginaction']['to'];
+    $subject_org = $library_subsite_variable['orginaction']['subject'];
+    $msg_org = $library_subsite_variable['orginaction']['msg'];
+
+  $form['lib_list']= array(
+  '#type' => 'radios',
+  '#title' => t('Choose library you want to suggest video.'),
+  '#options' => array(0 => 'General', 1 => 'BTO Academy',2=>'Ops in Action',3=>'Org in Action'),
+  '#required'=>TRUE
+);
+  $gen = ' <a class="lib" id="gen" href="mailto:' . $mail_to . '?Subject=' . $subject . '&body=' . $msg . '">General</a><br/>';
+  $bto= ' <a class="lib" id="bto" href="mailto:' . $mail_to_bto . '?Subject=' . $subject_bto . '&body=' . $msg_bto . '">Bto Academy</a><br/>';
+  $ops ='<a class="lib" id="ops" href="mailto:' . $mail_to_ops . '?Subject=' . $subject_ops . '&body=' . $msg_ops . '">Ops in action</a><br/>';
+  $org= '<a class="lib" id="org" href="mailto:' . $mail_to_org . '?Subject=' . $subject_org . '&body=' . $msg_org . '">Org in Action</a>';
+
+
+ $form['lib_list_gen'] = array(
+    '#title' => t('Click below to suggest a video'),
+    '#type' => 'item',
+    '#markup'=> $gen,
+    '#states' => array(
+      'visible' => array(
+        ':input[name="lib_list"]' => array('value' => '0'),
+      ),
+    ),
+  );
+ $form['lib_list_bto'] = array(
+    '#title' => t('Click below to suggest a video'),
+    '#type' => 'item',
+    '#markup'=> $bto,
+    '#states' => array(
+      'visible' => array(
+        ':input[name="lib_list"]' => array('value' => '1'),
+      ),
+    ),
+  );
+ $form['lib_list_ops'] = array(
+    '#title' => t('Click below to suggest a video'),
+    '#type' => 'item',
+    '#markup'=> $ops,
+    '#states' => array(
+      'visible' => array(
+        ':input[name="lib_list"]' => array('value' => '2'),
+      ),
+    ),
+  );
+ $form['lib_list_org'] = array(
+    '#title' => t('Click below to suggest a video'),
+    '#type' => 'item',
+    '#markup'=> $org,
+    '#states' => array(
+      'visible' => array(
+        ':input[name="lib_list"]' => array('value' => '3'),
+      ),
+    ),
+  );
+    return $form;
 }
