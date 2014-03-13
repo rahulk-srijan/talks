@@ -252,6 +252,9 @@ function clear_search_result() {
         global $subsite_home_page_url;
     $search_key = arg(3);
     $url = url($subsite_home_page_url."/search/site/$search_key");
+    if(!isset($subsite_home_page_url)) {
+        $url = url("global/search/site/$search_key");
+    }
     $content = '<div class="clear-search-result"><p>' . t('Search Options:') . '</p>';
     if (isset($_GET['f']) && !empty($_GET['f'])) {//check facet is clicked
         $content .='<p><a href="' . $url . '">Clear Filter</a></p>';
