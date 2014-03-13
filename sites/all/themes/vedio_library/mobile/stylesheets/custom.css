@@ -1676,10 +1676,6 @@
     padding-bottom: 20px;
     position: relative;
   }
-  /* line 1687, ../sass/custom.scss */
-  body.page-node #content-column #block-system-main #comments .comment-title {
-    display: none;
-  }
   /* line 1698, ../sass/custom.scss */
   body.page-node #content-column #block-system-main #comments .comment-form.comment-title::before {
     content: "> ";

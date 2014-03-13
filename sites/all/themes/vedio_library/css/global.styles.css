@@ -295,7 +295,7 @@
   #site-name a {
    color: #FFFFFF;
     font-family: arial;
-    font-size: 24px;
+    font-size: 22px;
     font-weight: 400;
     margin-left: 12px;
   }
@@ -440,7 +440,7 @@
     margin-top: 0;
   }
 .region-secondary-content {
-    margin-top: 20px;
+    margin-top: 10px;
   }
   /*
    * Sits above the main content header, like a content-top region
@@ -1338,6 +1338,7 @@
     padding: 0 10px;
     width: 91.8%;
     font-size: 12px;
+    line-height: 30px;
 
   }
   #block-search-form .form-type-textfield input.defaultTextActive {

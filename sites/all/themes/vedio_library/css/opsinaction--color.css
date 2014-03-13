@@ -22,8 +22,11 @@
 }
 /***Edited **/
 /*#site-name a, */
-.feat-videos-title a {
+.feat-videos-title a  {
     color: #de98ba;
+}
+.post-menu-strip .lib-name a {
+    color: #AD0059;
 }
 #views_slideshow_cycle_teaser_section_logging-block .views-field-message-render .latest {
     background-color: #AD0059;

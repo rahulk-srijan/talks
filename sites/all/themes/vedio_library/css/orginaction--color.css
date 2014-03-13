@@ -12,3 +12,7 @@
         left: 270px;
         top: 0;
     }
+    ,
+.post-menu-strip .lib-name a {
+    color: #E37222;
+}
