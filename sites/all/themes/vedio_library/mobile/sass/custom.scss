@@ -426,7 +426,11 @@ a {
 
 
 #views-exposed-form-home-page-video-listing-page-4{
-@extend .sort-by-collapsible ;
+	@extend .sort-by-collapsible ;
+	.views-widget-sort-by{
+		width: 100%;
+	}
+
 }
 
 
