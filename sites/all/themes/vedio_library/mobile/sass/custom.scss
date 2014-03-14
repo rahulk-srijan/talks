@@ -2376,7 +2376,7 @@ a {
 							}
 						}
 					}
-					.block-facetapi-category, .block-facetapi-date {
+					.block-facetapi-category, .block-facetapi-date ,.block-facetapi-library{
 						background-color: #edefee;
 						.item-list {
 							background-color: #edefee;
@@ -2402,7 +2402,7 @@ a {
 							color: #333333;
 						}
 					}
-					.block-facetapi-date {
+					.block-facetapi-date{
 						ul#facetapi-facet-apachesolrsolr-block-created li.leaf {
 							line-height: 18px;
 							margin-left: 10px;
