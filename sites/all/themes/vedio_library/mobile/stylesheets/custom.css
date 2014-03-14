@@ -890,7 +890,7 @@
   }
   /* line 763, ../sass/custom.scss */
   .body-orginaction .block-facetapi-category h2, .body-orginaction .block-facetapi-date h2, .body-orginaction .block-facetapi-library h2,
-  .body-orginaction .page-search #block-apachesolr-search-sort .item-list ul li a.active h2 {
+  .body-orginaction #block-apachesolr-search-sort .item-list ul li a.active h2 {
     background-color: #e37222 !important;
   }
 
@@ -908,7 +908,7 @@
   }
   /* line 781, ../sass/custom.scss */
   .body-opsinaction .block-facetapi-category h2, .body-opsinaction .block-facetapi-date h2, .body-opsinaction .block-facetapi-library h2,
-  .body-opsinaction .page-search #block-apachesolr-search-sort .item-list ul li a.active h2 {
+  .body-opsinaction #block-apachesolr-search-sort .item-list ul li a.active h2 {
     background-color: #ad0059 !important;
   }
 
@@ -926,7 +926,7 @@
   }
   /* line 799, ../sass/custom.scss */
   .body-btoacademy .block-facetapi-category h2, .body-btoacademy .block-facetapi-date h2, .body-btoacademy .block-facetapi-library h2,
-  .body-btoacademy .page-search #block-apachesolr-search-sort .item-list ul li a.active h2 {
+  .body-btoacademy #block-apachesolr-search-sort .item-list ul li a.active h2 {
     background-color: #632f7a !important;
   }
 
