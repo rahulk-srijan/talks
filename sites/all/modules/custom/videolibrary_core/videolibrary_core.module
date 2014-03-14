@@ -196,7 +196,7 @@ function user_top_menu_link() {
         $content .='<li class="first"><a href="' . url('user') . '">' . t('Login') . '</a></li>';
     }
     $content .='
-<li class="last hidden-phone"><a id="suggest-link" class="ctools-use-modal ctools-modal-modal-popup-medium" href="suggest/nojs">Suggest a Video</a></li>
+<li class="last hidden-phone"><a id="suggest-link" class="ctools-use-modal ctools-modal-modal-popup-medium" href="/suggest/nojs">Suggest a Video</a></li>
 
 <li class="feedback"><a href="mailto:?Subject=Feedback will be great&body=">
 Feedback</a></li>
@@ -325,6 +325,10 @@ function videolibrary_core_menu_alter(&$items) {
 */
 
 function videolibrary_core_node_view($node, $view_mode, $langcode) {
+     $device = array('ipad', 'iphone');
+     if (!(bool) strpos($_SERVER['HTTP_USER_AGENT'], 'iPad') && !(bool) strpos($_SERVER['HTTP_USER_AGENT'], 'iPhone')) {
+        return;
+     }else {
     if(($_SERVER['HTTP_REFERER']==NULL) && ($GLOBALS['_GET']['q'] == 'node/5')) {
     $flag = flag_get_flag('default');
     if($flag) {
@@ -339,7 +343,7 @@ function videolibrary_core_node_view($node, $view_mode, $langcode) {
 }
 }
 }
-
+}
 function videolibrary_core_menu() {
     $items = array();
 
