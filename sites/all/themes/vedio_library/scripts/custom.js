@@ -110,7 +110,7 @@ jQuery('document').ready(function() {
     addLabel();
     sort_autosubmit();
     checkChildCategory();
-//    suggestLink();
+    suggestLink();
     toogleSearch()
 
     if (jQuery(window).width() < 700)
@@ -142,9 +142,9 @@ function addDivNewsletter() {
    jQuery('#edit-newsletters .form-item:gt(5):lt(7)').wrapAll('<div id="bto-newsletter" class="newsletter-block" />');
    jQuery('#edit-newsletters .form-item:gt(12):lt(9)').wrapAll('<div id="ops-newsletter" class="newsletter-block" />');
    jQuery('#edit-newsletters .form-item:gt(21):lt(25)').wrapAll('<div id="org-newsletter" class="newsletter-block" />');
-   jQuery('#bto-newsletter').before('<p class="main-cat" id="bto-collapsible">BTO Academy Notification</p>').hide();
-   jQuery('#ops-newsletter').before('<p class="main-cat" id="ops-collapsible">Ops in Action Notification</p>').hide();
-   jQuery('#org-newsletter').before('<p class="main-cat" id="org-collapsible">Org in Action Notification</p>').hide();
+   jQuery('#bto-newsletter').before('<p class="main-cat" id="bto-collapsible">BTO Academy newsletter</p>').hide();
+   jQuery('#ops-newsletter').before('<p class="main-cat" id="ops-collapsible">Ops in Action newsletter</p>').hide();
+   jQuery('#org-newsletter').before('<p class="main-cat" id="org-collapsible">Org in Action newsletter</p>').hide();
    jQuery('.main-cat').each(function() {
         jQuery(this).click(function(){
             jQuery(this).next().toggle();
@@ -212,6 +212,7 @@ function mobileTweaks() {
 
     // Trim
     jQuery(".slideshow-body").more({length: 100, wordBreak: true, moreText: 'more', lessText: 'less'});
+    jQuery(".popular-video-slide .video-body").more({length: 100, wordBreak: true, moreText: 'more', lessText: 'less'});
     jQuery(".feat-videos-title").more({length: 35, moreText: ''});
 
     search_trim();
