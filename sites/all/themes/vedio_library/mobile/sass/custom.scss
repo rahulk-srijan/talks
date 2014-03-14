@@ -425,13 +425,13 @@ a {
 
 
 
-#views-exposed-form-home-page-video-listing-page-4{
-	@extend .sort-by-collapsible ;
-	.views-widget-sort-by{
-		width: 100%;
-	}
+	#views-exposed-form-home-page-video-listing-page-4{
+		@extend .sort-by-collapsible ;
+		.views-widget-sort-by{
+			width: 100%;
+		}
 
-}
+	}
 
 
 	#block-custom-ovl-noti-block {
@@ -758,6 +758,11 @@ a {
 	.region-secondary-content{
 		margin-top: 36px;
 	}
+	.block-facetapi-category, .block-facetapi-date ,.block-facetapi-library{
+		h2 {
+			background-color: $orange;
+		}
+	}
 }
 
 .body-opsinaction {
@@ -770,6 +775,11 @@ a {
 	.region-secondary-content{
 		margin-top: 36px;
 	}
+	.block-facetapi-category, .block-facetapi-date ,.block-facetapi-library{
+		h2 {
+			background-color: $magenta_ops;
+		}
+	}
 }
 
 .body-btoacademy {
@@ -781,6 +791,11 @@ a {
 	}
 	.region-secondary-content{
 		margin-top: 36px;
+	}
+	.block-facetapi-category, .block-facetapi-date ,.block-facetapi-library{
+		h2 {
+			background-color: $purple_bto;
+		}
 	}
 }		
 
@@ -1105,18 +1120,18 @@ a {
 				margin: 0 auto;
 			}
 			.lib_count{
-				   color: #DADADA;
-    float: right;
-    font-weight: bold;
-    margin-right: 6px;
+				color: #DADADA;
+				float: right;
+				font-weight: bold;
+				margin-right: 6px;
 			}
 
 			.view-header{
 				background: $light-orange-ops;
 				padding: 7px 8px;
 				clear: both;
-    display: block;
-    overflow: hidden;
+				display: block;
+				overflow: hidden;
 				h4{
 					font-size: $font-size-normal;
 					font-weight: bold;
@@ -2383,7 +2398,7 @@ a {
 						}
 						h2 {
 							position: relative;
-							background-color: $orange;
+							background-color: $mck_blue;
 							color: white;
 							padding: 6px;
 							margin-bottom: 3px;

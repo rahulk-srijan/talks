@@ -171,6 +171,7 @@ function toggleControls() {
     });
 
     jQuery(".block-facetapi-category").addClass("is-expanded");
+    jQuery(".block-facetapi-library").addClass("is-expanded");
     jQuery(".block-facetapi-category, .block-facetapi-date, .block-facetapi-library").click(function() {
         jQuery(".block-content", jQuery(this)).toggle();
         jQuery(this).toggleClass("is-expanded");
