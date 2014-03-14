@@ -889,7 +889,7 @@
     margin-top: 36px;
   }
   /* line 762, ../sass/custom.scss */
-  .body-orginaction .block-facetapi-category h2, .body-orginaction .block-facetapi-date h2, .body-orginaction .block-facetapi-library h2 {
+  .body-orginaction #page .block-facetapi-category h2, .body-orginaction .block-facetapi-date h2, .body-orginaction .block-facetapi-library h2 {
     background-color: #e37222;
   }
 
@@ -906,7 +906,7 @@
     margin-top: 36px;
   }
   /* line 779, ../sass/custom.scss */
-  .body-opsinaction .block-facetapi-category h2, .body-opsinaction .block-facetapi-date h2, .body-opsinaction .block-facetapi-library h2 {
+  .body-opsinaction #page .block-facetapi-category h2, .body-opsinaction .block-facetapi-date h2, .body-opsinaction .block-facetapi-library h2 {
     background-color: #ad0059;
   }
 
@@ -923,7 +923,7 @@
     margin-top: 36px;
   }
   /* line 796, ../sass/custom.scss */
-  .body-btoacademy .block-facetapi-category h2, .body-btoacademy .block-facetapi-date h2, .body-btoacademy .block-facetapi-library h2 {
+  .body-btoacademy #page .block-facetapi-category h2, .body-btoacademy .block-facetapi-date h2, .body-btoacademy .block-facetapi-library h2 {
     background-color: #632f7a;
   }
 

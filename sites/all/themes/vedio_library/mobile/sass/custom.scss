@@ -758,7 +758,7 @@ a {
 	.region-secondary-content{
 		margin-top: 36px;
 	}
-	.block-facetapi-category, .block-facetapi-date ,.block-facetapi-library{
+	#page .block-facetapi-category, .block-facetapi-date ,.block-facetapi-library{
 		h2 {
 			background-color: $orange;
 		}
@@ -775,7 +775,7 @@ a {
 	.region-secondary-content{
 		margin-top: 36px;
 	}
-	.block-facetapi-category, .block-facetapi-date ,.block-facetapi-library{
+	#page .block-facetapi-category, .block-facetapi-date ,.block-facetapi-library{
 		h2 {
 			background-color: $magenta_ops;
 		}
@@ -792,7 +792,7 @@ a {
 	.region-secondary-content{
 		margin-top: 36px;
 	}
-	.block-facetapi-category, .block-facetapi-date ,.block-facetapi-library{
+	#page .block-facetapi-category, .block-facetapi-date ,.block-facetapi-library{
 		h2 {
 			background-color: $purple_bto;
 		}
