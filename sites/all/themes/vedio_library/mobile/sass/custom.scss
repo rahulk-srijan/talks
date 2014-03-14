@@ -758,11 +758,14 @@ a {
 	.region-secondary-content{
 		margin-top: 36px;
 	}
-	.block-facetapi-category, .block-facetapi-date ,.block-facetapi-library,
-	 #block-apachesolr-search-sort .item-list ul li a.active{
+	.block-facetapi-category, .block-facetapi-date ,.block-facetapi-library{
 		h2 {
 			background-color: $orange !important;
 		}
+	}
+	#block-apachesolr-search-sort .item-list ul li a.active{
+		background-color: $orange !important;
+		
 	}
 }
 
@@ -776,12 +779,16 @@ a {
 	.region-secondary-content{
 		margin-top: 36px;
 	}
-	.block-facetapi-category, .block-facetapi-date ,.block-facetapi-library,
- #block-apachesolr-search-sort .item-list ul li a.active{
+	.block-facetapi-category, .block-facetapi-date ,.block-facetapi-library{
 		h2 {
 			background-color: $magenta_ops !important;
 		}
 	}
+	#block-apachesolr-search-sort .item-list ul li a.active{
+		background-color: $orange !important;
+		
+	}
+
 }
 
 .body-btoacademy {
@@ -794,12 +801,16 @@ a {
 	.region-secondary-content{
 		margin-top: 36px;
 	}
-	.block-facetapi-category, .block-facetapi-date ,.block-facetapi-library,
-	 #block-apachesolr-search-sort .item-list ul li a.active{
+	.block-facetapi-category, .block-facetapi-date ,.block-facetapi-library{
 		h2 {
 			background-color: $purple_bto !important;
 		}
 	}
+	#block-apachesolr-search-sort .item-list ul li a.active{
+		background-color: $orange !important;
+		
+	}
+
 }		
 
 
