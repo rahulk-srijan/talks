@@ -212,6 +212,7 @@ function mobileTweaks() {
 
     // Trim
     jQuery(".slideshow-body").more({length: 100, wordBreak: true, moreText: 'more', lessText: 'less'});
+    jQuery(".popular-video-slide .video-body").more({length: 100, wordBreak: true, moreText: 'more', lessText: 'less'});
     jQuery(".feat-videos-title").more({length: 35, moreText: ''});
 
     search_trim();
