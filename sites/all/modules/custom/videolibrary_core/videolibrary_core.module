@@ -261,12 +261,15 @@ function videolibrary_core_form_alter(&$form, &$form_state, $form_id) {
         $library_roles = array(
             '455' => 'org web master' ,
             '456' => 'ops web master',
-            '457' => 'bto web master'
+            '457' => 'bto web master',
+            '536' => 'miscellaneous'
              );
         $roles = user_roles();
         $current_user_role = $user->roles;
         $result = array_intersect($library_roles, $current_user_role);
         $result_count = count($result);
+        if(in_array('super admin', $current_user_role)) {
+    return;}else{
         if($result_count==1) {
             if(in_array('org web master', $current_user_role)) {
                 unset($form['field_library']);
@@ -297,6 +300,7 @@ function videolibrary_core_form_alter(&$form, &$form_state, $form_id) {
 }
 else {
     return;
+}
 }
 }
 
