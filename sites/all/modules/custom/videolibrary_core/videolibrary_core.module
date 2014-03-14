@@ -151,6 +151,8 @@ function user_top_menu_link() {
     global $library_subsite_variable;
     global $subsite_home_page_url;
     global $user;
+    global $base_url;
+    $suggest_url = $base_url.'/suggest/nojs';
     $is_front = drupal_is_front_page();
     //if($is_front==TRUE) {
    /* if(!($subsite_home_page_url)) {
@@ -196,7 +198,7 @@ function user_top_menu_link() {
         $content .='<li class="first"><a href="' . url('user') . '">' . t('Login') . '</a></li>';
     }
     $content .='
-<li class="last hidden-phone"><a id="suggest-link" class="ctools-use-modal ctools-modal-modal-popup-medium" href="/suggest/nojs">Suggest a Video</a></li>
+<li class="last hidden-phone"><a id="suggest-link" class="ctools-use-modal ctools-modal-modal-popup-medium" href="'.$suggest_url .'">Suggest a Video</a></li>
 
 <li class="feedback"><a href="mailto:?Subject=Feedback will be great&body=">
 Feedback</a></li>
@@ -409,7 +411,7 @@ function videolibrary_core_form($form, $form_state) {
 
   $form['lib_list']= array(
   '#type' => 'radios',
-  '#title' => t('Choose library you want to suggest video.'),
+//  '#title' => t('Choose library you want to suggest video.'),
   '#options' => array(0 => 'General', 1 => 'BTO Academy',2=>'Ops in Action',3=>'Org in Action'),
   '#required'=>TRUE
 );
@@ -420,7 +422,7 @@ function videolibrary_core_form($form, $form_state) {
 
 
  $form['lib_list_gen'] = array(
-    '#title' => t('Click below to suggest a video'),
+//    '#title' => t('Click below to suggest a video'),
     '#type' => 'item',
     '#markup'=> $gen,
     '#states' => array(
@@ -430,7 +432,7 @@ function videolibrary_core_form($form, $form_state) {
     ),
   );
  $form['lib_list_bto'] = array(
-    '#title' => t('Click below to suggest a video'),
+//    '#title' => t(''),
     '#type' => 'item',
     '#markup'=> $bto,
     '#states' => array(
@@ -440,7 +442,7 @@ function videolibrary_core_form($form, $form_state) {
     ),
   );
  $form['lib_list_ops'] = array(
-    '#title' => t('Click below to suggest a video'),
+//    '#title' => t('Click below to suggest a video'),
     '#type' => 'item',
     '#markup'=> $ops,
     '#states' => array(
@@ -450,7 +452,7 @@ function videolibrary_core_form($form, $form_state) {
     ),
   );
  $form['lib_list_org'] = array(
-    '#title' => t('Click below to suggest a video'),
+//    '#title' => t('Click below to suggest a video'),
     '#type' => 'item',
     '#markup'=> $org,
     '#states' => array(
