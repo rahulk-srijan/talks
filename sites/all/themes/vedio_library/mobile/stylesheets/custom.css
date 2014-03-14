@@ -2200,15 +2200,15 @@
     border-radius: 2px;
   }
   /* line 2379, ../sass/custom.scss */
-  .page-search #columns .region-sidebar-first .region-inner .block-facetapi-category, .page-search #columns .region-sidebar-first .region-inner .block-facetapi-date {
+  .page-search #columns .region-sidebar-first .region-inner .block-facetapi-category, .page-search #columns .region-sidebar-first .region-inner .block-facetapi-date, .page-search #columns .region-sidebar-first .region-inner .block-facetapi-library {
     background-color: #edefee;
   }
   /* line 2381, ../sass/custom.scss */
-  .page-search #columns .region-sidebar-first .region-inner .block-facetapi-category .item-list, .page-search #columns .region-sidebar-first .region-inner .block-facetapi-date .item-list {
+  .page-search #columns .region-sidebar-first .region-inner .block-facetapi-category .item-list, .page-search #columns .region-sidebar-first .region-inner .block-facetapi-date .item-list, .page-search #columns .region-sidebar-first .region-inner .block-facetapi-library .item-list {
     background-color: #edefee;
   }
   /* line 2384, ../sass/custom.scss */
-  .page-search #columns .region-sidebar-first .region-inner .block-facetapi-category h2, .page-search #columns .region-sidebar-first .region-inner .block-facetapi-date h2 {
+  .page-search #columns .region-sidebar-first .region-inner .block-facetapi-category h2, .page-search #columns .region-sidebar-first .region-inner .block-facetapi-date h2, .page-search #columns .region-sidebar-first .region-inner .block-facetapi-library h2 {
     position: relative;
     background-color: #e37222;
     color: white;
@@ -2216,17 +2216,17 @@
     margin-bottom: 3px;
   }
   /* line 2390, ../sass/custom.scss */
-  .page-search #columns .region-sidebar-first .region-inner .block-facetapi-category h2::after, .page-search #columns .region-sidebar-first .region-inner .block-facetapi-date h2::after {
+  .page-search #columns .region-sidebar-first .region-inner .block-facetapi-category h2::after, .page-search #columns .region-sidebar-first .region-inner .block-facetapi-date h2::after, .page-search #columns .region-sidebar-first .region-inner .block-facetapi-library h2::after {
     content: "+";
     position: absolute;
     right: 5px;
   }
   /* line 2397, ../sass/custom.scss */
-  .page-search #columns .region-sidebar-first .region-inner .block-facetapi-category.is-expanded h2::after, .page-search #columns .region-sidebar-first .region-inner .block-facetapi-date.is-expanded h2::after {
+  .page-search #columns .region-sidebar-first .region-inner .block-facetapi-category.is-expanded h2::after, .page-search #columns .region-sidebar-first .region-inner .block-facetapi-date.is-expanded h2::after, .page-search #columns .region-sidebar-first .region-inner .block-facetapi-library.is-expanded h2::after {
     content: "-";
   }
   /* line 2401, ../sass/custom.scss */
-  .page-search #columns .region-sidebar-first .region-inner .block-facetapi-category a, .page-search #columns .region-sidebar-first .region-inner .block-facetapi-category a:hover, .page-search #columns .region-sidebar-first .region-inner .block-facetapi-category a:focus, .page-search #columns .region-sidebar-first .region-inner .block-facetapi-category a:active, .page-search #columns .region-sidebar-first .region-inner .block-facetapi-date a, .page-search #columns .region-sidebar-first .region-inner .block-facetapi-date a:hover, .page-search #columns .region-sidebar-first .region-inner .block-facetapi-date a:focus, .page-search #columns .region-sidebar-first .region-inner .block-facetapi-date a:active {
+  .page-search #columns .region-sidebar-first .region-inner .block-facetapi-category a, .page-search #columns .region-sidebar-first .region-inner .block-facetapi-category a:hover, .page-search #columns .region-sidebar-first .region-inner .block-facetapi-category a:focus, .page-search #columns .region-sidebar-first .region-inner .block-facetapi-category a:active, .page-search #columns .region-sidebar-first .region-inner .block-facetapi-date a, .page-search #columns .region-sidebar-first .region-inner .block-facetapi-date a:hover, .page-search #columns .region-sidebar-first .region-inner .block-facetapi-date a:focus, .page-search #columns .region-sidebar-first .region-inner .block-facetapi-date a:active, .page-search #columns .region-sidebar-first .region-inner .block-facetapi-library a, .page-search #columns .region-sidebar-first .region-inner .block-facetapi-library a:hover, .page-search #columns .region-sidebar-first .region-inner .block-facetapi-library a:focus, .page-search #columns .region-sidebar-first .region-inner .block-facetapi-library a:active {
     color: #333333;
   }
   /* line 2406, ../sass/custom.scss */
