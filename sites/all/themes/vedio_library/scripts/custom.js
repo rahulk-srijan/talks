@@ -158,12 +158,12 @@ function toggleControls() {
         jQuery(".region-sidebar-first").toggle();
         jQuery(this).toggleClass("active");
 
-        jQuery("#block-apachesolr-search-sort").hide();
+        jQuery("#block-apachesolr-sort-sort").hide();
         jQuery(".category-filter-toggle .date-search-facet").removeClass("active");
     });
 
     jQuery(".category-filter-toggle .date-search-facet").click(function() {
-        jQuery("#block-apachesolr-search-sort").toggle();
+        jQuery("#block-apachesolr-sort-sort").toggle();
         jQuery(this).toggleClass("active");
 
         jQuery(".region-sidebar-first").hide();
