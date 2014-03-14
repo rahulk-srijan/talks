@@ -145,9 +145,11 @@ function custom_ovl_form_alter(&$form, &$form_state, $form_id) {
             '#markup' => 'Email Content',
             '#weight' => -3,
         );
-        $form['subscriptions']['newsletters']['#options'][456]=' All New Videos Added to opsinaction';
-        $form['subscriptions']['newsletters']['#options'][455]=' All New Videos Added to orgianction';
-        $form['subscriptions']['newsletters']['#options'][457]=' All New Videos Added to btoacademy';        /*  $form['subscriptions']['new_1'] = array(
+        $form['subscriptions']['newsletters']['#options'][456]=' All New Videos Added to Ops in Action';
+        $form['subscriptions']['newsletters']['#options'][455]=' All New Videos Added to Org in action';
+        $form['subscriptions']['newsletters']['#options'][457]=' All New Videos Added to BTO Academy';
+        $form['subscriptions']['newsletters']['#options'][4]='All new videos added to McKinsey Talks';
+                /*  $form['subscriptions']['new_1'] = array(
           '#type' => 'item',
           '#markup' => 'ONLY new videos added to these categories',
           '#weight' => 56,

@@ -196,7 +196,7 @@ function user_top_menu_link() {
         $content .='<li class="first"><a href="' . url('user') . '">' . t('Login') . '</a></li>';
     }
     $content .='
-<li class="last hidden-phone"><a id="suggest-link" class="ctools-use-modal ctools-modal-modal-popup-small" href="suggest/nojs">Suggest a Video</a></li>
+<li class="last hidden-phone"><a id="suggest-link" class="ctools-use-modal ctools-modal-modal-popup-medium" href="suggest/nojs">Suggest a Video</a></li>
 
 <li class="feedback"><a href="mailto:?Subject=Feedback will be great&body=">
 Feedback</a></li>
