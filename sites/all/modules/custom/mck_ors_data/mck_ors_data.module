@@ -145,9 +145,10 @@ FROM psn_person where person_status = 'Active' AND ROWNUM < 5";
         }
         $content .= '<tbody></table>';
         header('Content-type: application/vnd.ms-excel');
-        header("Content-Disposition: attachment; filename=$file");
+        header("Content-Disposition: attachment; filename=test.xls");
         header("Pragma: no-cache");
         header("Expires: 0");
         echo $content;
+        exit;
     }
 }
