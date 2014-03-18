@@ -1,0 +1,156 @@
+<?php
+
+/**
+ * @file
+ * Custom module to fetch data from ORS database.
+ *
+ * Provide the connectivity with ORS database
+ * so admin can fetch data from ORS database like New Faces, Anniversary, Birthdays.
+ */
+class ORSDbHandler {
+
+    private static $_ORSDBHandle;
+
+    private function __construct() {
+        
+    }
+
+    public static function getHandle() {
+        if (!isset(self::$_ORSDBHandle)) {
+            $username = variable_get('ors_database_username', 'username');
+            $password = variable_get('ors_database_password', 'password');
+            $connection_string = variable_get('ors_database_connection_string', '');
+            self::$_ORSDBHandle = oci_connect($username, $password, "$connection_string");
+        }
+        return self::$_ORSDBHandle;
+    }
+
+}
+
+global $mck_user;
+
+/**
+ * Implements hook_permission().
+ */
+function mck_ors_data_permission() {
+    return array(
+        'ors data update' => array(
+            'title' => t('Ors data update'),
+            'description' => t('Update ORS data'),
+        ),
+    );
+}
+
+/**
+ * Implements hook_init().
+ */
+function mck_ors_data_init() {
+    //print_r(node_load(8085));
+}
+
+/**
+ * Implements hook_menu().
+ */
+function mck_ors_data_menu() {
+    $items['admin/config/ors-data/ors-data-update'] = array(
+        'title' => 'ORS Data',
+        'page callback' => 'mck_ors_data_ors_data_page',
+        'page arguments' => array('mck_ors_data_ors_data_update_people_form', 'mck_ors_data_ors_data_settings_form'),
+        'access arguments' => array('ors data update'),
+        'file' => 'mck_ors_data.admin.inc',
+    );
+
+    $items['ors_user/fetch'] = array(
+        'page callback' => 'ors_fetch_users',
+        'access arguments' => array('access content'),
+        'modal' => TRUE,
+        'type' => MENU_CALLBACK,
+    );
+    return $items;
+}
+
+/**
+ * Implements hook_block_info().
+ */
+function mck_ors_data_block_info() {
+    $blocks = array();
+    $blocks['ors_user_fetch'] = array(
+        'info' => t('Ors User Fetch'),
+    );
+
+    return $blocks;
+}
+
+function mck_ors_data_block_view($delta = '') {
+    switch ($delta) {
+        case 'ors_user_form':
+            $block['subject'] = null; // Most forms don't have a subject
+            $block['content'] = ors_fetch_users();
+            break;
+    }
+    return $block;
+}
+
+
+/*
+ * ORS connect handler return ORS object if things goes fine.
+ */
+
+function get_ors_connection() {
+    try {
+        if (function_exists('oci_connect')) {
+            $c = ORSDbHandler::getHandle();
+            if (!$c) {
+                drupal_set_message(t('Unable to connect check settings.'), 'warning');
+                return '';
+            } else {
+                return $c;
+            }
+        } else {
+            drupal_set_message(t('oci_connect function not existes. oci8 php extension is not installed or enabled.'), 'warning', FALSE);
+            return '';
+        }
+    } catch (Exception $e) {
+        drupal_set_message(t('Exception'), 'status', FALSE);
+        drupal_set_message(t('Message: ' . $e->getMessage()), 'status', FALSE);
+    }
+}
+
+/*
+  Get people from ORS database
+ */
+
+function ors_fetch_users() {
+    $connection = get_ors_connection();
+    // $name = ucwords($name);
+    //get data from tables in this db
+    //$query = "SELECT pp.first_name, pp.person_status, pp.last_name, pp.person_id,
+    // pp.vendor_individual_id, pp.ors_change_tstamp, td.location_location_code, 
+    // td.mckinsey_career_title, pd.department_name FROM psn_person pp 
+    // LEFT JOIN psn_off_career_job_type_dept td ON td.person_id = pp.person_id
+    //  LEFT JOIN psn_mckinsey_career mc on mc.mckinsey_career_id = pp.person_id 
+    //  LEFT JOIN pik_department pd ON pd.department_code = td.department_code 
+    //  WHERE pp.person_status = 'Active' AND td.location_location_code IN ('NKC', 'SJO')";
+    $query = "SELECT PERSON_ID,FMNO,ADS_LOGIN_NAME
+FROM psn_person where person_status = 'Active' AND ROWNUM < 500";
+    //$query = "SELECT first_name, person_status, last_name, person_id, vendor_individual_id, ors_change_tstamp FROM psn_person";
+    //AND ROWNUM <= 3
+    //$query = "SELECT first_name FROM psn_person";
+    //select table_name from all_tables
+//table PSN_PERSON   PSN_MCKINSEY_CAREER PSN_OFF_CAREER_JOB_TYPE_DEPT  TOAD_PLAN_TABLE PIK_DEPARTMENT
+    //select ads_login_name, vender_individual_id from PSN_PERSON WHERE person_status = 'Active' AND ads_login_name LIKE 'Du%'
+    $stid = oci_parse($connection, $query);
+    $execute = oci_execute($stid);
+    $row_count = ocirowcount($stid);
+    // if records are in connection
+    if (sizeof(oci_fetch_array($stid, OCI_RETURN_NULLS + OCI_ASSOC)) > 0) {
+
+        // create or update people
+        while ($row = oci_fetch_array($stid, OCI_RETURN_NULLS + OCI_ASSOC)) {
+            $row = array_change_key_case($row, CASE_LOWER); //convert field to lowercase
+            //check if node already there in database
+            $content[] = $row;
+        }
+        return $content;
+    }
+}
