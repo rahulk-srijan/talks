@@ -1,6 +1,6 @@
-name = Custom module
+name = Custom ORS connect module
 version = 7.x-1.0
 description = Import Data from ORS database.
-package = custom
+package = "Custom Modules"
 core = 7.x
 files[] = mck_ors_data.admin.inc
