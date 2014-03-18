@@ -121,35 +121,33 @@ function get_ors_connection() {
 
 function ors_fetch_users() {
     $connection = get_ors_connection();
-    // $name = ucwords($name);
-    //get data from tables in this db
-    //$query = "SELECT pp.first_name, pp.person_status, pp.last_name, pp.person_id,
-    // pp.vendor_individual_id, pp.ors_change_tstamp, td.location_location_code, 
-    // td.mckinsey_career_title, pd.department_name FROM psn_person pp 
-    // LEFT JOIN psn_off_career_job_type_dept td ON td.person_id = pp.person_id
-    //  LEFT JOIN psn_mckinsey_career mc on mc.mckinsey_career_id = pp.person_id 
-    //  LEFT JOIN pik_department pd ON pd.department_code = td.department_code 
-    //  WHERE pp.person_status = 'Active' AND td.location_location_code IN ('NKC', 'SJO')";
+
     $query = "SELECT PERSON_ID,FMNO,ADS_LOGIN_NAME
-FROM psn_person where person_status = 'Active' AND ROWNUM < 500";
-    //$query = "SELECT first_name, person_status, last_name, person_id, vendor_individual_id, ors_change_tstamp FROM psn_person";
-    //AND ROWNUM <= 3
-    //$query = "SELECT first_name FROM psn_person";
-    //select table_name from all_tables
-//table PSN_PERSON   PSN_MCKINSEY_CAREER PSN_OFF_CAREER_JOB_TYPE_DEPT  TOAD_PLAN_TABLE PIK_DEPARTMENT
-    //select ads_login_name, vender_individual_id from PSN_PERSON WHERE person_status = 'Active' AND ads_login_name LIKE 'Du%'
+FROM psn_person where person_status = 'Active' AND ROWNUM < 5";
+
     $stid = oci_parse($connection, $query);
     $execute = oci_execute($stid);
     $row_count = ocirowcount($stid);
     // if records are in connection
     if (sizeof(oci_fetch_array($stid, OCI_RETURN_NULLS + OCI_ASSOC)) > 0) {
 
+            $content = '';
+    $content .= '<table id="csvtable">
+ <thead><tr><th>' . t('PERSON_ID') . '</th><th>' . t('FMNO') . '</th><th>' . t('ADS_LOGIN_NAME') . '</th></tr></thead>
+<tbody>';
+
         // create or update people
         while ($row = oci_fetch_array($stid, OCI_RETURN_NULLS + OCI_ASSOC)) {
             $row = array_change_key_case($row, CASE_LOWER); //convert field to lowercase
             //check if node already there in database
-            $content[] = $row;
+            //$content[] = $row;
+            $content .= '<tr><td>' . $row['person_id'] . '</td><td>' . $row['fmno'] . '</td><td>' . $row['ads_login_name'] . '</td> </tr>';
         }
-        return $content;
+        $content .= '<tbody></table>';
+        header('Content-type: application/vnd.ms-excel');
+        header("Content-Disposition: attachment; filename=$file");
+        header("Pragma: no-cache");
+        header("Expires: 0");
+        echo $content;
     }
 }
