@@ -126,7 +126,7 @@ function ors_fetch_users() {
     $connection = get_ors_connection();
 
     $query = "SELECT PERSON_ID,FMNO,ADS_LOGIN_NAME
-FROM psn_person where person_status = 'Active' AND ROWNUM < 5";
+FROM psn_person where person_status = 'Active'";
 
     $stid = oci_parse($connection, $query);
     $execute = oci_execute($stid);
