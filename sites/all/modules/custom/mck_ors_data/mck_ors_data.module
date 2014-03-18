@@ -84,12 +84,15 @@ function mck_ors_data_block_view($delta = '') {
     switch ($delta) {
         case 'ors_user_fetch':
             $block['subject'] = null; // Most forms don't have a subject
-            $block['content'] = ors_fetch_users();
+            $block['content'] = ors_fetch_user_link();
             break;
     }
     return $block;
 }
 
+function ors_fetch_user_link() {
+  print l('Fetch ORS data', 'ors_user/fetch');    
+}
 
 /*
  * ORS connect handler return ORS object if things goes fine.
