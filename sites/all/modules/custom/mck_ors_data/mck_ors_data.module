@@ -91,7 +91,7 @@ function mck_ors_data_block_view($delta = '') {
 }
 
 function ors_fetch_user_link() {
-  print l('Fetch ORS data', 'ors_user/fetch');    
+  return l('Fetch ORS data', 'ors_user/fetch');    
 }
 
 /*
