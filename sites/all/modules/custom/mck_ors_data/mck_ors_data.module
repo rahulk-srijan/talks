@@ -63,7 +63,6 @@ function mck_ors_data_menu() {
     $items['ors_user/fetch'] = array(
         'page callback' => 'ors_fetch_users',
         'access arguments' => array('access content'),
-        'modal' => TRUE,
         'type' => MENU_CALLBACK,
     );
     return $items;
@@ -83,7 +82,7 @@ function mck_ors_data_block_info() {
 
 function mck_ors_data_block_view($delta = '') {
     switch ($delta) {
-        case 'ors_user_form':
+        case 'ors_user_fetch':
             $block['subject'] = null; // Most forms don't have a subject
             $block['content'] = ors_fetch_users();
             break;
