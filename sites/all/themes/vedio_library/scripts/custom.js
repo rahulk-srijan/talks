@@ -122,15 +122,21 @@ jQuery('document').ready(function() {
 var value = null; //set a default value
 
 setTimeout( function(){
-     value =  jQuery('#block-views-child-library-block-block, #block-views-child-library-block-block-3').toggle();
+     value =  jQuery('#block-views-child-library-block-block, #block-views-child-library-block-block-3').toggle(function(event) {
+    event.preventDefault();
+});
 }, 14000); //14 seconds
 
 setTimeout( function(){
-     value =  jQuery('#block-views-child-library-block-block-4, #block-views-child-library-block-block-1').toggle();
+     value =  jQuery('#block-views-child-library-block-block-4, #block-views-child-library-block-block-1').toggle(function(event) {
+    event.preventDefault();
+});
 }, 12000); //12 seconds
 
 setTimeout( function(){
-     value =  jQuery('#block-views-child-library-block-block-2, #block-views-child-library-block-block-5').toggle();
+     value =  jQuery('#block-views-child-library-block-block-2, #block-views-child-library-block-block-5').toggle(function(event) {
+    event.preventDefault();
+});
 }, 10000); //10 seconds
 
 
