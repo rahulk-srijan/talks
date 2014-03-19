@@ -2173,7 +2173,7 @@
   }
   /* line 2355, ../sass/custom.scss */
   .page-search #block-apachesolr-search-sort .item-list ul li a.active {
-    background-color: #e37222;
+    background-color: #082040;
     color: white;
   }
   /* line 2365, ../sass/custom.scss */
@@ -2184,7 +2184,7 @@
   .page-search #columns .region-sidebar-first {
     display: none;
     position: absolute;
-    top: 205px;
+    top: 127px;
     left: 0;
     width: 90%;
     margin: 0;
