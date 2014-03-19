@@ -798,3 +798,29 @@ input.form-autocomplete::-ms-clear {display: none;}
     margin-left: 2%;
     width: 82%;
 }
+.ctools-modal-content{
+  height: 210px !important;
+  width: 250px !important;
+}
+#videolibrary-core-form .form-radios .form-type-radio{
+  font-family: arial;
+  font-size: 15px;
+  font-weight: normal;
+}
+
+#videolibrary-core-form .form-radios .form-type-radio:nth-child(1){
+  color: #082040;
+}   
+#videolibrary-core-form .form-radios .form-type-radio:nth-child(2){
+  color: #632F7A;
+
+}   
+#videolibrary-core-form .form-radios .form-type-radio:nth-child(3){
+  color: #AD0059;
+
+}   
+#videolibrary-core-form .form-radios .form-type-radio:nth-child(4){
+  color: #E27121;
+}
+
+
