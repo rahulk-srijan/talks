@@ -1949,7 +1949,30 @@ a {
 			}
 		}
 	}
+	#modalContent{
+		.ctools-modal-content{
+			height: 210px !important;
+			width: 250px !important;
+		}
+	}
+	#videolibrary-core-form .form-radios{ 
+		.option:nth-child(1){
+			color: $mck_blue;
 
+		}		
+		.option:nth-child(2){
+			color: $purple_bto;
+
+		}		
+		.option:nth-child(3){
+			$color: $magenta_ops;
+
+		}		
+		.option:nth-child(4){
+			$color: $orange;
+		}
+	}
+	
 	// Latest Comments page bto
 	body.page-btoacademy-latest-comment {
 		#columns {
@@ -2370,7 +2393,7 @@ a {
 			.region-sidebar-first {
 				display: none;
 				position: absolute;
-				top: 60spx;
+				top: 60px;
 				left: 0;
 				width: 90%;
 				margin: 0;
