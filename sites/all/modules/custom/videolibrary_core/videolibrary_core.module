@@ -268,31 +268,31 @@ function videolibrary_core_form_alter(&$form, &$form_state, $form_id) {
         $current_user_role = $user->roles;
         $result = array_intersect($library_roles, $current_user_role);
         $result_count = count($result);
-        if(in_array('super admin', $current_user_role)) {
+        if(in_array('super admin' OR 'administrator', $current_user_role)) {
     return;}else{
         if($result_count==1) {
             if(in_array('org web master', $current_user_role)) {
-                unset($form['field_library']);
-                unset($form['field_bto_category']);
-                unset($form['field_bto_tags']);
-                unset($form['field_ops_category']);
-                unset($form['field_ops_tags']);
+                unset($form['field_library']['und']['#options']['_none']);
+                unset($form['field_library']['und']['#options'][536]);
+                unset($form['field_library']['und']['#options'][457]);
+                unset($form['field_library']['und']['#options'][456]);
+                 $form['field_library']['und']['#default_value']='455';
         }
             elseif(in_array('ops web master', $current_user_role)) {
-                unset($form['field_library']);
-                unset($form['field_bto_category']);
-                unset($form['field_bto_tags']);
-                unset($form['field_category']);
-                unset($form['field_tags']);
+                unset($form['field_library']['und']['#options']['_none']);
+                unset($form['field_library']['und']['#options'][536]);
+                unset($form['field_library']['und']['#options'][457]);
+                unset($form['field_library']['und']['#options'][455]);
+                 $form['field_library']['und']['#default_value']='456';
         }
             elseif(in_array('bto web master', $current_user_role)) {
-                unset($form['field_library']);
-                unset($form['field_category']);
-                unset($form['field_tags']);
-                unset($form['field_ops_category']);
-                unset($form['field_ops_tags']);
+                unset($form['field_library']['und']['#options']['_none']);
+                unset($form['field_library']['und']['#options'][536]);
+                unset($form['field_library']['und']['#options'][456]);
+                unset($form['field_library']['und']['#options'][455]);
+                 $form['field_library']['und']['#default_value']='457';
         }
-    }elseif($result_count==2) {
+    }elseif($result_count==(2 OR 3)) {
         $diff= array_diff($library_roles,$result);
         foreach($diff as $key=>$value) {
             unset($form['field_library']['und']['#options'][$key]);
@@ -336,6 +336,7 @@ function videolibrary_core_node_view($node, $view_mode, $langcode) {
      // if ((bool) strpos($_SERVER['HTTP_USER_AGENT'], 'iPad') && (bool) strpos($_SERVER['HTTP_USER_AGENT'], 'iPhone')) {
      //    return;
      // }else {
+    dsm($GLOBALS);
     if(($_SERVER['HTTP_REFERER']==NULL) && ($GLOBALS['_GET']['q'] == 'node/5')) {
     $flag = flag_get_flag('default');
     if($flag) {
