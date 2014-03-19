@@ -2327,7 +2327,7 @@ a {
 		}
 		#block-apachesolr-search-sort {
 			position: absolute;
-			top: 156px;
+			top: 60px;
 			left: 0;
 			z-index: 1;
 			width: 96%;
@@ -2366,10 +2366,11 @@ a {
 			display: none;
 		}
 		#columns {
+			position: relative;
 			.region-sidebar-first {
 				display: none;
 				position: absolute;
-				top: 156px;
+				top: 60spx;
 				left: 0;
 				width: 90%;
 				margin: 0;
