@@ -337,7 +337,7 @@ function videolibrary_core_node_view($node, $view_mode, $langcode) {
      // if ((bool) strpos($_SERVER['HTTP_USER_AGENT'], 'iPad') && (bool) strpos($_SERVER['HTTP_USER_AGENT'], 'iPhone')) {
      //    return;
      // }else {
-    dsm($GLOBALS);
+    //dsm($GLOBALS);
     if(($_SERVER['HTTP_REFERER']==NULL) && ($GLOBALS['_GET']['q'] == 'node/5')) {
     $flag = flag_get_flag('default');
     if($flag) {
