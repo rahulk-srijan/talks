@@ -243,6 +243,7 @@ function videolibrary_core_views_pre_render(&$view) {
     // Merge the result arrays
     $new_double = array_merge($result1, $result2);
     $new_triple = array_merge($new_double, $result3);
+    shuffle($new_triple);
     // Final result array is a combination of the 2 libraries
     $view->result = $new_triple;
   }
