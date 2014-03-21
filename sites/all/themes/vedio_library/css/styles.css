@@ -779,24 +779,6 @@ input.form-autocomplete::-ms-clear {display: none;}
  font-weight: bold;
  margin-bottom: 0;
 }
-#splash-page{
-  background: none repeat scroll 0 0 #002440;
-  border: 1px solid #002440;
-  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.5);
-  color: #FFFFFF;
-  font-family: georgia;
-  font-size: 24px;
-}
-.splash-arrow{
- clear: both;
- height: 171px;
- width: 14%;
-}
-.splash-text-url{
- color: #FFFFFF;
- margin-left: 2%;
- width: 82%;
-}
 .ctools-modal-content{
   height: 210px !important;
   width: 250px !important;
@@ -821,6 +803,52 @@ input.form-autocomplete::-ms-clear {display: none;}
 #videolibrary-core-form .form-radios .form-type-radio:nth-child(4){
   color: #E27121;
 }
+/*****************
+Splash Page theming
+******************/
 
+.page-node-731 {}
+.page-node-731 #menu-bar,
+.page-node-731 #site-name,
+.page-node-731 .region-menu-top,
+.page-node-731 #page-title{
+  display: none;
+}
+.page-node-731 .node .node-content {
+    width: 100%;
+}
+.page-node-731 #columns,
+.page-node-731 .content-inner section#main-content ,
+.page-node-731 .node,
+.page-node-731 #block-system-main,
+.page-node-731 #footer{
+    margin: 0;
+}
+.page-node-731 #logo img {
+    margin: 8px 0;
+    position: relative;
+    top: 0;
+    vertical-align: bottom;
+}
+.page-node-731 .node{
+
+}
+#splash-page{
+  font-family: georgia;
+  font-size: 24px;
+}
+.splash-arrow{
+display: inline-block;
+    height: 199px;
+}
+.splash-text p{
+  margin-bottom: 12px;
+}
+.splash-text-url{
+ margin: 2% 0 0 2%;
+    width: 82%;
+    float: none;
+    display: inline-block;
+}
 
 }
