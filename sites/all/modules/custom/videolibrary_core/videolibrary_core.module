@@ -249,6 +249,9 @@ function videolibrary_core_views_pre_render(&$view) {
 }
 
 function videolibrary_core_form_alter(&$form, &$form_state, $form_id) {
+
+    if($form_id=='search_block_form') {
+    dsm($form); }
     if($form_id=='views_exposed_form') {
     $form['field_library_tid']['#options'][536] ='Miscellaneous';
     $form['field_library_tid']['#options'][457] ='BTO Academy';
