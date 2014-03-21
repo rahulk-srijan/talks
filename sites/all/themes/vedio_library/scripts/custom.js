@@ -97,6 +97,7 @@ jQuery('document').ready(function() {
     //   }
     // });
     addDivNewsletter();
+    changeLibraryFilterLabel();
     tooglechild();
     carousel();
     activetag();
@@ -151,6 +152,12 @@ function addDivNewsletter() {
             jQuery(this).toggleClass('expanded-newsletter');
         });
    });
+}
+
+function changeLibraryFilterLabel() {
+    jQuery('#facetapi-link--6').text('Org in Action');
+    jQuery('#facetapi-link--7').text('Ops in Action');
+    jQuery('#facetapi-link--8').text('BTO Academy');
 }
 
 function toggleControls() {
