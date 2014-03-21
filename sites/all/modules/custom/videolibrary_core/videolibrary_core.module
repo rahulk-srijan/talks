@@ -200,7 +200,7 @@ function user_top_menu_link() {
     $content .='
 <li class="last hidden-phone"><a id="suggest-link" class="ctools-use-modal ctools-modal-modal-popup-medium" href="'.$suggest_url .'">Suggest a Video</a></li>
 
-<li class="feedback"><a href="mailto:?Subject=Feedback will be great&body=">
+<li class="feedback"><a href="mailto:mckinsey_talks_feedback@mckinsey.com?Subject=Feedback will be great&body=">
 Feedback</a></li>
 <li class="last"><a href="#">How to suggest a video</a>
 <div class="modal">
