@@ -6,7 +6,7 @@
  */
 global $subsite_home_page_url;
 
-$library_array = array('orginaction', 'opsinaction', 'btoacademy','miscellaneous');
+$library_array = array('orginaction', 'opsinaction', 'btoacademy','spotlight');
 $argument = explode('/', request_path());
 if (in_array($argument[0], $library_array)) {
     $subsite_home_page_url = strtolower($argument[0]);
