@@ -251,7 +251,7 @@ var {
   #branding {
     float: left;
     margin: 0;
-    width: 380px;
+    width: 405px;
   }
 
   /*
@@ -277,7 +277,7 @@ var {
 }
 .region-menu-top{
     float: right;
-    width: 540px;
+    width: 510px;
 }
 
   /*
@@ -293,17 +293,17 @@ var {
   }
 
   #site-name a {
-   color: #FFFFFF;
-    font-family: arial;
-    font-size: 22px;
-    font-weight: 400;
+background: url("images/sitename.png") no-repeat scroll 1px 3px rgba(0, 0, 0, 0);
+    display: inline-block;
     margin-left: 12px;
+    text-indent: -9999px;
+    width: 170px;
   }
 
-#site-name a:link,
-#site-name a:visited {
-  text-decoration: none;
-}
+  #site-name a:link,
+  #site-name a:visited {
+    text-decoration: none;
+  }
 
 #site-name a:hover,
 #site-name a:focus {
