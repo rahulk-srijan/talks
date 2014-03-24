@@ -573,10 +573,13 @@ input.form-autocomplete::-ms-clear {display: none;}
 }
 .post-menu-strip .resources{
    float: right;
-    margin: 7px 39px 0 0 !important;
+    font-size: 13px;
+    margin-right: 40px;
+    position: relative;
     text-align: right;
+    top: 17px;
     width: 100px;
-}
+ }
 
 /*#block-views-global-popular-video-block .block-title,
 #block-block-35 h1 {
