@@ -15,7 +15,7 @@ $library_subsite_variable = array(
         'site_name' => 'Org in Action',
          'tid'=>'455',
          'resource'=>'http://home.intranet.mckinsey.com/practicespaces/ps/org/',
-        'recommend_text' => ' recommended an Org in Action video.'),
+        'recommend_text' => ' recommends an Org in Action video.'),
     'opsinaction' =>
     array('to' => 'global_ops_learning_team@mckinsey.com,Ops_Feedback@mckinsey.com',
         'from_email' => 'global_ops_learning_team@mckinsey.com',
@@ -24,7 +24,7 @@ $library_subsite_variable = array(
         'site_name' => 'Ops in Action',
         'tid'=>'456',
         'resource'=>'http://home.intranet.mckinsey.com/practicespaces/ps/ops/',
-        'recommend_text' => ' recommended an Ops in Action video.'),
+        'recommend_text' => ' recommends an Ops in Action video.'),
     'btoacademy' =>
     array('to' => 'bt_learning_registration@mckinsey.com',
         'from_email' => 'bt_learning_registration@mckinsey.com',
@@ -33,7 +33,7 @@ $library_subsite_variable = array(
         'site_name' => 'BTO Academy',
         'tid'=>'457',
         'resource'=>'http://home.intranet.mckinsey.com/practicespaces/ps/bt/',
-        'recommend_text' => ' recommended a BTO Academy video.'),
+        'recommend_text' => ' recommends a BTO Academy video.'),
     'miscellaneous' =>
     array('to' => '',
         'from_email' => '',
@@ -42,7 +42,7 @@ $library_subsite_variable = array(
         'site_name' => 'Miscellaneous: Video Library',
         'tid'=>'536',
         'resource'=>'',
-        'recommend_text' => ' recommended a Miscellaneous video.'),
+        'recommend_text' => ' recommends a Spotlight video.'),
         );
 
 /**
