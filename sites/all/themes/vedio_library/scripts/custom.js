@@ -211,7 +211,7 @@ function mobileTweaks() {
     // Top Nav
     menuMobile();
 
-   // menustripMobile();
+    menustripMobile();
     //Notification Order Fix
     notifiReorder();
 

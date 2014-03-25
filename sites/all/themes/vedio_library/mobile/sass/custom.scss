@@ -945,7 +945,7 @@ a {
 				li{
 					float: none;
 					font-size: $font-size-small;
-					display: inline;
+					display: block;
 					padding: 0 4px;
 					a{
 						color: $white;
@@ -956,16 +956,32 @@ a {
 				}
 			}
 			.post-menu-strip{
-				color: #FFFFFF;
-				margin: 4px 10px;
+				// display: none;
+				// color: #FFFFFF;
+				// margin: 4px 10px;
+
+    background: none repeat scroll 0 0 #333333;
+    color: #FFFFFF;
+    display: none;
+    left: 10px;
+    margin: 0;
+    position: relative;
+    text-align: left;
+    top: 30px;
+    width: 156px;
+
+				
 				.lib-name{
 					@extend .hidden-phone;
 				}
-				.resources {
-					border-left: 1px solid $white;
-				}
-				.deault{
-					font-style: italic;
+				// .resources {
+				// 	border-left: 1px solid $white;
+				// }
+				// .deault{
+				// 	font-style: italic;
+				// }
+				.gt{
+					display: none;
 				}
 
 			}
@@ -982,12 +998,12 @@ a {
 
 		}
 		#menu-strip-name{
-			// cursor: pointer;
-			// display: inline-block;
-			// float: right;
-			// margin: 3px 12px;
-			// font-weight: bold;
-			display: none;
+			cursor: pointer;
+			display: inline-block;
+			float: right;
+			margin: 3px 12px;
+			font-weight: bold;
+			// display: none;
 		}
 
 
