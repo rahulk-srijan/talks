@@ -637,6 +637,98 @@ a {
 	// 	background: $orange-bto;
 	// }
 	
+
+
+
+
+	#block-block-36{
+		ul.menu{
+			display: none;
+			width: 90%;
+			margin: 0 5%;
+			background: $blue;
+			font-size: $font-size-bigger;
+			@include box-shadow(rgba($black, 0.25) 0px 5px 5px);
+			padding-top: 0;
+			overflow: auto;
+			position: absolute;
+			top: 36px;
+			left: 0;
+			z-index: -1;
+			@include no-bullets;
+
+			li {
+				margin: 0;
+				padding: 0;
+				font-weight: bold;
+				width: 100%;
+
+				&.last a {
+					border: none;
+				}
+
+				a {
+
+					padding: 12px 20px;
+					text-decoration: none;
+					color: $white;
+					border-bottom: 2px groove rgba($light-gray, 0.75);
+					@include box-sizing(border-box);
+					width: 100%;
+					display: block;
+					margin: 0;
+				}
+
+				&.expanded, &.collapsed {
+					padding-top: 0;
+				}
+
+				&.expanded::before {
+					content: "^";
+					display: block;
+					color: $white;
+					float: right;
+					margin: 20px;
+					font-size: $font-size-big;
+				}
+
+				&.collapsed::before {
+					content: "v";
+					display: block;
+					color: $white;
+					float: right;
+					margin: 12px 20px;
+					font-size: $font-size-bigger;
+				}
+
+				ul.menu {
+					@include box-shadow(none);
+					display: none;
+					overflow-y: visible;
+					z-index: 110;
+					width: 100%;
+					margin-bottom: -14px;
+   	 				margin-left: 0;
+    				margin-right: 0;
+					padding: 0;
+					background: #cde0ed;
+					position: relative;
+					top: -14px;
+
+					li {
+						a {
+							color: $darker-gray;
+						}
+					}
+				}
+			}
+
+		}
+	}
+
+
+
+
 	#block-menu-menu-main-menu-mobile, 
 	#block-menu-menu-main-menu-mobile-ops, 
 	#block-menu-menu-main-menu-mobile-bto,
@@ -846,7 +938,7 @@ a {
 			}
 			.video-thumb{
 				position: relative;
-				  margin-top: -8px;
+				margin-top: -8px;
 			}
 			.video-view {
 				@extend .link-text;
@@ -906,7 +998,7 @@ a {
 		}
 		.views-slideshow-controls-text-previous{
 			a{
-				background: url("../../css/images/arrow_prev.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+				background: url("../../css/images/arrow_prev.png") no-repeat scroll 0 0 transparent;
 				display: inline-block;
 				height: 21px;
 				text-indent: -9999em;
@@ -917,16 +1009,14 @@ a {
 			left: 115px;
 			position: relative;
 			a{
-				background: url("../../css/images/arrow_next.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+				background: url("../../css/images/arrow_next.png") no-repeat scroll 0 0 transparent;
 				display: inline-block;
 				height: 23px;
 				text-indent: -9999em;
 				width: 23px
 			}
 		}
-		#block-block-36{
-			position: relative;
-		}
+	
 		.menu-strip{
 			background: none repeat scroll 0 0 #333333;
 			@include box-shadow(rgba($black, 0.5) 0px 4px 5px);
@@ -938,14 +1028,16 @@ a {
 			top: 35px;
 			width: 100%;
 			z-index: 99;
+			height: 23px;	
 			@extend .clearfix;
 			.menu-container{
 				float: right;
+				width: 155px;
 
 				li{
 					float: none;
 					font-size: $font-size-small;
-					display: block;
+					display: inline;
 					padding: 0 4px;
 					a{
 						color: $white;
@@ -956,24 +1048,25 @@ a {
 				}
 			}
 			.post-menu-strip{
-				// display: none;
-				// color: #FFFFFF;
-				// margin: 4px 10px;
+				color: #FFFFFF;
+				margin: 4px 10px;
 
-    background: none repeat scroll 0 0 #333333;
-    color: #FFFFFF;
-    display: none;
-    left: 10px;
-    margin: 0;
-    position: relative;
-    text-align: left;
-    top: 30px;
-    width: 156px;
+    // background: none repeat scroll 0 0 #333333;
+    // color: #FFFFFF;
+    // display: none;
+    // left: 10px;
+    // margin: 0;
+    // position: relative;
+    // text-align: left;
+    // top: 30px;
+    // width: 156px
 
-				
-				.lib-name{
-					@extend .hidden-phone;
-				}
+    a{
+    	color: #fff;
+    }
+    .lib-name{
+    	@extend .hidden-phone;
+    }
 				// .resources {
 				// 	border-left: 1px solid $white;
 				// }
@@ -986,24 +1079,31 @@ a {
 
 			}
 			.child-lib-name{
-				float: left;
+				// float: left;
 				color: #fff;
-				margin: 3px 12px;
+				margin: 3px 0;
+				width: 170px;
 				a{
 					color: $white;
 					font-family: $font-face-title;
 					font-size: $font-size-huge;
+					float: left;
+					margin: 3px 12px;
+				}
+				button.nav-btn{
+					margin: 0;
+					padding: 0;
 				}
 			}
 
 		}
 		#menu-strip-name{
-			cursor: pointer;
-			display: inline-block;
-			float: right;
-			margin: 3px 12px;
-			font-weight: bold;
-			// display: none;
+			// cursor: pointer;
+			// display: inline-block;
+			// float: right;
+			// margin: 3px 12px;
+			// font-weight: bold;
+			display: none;
 		}
 
 
@@ -1428,8 +1528,8 @@ a {
 	}
 	.page-node-5 {
 		.content-inner {
-    display: none;
-}
+			display: none;
+		}
 	}
 	#page #block-views-most-trending-block{
 		padding: 6px 8px;

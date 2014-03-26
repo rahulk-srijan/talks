@@ -419,6 +419,10 @@ input.form-autocomplete::-ms-clear {display: none;}
    width: auto;
    opacity: 0.95;
  }
+ .pl-bn .video_duration{
+  bottom: 6px;
+  right: 1px;
+ }
  .cooment-info .share{
   border-top: 1px solid #DADADA;
   color: #FFFFFF;
@@ -537,7 +541,7 @@ input.form-autocomplete::-ms-clear {display: none;}
  margin: 0;
  overflow: hidden;
  padding: 0;
- width: 100%;
+ width: 950px;
 }
 .block-content .mstrip{
 /*  padding: 0 1em;
