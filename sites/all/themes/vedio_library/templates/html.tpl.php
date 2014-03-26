@@ -60,7 +60,7 @@ global $subsite_home_page_url;
 <!--[if IE 8]><html class="lt-ie9"<?php print $html_attributes; ?>><![endif]-->
 <!--[if (gte IE 9)|(gt IEMobile 7)]><!--><html<?php print $html_attributes . $rdf_namespaces; ?>><!--<![endif]-->
 <head>
-  <?php if($subsite_home_page_url == "btoacademy") { ?>
+  <?php if((isset($subsite_home_page_url)) && ($subsite_home_page_url == "btoacademy")) { ?>
     <link rel="shortcut icon" href="<?php print $base_url . '/' . path_to_theme() . '/favicon.ico' ?>" type="image/x-icon" />
   <?php }
     else {
