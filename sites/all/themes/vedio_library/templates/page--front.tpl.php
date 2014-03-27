@@ -227,6 +227,9 @@ print $sidebar_second; ?>
 
 <!-- region: Tertiary Content -->
 <div class="tertiary-content">
+       <?php if($page['tertiary']): ?>
+  <div class="tertiary">  <?php print render($page['tertiary']); ?></div>
+<?php endif; ?>
     <?php if($page['tertiary_left']): ?>
     <div class="tertiary-left float-left">  <?php print render($page['tertiary_left']); ?></div>
 <?php endif; ?>
