@@ -190,10 +190,21 @@ function visitors_exit() {
       $fields['visitors_dma_code']       = $geoip_data['dma_code'];
       $fields['visitors_area_code']      = $geoip_data['area_code'];
     }
-
+$path= visitors_get_path();
+$ref = visitors_get_referer();
+$purl = parse_url($ref);
+$ex_path = explode('/', $purl['path'],3);
+$drupal_path = drupal_get_normal_path($ex_path[2]);
+$result = fnmatch('node*',$path);
+if($drupal_path==$path){
+  return;
+}elseif(($_GET['q']!='node/5') && ($result=='1')) {
     db_insert('visitors')
       ->fields($fields)
       ->execute();
-  }
+    }
+    else {
+      return;
+    }
 }
-
+}
