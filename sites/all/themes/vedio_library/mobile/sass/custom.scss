@@ -637,6 +637,98 @@ a {
 	// 	background: $orange-bto;
 	// }
 	
+
+
+
+
+	#block-block-36{
+		ul.menu{
+			display: none;
+			width: 90%;
+			margin: 0 5%;
+			background: $blue;
+			font-size: $font-size-bigger;
+			@include box-shadow(rgba($black, 0.25) 0px 5px 5px);
+			padding-top: 0;
+			overflow: auto;
+			position: absolute;
+			top: 36px;
+			left: 0;
+			z-index: -1;
+			@include no-bullets;
+
+			li {
+				margin: 0;
+				padding: 0;
+				font-weight: bold;
+				width: 100%;
+
+				&.last a {
+					border: none;
+				}
+
+				a {
+
+					padding: 12px 20px;
+					text-decoration: none;
+					color: $white;
+					border-bottom: 2px groove rgba($light-gray, 0.75);
+					@include box-sizing(border-box);
+					width: 100%;
+					display: block;
+					margin: 0;
+				}
+
+				&.expanded, &.collapsed {
+					padding-top: 0;
+				}
+
+				&.expanded::before {
+					content: "^";
+					display: block;
+					color: $white;
+					float: right;
+					margin: 20px;
+					font-size: $font-size-big;
+				}
+
+				&.collapsed::before {
+					content: "v";
+					display: block;
+					color: $white;
+					float: right;
+					margin: 12px 20px;
+					font-size: $font-size-bigger;
+				}
+
+				ul.menu {
+					@include box-shadow(none);
+					display: none;
+					overflow-y: visible;
+					z-index: 110;
+					width: 100%;
+					margin-bottom: -14px;
+					margin-left: 0;
+					margin-right: 0;
+					padding: 0;
+					background: #cde0ed;
+					position: relative;
+					top: -14px;
+
+					li {
+						a {
+							color: $darker-gray;
+						}
+					}
+				}
+			}
+
+		}
+	}
+
+
+
+
 	#block-menu-menu-main-menu-mobile, 
 	#block-menu-menu-main-menu-mobile-ops, 
 	#block-menu-menu-main-menu-mobile-bto,
@@ -767,6 +859,12 @@ a {
 		background-color: $orange !important;
 		
 	}
+	#block-block-36 .mobile-nav ul.menu{
+		background:  $dark-orange;
+	}
+	#block-block-36 .mobile-nav  ul.menu li ul.menu{
+		background: $light-orange;
+	}	
 }
 
 .body-opsinaction {
@@ -788,6 +886,13 @@ a {
 		background-color: $magenta_ops !important;
 		
 	}
+	#block-block-36 .mobile-nav ul.menu{
+		background:  $dark-orange-ops;
+	}
+	#block-block-36 .mobile-nav  ul.menu li ul.menu{
+		background: $light-orange-ops;
+	}	
+
 
 }
 
@@ -810,6 +915,12 @@ a {
 		background-color: $purple_bto !important;
 		
 	}
+	#block-block-36 .mobile-nav ul.menu{
+		background:  $dark-orange-bto;
+	}
+	#block-block-36 .mobile-nav  ul.menu li ul.menu{
+		background: $light-orange-bto;
+	}	
 
 }		
 
@@ -846,7 +957,7 @@ a {
 			}
 			.video-thumb{
 				position: relative;
-				  margin-top: -8px;
+				margin-top: -8px;
 			}
 			.video-view {
 				@extend .link-text;
@@ -906,7 +1017,7 @@ a {
 		}
 		.views-slideshow-controls-text-previous{
 			a{
-				background: url("../../css/images/arrow_prev.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+				background: url("../../css/images/arrow_prev.png") no-repeat scroll 0 0 transparent;
 				display: inline-block;
 				height: 21px;
 				text-indent: -9999em;
@@ -917,16 +1028,14 @@ a {
 			left: 115px;
 			position: relative;
 			a{
-				background: url("../../css/images/arrow_next.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+				background: url("../../css/images/arrow_next.png") no-repeat scroll 0 0 transparent;
 				display: inline-block;
 				height: 23px;
 				text-indent: -9999em;
 				width: 23px
 			}
 		}
-		#block-block-36{
-			position: relative;
-		}
+
 		.menu-strip{
 			background: none repeat scroll 0 0 #333333;
 			@include box-shadow(rgba($black, 0.5) 0px 4px 5px);
@@ -938,9 +1047,11 @@ a {
 			top: 35px;
 			width: 100%;
 			z-index: 99;
+			height: 23px;	
 			@extend .clearfix;
 			.menu-container{
 				float: right;
+				width: 155px;
 
 				li{
 					float: none;
@@ -956,27 +1067,53 @@ a {
 				}
 			}
 			.post-menu-strip{
-				color: #FFFFFF;
-				margin: 4px 10px;
-				.lib-name{
-					@extend .hidden-phone;
-				}
-				.resources {
-					border-left: 1px solid $white;
-				}
-				.deault{
-					font-style: italic;
+				  color: #FFFFFF;
+    margin: 4px 10px;
+    font-size: $font-size-small;
+    line-height: 10px;
+
+    // background: none repeat scroll 0 0 #333333;
+    // color: #FFFFFF;
+    // display: none;
+    // left: 10px;
+    // margin: 0;
+    // position: relative;
+    // text-align: left;
+    // top: 30px;
+    // width: 156px
+
+    a{
+    	color: #fff;
+    }
+    .lib-name{
+    	@extend .hidden-phone;
+    }
+    .resources {
+    	border-left: 1px solid $white;
+    }
+				// .deault{
+				// 	font-style: italic;
+				// }
+				.gt{
+					display: none;
 				}
 
 			}
 			.child-lib-name{
-				float: left;
+				// float: left;
 				color: #fff;
-				margin: 3px 12px;
+				margin: 3px 0;
+				width: 170px;
 				a{
 					color: $white;
 					font-family: $font-face-title;
 					font-size: $font-size-huge;
+					float: left;
+					margin: 3px 12px;
+				}
+				button.nav-btn{
+					margin: 0;
+					padding: 0;
 				}
 			}
 
@@ -1155,8 +1292,12 @@ a {
 					float: left;
 				}
 			}
-			.view-content,.view-footer{
+			.view-content{
 				padding: 12px;
+			}
+			.view-footer{
+				   margin: -8px 12px 0;
+    padding: 0;
 			}
 			.views-row {
 				padding: 20px 0 0;
@@ -1208,7 +1349,7 @@ a {
 					float: left;
 					width: 47%;
 					@extend .body-text;
-					margin-bottom: 1.5%;
+					margin-bottom: 4px;
 					margin-top: 4px;
 				}
 			}
@@ -1225,7 +1366,8 @@ a {
 				font-weight: bold;
 				padding: 0 6px;
 			}
-			.views-field-totalcount{
+			.views-field-totalcount,
+			.views-field-comment-count{
 				margin-left: 3%;
 				padding-left: 0;
 			}
@@ -1412,8 +1554,8 @@ a {
 	}
 	.page-node-5 {
 		.content-inner {
-    display: none;
-}
+			display: none;
+		}
 	}
 	#page #block-views-most-trending-block{
 		padding: 6px 8px;
