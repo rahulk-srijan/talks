@@ -239,6 +239,9 @@ $site_logo = '<a href="'.$url_front.'">'. strip_tags($site_logo, '<img>').'</a>'
 
 <!-- region: Tertiary Content -->
 <div class="tertiary-content">
+   <?php if($page['tertiary']): ?>
+  <div class="tertiary">  <?php print render($page['tertiary']); ?></div>
+<?php endif; ?>
   <?php if($page['tertiary_left']): ?>
   <div class="tertiary-left float-left">  <?php print render($page['tertiary_left']); ?></div>
 <?php endif; ?>
