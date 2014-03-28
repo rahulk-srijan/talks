@@ -1041,7 +1041,7 @@ a {
 			@include box-shadow(rgba($black, 0.5) 0px 4px 5px);
 			color: #FFFFFF;
 			left: 0;
-			padding: 6px 4px;
+			padding: 8px 4px 4px;
 			position: fixed;
 			text-align: right;
 			top: 35px;
@@ -1051,7 +1051,7 @@ a {
 			@extend .clearfix;
 			.menu-container{
 				float: right;
-				width: 155px;
+				width: 90px;
 
 				li{
 					float: none;
@@ -1089,7 +1089,8 @@ a {
     	@extend .hidden-phone;
     }
     .resources {
-    	border-left: 1px solid $white;
+    //	border-left: 1px solid $white;
+    	display: none;
     }
 				// .deault{
 				// 	font-style: italic;
@@ -1100,9 +1101,9 @@ a {
 
 			}
 			.child-lib-name{
-				// float: left;
+				 float: left;
 				color: #fff;
-				margin: 3px 0;
+				margin:  0;
 				width: 170px;
 				a{
 					color: $white;
