@@ -266,7 +266,7 @@ input.form-autocomplete::-ms-clear {display: none;}
   background: none repeat scroll 0 0 #F5F5F5;
 }
 #menu-bar .sf-menu-main-navigation a.sf-depth-1{
-  width: 150px;
+  width: 128px;
   background: url("images/menu-g.png") repeat-x scroll 0 0 transparent;
   color: #FFFFFF;
   text-align: center;
