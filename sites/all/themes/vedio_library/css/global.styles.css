@@ -293,7 +293,7 @@
   }
 
   #site-name a {
-background: url("images/sitename.png") no-repeat scroll 1px 3px rgba(0, 0, 0, 0);
+background: url("images/sitename.png") no-repeat scroll 1px 3px transparent;
     display: inline-block;
     margin-left: 12px;
     text-indent: -9999px;

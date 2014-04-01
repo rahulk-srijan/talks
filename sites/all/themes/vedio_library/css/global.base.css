@@ -124,6 +124,11 @@
     a:link, a:visited {
         color: #00ACEE;
     }
+    .front a:link,
+    .front a:visited,
+    .video-view{
+            color: #0066BE;
+    }
 
     /* =============================================================================
       Typography
