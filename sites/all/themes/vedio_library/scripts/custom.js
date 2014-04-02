@@ -138,11 +138,18 @@ setTimeout( function(){
 });
 
 function addDivNewsletter() {
-   // jQuery( ".form-item-newsletters-457" ).insertBefore( "<div id='bto-newsletter'><p>Org in Action notification</p>" );
-   // jQuery( "</div>" ).insertAfter( ".form-item-newsletters-463" );
-   jQuery('#edit-newsletters .form-item:gt(5):lt(7)').wrapAll('<div id="bto-newsletter" class="newsletter-block" />');
-   jQuery('#edit-newsletters .form-item:gt(12):lt(9)').wrapAll('<div id="ops-newsletter" class="newsletter-block" />');
-   jQuery('#edit-newsletters .form-item:gt(21):lt(25)').wrapAll('<div id="org-newsletter" class="newsletter-block" />');
+    var start = 6;
+    var term_count_bto = (1 + Drupal.settings.term_count[0]) + start;
+
+    var term_count_ops = (1 + Drupal.settings.term_count[1]) + term_count_bto;
+    var term_count_org = (1 + Drupal.settings.term_count[2]) + term_count_ops;
+   //jQuery('#edit-newsletters').append('<div id="bto-newsletter" class="newsletter-block">' + news + '</div>');
+   jQuery('#edit-newsletters .form-item').slice(start, term_count_bto).wrapAll('<div id="bto-newsletter" class="newsletter-block" />');
+   jQuery('#edit-newsletters .form-item').slice(term_count_bto, term_count_ops).wrapAll('<div id="ops-newsletter" class="newsletter-block" />');
+   jQuery('#edit-newsletters .form-item').slice(term_count_ops, term_count_org).wrapAll('<div id="org-newsletter" class="newsletter-block" />');
+
+   //jQuery('#edit-newsletters .form-item:gt(13):lt(22)').wrapAll('<div id="ops-newsletter" class="newsletter-block" />');
+   //jQuery('#edit-newsletters .form-item:gt(21):lt(25)').wrapAll('<div id="org-newsletter" class="newsletter-block" />');
    jQuery('#bto-newsletter').before('<p class="main-cat" id="bto-collapsible">BTO Academy Notification</p>').hide();
    jQuery('#ops-newsletter').before('<p class="main-cat" id="ops-collapsible">Ops in Action Notification</p>').hide();
    jQuery('#org-newsletter').before('<p class="main-cat" id="org-collapsible">Org in Action Notification</p>').hide();

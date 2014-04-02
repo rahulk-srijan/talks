@@ -47,8 +47,7 @@ function custom_ovl_menu() {
 
 function custom_ovl_form_alter(&$form, &$form_state, $form_id) {
     // drupal_set_message($form_id);  // print form ID to messages
-    //  dsm($form);  // print array to messages
-
+    //dsm($form_id);  // print array to messages
     if ($form_id == 'nodequeue_arrange_subqueue_form_1') {
         $form['add']['nid']['#default_value'] = "Enter the title of a video to add it to the queue";
     }
@@ -154,6 +153,15 @@ function custom_ovl_form_alter(&$form, &$form_state, $form_id) {
           '#markup' => 'ONLY new videos added to these categories',
           '#weight' => 56,
           ); */
+        $count= array();
+        $terms = array(458,465,1);
+        foreach ($terms as $term) {
+          $term_count = taxonomy_term_load($term);
+          $vid = $term_count->vid;
+          $term_list = taxonomy_get_tree($vid);
+          $count[] = count($term_list);
+        }
+        drupal_add_js(array('term_count' => $count), 'setting');
     }
 }
 
@@ -366,4 +374,26 @@ function video_library_get_video_duration($path) {
         $formatted_time = $min . ':' . $sec;
     }
     return $formatted_time;
+}
+
+function custom_ovl_taxonomy_term_update($term) {
+  $vid = $term->vid;
+  $term_list = taxonomy_get_tree($vid);
+  $count = count($term_list);
+  if($vid=='2') {
+  drupal_add_js(array('term_count_org' => array('count' =>$count)), 'setting');
+  drupal_add_js(drupal_get_path('theme', 'vedio_library').'/scripts/custom.js');
+  drupal_set_message(t('variable is set for' . $vid . $count));
+  }
+  elseif($vid=='6'){
+    drupal_add_js(array('term_count_ops' => $count), 'setting');
+     drupal_set_message(t('variable is set'));
+  }
+  elseif($vid=='7'){
+    drupal_add_js(array('term_count_bto' => $count), 'setting');
+     drupal_set_message(t('variable is set'));
+  }
+  else{
+    return;
+  }
 }
