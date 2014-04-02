@@ -375,25 +375,3 @@ function video_library_get_video_duration($path) {
     }
     return $formatted_time;
 }
-
-function custom_ovl_taxonomy_term_update($term) {
-  $vid = $term->vid;
-  $term_list = taxonomy_get_tree($vid);
-  $count = count($term_list);
-  if($vid=='2') {
-  drupal_add_js(array('term_count_org' => array('count' =>$count)), 'setting');
-  drupal_add_js(drupal_get_path('theme', 'vedio_library').'/scripts/custom.js');
-  drupal_set_message(t('variable is set for' . $vid . $count));
-  }
-  elseif($vid=='6'){
-    drupal_add_js(array('term_count_ops' => $count), 'setting');
-     drupal_set_message(t('variable is set'));
-  }
-  elseif($vid=='7'){
-    drupal_add_js(array('term_count_bto' => $count), 'setting');
-     drupal_set_message(t('variable is set'));
-  }
-  else{
-    return;
-  }
-}

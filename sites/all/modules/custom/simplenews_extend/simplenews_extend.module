@@ -1,4 +1,4 @@
-<?php
+    <?php
 
 /**
  * hook menu
@@ -95,6 +95,7 @@ function newsletterSubscriptions_daily($frequency) {
 
                 if (in_array($all_video_cat_tid, $subs_category_tid)) {
                     $body_mail_content_views = views_embed_view('newsletter_mail', 'page_1', implode(',', $nids));
+                    print_r($body_mail_content);
                     $body_mail_content = '<div class="content">New Video Added<br>' . $body_mail_content_views . '</div>';
 
 
@@ -196,7 +197,7 @@ function newsletterSubscriptions_daily($frequency) {
 // }
 //}
 
-function simplenews_extend_taxonomy_term_update($term) {
+function simplenews_extend_taxonomy_term_insert($term) {
     $vids =array(2,5,6,7);
     $vid= $term->vid;
     if (isset($term->tid) && in_array($vid,$vids) && $term->op == 'Save') {
