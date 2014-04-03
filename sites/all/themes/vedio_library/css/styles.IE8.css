@@ -416,7 +416,7 @@ input.form-autocomplete::-ms-clear {display: none;}
   margin: 0;
 }
 .new-video-duration, 
-.new_video_duration,{
+.new_video_duration{
   font-size: 13px;
   color: #999999;
 }
@@ -829,8 +829,17 @@ input.form-autocomplete::-ms-clear {display: none;}
   width: 43px;
   opacity: 0.8;
 }
-.view-most-liked-lib-craousel .upload-video{
+.view-most-liked-lib-craousel .upload-video,
+.view-related-video .upload-video{
   position: relative;
+}
+.view-related-video .views-field.views-field-body p{
+   margin: 2px 0;
+}
+.view-related-video .new-video-duration{
+  float: right;
+  width: 136px;
+     background-position: 0 3px;
 }
 #block-block-35{
   margin-bottom: 0;
