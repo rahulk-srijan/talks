@@ -784,10 +784,10 @@ input.form-autocomplete::-ms-clear {display: none;}
    padding-right: 4px;
    border-right: 1px solid #D1D1D1;
    }*/
-   .available_channels_block .views-field-totalcount,
+/*   .available_channels_block .views-field-totalcount,
    .view-most-liked-lib-craousel .views-field-totalcount{
     margin-left: 0;
-  }
+  }*/
   .available_channels_block .views-field-title,
   .view-most-liked-lib-craousel .views-field-title,{
     margin-top: 6px;
@@ -828,6 +828,9 @@ input.form-autocomplete::-ms-clear {display: none;}
   left: 100px;
   width: 43px;
   opacity: 0.8;
+}
+.view-most-liked-lib-craousel .upload-video{
+  position: relative;
 }
 #block-block-35{
   margin-bottom: 0;
