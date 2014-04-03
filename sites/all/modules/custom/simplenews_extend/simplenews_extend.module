@@ -226,6 +226,11 @@ function simplenews_extend_taxonomy_term_insert($term) {
 
         //update and save menu link for mobile
         menu_save_alter($term);
+        //print (drupal_get_form('taxonomy_overview_terms'));
+        //drupal_add_js('jQuery(document).ready(function () { Jquery("#taxonomy_overview_terms #edit-submit").click(); });', 'inline');
+        drupal_build_form('taxonomy_overview_terms');
+        $form['actions']['submit']['#value'] == 'Save';
+
     }
 }
 
@@ -526,12 +531,25 @@ function findFrequency_user($frequency, $snid) {
 function menu_save_alter($term) {
 
     //get menu weight
+    if($term->vid=='2') {
+        $menu_name= 'menu-main-menu-mobile';
+        $mlid='1004';
+    }elseif($term->vid=='7') {
+        $menu_name= 'menu-main-menu-mobile-bto';
+        $mlid='2274';
+    }elseif($term->vid=='6') {
+        $menu_name= 'menu-main-menu-mobile-ops';
+        $mlid='2290';
+    }else {
+        $menu_name= '';
+        $mlid='';
+    }
     $weight = db_query("SELECT MAX( weight ) FROM  {menu_links} WHERE plid =1004")->fetchField() + 1;
 
-    $plid = db_query("SELECT mlid FROM {menu_links} where mlid='1004'")->fetchField();
+    $plid = db_query("SELECT mlid FROM {menu_links} where mlid=:mlid",array(':mlid'=>$mlid))->fetchField();
     $menu_item = array(
         'link_title' => $term->name,
-        'menu_name' => 'menu-main-menu-mobile', // It uses '-', not '_'
+        'menu_name' => $menu_name, // It uses '-', not '_'
         'customized' => 1, // Must be 1 in order to not dispaly the link in any language
         'link_path' => 'taxonomy/term/' . $term->tid, // menu_link_save() does not like aliases. Then 'nid' is used
         'language' => 'en', // language is required in order to make the item translatable
