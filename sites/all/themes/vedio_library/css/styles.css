@@ -881,6 +881,10 @@ input.form-autocomplete::-ms-clear {display: none;}
  margin-right: 4px;
  width: 125px;
 }
+.view-home-page-video-listing .views-field-field-share,
+.view-home-page-video-listing .views-field-nothing{
+  display: inline;
+}
 .view-home-page-video-listing .video-content{
   width: 160px;
   overflow: hidden;
@@ -1045,5 +1049,12 @@ Splash Page theming
  text-align: left;
  border: none;
 }
+
+
+
+#block-views-most-liked-lib-craousel-block-1{
+  display: none;
+}
+
 
 }
