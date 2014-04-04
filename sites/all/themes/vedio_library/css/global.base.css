@@ -127,7 +127,7 @@
     .front a:link,
     .front a:visited,
     .video-view{
-            color: #0066BE;
+        color: #0066BE;
     }
 
     /* =============================================================================
@@ -801,30 +801,30 @@
     }
 
     .view-id-featured_vedios .slideshow-bottom-content {
-    border-bottom: 1px solid;
-    color: #FFFFFF;
-    float: left;
-    font-size: 14px;
-    font-weight: normal;
-    letter-spacing: -0.2px;
-    line-height: 14px;
-    margin-bottom: 15px;
-    margin-top: 14px;
-    padding-bottom: 15px;
-    width: 100px;
+        border-bottom: 1px solid;
+        color: #FFFFFF;
+        float: left;
+        font-size: 14px;
+        font-weight: normal;
+        letter-spacing: -0.2px;
+        line-height: 14px;
+        margin-bottom: 15px;
+        margin-top: 14px;
+        padding-bottom: 15px;
+        width: 100px;
     }
-.view-featured-vedios .slideshow-bottom-content .totalcount{
-    background-position: 0 -92px;
-    display: block;
-    margin-bottom: 6px;
+    .view-featured-vedios .slideshow-bottom-content .totalcount{
+        background-position: 0 -92px;
+        display: block;
+        margin-bottom: 6px;
 
-}
-.view-featured-vedios .slideshow-bottom-content .count{
-    background-position: 0 -116px;
-    display: block;
-     margin-bottom: 6px;
+    }
+    .view-featured-vedios .slideshow-bottom-content .count{
+        background-position: 0 -116px;
+        display: block;
+        margin-bottom: 6px;
 
-}
+    }
     .image-style-featured-video-thumbnail {
         width: 387px;
     }
@@ -1107,13 +1107,19 @@
             position: absolute;
             top: 21px;
             width: 43px;*/
-             left: 37%;
+            left: 37%;
+            opacity: 0.9;
+            position: absolute;
+            top: 34%;
+            width: 43px;
+        }
+.view-related-video .field-content .play-button {
+  left: 72%;
     opacity: 0.9;
     position: absolute;
-    top: 34%;
+    top: 50%;
     width: 43px;
         }
-
         .view-home-page-video-listing .views-field.views-field-field-upload-video .video_duration,
         .view-listing-by-category .views-field.views-field-field-upload-video .video_duration,
         .view-listing-by-tags .views-field.views-field-field-upload-video .video_duration,
@@ -1196,7 +1202,7 @@
             top: 85px;
             left: 0;*/
             color: #333;
-          /*  font-weight: bold;*/
+            /*  font-weight: bold;*/
         }
 
         .view-home-page-video-listing  .views-field.views-field-title,
@@ -1337,13 +1343,13 @@
     }
 
     #authorize li a, #block-block-5 a {
-       border-right: 1px solid #666666;
-       color: #97DDF6;
-       font-size: 1em;
-       padding-right: 10px;
-   }
+     border-right: 1px solid #666666;
+     color: #97DDF6;
+     font-size: 1em;
+     padding-right: 10px;
+ }
 
-   #authorize li a{
+ #authorize li a{
     padding: 0 5px;
 }
 #authorize li a.last{
@@ -1353,7 +1359,6 @@
 }
 .node-upload-video .node-statistics .views-field-totalcount, .node-upload-video .node-statistics .views-field-count {
     display: inline-block;
-    margin-right: .6em;
 }
 
 .node-upload-video .category {
@@ -2002,14 +2007,9 @@
     }
 
     .node-statistics {
-        border-right: 1px solid #666666;
         display: inline-block;
-        font-size: 11px;
-        font-weight: bold;
         margin-left: 15px;
         margin-right: 5px;
-        /*margin-top: 10px;*/
-        /*padding-right: 10px;*/
     }
 
     .node-statistics-like {
@@ -2320,7 +2320,7 @@
             /*position: relative;*/
             /*top: -20px;*/
         }
-       .form-submit, .like-video a {
+        .form-submit, .like-video a {
             padding: 0;
             background: url("images/bluebtn_bg.png") no-repeat scroll 0 0 transparent;
             border: medium none;
@@ -2333,7 +2333,7 @@
             text-decoration: none;
             font-size: 11px;
         }
-       #simplenews-subscriptions-page-form #edit-update {
+        #simplenews-subscriptions-page-form #edit-update {
             background: url("images/submit_button.png") repeat-x scroll 0 0 transparent;
             border: 1px solid #1478A9;
             border-radius: 4px;
@@ -2356,17 +2356,17 @@
         .form-submit:hover {
             text-decoration: none;
             background: url("images/bluebtn_bg_h.png") no-repeat scroll 0 0 transparent;
-            }   
-              
-          #simplenews-subscriptions-page-form #edit-update:hover {
-                text-decoration: none;
-                background:  #0974aa;
-            }
+        }   
 
-            .download-video{
-                display:inline-block;
-            }
-            .download-video a {
+        #simplenews-subscriptions-page-form #edit-update:hover {
+            text-decoration: none;
+            background:  #0974aa;
+        }
+
+        .download-video{
+            display:inline-block;
+        }
+        .download-video a {
         /*        padding: 0;
                 background: url("images/download_bg.png") no-repeat scroll 0 0 transparent;
                 border: medium none;
@@ -2378,11 +2378,11 @@
                 display: inline-block;
                 text-decoration: none;
                 font-size: 11px;*/
-                   background: url("images/download.png") no-repeat scroll 0 0 transparent;
-    display: inline-block;
-    height: 12px;
-    text-indent: -999px;
-    width: 11px;
+                background: url("images/download.png") no-repeat scroll 0 0 transparent;
+                display: inline-block;
+                height: 12px;
+                text-indent: -999px;
+                width: 11px;
             }
 
             .download-video a:hover {
@@ -2506,10 +2506,10 @@
 
     .region-secondary-content .region-inner #block-block-9.block {margin-bottom:0;}
     .form-item.selected.form-type-bef-link.form-item a {
-       color: #000000;
-   }
+     color: #000000;
+ }
 
-   .views-exposed-form .views-exposed-widgets {
+ .views-exposed-form .views-exposed-widgets {
     position: relative;
     right: 10px;
 }

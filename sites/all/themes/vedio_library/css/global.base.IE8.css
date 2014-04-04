@@ -1107,24 +1107,30 @@ left: 185px;
             position: absolute;
             top: 21px;
             width: 43px;*/
-             left: 37%;
+            left: 37%;
+            opacity: 0.9;
+            position: absolute;
+            top: 34%;
+            width: 43px;
+        }
+.view-related-video .field-content .play-button {
+  left: 72%;
     opacity: 0.9;
     position: absolute;
-    top: 34%;
+    top: 50%;
     width: 43px;
-}
-
-.view-home-page-video-listing .views-field.views-field-field-upload-video .video_duration,
-.view-listing-by-category .views-field.views-field-field-upload-video .video_duration,
-.view-listing-by-tags .views-field.views-field-field-upload-video .video_duration,
-.view-playlist .views-field.views-field-field-upload-video .video_duration {
-    position: absolute;
-    right:0;
-    /*bottom:6px;*/
-    background:#EDEFEE;
-    font-size: 12px;
-    font-weight: bold;
-}
+        }
+        .view-home-page-video-listing .views-field.views-field-field-upload-video .video_duration,
+        .view-listing-by-category .views-field.views-field-field-upload-video .video_duration,
+        .view-listing-by-tags .views-field.views-field-field-upload-video .video_duration,
+        .view-playlist .views-field.views-field-field-upload-video .video_duration {
+            position: absolute;
+            right:0;
+            /*bottom:6px;*/
+            background:#EDEFEE;
+            font-size: 12px;
+            font-weight: bold;
+        }
 
 .view-home-page-video-listing .views-field.views-field-field-upload-video .video_duration,
 .view-listing-by-category .views-field.views-field-field-upload-video .video_duration,
@@ -1353,7 +1359,6 @@ width: 100%;
 }
 .node-upload-video .node-statistics .views-field-totalcount, .node-upload-video .node-statistics .views-field-count {
     display: inline-block;
-    margin-right: .6em;
 }
 
 .node-upload-video .category {
@@ -2058,16 +2063,11 @@ div.modal-forms-modal-content .form-item label {
         width: 508px;
     }
 
-.node-statistics {
-    border-right: 1px solid #666666;
-    display: inline-block;
-    font-size: 11px;
-    font-weight: bold;
-    margin-left: 15px;
-    margin-right: 5px;
-    /*margin-top: 10px;*/
-    /*padding-right: 10px;*/
-}
+    .node-statistics {
+        display: inline-block;
+        margin-left: 15px;
+        margin-right: 5px;
+    }
 
 .node-statistics-like {
     display: inline-block;
