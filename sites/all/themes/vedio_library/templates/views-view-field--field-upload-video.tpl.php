@@ -43,6 +43,3 @@ $video_path = $root_path . '/sites/default/files/videos/original/' . $video_file
     print "<a href=" . $base_url . "/" . $node_path_alias . "><img src=" . $base_url . "/sites/all/themes/vedio_library/css/images/newplay.png /></a>";
     ?>
 </div>
-<!--
-<div class="video_duration">
-    <?php //print $video_duration; ?></div> --!>

@@ -373,9 +373,5 @@ function video_library_get_video_duration($path) {
     } else {
         $formatted_time = $min . ':' . $sec;
     }
-    $hr='1';
-    $min='23';
-    $sec='30';
-     $formatted_time = $hr . ':' . $min . ':' . $sec;
     return $formatted_time;
 }
