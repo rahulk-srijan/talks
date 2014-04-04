@@ -590,7 +590,7 @@ input.form-autocomplete::-ms-clear {display: none;}
 }
 .view-global-popular-video .views-slideshow-controls-text-next a{
   background: url("images/arrow-next-blue.png") no-repeat scroll 0 0 transparent;
-      background: url("images/arrow-next-blue.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+      background: url("images/arrow-next-blue.png") no-repeat scroll 0 0 transparent;
     left: 118px;
     position: relative;
 }
@@ -1139,5 +1139,4 @@ display: inline-block;
 #block-views-most-liked-lib-craousel-block-1{
   display: none;
 }
-
 

@@ -1670,6 +1670,18 @@ a {
 		}
 
 	}
+		#block-views-related-video-block,
+		.view-home-page-video-listing{
+			.upload-video{
+				position: relative;
+				.play-button{
+					    left: 42%;
+    position: absolute;
+    top: 32%;
+    width: 12%;
+				}
+			}
+		}
 	#block-system-main, 
 	#block-views-related-video-block,
 	#block-views-most-trending-block
