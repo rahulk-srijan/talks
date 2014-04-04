@@ -841,10 +841,15 @@ input.form-autocomplete::-ms-clear {display: none;}
   position: relative;
 }
 .view-most-liked-lib-craousel .upload-video, .view-related-video .upload-video {
-background: none repeat scroll 0 0 #F5F5F5;
-    height: 90px;
+ background: none repeat scroll 0 0 #F5F5F5;
+    height: 124px;
+    overflow: hidden;
     position: relative;
-    width: 150px;
+    width: 230px;
+}
+.video-conten{
+  overflow: hidden;
+  clear: both;
 }
 .view-related-video .views-field.views-field-body p{
    margin: 2px 0;
@@ -1140,3 +1145,8 @@ display: inline-block;
   display: none;
 }
 
+.view-most-liked-lib-craousel .cooment-info {
+clear: both;
+overflow: hidden;
+display: block;
+}
