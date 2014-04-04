@@ -415,9 +415,16 @@ input.form-autocomplete::-ms-clear {display: none;}
 .video-body p{
   margin: 0;
 }
-.cooment-info span ,
-.cooment-info .new-video-duration, 
-.cooment-info .new_video_duration,
+.new-video-duration, 
+.new_video_duration{
+  font-size: 13px;
+  color: #999999;
+}
+.cooment-info .video-views,
+.cooment-info .video-count,
+.cooment-info .video-commentcount,
+ .new-video-duration, 
+.new_video_duration,
 .view-most-trending div.new_video_duration,
 .slideshow-bottom-content .totalcount,
 .slideshow-bottom-content .count{
@@ -425,6 +432,10 @@ input.form-autocomplete::-ms-clear {display: none;}
  display: inline;
  margin: 0 6px 0 0;
  padding-left: 20px;
+}
+.download-video-content img{
+  width: 11px;
+  height: 12px;
 }
 .cooment-info .video-views{
   background-position: 0 -21px;
@@ -434,6 +445,10 @@ input.form-autocomplete::-ms-clear {display: none;}
 }
 .cooment-info .video-commentcount{
   background-position: 2px -64px;
+}
+.cooment-info .download-video-content{
+  display: inline;
+  margin-left: 6px;
 }
 .pl-bn .play-button {
  left: 45%;
@@ -502,7 +517,22 @@ input.form-autocomplete::-ms-clear {display: none;}
   position: relative;
   top: 2px;
 }
-
+.view-most-trending ul.pager .pager-next a{
+    background: url("images/arrow-next-blue.png") no-repeat scroll 0 0 transparent;
+    display: inline-block;
+    height: 20px;
+    text-indent: -99999px;
+    width: 13px;
+      margin: 0 6px;
+}
+.view-most-trending ul.pager .pager-previous a{
+    background: url("images/arrow-prev-blue.png") no-repeat scroll 0 0 transparent;
+    display: inline-block;
+    height: 20px;
+    text-indent: -99999px;
+    width: 13px;
+    margin: 0 6px;
+}
 #block-views-global-popular-video-block{
   margin-bottom: 10px;
 }
@@ -754,10 +784,10 @@ input.form-autocomplete::-ms-clear {display: none;}
    padding-right: 4px;
    border-right: 1px solid #D1D1D1;
    }*/
-   .available_channels_block .views-field-totalcount,
+/*   .available_channels_block .views-field-totalcount,
    .view-most-liked-lib-craousel .views-field-totalcount{
     margin-left: 0;
-  }
+  }*/
   .available_channels_block .views-field-title,
   .view-most-liked-lib-craousel .views-field-title,{
     margin-top: 6px;
@@ -798,6 +828,18 @@ input.form-autocomplete::-ms-clear {display: none;}
   left: 100px;
   width: 43px;
   opacity: 0.8;
+}
+.view-most-liked-lib-craousel .upload-video,
+.view-related-video .upload-video{
+  position: relative;
+}
+.view-related-video .views-field.views-field-body p{
+   margin: 2px 0;
+}
+.view-related-video .new-video-duration{
+  float: right;
+  width: 136px;
+     background-position: 0 3px;
 }
 #block-block-35{
   margin-bottom: 0;
@@ -881,6 +923,10 @@ input.form-autocomplete::-ms-clear {display: none;}
 .view-most-trending .video-content{
  margin-right: 4px;
  width: 125px;
+}
+.view-home-page-video-listing .views-field-field-share,
+.view-home-page-video-listing .views-field-nothing{
+  display: inline;
 }
 .view-home-page-video-listing .video-content{
   width: 160px;
@@ -1028,6 +1074,8 @@ display: inline-block;
 
 
 .jcarousel-skin-default .jcarousel-container-horizontal {
+   height: 300px;
+    padding: 0 40px 20px;
     width: 845px;
     height: 300px;
 }
@@ -1046,4 +1094,38 @@ display: inline-block;
  text-align: left;
  border: none;
 }
+.jcarousel-skin-default .jcarousel-next-disabled, 
+.jcarousel-skin-default .jcarousel-prev-disabled {
+    display: block;
+}
+.jcarousel-skin-default .jcarousel-next, .jcarousel-skin-default .jcarousel-prev {
+    background-image: url("images/car-nav-sprite.png");
+    display: block;
+    height: 32px;
+    width: 32px;
+}
+.jcarousel-skin-default .jcarousel-prev-horizontal {
+    background-position: 8px 0;
+      left: 15px;
+    position: absolute;
+    top: 120px;
+  }
+  .jcarousel-skin-default .jcarousel-prev-horizontal:hover{
+    background-position: 3px -91px;
+  }
+  .jcarousel-skin-default .jcarousel-next-horizontal {
+    background-position: 1px -48px;
+    position: absolute;
+    right: 32px;
+    top: 120px;
+  }
+    .jcarousel-skin-default .jcarousel-next-horizontal:hover {
+    background-position: 1px -131px;
+  }
+
+
+#block-views-most-liked-lib-craousel-block-1{
+  display: none;
+}
+
 

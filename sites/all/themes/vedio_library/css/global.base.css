@@ -1102,11 +1102,16 @@
         }
 
         .field-content .play-button {
-            left: 49px;
+      /*      left: 49px;
             opacity: 0.8;
             position: absolute;
             top: 21px;
-            width: 43px;
+            width: 43px;*/
+             left: 37%;
+    opacity: 0.9;
+    position: absolute;
+    top: 34%;
+    width: 43px;
         }
 
         .view-home-page-video-listing .views-field.views-field-field-upload-video .video_duration,
@@ -1187,11 +1192,11 @@
 
         .view-content .views-field-field-share .field-content {
             font-size: 11px;
-            position: absolute;
+          /*  position: absolute;
             top: 85px;
-            left: 0;
-            color: #FF0000;
-            font-weight: bold;
+            left: 0;*/
+            color: #333;
+          /*  font-weight: bold;*/
         }
 
         .view-home-page-video-listing  .views-field.views-field-title,
@@ -2362,7 +2367,7 @@
                 display:inline-block;
             }
             .download-video a {
-                padding: 0;
+        /*        padding: 0;
                 background: url("images/download_bg.png") no-repeat scroll 0 0 transparent;
                 border: medium none;
                 color: #FFFFFF;
@@ -2372,7 +2377,12 @@
                 width: 62px;
                 display: inline-block;
                 text-decoration: none;
-                font-size: 11px;
+                font-size: 11px;*/
+                   background: url("images/download.png") no-repeat scroll 0 0 transparent;
+    display: inline-block;
+    height: 12px;
+    text-indent: -999px;
+    width: 11px;
             }
 
             .download-video a:hover {
