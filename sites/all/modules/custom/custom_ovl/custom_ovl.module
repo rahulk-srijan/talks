@@ -47,7 +47,7 @@ function custom_ovl_menu() {
 
 function custom_ovl_form_alter(&$form, &$form_state, $form_id) {
     // drupal_set_message($form_id);  // print form ID to messages
-    //dsm($form_id);  // print array to messages
+    //dsm($form);  // print array to messages
     if ($form_id == 'nodequeue_arrange_subqueue_form_1') {
         $form['add']['nid']['#default_value'] = "Enter the title of a video to add it to the queue";
     }
@@ -373,5 +373,9 @@ function video_library_get_video_duration($path) {
     } else {
         $formatted_time = $min . ':' . $sec;
     }
+    $hr='1';
+    $min='23';
+    $sec='30';
+     $formatted_time = $hr . ':' . $min . ':' . $sec;
     return $formatted_time;
 }
