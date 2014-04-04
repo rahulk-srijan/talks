@@ -839,17 +839,24 @@ input.form-autocomplete::-ms-clear {display: none;}
 .view-most-liked-lib-craousel .upload-video{
   position: relative;
 }
-.view-most-liked-lib-craousel .upload-video, .view-related-video .upload-video {
+.view-most-liked-lib-craousel .upload-video {
  background: none repeat scroll 0 0 #F5F5F5;
     height: 124px;
     overflow: hidden;
     position: relative;
     width: 230px;
 }
-.video-conten{
+ .view-related-video .upload-video {
+   background: none repeat scroll 0 0 #F5F5F5;
+    height: 87px;
+    overflow: hidden;
+    position: relative;
+    width: 152px;
+}
+/*.video-content{
   overflow: hidden;
   clear: both;
-}
+}*/
 .view-related-video .views-field.views-field-body p{
    margin: 2px 0;
 }
