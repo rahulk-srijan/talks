@@ -327,18 +327,18 @@ background: url("images/sitename.png") no-repeat scroll 1px 3px transparent;
  */
 #main-content-header {}
 
-/*
- * The main page title (h1)
- */
-#page-title {
-  color: #E27121;
-  font-family: 'georgia',serif;
-  font-size: 18px;
-  font-weight: normal;
-  letter-spacing: -0.7px;
-  margin: 0 0 8px 0;
-  width: 509px;
-}
+  /*
+   * The main page title (h1)
+   */
+  #page-title {
+    color: #E27121;
+    font-family: 'georgia',serif;
+    font-size: 18px;
+    font-weight: normal;
+    letter-spacing: -0.7px;
+    margin: 0 0 8px 30px;
+    width: 560px;
+  }
 
 
 /* =============================================================================
@@ -405,13 +405,13 @@ ul.links li {
  *   Regions
  * ========================================================================== */
 
-/*
- * Standard region wrapper, don't add width to any regions, you will bork the layout - no margin, padding or borders etc
- */
-.region {
-  margin-left: 0.8%;
-  margin-right: 2.7%;
-}
+  /*
+   * Standard region wrapper, don't add width to any regions, you will bork the layout - no margin, padding or borders etc
+   */
+  .region {
+    margin-left: 5%;
+    margin-right: 2.7%;
+  }
 
 /*
  * Regions have an inner div - perfect for adding margin, padding or borders
@@ -457,11 +457,11 @@ ul.links li {
  */
 .sidebar {}
 
-/*
- * First sidebar
- */
-.region-sidebar-first {
-    margin-left: -932px !important;
+  /*
+   * First sidebar
+   */
+  .region-sidebar-first {
+  margin-left: -983px !important;
     width: 238px !important;
 }
 
@@ -484,12 +484,12 @@ ul.links li {
 }
 
   .region-sidebar-first .block-content.content {
-    padding-left: 1.125em;
+    padding-left: 0;
     padding-bottom: 5px;
     padding-top: 5px;
   }
 
-.region-sidebar-first .block-videolibrary-core .block-content.content {
+  .region-sidebar-first .block-videolibrary-core .block-content.content {
     padding-top: 0px;
 }
 
