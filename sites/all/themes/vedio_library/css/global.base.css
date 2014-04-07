@@ -86,6 +86,7 @@
         min-height: 100%;
         margin: 0;
         padding: 0;
+        background: #212121;
         -webkit-font-smoothing: antialiased;
         font-smoothing: antialiased;
         text-rendering: optimizeLegibility\9;
@@ -657,7 +658,7 @@
     }
 
     .page-content {
-        width: 955px;
+        width: 1050px;
         margin: 0 auto;
         background: white;
     }
@@ -1006,17 +1007,16 @@
         .views-slideshow-pager-field-item.views_slideshow_pager_field_item.active .views-content-counter {
             background: url(images/pager-active.png) no-repeat;
             text-indent: -9999em;
-            height: 16px;
-            width: 16px;
             display:inline-block;
         }
 
         .views-slideshow-pager-field-item.views_slideshow_pager_field_item .views-content-counter {
             background: url(images/pager.png) no-repeat;
             text-indent: -9999em;
-            height: 16px;
-            width: 16px;
+            height: 14px;
+            width: 14px;
             display:inline-block;
+            cursor: pointer;
         }
 
         /** slide show ends **/
@@ -2002,8 +2002,10 @@
     }
 
     .node .node-content {
-        font-size: 11px;
-        width: 508px;
+  background: none repeat scroll 0 0 #F1F1F1;
+    font-size: 11px;
+    margin-left: 5%;
+    width: 560px;
     }
 
     .node-statistics {
@@ -2119,32 +2121,32 @@
     }
 
     .node-statistics-comment {
-        border-right: 1px solid #999999;
-        display: inline-block;
-        font-size: 11px;
-        font-weight: bold;
-        left: 338px;
-        margin-right: 5px;
-        padding-right: 5px;
-        position: relative;
-        top: 50px;
+  border-right: 1px solid #999999;
+    display: inline-block;
+    font-size: 11px;
+    font-weight: bold;
+    left: 340px;
+    margin-right: 5px;
+    padding-right: 5px;
+    position: relative;
+    top: 51px;
     }
 
     .comment-title.title.comment-form {
-        border: medium none !important;
-        color: #00ACEE !important;
-        cursor: pointer;
-        left: 409px;
-        position: absolute;
-        text-align: right;
-        top: 3px;
-        width: 100px;
+border: medium none !important;
+    color: #00ACEE !important;
+    cursor: pointer;
+    left: 409px;
+    position: absolute;
+    text-align: right;
+    top: 3px;
+    width: 105px;
     }
 
     #comments.comment-wrapper {
-        position: relative;
-        /*top: -50px;*/
-        width: 509px;
+       margin-left: 5%;
+    position: relative;
+    width: 560px;
     }
 
     #comments.comment-wrapper {

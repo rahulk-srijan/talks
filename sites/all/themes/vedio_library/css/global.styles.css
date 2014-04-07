@@ -336,8 +336,8 @@ background: url("images/sitename.png") no-repeat scroll 1px 3px transparent;
     font-size: 18px;
     font-weight: normal;
     letter-spacing: -0.7px;
-    margin: 0 0 8px 0;
-    width: 509px;
+    margin: 0 0 8px 30px;
+    width: 560px;
   }
 
 
@@ -409,7 +409,7 @@ background: url("images/sitename.png") no-repeat scroll 1px 3px transparent;
    * Standard region wrapper, don't add width to any regions, you will bork the layout - no margin, padding or borders etc
    */
   .region {
-    margin-left: 0.8%;
+    margin-left: 5%;
     margin-right: 2.7%;
   }
 
@@ -461,8 +461,8 @@ background: url("images/sitename.png") no-repeat scroll 1px 3px transparent;
    * First sidebar
    */
   .region-sidebar-first {
-      margin-left: -932px !important;
-      width: 238px !important;
+  margin-left: -983px !important;
+    width: 238px !important;
   }
 
   .region-sidebar-first h2.block-title {
@@ -484,7 +484,7 @@ background: url("images/sitename.png") no-repeat scroll 1px 3px transparent;
   }
 
   .region-sidebar-first .block-content.content {
-    padding-left: 1.125em;
+    padding-left: 0;
     padding-bottom: 5px;
     padding-top: 5px;
   }

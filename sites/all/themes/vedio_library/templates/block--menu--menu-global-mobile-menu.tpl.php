@@ -97,7 +97,8 @@ $site_name =  variable_get('site_name', 'McKinsey Talks');
 
 		<?php if ($title): ?>
 		<!-- 	<h2<?php print str_replace('element-invisible', '', $title_attributes); ?>><?php print $library_subsite_variable[$subsite_home_page_url]['site_name']; ?></h2> -->
-		<h2<?php print str_replace('element-invisible', '', $title_attributes); ?>><?php  print $site_name;?></h2>
+		<!-- <h2<?php print str_replace('element-invisible', '', $title_attributes); ?>><?php  print $site_name;?></h2> -->
+		<a href="/"> <img class="sitename-logo" src = "/sites/all/themes/vedio_library/css/images/sitename.png" /></a>
 		<?php endif; ?>
 	<div class="mobile-search"><img src=<?php print $base_url . "/sites/all/themes/vedio_library/css/images/search-icon-mobile.png"?>></div>
 	</div>

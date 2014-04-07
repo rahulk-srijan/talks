@@ -55,7 +55,15 @@ input.form-autocomplete::-ms-clear {display: none;}
 
 
 
-#edit-tid-wrapper { position:relative; left:-20px;clear:both; margin-top:8px; padding:10px 1.05em; width:98.5%; background:#EDEFEE;}
+#edit-tid-wrapper{
+   background: none repeat scroll 0 0 #EDEFEE;
+    clear: both;
+    left: -22px;
+    margin-top: 24px;
+    padding: 10px 1.05em;
+    position: relative;
+    width: 98.5%;
+}
 #edit-tid-wrapper .views-widget {clear:both; width:100%;}
 #edit-tid-wrapper .bef-select-as-links .form-item .form-item { margin:0; padding:10px .5em 5px 0;width:31.5%; border:none; color:#000; font-size:12px;}
 #edit-tid-wrapper .bef-select-as-links .form-item .form-item a {color:#000;}
@@ -356,7 +364,7 @@ input.form-autocomplete::-ms-clear {display: none;}
 .video-info{
   float: left;
   padding:20px;
-  width: 378px;
+  width: 450px;
 }
 .thumbnail-comment{
   float: left;
@@ -454,12 +462,12 @@ input.form-autocomplete::-ms-clear {display: none;}
   display: inline;
   margin-left: 6px;
 }
-.pl-bn .play-button {
+.play-button {
  left: 45%;
  opacity: 0.95;
  position: absolute;
  top: 45%;
- width: auto;
+ width: 12%;
 }
 /*
 .pl-bn .video_duration{
@@ -945,8 +953,9 @@ input.form-autocomplete::-ms-clear {display: none;}
   font-weight: bold;
 }
 .view-most-trending .video-content{
- margin-right: 4px;
- width: 125px;
+ margin-bottom: 20px;
+    margin-right: 4px;
+    width: 125px;
 }
 .view-home-page-video-listing .views-field-field-share,
 .view-home-page-video-listing .views-field-nothing{
@@ -981,11 +990,11 @@ input.form-autocomplete::-ms-clear {display: none;}
 }
 .view-most-trending .views-row{
  float: left;
- font-size: 12px;
- height: 130px;
- margin: 6px 10px 16px;
- overflow: hidden;
- width: 200px;
+    font-size: 12px;
+    height: 130px;
+    margin: 6px 15px 16px;
+    overflow: hidden;
+    width: 215px;
 }
 .view-most-trending .view-header{
  margin: 2px 0 20px;
@@ -1100,11 +1109,11 @@ Splash Page theming
 .jcarousel-skin-default .jcarousel-container-horizontal {
    height: 300px;
     padding: 0 40px 20px;
-    width: 845px;
+    width: 930px;
 }
 
 .jcarousel-skin-default .jcarousel-clip-horizontal {
-  width: 845px;
+  width: 930px;
 }
 .jcarousel-list{
   width: 100% !important;
@@ -1113,7 +1122,7 @@ Splash Page theming
 #block-views-most-liked-lib-craousel-block .jcarousel-skin-default .jcarousel-item {
  height: 345px;
  margin: 0 22px;
- width: 234px;
+ width: 262px;
  text-align: left;
  border: none;
 }
