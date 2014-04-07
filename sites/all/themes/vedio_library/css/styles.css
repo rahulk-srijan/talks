@@ -71,7 +71,7 @@ input.form-autocomplete::-ms-clear {display: none;}
 
 
 
-#content-column .view-home-page-video-listing .view-content, #content-column .view-listing-by-category .view-content {position:relative; top:-20px;}
+#content-column .view-home-page-video-listing .view-content, #content-column .view-listing-by-category .view-content {position:relative; top:-20px; left: 20px;}
 #content-column .view-listing-by-tags .view-content {top:-30px;}
 .page-my-playlist #content-column .view-playlist .view-content {position:relative; /*top:-30px;*/ clear:both;}
 /*.page-playlist-edit .view-playlist .view-content {position:relative; top:0px;} */
@@ -266,7 +266,7 @@ input.form-autocomplete::-ms-clear {display: none;}
    position: relative;
    top: 4px;
    display: inline-block;
-   margin-left: 22px;
+   margin-left: 55px;
  }
  .block-superfish ul {
   margin: 0;
@@ -342,6 +342,16 @@ input.form-autocomplete::-ms-clear {display: none;}
   clear: both;
   overflow: hidden;
 }
+.popular-video-slide .play-button {
+  left: 45%;
+    opacity: 1;
+    position: absolute;
+    top: 42%;
+    width: 50px;
+}
+.popular-video-slide .play-button img{
+  width: 50px;
+}
 .color-orange,
 .org-in-action {
   color: #e27120;
@@ -363,15 +373,22 @@ input.form-autocomplete::-ms-clear {display: none;}
 }
 .video-info{
   float: left;
-  padding:20px;
-  width: 450px;
+    margin-left: 40px;
+    padding: 20px;
+    width: 410px;
 }
 .thumbnail-comment{
   float: left;
   margin: 20px;
   width: 495px;
 }
-.video-thumb{  position: relative;}
+.video-thumb{   
+  color: #999999;
+    font-size: 14px;
+    line-height: 14px;
+    margin: 2px 0;
+    position: relative;
+  }
 .video-thumb .image-style-featured-video-thumbnail {
   display: block;
   width: 495x;
@@ -382,16 +399,17 @@ input.form-autocomplete::-ms-clear {display: none;}
   height: auto;
 }
 .video-viewthumb{
-  width: 495px;
-  height: 286px;
-  background: #f5f5f5;
+  color: #999999;
+    font-size: 14px;
+    line-height: 14px;
+    margin: 2px 0;
 }
 
 .cooment-info{
   color: #999999;
   font-size: 14px;
   line-height: 14px;
-  margin: 6px 0;
+  margin: 5px 0 2px;
 }
 .popular-video-slide .video-title a{
   color: #E37222;
@@ -435,7 +453,7 @@ input.form-autocomplete::-ms-clear {display: none;}
 .slideshow-bottom-content .count{
  background: url("images/icons-sprite.png") no-repeat scroll 0 0 transparent;
  display: inline;
- margin: 0 6px 0 0;
+ margin: 0 12px 0 0;
  padding-left: 20px;
    font-size: 13px;
   color: #999999;
@@ -444,12 +462,10 @@ input.form-autocomplete::-ms-clear {display: none;}
   width: 11px;
   height: 12px;
 }
-.node-statistics span.field-content{
-  background-position: 0 -21px;
-}
+
 .cooment-info .video-views,
 .node-statistics span.field-content{
-  background-position: 0 -21px;
+  background-position: 0 -23px;
 }
 .cooment-info .video-count,
 .node-statistics-like span.field-content{
@@ -459,15 +475,18 @@ input.form-autocomplete::-ms-clear {display: none;}
   background-position: 2px -64px;
 }
 .cooment-info .download-video-content{
-  display: inline;
-  margin-left: 6px;
+ display: inline;
+    float: right;
+    margin-left: 6px;
+    position: relative;
+    right: 8px;
 }
 .play-button {
- left: 45%;
- opacity: 0.95;
- position: absolute;
- top: 45%;
- width: 12%;
+   left: 33%;
+    opacity: 0.95;
+    position: absolute;
+    top: 34%;
+    width: 12%;
 }
 /*
 .pl-bn .video_duration{
@@ -485,10 +504,12 @@ input.form-autocomplete::-ms-clear {display: none;}
   }
   .cooment-info .new-video-duration,
   .cooment-info .new_video_duration{
- background-position: 0 1px;
+  background-position: 6px 1px;
     float: right;
     margin-top: -1px;
-    text-align: left;
+    position: relative;
+    right: -6px;
+    text-align: right;
     width: 50px;
  }
  .view-most-trending div.new_video_duration{
@@ -546,27 +567,32 @@ input.form-autocomplete::-ms-clear {display: none;}
     margin: 0 6px;
 }
 #block-views-global-popular-video-block{
-  margin-bottom: 10px;
+  margin-bottom: 0px;
 }
 .view-global-popular-video .view-footer,
 .view-global-popular-video .view-content{
   position: relative;;
 }
-.view-global-popular-video .views-slideshow-controls-text{
+/*.view-global-popular-video .views-slideshow-controls-text{
  bottom: 23px;
  left: 110px;
  position: relative;
  z-index: 99;
-}
+}*/
 .view-global-popular-video .views-slideshow-controls-bottom {
-  position: absolute;
-  top: 270px;
-  left: 0;
-  z-index: 99;
+ left: 172px;
+    position: absolute;
+    top: 260px;
+    z-index: 99;
+}
+#views_slideshow_controls_text_global_popular_video-block{
+    position: absolute;
+    top: -2px;
+
 }
 .view-global-popular-video .views-slideshow-pager-fields{
-  left: 134px;
-  position: relative;
+    left: 26px;
+    position: relative;
 }
 .views-slideshow-pager-field-item{
   display: inline-block;
@@ -653,7 +679,7 @@ input.form-autocomplete::-ms-clear {display: none;}
 .block-content .post-menu-strip{
  clear: both;
  color: #FFFFFF;
- margin: 0;
+ margin: 0 36px;
  overflow: hidden;
  padding: 0;
  width: 950px;
@@ -728,7 +754,7 @@ input.form-autocomplete::-ms-clear {display: none;}
   .available_channels_block .header,
   .view-most-liked-lib-craousel .header{
     overflow: hidden;
-    padding: 5px;
+    padding: 5px 0 0;
   }
   .available_channels_block .view-content{
 
@@ -848,11 +874,11 @@ input.form-autocomplete::-ms-clear {display: none;}
   position: relative;
 }
 .view-most-liked-lib-craousel .upload-video {
- background: none repeat scroll 0 0 #F5F5F5;
-    height: 124px;
+   background: none repeat scroll 0 0 #F5F5F5;
+    height: 160px;
     overflow: hidden;
     position: relative;
-    width: 230px;
+    width: 260px;
 }
  .view-related-video .upload-video {
    background: none repeat scroll 0 0 #F5F5F5;
@@ -883,10 +909,10 @@ input.form-autocomplete::-ms-clear {display: none;}
 .front .content-inner {height: 0;}
 
 #block-views-most-trending-block{
- margin: 24px 0 12px 6px;
+ margin: 0 0 22px 30px;
 }
 #block-views-most-trending-block .block-content{
-  margin: 5px 8px 12px;
+  margin: 0 12px 12px 18px;
 }
 
 
@@ -897,7 +923,7 @@ input.form-autocomplete::-ms-clear {display: none;}
   color: #0066BE;
   font-size: 13px;
   font-weight: bold;
-  margin-top: -20px;
+   margin: -20px 40px 0;
   overflow: hidden;
   padding-bottom: 5px;
 }
@@ -951,10 +977,11 @@ input.form-autocomplete::-ms-clear {display: none;}
   color: #333;
   font-size: 13px;
   font-weight: bold;
+  line-height: 13px;
 }
 .view-most-trending .video-content{
  margin-bottom: 20px;
-    margin-right: 4px;
+    margin-right: 6px;
     width: 125px;
 }
 .view-home-page-video-listing .views-field-field-share,
@@ -966,6 +993,9 @@ input.form-autocomplete::-ms-clear {display: none;}
   overflow: hidden;
 }
 .view-home-page-video-listing .cooment-info{
+  margin: 0;
+}
+.cooment-info .video-views, .cooment-info .video-count, .cooment-info .video-commentcount, .new-video-duration, .node-statistics span.field-content, .new_video_duration, .node-statistics-like span.field-content, .view-most-trending div.new_video_duration, .slideshow-bottom-content .totalcount, .slideshow-bottom-content .count {
   margin: 0;
 }
 .view-most-trending .views-field-body{
@@ -989,12 +1019,12 @@ input.form-autocomplete::-ms-clear {display: none;}
   left: 27px;
 }
 .view-most-trending .views-row{
- float: left;
+  float: left;
     font-size: 12px;
     height: 130px;
-    margin: 6px 15px 16px;
+    margin: 6px 26px 16px 0;
     overflow: hidden;
-    width: 215px;
+    width: 210px;
 }
 .view-most-trending .view-header{
  margin: 2px 0 20px;
@@ -1108,7 +1138,7 @@ Splash Page theming
 
 .jcarousel-skin-default .jcarousel-container-horizontal {
    height: 300px;
-    padding: 0 40px 20px;
+    padding: 0 40px;
     width: 930px;
 }
 
@@ -1120,11 +1150,12 @@ Splash Page theming
 }
 
 #block-views-most-liked-lib-craousel-block .jcarousel-skin-default .jcarousel-item {
- height: 345px;
- margin: 0 22px;
- width: 262px;
- text-align: left;
- border: none;
+ border: medium none;
+    height: 290px;
+    margin: 0 22px;
+    overflow: hidden;
+    text-align: left;
+    width: 262px;
 }
 .jcarousel-skin-default .jcarousel-next-disabled, 
 .jcarousel-skin-default .jcarousel-prev-disabled {

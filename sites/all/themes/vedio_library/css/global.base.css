@@ -781,24 +781,24 @@
         height: 217px;
         margin-left: 3px;
         overflow: hidden;
-        width: 915px;
+        width: 964px;
         position: relative;
     }
 
     /** css for slideshow content **/
     .slideshow-content {
-        float: left;
-        margin-left: 18px;
-        margin-right: 10px;
-        /*text-align: justify;*/
-        width: 360px;
+ float: left;
+    margin-left: 18px;
+    margin-right: 10px;
+    width: 410px;
     }
 
     #block-views-featured-vedios-block .views-field.views-field-field-upload-video {
         float: left;
-        margin-left: 10px;
-        margin-right: 14px;
-        width: 387px;
+    margin-left: 10px;
+    margin-right: 14px;
+    position: relative;
+    width: 387px;
     }
 
     .view-id-featured_vedios .slideshow-bottom-content {
@@ -868,7 +868,7 @@
     }
 
     .view-featured-vedios #widget_pager_bottom_featured_vedios-block {
-        left: 94px;
+        left: 89px;
         z-index: 1;
     }
 
@@ -882,11 +882,11 @@
     }
 
     .view-featured-vedios .field-content .play-button {
-        left: 152px;
-        opacity: 0.8;
-        position: absolute;
-        top: 65px;
-        width: 100%;
+      left: 48%;
+    opacity: 1;
+    position: absolute;
+    top: 96%;
+    width: 100%;
     }
 
     /**.view-featured-vedios .field-content .play-button {
@@ -1101,18 +1101,18 @@
             width: 151px;
         }
 
-        .field-content .play-button {
-      /*      left: 49px;
+/*        .field-content .play-button {
+            left: 49px;
             opacity: 0.8;
             position: absolute;
             top: 21px;
-            width: 43px;*/
+            width: 43px;
             left: 37%;
-            opacity: 0.9;
+            opacity: 1;
             position: absolute;
             top: 34%;
             width: 43px;
-        }
+        }*/
 .view-related-video .field-content .play-button {
   left: 72%;
     opacity: 0.9;
@@ -1148,11 +1148,11 @@
         .view-playlist .views-field-body {
             float: left;
             width: 40%;
-            margin-bottom: 2%;
+            margin-bottom: 0;
             line-height: 15px;
         }
 
-        .content-statistics {
+/*        .content-statistics {
             float: right;
             width: 42%;
             font-size: 11px;
@@ -1160,7 +1160,7 @@
             position: relative;
             width: 42%;
             left: -5px;
-        }
+        }*/
 
         .view-home-page-video-listing table tr {
             background: none;
