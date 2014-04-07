@@ -403,9 +403,9 @@ function videolibrary_core_callback($ajax) {
 function videolibrary_core_form($form, $form_state) {
     global $library_subsite_variable;
     global $subsite_home_page_url;
-    $mail_to_ = $library_subsite_variable[$subsite_home_page_url]['to'];
-    $subject = $library_subsite_variable[$subsite_home_page_url]['subject'];
-    $msg = $library_subsite_variable[$subsite_home_page_url]['msg'];
+    $mail_to = 'McKinsey_Talks_Video_Suggestions@mckinsey.com';
+    $subject = 'Suggest a video';
+    $msg = 'I recommend adding the following video to the McKinsey Talks video library';
     $mail_to_bto = $library_subsite_variable['btoacademy']['to'];
     $subject_bto = $library_subsite_variable['btoacademy']['subject'];
     $msg_bto = $library_subsite_variable['btoacademy']['msg'];
