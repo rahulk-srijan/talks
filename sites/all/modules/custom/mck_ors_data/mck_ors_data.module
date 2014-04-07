@@ -75,7 +75,7 @@ function mck_ors_data_block_info() {
     $blocks = array();
     $blocks['ors_user_fetch'] = array(
         'info' => t('Ors User Fetch'),
-        'weight' => '5';
+        'weight' => '5',
     );
 
     return $blocks;
