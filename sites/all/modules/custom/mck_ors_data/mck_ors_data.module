@@ -12,7 +12,7 @@ class ORSDbHandler {
     private static $_ORSDBHandle;
 
     private function __construct() {
-        
+
     }
 
     public static function getHandle() {
@@ -91,7 +91,7 @@ function mck_ors_data_block_view($delta = '') {
 }
 
 function ors_fetch_user_link() {
-  return l('Fetch ORS data', 'ors_user/fetch');    
+  return l('PDIX User Conversion Report', 'ors_user/fetch');
 }
 
 /*
