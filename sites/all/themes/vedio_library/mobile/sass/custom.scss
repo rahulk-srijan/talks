@@ -1200,7 +1200,7 @@ a {
 					font-family: $font-face-title;
 					font-size: $font-size-huge;
 					float: left;
-					margin: 3px 12px;
+					margin: 3px;
 				}
 				button.nav-btn{
 					margin: 0;
@@ -1395,7 +1395,8 @@ a {
 			}
 			.video-count{
 				background-position: 5px -41px;
-				margin-left: -2px;
+				 left: -2px;
+    position: relative;
 			}
 			.video-commentcount{
 				background-position: 2px -64px;
@@ -1439,7 +1440,7 @@ a {
 
 				.play-button {
 					left: 76%;
-					opacity: 0.75;
+					opacity: 1;
 					position: absolute;
 					top: 64%;
 					width: 20%;
@@ -1486,6 +1487,9 @@ a {
 				margin-top: 4px;
 				float: left;
 			}
+			.views-field-name-1{
+				  color: #0066BE;
+			}
 
 		}
 		#node-5{
@@ -1498,7 +1502,7 @@ a {
 		}
 		#views_slideshow_controls_text_pause_global_popular_video-block,
 		.cooment-info {
-			@extend .hidden-phone;
+			//@extend .hidden-phone;
 		}
 		#block-views-most-liked-lib-craousel-block-1 .views-row{
 			.cooment-info{
@@ -1710,14 +1714,15 @@ a {
 
 	}
 	#block-views-related-video-block,
-	.view-home-page-video-listing{
+	.view-listing-by-category,
+	.view-listing-by-tags{
 		.upload-video{
 			position: relative;
 			.play-button{
 				left: 42%;
 				position: absolute;
 				top: 32%;
-				width: 12%;
+				width: 20%;
 			}
 		}
 	}
