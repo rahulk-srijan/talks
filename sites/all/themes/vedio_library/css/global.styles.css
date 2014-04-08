@@ -153,7 +153,7 @@
   /*
    * Wraps the content region, avoid applying styles to this wrapper, its used mainly for position and invisible gutters and can be problematic to style
    */
-  #content {   margin-left: 5%;
+  #content {   margin-left: 6%;
     margin-top: 2px;}
 
   /*

@@ -1328,6 +1328,8 @@ a {
 			.video-content{
 				width: 160px;
 				height: auto;
+					float: left;
+				margin: 0 3%;
 			}
 			.new_video_duration{
 				display: inline-block;
@@ -1341,6 +1343,16 @@ a {
 			}
 			.views-row {
 				padding: 8px 0 !important;
+			}
+			.upload-video {
+				position: relative;
+				.play-button {
+					left: 78%;
+					opacity: 0.75;
+					position: absolute;
+					top: 53%;
+					width: 20%;
+				}
 			}
 		}
 
@@ -1408,8 +1420,7 @@ a {
 		}
 
 		.view-home-page-video-listing,
-		#block-views-most-liked-lib-craousel-block-1,
-		#block-views-most-trending-block{
+		#block-views-most-liked-lib-craousel-block-1{
 			.video-content{
 				width: 47%;
 				float: left;

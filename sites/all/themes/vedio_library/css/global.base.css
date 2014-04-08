@@ -823,7 +823,7 @@
 
     }
     .view-featured-vedios .slideshow-bottom-content .count{
-        background-position: 0 -116px;
+        background-position: 0 -118px;
         display: block;
         margin-bottom: 6px;
         color: #fff;
@@ -2004,12 +2004,14 @@
         margin-right: 0;
     }
 
-    .node .node-content {
+    .node-upload-video  .node-content {
   background: none repeat scroll 0 0 #F1F1F1;
-    font-size: 11px;
-    width: 560px;
-    }
 
+    }
+.node .node-content{
+        font-size: 11px;
+    width: 560px;
+}
     .node-statistics {
         display: inline-block;
         margin-left: 15px;
@@ -2138,7 +2140,7 @@
   border: medium none !important;
     color: #00ACEE !important;
     cursor: pointer;
-    left: 453px;
+    left: 412px;
     position: absolute;
     text-align: right;
     top: 3px;

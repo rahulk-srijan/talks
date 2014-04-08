@@ -2056,16 +2056,18 @@ div.modal-forms-modal-content .form-item label {
     display: none;
 }
 
-#block-block-4 .block-inner.clearfix {
-    margin-right: 0;
-}
-
-    .node .node-content {
-  background: none repeat scroll 0 0 #F1F1F1;
-    font-size: 11px;
-    width: 560px;
+    #block-block-4 .block-inner.clearfix {
+        margin-right: 0;
     }
 
+    .node-upload-video  .node-content {
+  background: none repeat scroll 0 0 #F1F1F1;
+
+    }
+.node .node-content{
+        font-size: 11px;
+    width: 560px;
+}
     .node-statistics {
         display: inline-block;
         margin-left: 15px;
@@ -2194,7 +2196,7 @@ div.modal-forms-modal-content .form-item label {
   border: medium none !important;
     color: #00ACEE !important;
     cursor: pointer;
-    left: 453px;
+    left: 412px;
     position: absolute;
     text-align: right;
     top: 3px;
