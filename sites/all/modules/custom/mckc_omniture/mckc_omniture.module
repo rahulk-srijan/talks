@@ -44,13 +44,16 @@ function mckc_omniture_settings_submit(&$form, &$form_state) {
  * Implements hook_omniture_variables().
  */
 function mckc_omniture_sitecatalyst_variables() {
+  global $subsite_home_page_url;
   $variables = array();
   if(isset($_SERVER['HTTP_PERSON_ID'])) {
     $visitor_id = $_SERVER['HTTP_PERSON_ID'];
     $variables['s.prop1'] = $visitor_id;
 
+    
     $omniture_settings = array(
-      'pidX' => $visitor_id
+      'pidX' => $visitor_id,
+      'channel' => $subsite_home_page_url 
      );
     drupal_add_js(array('myOmniture' => $omniture_settings), 'setting');
 
@@ -61,6 +64,7 @@ function mckc_omniture_sitecatalyst_variables() {
       $search_term2 = explode('?', $search_term1[1]);
       // passing search result key word
       $variables['s.prop4'] = $search_term2[0];
+      $variables['s.prop3'] = $subsite_home_page_url;
     }
     return array('variables' => $variables);
   }
