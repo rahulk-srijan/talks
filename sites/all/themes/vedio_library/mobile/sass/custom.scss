@@ -1405,6 +1405,13 @@ a {
 			.video-commentcount{
 				background-position: 2px -64px;
 			}
+			.download-video-content {
+				display: inline;
+				float: right;
+				margin-left: 6px;
+				position: relative;
+				right: 8px;
+			}
 		}
 		.node-statistics span.field-content{
 			background-position: 0 -21px;
@@ -1425,7 +1432,9 @@ a {
 		}
 
 		.view-home-page-video-listing,
-		#block-views-most-liked-lib-craousel-block-1{
+		#block-views-most-liked-lib-craousel-block-1,
+		.view-listing-by-tags,
+		..view-listing-by-category,{
 			.video-content{
 				width: 47%;
 				float: left;
