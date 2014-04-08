@@ -1142,9 +1142,8 @@
         .view-playlist .views-field.views-field-field-upload-video .video_duration {
             *bottom:0px;
         }
-        #main-content .region {
-            margin-left: 5%;
-        }
+      /*  #main-content .region {
+        }*/
 
         .view-home-page-video-listing .views-field-body,
         .view-listing-by-category .views-field-body,
@@ -2008,7 +2007,6 @@
     .node .node-content {
   background: none repeat scroll 0 0 #F1F1F1;
     font-size: 11px;
-    margin-left: 6%;
     width: 560px;
     }
 
@@ -2125,11 +2123,11 @@
     }
 
     .node-statistics-comment {
-  border-right: 1px solid #999999;
+ border-right: 1px solid #999999;
     display: inline-block;
     font-size: 11px;
     font-weight: bold;
-    left: 340px;
+    left: 380px;
     margin-right: 5px;
     padding-right: 5px;
     position: relative;
@@ -2137,10 +2135,10 @@
     }
 
     .comment-title.title.comment-form {
-border: medium none !important;
+  border: medium none !important;
     color: #00ACEE !important;
     cursor: pointer;
-    left: 409px;
+    left: 453px;
     position: absolute;
     text-align: right;
     top: 3px;

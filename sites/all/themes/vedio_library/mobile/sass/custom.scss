@@ -586,7 +586,8 @@ a {
 	footer #block-block-3,
 	#block-views-logging-block,
 	#block-superfish-1,
-	#block-views-most-liked-lib-craousel-block {
+	#block-views-most-liked-lib-craousel-block ,
+	.form-item-newsletters-536{
 		@extend .hidden-phone;
 	}
 
@@ -746,11 +747,17 @@ a {
 			background: $mck_blue;
 			height: 25px;
 			padding: 5px 0;
+			text-align: center;
 			@include box-shadow(rgba($black, 0.5) 0px 4px 5px);
+			.sitename-logo{
+				margin-right: 45px;
+				margin-top: 7px;
+			}
 
 			.nav-btn {
 				padding: 1%;
 			}
+
 
 			.block-title, h2 {
 				@extend .title-text;
@@ -997,6 +1004,9 @@ a {
 }
 #block-views-global-popular-video-block{
 	width: 100%;
+	.popular-video-slide{
+		margin: 0 4%;
+	}
 	.views_slideshow_slide {
 		width: 100% !important;
 		height: auto !important;
@@ -1004,7 +1014,6 @@ a {
 			}
 			.video-info{
 				width: 100%;
-				padding: 10px;
 				@extend .clearfix;
 				@include box-sizing(border-box);
 				h2 {
@@ -1025,12 +1034,11 @@ a {
 			}
 			.video-body {
 				@extend .body-text;
-				float: left;
-				min-height: 24px;
+				  margin: 4px 0 ;
+    			  min-height: 24px
 			}
 			.video-thumb{
 				position: relative;
-				margin-top: -8px;
 			}
 			.video-view {
 				@extend .link-text;
@@ -1313,6 +1321,11 @@ a {
 				display: block;
 			}
 		}
+		.view-most-trending{
+			.upload-video{
+				border: 1px solid red;
+			}
+		}
 
 		//#block-block-35,
 		#block-views-most-liked-lib-craousel-block-1{
@@ -1353,6 +1366,7 @@ a {
 			}
 			.video-count{
 				background-position: 5px -41px;
+				margin-left: -2px;
 			}
 			.video-commentcount{
 				background-position: 2px -64px;
@@ -1385,15 +1399,17 @@ a {
 		#block-views-most-liked-lib-craousel-block-1,
 		#block-views-most-trending-block{
 			.video-content{
-				width: 49%;
-				margin-left: 0;
+				width: 47%;
 				float: left;
-				margin-right: 3%;
+				margin: 0 3%;
 			}
 			.new-video-duration{
-				margin: 4px 0;
-				color: #999;
-				font-size: 11px;
+background-position: 0 1px;
+    color: #999999;
+    display: inline-block;
+    font-size: 12px;
+    margin: 1px 0 3px;
+    padding: 2px 0 2px 18px;
 			}
 			.upload-video {
 				position: relative;
@@ -1670,18 +1686,18 @@ a {
 		}
 
 	}
-		#block-views-related-video-block,
-		.view-home-page-video-listing{
-			.upload-video{
-				position: relative;
-				.play-button{
-					    left: 42%;
-    position: absolute;
-    top: 32%;
-    width: 12%;
-				}
+	#block-views-related-video-block,
+	.view-home-page-video-listing{
+		.upload-video{
+			position: relative;
+			.play-button{
+				left: 42%;
+				position: absolute;
+				top: 32%;
+				width: 12%;
 			}
 		}
+	}
 	#block-system-main, 
 	#block-views-related-video-block,
 	#block-views-most-trending-block

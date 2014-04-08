@@ -153,7 +153,8 @@
   /*
    * Wraps the content region, avoid applying styles to this wrapper, its used mainly for position and invisible gutters and can be problematic to style
    */
-  #content {}
+  #content {   margin-left: 5%;
+    margin-top: 2px;}
 
   /*
    * Footer wrapper
@@ -409,7 +410,7 @@ background: url("images/sitename.png") no-repeat scroll 1px 3px transparent;
    * Standard region wrapper, don't add width to any regions, you will bork the layout - no margin, padding or borders etc
    */
   .region {
-    margin-left: 5%;
+ /*   margin-left: 5%;*/
     margin-right: 2.7%;
   }
 
@@ -440,6 +441,7 @@ background: url("images/sitename.png") no-repeat scroll 1px 3px transparent;
     margin-top: 0;
   }
 .region-secondary-content {
+       margin-left: 5%;
     margin-top: 2px;
   }
   /*
