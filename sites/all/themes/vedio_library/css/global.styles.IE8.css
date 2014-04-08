@@ -150,10 +150,11 @@ var {
  */
 #main-content {}
 
-/*
- * Wraps the content region, avoid applying styles to this wrapper, its used mainly for position and invisible gutters and can be problematic to style
- */
-#content {}
+  /*
+   * Wraps the content region, avoid applying styles to this wrapper, its used mainly for position and invisible gutters and can be problematic to style
+   */
+  #content {   margin-left: 5%;
+    margin-top: 2px;}
 
 /*
  * Footer wrapper
@@ -409,7 +410,7 @@ ul.links li {
    * Standard region wrapper, don't add width to any regions, you will bork the layout - no margin, padding or borders etc
    */
   .region {
-    margin-left: 5%;
+ /*   margin-left: 5%;*/
     margin-right: 2.7%;
   }
 
@@ -440,6 +441,7 @@ ul.links li {
     margin-top: 0;
   }
 .region-secondary-content {
+       margin-left: 5%;
     margin-top: 2px;
   }
   /*
