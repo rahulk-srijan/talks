@@ -276,9 +276,10 @@
  #name-and-slogan {
     float: left;
 }
-.region-menu-top{
+#page .region-menu-top{
     float: right;
     width: 510px;
+    margin-right: 44px;
 }
 
   /*

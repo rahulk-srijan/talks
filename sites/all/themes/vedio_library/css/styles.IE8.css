@@ -509,7 +509,7 @@ input.form-autocomplete::-ms-clear {display: none;}
     float: right;
     margin-top: -1px;
     position: relative;
-    right: -6px;
+    right: 0;
     text-align: right;
     width: 50px;
  }
