@@ -590,7 +590,7 @@ input.form-autocomplete::-ms-clear {display: none;}
  z-index: 99;
 }*/
 .view-global-popular-video .views-slideshow-controls-bottom {
- left: 182px;
+ left: 186px;
     position: absolute;
     top: 260px;
     z-index: 99;
@@ -601,7 +601,7 @@ input.form-autocomplete::-ms-clear {display: none;}
 
 }
 .view-global-popular-video .views-slideshow-pager-fields{
-    left: 26px;
+    left: 23px;
     position: relative;
 }
 .views-slideshow-pager-field-item{
