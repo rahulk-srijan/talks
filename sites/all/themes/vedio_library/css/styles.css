@@ -493,6 +493,9 @@ input.form-autocomplete::-ms-clear {display: none;}
 .video-content {
   margin-right: 12px;
 }
+.region-sidebar-second .video-content {
+  margin-right: 0;
+}
 /*
 .pl-bn .video_duration{
   bottom: 6px;

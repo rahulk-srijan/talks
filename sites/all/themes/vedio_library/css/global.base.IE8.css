@@ -2133,8 +2133,8 @@ div.modal-forms-modal-content .form-item label {
     /*margin-top: 30px;*/
 }
 
-.node-author strong {
-    color: #e27727;
+   .node-author strong {
+    color: #333333 !important;
 }
 
 
