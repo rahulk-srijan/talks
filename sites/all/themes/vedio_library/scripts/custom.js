@@ -150,9 +150,9 @@ function addDivNewsletter() {
 
    //jQuery('#edit-newsletters .form-item:gt(13):lt(22)').wrapAll('<div id="ops-newsletter" class="newsletter-block" />');
    //jQuery('#edit-newsletters .form-item:gt(21):lt(25)').wrapAll('<div id="org-newsletter" class="newsletter-block" />');
-   jQuery('#bto-newsletter').before('<p class="main-cat" id="bto-collapsible">BTO Academy Notification</p>').hide();
-   jQuery('#ops-newsletter').before('<p class="main-cat" id="ops-collapsible">Ops in Action Notification</p>').hide();
-   jQuery('#org-newsletter').before('<p class="main-cat" id="org-collapsible">Org in Action Notification</p>').hide();
+   jQuery('#bto-newsletter').before('<p class="main-cat" id="bto-collapsible">BTO Academy Notifications</p>').hide();
+   jQuery('#ops-newsletter').before('<p class="main-cat" id="ops-collapsible">Ops in Action Notifications</p>').hide();
+   jQuery('#org-newsletter').before('<p class="main-cat" id="org-collapsible">Org in Action Notifications</p>').hide();
    jQuery('.main-cat').each(function() {
         jQuery(this).click(function(){
             jQuery(this).next().toggle();

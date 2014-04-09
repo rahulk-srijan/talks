@@ -132,11 +132,11 @@ function custom_ovl_form_alter(&$form, &$form_state, $form_id) {
         //print_r($form_state);
     }
     if ($form_id == 'simplenews_subscriptions_page_form') {
-        $form['subscriptions']['#description'] = 'Select your email notification preferences';
+        $form['subscriptions']['#description'] = 'Select your email notifications preferences';
         // $form['update']['#value'] = 'Save';
         $form['subscriptions']['new'] = array(
             '#type' => 'item',
-            '#markup' => 'Frequency of notification',
+            '#markup' => 'Frequency of notifications',
             '#weight' => -4,
         );
         $form['subscriptions']['emai_textl'] = array(
@@ -257,7 +257,7 @@ function _custom_avl_tags_autocomplete($string) {
 function custom_ovl_block_info() {
     $blocks = array();
     $blocks['noti_block'] = array(
-        'info' => t('My Notification'),
+        'info' => t('My Notifications'),
     );
 
     return $blocks;
@@ -287,7 +287,7 @@ function simlenews_form() {
         'text' => array(
             '#prefix' => '<h2>',
             '#type' => 'markup',
-            '#markup' => 'My Notification',
+            '#markup' => 'My Notifications',
             '#suffix' => '</h2>',
         ),
         'form' => array(
