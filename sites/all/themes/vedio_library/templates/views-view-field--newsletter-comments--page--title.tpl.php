@@ -28,16 +28,16 @@ $raw_node= 'node/'.$nid;
 $path_alias = drupal_lookup_path('alias',$raw_node);
 $host= $_SERVER['HTTP_HOST'];
 $node_title = $field->original_value;
-if($host == 'dev-utility-lx21.amdc.mckinsey.com'){
-  print '<a href="http://devhome.intranet.mckinsey.com/globalcomm/VideoLibraryD7/'.$path_alias.'">'.$node_title.' </a>';
+if($host == 'dev-sandbox-lx56.amdc.mckinsey.com'){
+  print '<a href="http://devhome.intranet.mckinsey.com/globalcom/VideoLibrary/'.$path_alias.'">'.$node_title.' </a>';
 }
-if($host == 'videolibraryqa.intranet.mckinsey.com'){
-  print '<a href="http://qahome.intranet.mckinsey.com/orginaction/'.$path_alias.'"> '.$node_title.'</a>';
+if($host == 'videolibrary2qa.intranet.mckinsey.com'){
+  print '<a href="http://qahome.intranet.mckinsey.com/talks/'.$path_alias.'"> '.$node_title.'</a>';
 }
-if($host == 'videolibraryint.intranet.mckinsey.com'){
-  print '<a href="http://devhome.intranet.mckinsey.com/orginaction/'.$path_alias.'">'.$node_title.'</a>';
+if($host == 'videolibrary2int.intranet.mckinsey.com'){
+  print '<a href="http://devhome.intranet.mckinsey.com/talks/'.$path_alias.'">'.$node_title.'</a>';
 }
-if($host == 'videolibrary.intranet.mckinsey.com'){
-  print '<a href="http://home.intranet.mckinsey.com/orginaction/'.$path_alias.'">'.$node_title.'</a>';
+if($host == 'videolibrary2.intranet.mckinsey.com'){
+  print '<a href="http://home.intranet.mckinsey.com/talks/'.$path_alias.'">'.$node_title.'</a>';
 }
 ?>
