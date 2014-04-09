@@ -1631,7 +1631,7 @@
 
   /* line 1445, ../sass/custom.scss */
   .view-home-page-video-listing .video-content,
-  .view-related-video
+  .view-related-video .video-content,
   #block-views-most-liked-lib-craousel-block-1 .video-content,
   .view-listing-by-tags .video-content,
   .view-listing-by-category .video-content {
@@ -1641,7 +1641,7 @@
   }
   /* line 1450, ../sass/custom.scss */
   .view-home-page-video-listing .new-video-duration,
-  .view-related-video
+  .view-related-video .new-video-duration,
   #block-views-most-liked-lib-craousel-block-1 .new-video-duration,
   .view-listing-by-tags .new-video-duration,
   .view-listing-by-category .new-video-duration {
@@ -1654,7 +1654,7 @@
   }
   /* line 1458, ../sass/custom.scss */
   .view-home-page-video-listing .upload-video,
-  .view-related-video
+  .view-related-video .upload-video,
   #block-views-most-liked-lib-craousel-block-1 .upload-video,
   .view-listing-by-tags .upload-video,
   .view-listing-by-category .upload-video {
@@ -1662,7 +1662,7 @@
   }
   /* line 1461, ../sass/custom.scss */
   .view-home-page-video-listing .upload-video .play-button,
-  .view-related-video
+  .view-related-video .upload-video .play-button,
   #block-views-most-liked-lib-craousel-block-1 .upload-video .play-button,
   .view-listing-by-tags .upload-video .play-button,
   .view-listing-by-category .upload-video .play-button {
