@@ -1200,12 +1200,16 @@ left: 185px;
 }
 
         .view-content .views-field-field-share .field-content {
-            font-size: 11px;
-          /*  position: absolute;
-            top: 85px;
-            left: 0;*/
-            color: #333;
-          /*  font-weight: bold;*/
+             clear: both;
+    color: #333333;
+    font-size: 11px;
+    margin: 12px 0 0;
+        }
+        .view-featured-vedios .view-content .views-field-field-share .field-content {
+             clear: none;
+    color: #333333;
+    font-size: 11px;
+    margin: 0;
         }
 
 .view-home-page-video-listing  .views-field.views-field-title,
