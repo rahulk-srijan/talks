@@ -62,7 +62,7 @@ input.form-autocomplete::-ms-clear {display: none;}
     margin-top: 24px;
     padding: 10px 1.05em;
     position: relative;
-    width: 701px;
+    width: 98.5%;
 }
 #edit-tid-wrapper .views-widget {clear:both; width:100%;}
 #edit-tid-wrapper .bef-select-as-links .form-item .form-item { margin:0; padding:10px .5em 5px 0;width:31.5%; border:none; color:#000; font-size:12px;}
@@ -590,7 +590,7 @@ input.form-autocomplete::-ms-clear {display: none;}
  z-index: 99;
 }*/
 .view-global-popular-video .views-slideshow-controls-bottom {
- left: 172px;
+ left: 182px;
     position: absolute;
     top: 260px;
     z-index: 99;
@@ -1158,16 +1158,16 @@ Splash Page theming
 
 
 
-.jcarousel-skin-default .jcarousel-container-horizontal {
+#block-views-most-liked-lib-craousel-block .jcarousel-skin-default .jcarousel-container-horizontal {
    height: 300px;
     padding: 0 40px;
     width: 930px;
 }
 
-.jcarousel-skin-default .jcarousel-clip-horizontal {
+#block-views-most-liked-lib-craousel-block .jcarousel-skin-default .jcarousel-clip-horizontal {
   width: 930px;
 }
-.jcarousel-list{
+#block-views-most-liked-lib-craousel-block .jcarousel-list{
   width: 100% !important;
 }
 
