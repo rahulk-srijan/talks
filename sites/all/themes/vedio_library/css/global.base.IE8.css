@@ -2517,18 +2517,18 @@ div.modal-forms-modal-content .form-item label {
     width: 180px;
 }
 
-.myplaylist .view-content .views-row .views-field.views-field-nothing {
-    position: relative;
-    left: -88px;
-}
+    /*    .myplaylist .view-content .views-row .views-field.views-field-nothing {
+            position: relative;
+            left: -88px;
+        }*/
 
-.myplaylist .view-content .views-row .views-field.views-field-ops {
-    float: right;
-    margin-right: 40px;
-    clear: none;
-    position:absolute;
-    right:0;
-}
+        .myplaylist .view-content .views-row .views-field.views-field-ops {
+            float: right;
+            margin-right: 40px;
+            clear: none;
+            position:absolute;
+            right:0;
+        }
 
 .myplaylist .view-content .views-row .views-field.views-field-ops .flag-add-to-my-playlist a.flag.unflag-action.flag-link-toggle.flag-processed {
     background: url("images/redbtn_bg.png") no-repeat scroll 0 0 transparent;
