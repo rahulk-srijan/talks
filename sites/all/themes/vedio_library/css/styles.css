@@ -516,7 +516,7 @@ input.form-autocomplete::-ms-clear {display: none;}
     float: right;
     margin-top: -1px;
     position: relative;
-    right: -2px;
+    right: -10px;
     text-align: right;
  }
  .view-most-trending div.new_video_duration{
@@ -1179,32 +1179,32 @@ Splash Page theming
     text-align: left;
     width: 262px;
 }
-.jcarousel-skin-default .jcarousel-next-disabled, 
-.jcarousel-skin-default .jcarousel-prev-disabled {
+#block-views-most-liked-lib-craousel-block .jcarousel-skin-default .jcarousel-next-disabled, 
+#block-views-most-liked-lib-craousel-block .jcarousel-skin-default .jcarousel-prev-disabled {
     display: block;
 }
-.jcarousel-skin-default .jcarousel-next, .jcarousel-skin-default .jcarousel-prev {
+#block-views-most-liked-lib-craousel-block .jcarousel-skin-default .jcarousel-next, .jcarousel-skin-default .jcarousel-prev {
     background-image: url("images/car-nav-sprite.png");
     display: block;
     height: 32px;
     width: 32px;
 }
-.jcarousel-skin-default .jcarousel-prev-horizontal {
+#block-views-most-liked-lib-craousel-block .jcarousel-skin-default .jcarousel-prev-horizontal {
     background-position: 8px 0;
       left: 15px;
     position: absolute;
     top: 120px;
   }
-  .jcarousel-skin-default .jcarousel-prev-horizontal:hover{
+  #block-views-most-liked-lib-craousel-block .jcarousel-skin-default .jcarousel-prev-horizontal:hover{
     background-position: 3px -91px;
   }
-  .jcarousel-skin-default .jcarousel-next-horizontal {
+  #block-views-most-liked-lib-craousel-block .jcarousel-skin-default .jcarousel-next-horizontal {
     background-position: 1px -48px;
     position: absolute;
     right: 32px;
     top: 120px;
   }
-    .jcarousel-skin-default .jcarousel-next-horizontal:hover {
+   #block-views-most-liked-lib-craousel-block  .jcarousel-skin-default .jcarousel-next-horizontal:hover {
     background-position: 1px -131px;
   }
 
