@@ -63,7 +63,7 @@ input.form-autocomplete::-ms-clear {display: none;}
     margin-top: 24px;
     padding: 10px 1.05em;
     position: relative;
-    width: 701px;
+    width: 104.9%;
 }
 #edit-tid-wrapper .views-widget {clear:both; width:100%;}
 #edit-tid-wrapper .bef-select-as-links .form-item .form-item { margin:0; padding:10px .5em 5px 0;width:31.5%; border:none; color:#000; font-size:12px;}
@@ -466,7 +466,7 @@ input.form-autocomplete::-ms-clear {display: none;}
 
 .cooment-info .video-views,
 .node-statistics span.field-content{
-  background-position: 0 -23px;
+  background-position: 0 -22px;
 }
 .cooment-info .video-count,
 .node-statistics-like span.field-content{
@@ -482,7 +482,7 @@ input.form-autocomplete::-ms-clear {display: none;}
     float: right;
     margin-left: 6px;
     position: relative;
-    right: 8px;
+    right: 0;
 }
 .play-button {
     left: 76%;
@@ -897,7 +897,6 @@ input.form-autocomplete::-ms-clear {display: none;}
     overflow: hidden;
     position: relative;
     width: 152px;
-    margin-bottom: 20px;
 }
 /*.video-content{
   overflow: hidden;
@@ -909,7 +908,7 @@ input.form-autocomplete::-ms-clear {display: none;}
 .view-related-video .new-video-duration {
     background-position: 0 4px;
     float: left;
-    margin-left: 8px;
+    margin-left: 6px;
     width: 136px;
 }
 #block-block-35{
