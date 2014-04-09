@@ -444,12 +444,14 @@ function menuMobile() {
     jQuery("#menu-bar .nav-btn").click(function() {
         //jQuery(".mobile-menu-common > ul.menu").slideToggle("fast");
         jQuery("#block-menu-menu-main-menu-mobile > ul.menu,#block-menu-menu-main-menu-mobile-ops > ul.menu,#block-menu-menu-main-menu-mobile-bto > ul.menu, #block-menu-menu-global-mobile-menu > ul.menu").slideToggle("fast");
+        jQuery(".mobile-nav > ul.menu").hide();
         jQuery("#lightbox2-overlay").toggle();
     });
         jQuery("#block-block-36 .nav-btn").click(function() {
         //jQuery(".mobile-menu-common > ul.menu").slideToggle("fast");
         jQuery(".mobile-nav > ul.menu").slideToggle("fast");
         jQuery("#lightbox2-overlay").toggle();
+      //  jQuery("#menu-bar .nav-btn").toggle();
     });
 
     jQuery("li.collapsed > a").attr({'href': '#'});
