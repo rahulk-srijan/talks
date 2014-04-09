@@ -373,6 +373,5 @@ function video_library_get_video_duration($path) {
     } else {
         $formatted_time = $min . ':' . $sec;
     }
-    $formatted_time= '1:23';
     return $formatted_time;
 }
