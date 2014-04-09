@@ -1438,6 +1438,7 @@ a {
 		}
 
 		.view-home-page-video-listing,
+		.view-related-video
 		#block-views-most-liked-lib-craousel-block-1,
 		.view-listing-by-tags,
 		.view-listing-by-category{
@@ -1519,9 +1520,10 @@ a {
 				min-height: 0;
 			}
 		}
-		#views_slideshow_controls_text_pause_global_popular_video-block,
-		.cooment-info {
-			//@extend .hidden-phone;
+
+		//.cooment-info,
+		#views_slideshow_controls_text_pause_global_popular_video-block {
+			@extend .hidden-phone;
 		}
 		#block-views-most-liked-lib-craousel-block-1 .views-row{
 			.cooment-info{

@@ -969,6 +969,9 @@ input.form-autocomplete::-ms-clear {display: none;}
   font-size: 18px;
   font-family: georgia;
 }
+#block-block-7 .block-content p{
+  margin-top: 20px;
+}
 #block-block-35 h1{
   margin-left: 16px;
 }
