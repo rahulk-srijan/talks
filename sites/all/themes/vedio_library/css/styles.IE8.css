@@ -354,15 +354,15 @@ input.form-autocomplete::-ms-clear {display: none;}
   width: 50px;
 }
 .color-orange,
-.org-in-action a {
+#page .org-in-action a {
   color: #e27120;
 }
 .color-purple,
-.bto-academy a{
+#page .bto-academy a{
   color: #642f7a;
 }
 .color-magenta,
-.ops-in-action a{
+#page .ops-in-action a{
   color: #ad0059;
 }
 
