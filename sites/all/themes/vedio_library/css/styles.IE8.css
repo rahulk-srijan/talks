@@ -467,6 +467,7 @@ input.form-autocomplete::-ms-clear {display: none;}
 .cooment-info .video-views,
 .node-statistics span.field-content{
   background-position: 0 -22px;
+   margin-left: 0 !important;
 }
 .cooment-info .video-count,
 .node-statistics-like span.field-content{
