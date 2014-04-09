@@ -524,6 +524,7 @@ input.form-autocomplete::-ms-clear {display: none;}
    margin-top: -1px;
    text-align: right;
    width: 30px;
+   padding-left: 15px;
  }
  .view-most-trending ul.pager li{
     margin: 0;
@@ -909,6 +910,7 @@ input.form-autocomplete::-ms-clear {display: none;}
     float: left;
     margin-left: 6px;
     width: 136px;
+        padding-left: 16px;
 }
 #block-block-35{
   margin-bottom: 0;
