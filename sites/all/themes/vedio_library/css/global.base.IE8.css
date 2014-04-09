@@ -822,7 +822,7 @@ background: #666;
 
     }
     .view-featured-vedios .slideshow-bottom-content .count{
-        background-position: 0 -116px;
+        background-position: 0 -118px;
         display: block;
         margin-bottom: 6px;
         color: #fff;
@@ -2062,10 +2062,11 @@ div.modal-forms-modal-content .form-item label {
 
     .node-upload-video  .node-content {
   background: none repeat scroll 0 0 #F1F1F1;
+  font-size: 11px;
 
     }
 .node .node-content{
-        font-size: 11px;
+        
     width: 560px;
 }
     .node-statistics {

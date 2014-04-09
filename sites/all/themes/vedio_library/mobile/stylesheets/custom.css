@@ -2749,4 +2749,9 @@
   .download-link, .download-video {
     display: none;
   }
+
+  /* line 2866, ../sass/custom.scss */
+  views_slideshow_controls_text_pause_global_popular_video-block {
+    display: none;
+  }
 }

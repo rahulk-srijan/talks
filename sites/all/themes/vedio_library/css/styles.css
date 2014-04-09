@@ -62,7 +62,7 @@ input.form-autocomplete::-ms-clear {display: none;}
     margin-top: 24px;
     padding: 10px 1.05em;
     position: relative;
-    width: 98.5%;
+    width: 701px;
 }
 #edit-tid-wrapper .views-widget {clear:both; width:100%;}
 #edit-tid-wrapper .bef-select-as-links .form-item .form-item { margin:0; padding:10px .5em 5px 0;width:31.5%; border:none; color:#000; font-size:12px;}
@@ -484,11 +484,14 @@ input.form-autocomplete::-ms-clear {display: none;}
     right: 8px;
 }
 .play-button {
-   left: 33%;
+    left: 76%;
     opacity: 0.95;
     position: absolute;
-    top: 34%;
-    width: 12%;
+    top: 55%;
+    width: 20%;
+}
+.video-content {
+  margin-right: 12px;
 }
 /*
 .pl-bn .video_duration{
@@ -1000,10 +1003,10 @@ input.form-autocomplete::-ms-clear {display: none;}
 .view-home-page-video-listing .views-field-nothing{
   display: inline;
 }
-.view-home-page-video-listing .video-content{
+/*.view-home-page-video-listing .video-content{
   width: 160px;
   overflow: hidden;
-}
+}*/
 .view-home-page-video-listing .cooment-info{
   margin: 2px 0 0;
 }

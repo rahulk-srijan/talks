@@ -2006,10 +2006,11 @@
 
     .node-upload-video  .node-content {
   background: none repeat scroll 0 0 #F1F1F1;
+  font-size: 11px;
 
     }
 .node .node-content{
-        font-size: 11px;
+        
     width: 560px;
 }
     .node-statistics {
