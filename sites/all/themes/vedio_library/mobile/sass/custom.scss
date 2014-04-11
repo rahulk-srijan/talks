@@ -1082,10 +1082,11 @@ a {
 				color: $darker-gray;
 			}
 			.views-slideshow-controls-bottom {
-				margin: 0 0 6px;
-				position: relative;
-				text-align: center;
-				z-index: 5;
+				 margin: 0 0 10px;
+    position: relative;
+    text-align: center;
+    top: 6px;
+    z-index: 5;
 
 				.views-slideshow-pager-field-item {
 					background-color: $gray;
@@ -1523,7 +1524,7 @@ a {
 			}
 		}
 
-		//.cooment-info,
+		.cooment-info,
 		#views_slideshow_controls_text_pause_global_popular_video-block {
 			@extend .hidden-phone;
 		}

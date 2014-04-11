@@ -107,8 +107,7 @@ if($subsite_home_page_url !='') {
 $site_logo = '<a href="'.$url_front.'">'. strip_tags($site_logo, '<img>').'</a>';*/
 ?>
 <div id="page" class="container <?php print $classes; ?>">
-	<div class="page-content">
-
+  <div class="header-content">
     <!-- region: Leaderboard -->
     <?php print render($page['leaderboard']); ?>
 
@@ -147,8 +146,12 @@ $site_logo = '<a href="'.$url_front.'">'. strip_tags($site_logo, '<img>').'</a>'
 <?php print render($page['header']); ?>
 <?php print render($page['menu_bar']); ?>
 </header>
+</div>
+<div class="page-content">
 
-<!-- Navigation elements -->
+
+
+  <!-- Navigation elements -->
 
   <!--<?php if ($primary_navigation): print $primary_navigation; endif; ?>
   <?php if ($secondary_navigation): print $secondary_navigation; endif; ?>-->
@@ -239,10 +242,10 @@ $site_logo = '<a href="'.$url_front.'">'. strip_tags($site_logo, '<img>').'</a>'
 
 <!-- region: Tertiary Content -->
 <div class="tertiary-content">
-   <?php if($page['tertiary']): ?>
-  <div class="tertiary">  <?php print render($page['tertiary']); ?></div>
+ <?php if($page['tertiary']): ?>
+ <div class="tertiary">  <?php print render($page['tertiary']); ?></div>
 <?php endif; ?>
-  <?php if($page['tertiary_left']): ?>
+<?php if($page['tertiary_left']): ?>
   <div class="tertiary-left float-left">  <?php print render($page['tertiary_left']); ?></div>
 <?php endif; ?>
 <?php if($page['tertiary_right']): ?>
@@ -250,11 +253,12 @@ $site_logo = '<a href="'.$url_front.'">'. strip_tags($site_logo, '<img>').'</a>'
 <?php endif; ?>
 <div class="clear"></div>
 </div>
+
+</div>
 <!-- region: Footer -->
 <?php if ($page['footer']): ?>
   <footer<?php print $footer_attributes; ?>>
   <?php print render($page['footer']); ?>
 </footer>
 <?php endif; ?>
-</div>
 </div>

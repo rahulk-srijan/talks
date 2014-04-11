@@ -40,6 +40,7 @@
   body {
     font-family: Arial, sans-serif; /*"Trebuchet MS", "Helvetica Neue", Helvetica,*/
     font-size: 14px;
+    color: #333;
   }
 
 
@@ -161,6 +162,7 @@
    */
   #footer {
     margin-top: 30px;
+    background: none repeat scroll 0 0 #002454;
   }
 
   /*
@@ -251,7 +253,7 @@
    */
   #branding {
     float: left;
-    margin: 0 0 0 40px  ;
+    margin: 20px 0 0 40px  ;
     width: 405px;
   }
 
@@ -524,8 +526,9 @@ background: url("images/sitename.png") no-repeat scroll 1px 3px transparent;
   /*
    * Footer region
    */
-  .region.region-footer {
-    margin: 0px;
+.region-footer {
+    margin: 0px auto;
+    width: 1050px;
   }
 
   .region.region-footer .block {
@@ -542,9 +545,9 @@ background: url("images/sitename.png") no-repeat scroll 1px 3px transparent;
     font-size: 11px;
   }
 
-  .region.region-footer #block-block-3 {
+ /* .region.region-footer #block-block-3 {
     background: #002454;
-  }
+  }*/
   /* =============================================================================
    *   Links
    * ========================================================================== */
@@ -1323,7 +1326,8 @@ background: url("images/sitename.png") no-repeat scroll 1px 3px transparent;
    * "Search form" block
    */
   #block-search-form {
-     float: right;
+   float: right;
+    margin-bottom: 6px;
     margin-left: 0;
     margin-right: -0.8%;
     width: 68%;
