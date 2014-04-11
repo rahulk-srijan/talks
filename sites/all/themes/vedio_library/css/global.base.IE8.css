@@ -85,20 +85,23 @@ html {
         min-height: 100%;
         margin: 0;
         padding: 0;
-        background: #212121;
+        background: #fff;
         -webkit-font-smoothing: antialiased;
         font-smoothing: antialiased;
         text-rendering: optimizeLegibility\9;
         /* Only IE, can mess with Android */
     }
-
-/*
-* Addresses font-family inconsistency between 'textarea' and other form elements.
-*/
-button,
-input,
-select,
-textarea {
+body .container {
+    max-width: 100%;
+    width: 100%;
+}
+    /*
+    * Addresses font-family inconsistency between 'textarea' and other form elements.
+    */
+    button,
+    input,
+    select,
+    textarea {
 
 }
 
@@ -641,10 +644,10 @@ header[role=banner],
         /*        float: right;*/
     }
 
-/** css for page background **/
-#page {
-    background: #CECCCD;
-}
+    /** css for page background **/
+/*    #page {
+        background: #CECCCD;
+    }*/
 
 .page-comment-delete #page, .page-comment-delete-own #page {
     background: #CECCCD;
@@ -2202,7 +2205,7 @@ div.modal-forms-modal-content .form-item label {
   border: medium none !important;
     color: #00ACEE !important;
     cursor: pointer;
-    left: 412px;
+    left: 450px;
     position: absolute;
     text-align: right;
     top: 3px;
@@ -2217,6 +2220,7 @@ div.modal-forms-modal-content .form-item label {
 
     #comments.comment-wrapper {
         font-size: 8px;
+        margin-left: 0;
     }
 
     #comments h2.comment-title {
@@ -2446,16 +2450,18 @@ div.modal-forms-modal-content .form-item label {
                 display: inline-block;
                 text-decoration: none;
                 font-size: 11px;*/
-                   background: url("images/download.png") no-repeat scroll 0 0 transparent;
-    display: inline-block;
-    height: 12px;
-    text-indent: -999px;
-    width: 11px;
+                background: url("images/download.png") no-repeat scroll 0 0 transparent;
+                display: inline-block;
+                height: 12px;
+                text-indent: -999px;
+                width: 11px;
+                position: relative;
+                left: 7px;
             }
 
             .download-video a:hover {
                 text-decoration: none;
-                background: url("images/download_bg_h.png") no-repeat scroll 0 0 transparent;
+                /*background: url("images/download_bg_h.png") no-repeat scroll 0 0 transparent;*/
             }
   /*  .myplaylist .views-field-php{
         float: left;

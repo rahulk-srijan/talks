@@ -96,9 +96,7 @@ global $base_url;
 global $subsite_home_page_url;
 ?>
 <div id="page" class="container <?php print $classes; ?>">
-    <div class="page-content">
-
-        <!-- region: Leaderboard -->
+    <div class="header-content">        <!-- region: Leaderboard -->
         <?php print render($page['leaderboard']); ?>
 
         <header<?php print $header_attributes; ?>>
@@ -136,8 +134,14 @@ global $subsite_home_page_url;
 <?php print render($page['header']); ?>
 <?php print render($page['menu_bar']); ?>
 </header>
+</div>
 
-<!-- Navigation elements -->
+
+<div class="page-content">
+
+
+
+    <!-- Navigation elements -->
 
         <!--<?php if ($primary_navigation): print $primary_navigation;
         endif; ?>
@@ -227,10 +231,10 @@ print $sidebar_second; ?>
 
 <!-- region: Tertiary Content -->
 <div class="tertiary-content">
-       <?php if($page['tertiary']): ?>
-  <div class="tertiary">  <?php print render($page['tertiary']); ?></div>
+   <?php if($page['tertiary']): ?>
+   <div class="tertiary">  <?php print render($page['tertiary']); ?></div>
 <?php endif; ?>
-    <?php if($page['tertiary_left']): ?>
+<?php if($page['tertiary_left']): ?>
     <div class="tertiary-left float-left">  <?php print render($page['tertiary_left']); ?></div>
 <?php endif; ?>
 <?php if($page['tertiary_right']): ?>
@@ -239,11 +243,12 @@ print $sidebar_second; ?>
 <div class="clear"></div>
 </div>
 
+
+</div>
 <!-- region: Footer -->
 <?php if ($page['footer']): ?>
     <footer<?php print $footer_attributes; ?>>
     <?php print render($page['footer']); ?>
 </footer>
 <?php endif; ?>
-</div>
 </div>

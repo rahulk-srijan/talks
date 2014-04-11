@@ -37,10 +37,11 @@ html {
 }
 
 
-body {
-  font-family: Arial, sans-serif; /*"Trebuchet MS", "Helvetica Neue", Helvetica,*/
-  font-size: 14px;
-}
+  body {
+    font-family: Arial, sans-serif; /*"Trebuchet MS", "Helvetica Neue", Helvetica,*/
+    font-size: 14px;
+    color: #333;
+  }
 
 
 /* =============================================================================
@@ -156,12 +157,13 @@ var {
   #content {   margin-left: 6%;
     margin-top: 2px;}
 
-/*
- * Footer wrapper
- */
-#footer {
-  margin-top: 30px;
-}
+  /*
+   * Footer wrapper
+   */
+  #footer {
+    margin-top: 30px;
+    background: none repeat scroll 0 0 #002454;
+  }
 
 /*
  * Panels may need additional margin wrangling when in the $content region
@@ -251,7 +253,7 @@ var {
    */
   #branding {
     float: left;
-    margin: 0 0 0 40px  ;
+    margin: 20px 0 0 40px  ;
     width: 405px;
   }
 
@@ -521,12 +523,13 @@ font-size: 1em;
  */
 .region-tertiary-content {}
 
-/*
- * Footer region
- */
-.region.region-footer {
-  margin: 0px;
-}
+  /*
+   * Footer region
+   */
+.region-footer {
+    margin: 0px auto;
+    width: 1050px;
+  }
 
 .region.region-footer .block {
   margin:0px;
@@ -542,12 +545,12 @@ font-size: 1em;
   font-size: 11px;
 }
 
-.region.region-footer #block-block-3 {
-  background: #002454;
-}
-/* =============================================================================
- *   Links
- * ========================================================================== */
+ /* .region.region-footer #block-block-3 {
+    background: #002454;
+  }*/
+  /* =============================================================================
+   *   Links
+   * ========================================================================== */
 
 a {
   text-decoration: none;
@@ -1323,7 +1326,8 @@ ul.action-links li {}
    * "Search form" block
    */
   #block-search-form {
-     float: right;
+   float: right;
+    margin-bottom: 6px;
     margin-left: 0;
     margin-right: -0.8%;
     width: 68%;
