@@ -36,7 +36,7 @@ $video_path = $root_path . '/sites/default/files/videos/original/' . $video_file
 
 <div class="play-button">
     <?php
-    $node_path = $row->field_field_upload_video[0]['rendered']['#path']['path'];
+    $node_path = $data->field_field_upload_video[0]['rendered']['#path']['path'];
     global $base_url;
     $node_path_alias = drupal_get_path_alias($node_path);
 print l(t("<img src=sites/all/themes/vedio_library/css/images/newplay.png />"),$node_path_alias);
