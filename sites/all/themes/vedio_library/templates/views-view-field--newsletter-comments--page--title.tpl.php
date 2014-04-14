@@ -31,7 +31,7 @@ $raw_node= 'node/'.$nid;
 $path_alias = drupal_lookup_path('alias',$raw_node);
 $host= $_SERVER['HTTP_HOST'];
 $node_title = $field->original_value;
-if($host == 'dev-drupaldev-lx01.amdc.mckinsey.com/talks'){
+if($host == 'dev-drupaldev-lx01.amdc.mckinsey.com'){
   print '<a href="http://devhome.intranet.mckinsey.com/drupaldev01/talks/'.$path_alias.'">'.$node_title.' </a>';
 }
 if($host == 'videolibrary2qa.intranet.mckinsey.com'){
