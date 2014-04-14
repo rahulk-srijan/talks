@@ -335,7 +335,7 @@ background: url("images/sitename.png") no-repeat scroll 1px 3px transparent;
    * The main page title (h1)
    */
   #page-title {
-    color: #E27121;
+    color: #333;
     font-family: 'georgia',serif;
     font-size: 18px;
     font-weight: normal;
