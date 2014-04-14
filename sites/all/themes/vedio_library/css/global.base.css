@@ -2032,7 +2032,7 @@ body .container {
         font-size: 11px;
         font-weight: bold;
         margin-top: 5px;
-        margin-right: 10px;
+        margin-right: 1px;
     }
 
     .like-video {
@@ -2055,11 +2055,13 @@ body .container {
         color: #00ACEE;
     }
 
-    .node-upload-video .share {
-        position: relative;
-        top: -20px;
-        left: 345px;
-    }
+.node-upload-video .share {
+    color: #FF0000;
+    left: 345px;
+    position: relative;
+    top: -20px;
+    width: 120px;
+}
 
     .share {
     color: #FFFFFF;
@@ -2337,17 +2339,19 @@ body .container {
             /*top: -20px;*/
         }
         .form-submit, .like-video a {
-            padding: 0;
             background: url("images/bluebtn_bg.png") no-repeat scroll 0 0 transparent;
-            border: medium none;
-            color: #FFFFFF;
-            font-weight: bold;
-            height: 18px;
-            text-align: center;
-            width: 38px;
-            display: inline-block;
-            text-decoration: none;
-            font-size: 11px;
+             border: medium none;
+    color: #FFFFFF;
+    display: inline-block;
+    font-size: 11px;
+    font-weight: bold;
+    height: 18px;
+    padding: 0;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    top: -2px;
+    width: 38px;
         }
         #simplenews-subscriptions-page-form #edit-update {
             background: url("images/submit_button.png") repeat-x scroll 0 0 transparent;
@@ -2400,7 +2404,7 @@ body .container {
                 text-indent: -999px;
                 width: 11px;
                 position: relative;
-                left: 7px;
+                left: 9px;
             }
 
             .download-video a:hover {
