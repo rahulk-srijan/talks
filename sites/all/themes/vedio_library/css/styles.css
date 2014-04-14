@@ -482,7 +482,8 @@ input.form-autocomplete::-ms-clear {display: none;}
     position: relative;
 }
 .cooment-info .video-commentcount{
-  background-position: -1px -64px;;
+ background-position: -1px -64px;
+    padding-left: 22px;
 }
 .cooment-info .download-video-content{
  display: inline;
@@ -935,8 +936,8 @@ input.form-autocomplete::-ms-clear {display: none;}
 }
 .front .content-inner {height: 0;}
 
-#block-views-most-trending-block{
- margin: 0 0 22px 30px;
+#block-views-most-trending-block {
+    margin: 0 12px 2px 20px;
 }
 #block-views-most-trending-block .block-content{
   margin: 0 12px 12px 18px;
@@ -945,14 +946,14 @@ input.form-autocomplete::-ms-clear {display: none;}
 
 
 #block-views-most-liked-lib-craousel-block h2{
-  border-bottom: 1px solid #CECDCD;
-  clear: both;
-  color: #0066BE;
-  font-size: 13px;
-  font-weight: bold;
-   margin: -20px 40px 0;
-  overflow: hidden;
-  padding-bottom: 5px;
+   border-bottom: 1px solid #CECDCD;
+    clear: both;
+    color: #0066BE;
+    font-size: 13px;
+    font-weight: bold;
+    margin: -20px 22px 0 35px;
+    overflow: hidden;
+    padding-bottom: 5px;
 }
 #block-views-most-trending-block h2{
   color: #0066BE;
@@ -1028,7 +1029,13 @@ input.form-autocomplete::-ms-clear {display: none;}
 .view-home-page-video-listing .cooment-info{
   margin: 2px 0 0;
 }
-.cooment-info .video-views, .cooment-info .video-count, .cooment-info .video-commentcount,  .node-statistics span.field-content, .node-statistics-like span.field-content, .view-most-trending div.new_video_duration, .slideshow-bottom-content .totalcount, .slideshow-bottom-content .count {
+.cooment-info .video-views, 
+.cooment-info .video-count, 
+.cooment-info .video-commentcount,  
+.node-statistics span.field-content,
+ .node-statistics-like span.field-content
+   .slideshow-bottom-content .totalcount, 
+   .slideshow-bottom-content .count {
   margin: 0 3px;
 }
 .view-most-trending .views-field-body{
@@ -1062,7 +1069,7 @@ input.form-autocomplete::-ms-clear {display: none;}
     height: 130px;
     margin: 6px 26px 16px 0;
     overflow: hidden;
-    width: 210px;
+    width: 208px;
 }
 .view-most-trending .view-header{
  margin: 2px 0 20px;
@@ -1177,11 +1184,11 @@ Splash Page theming
 #block-views-most-liked-lib-craousel-block .jcarousel-skin-default .jcarousel-container-horizontal {
    height: 300px;
     padding: 0 40px;
-    width: 930px;
+    width: 945px;
 }
 
 #block-views-most-liked-lib-craousel-block .jcarousel-skin-default .jcarousel-clip-horizontal {
-  width: 930px;
+  width: 945px;
 }
 #block-views-most-liked-lib-craousel-block .jcarousel-list{
   width: 100% !important;
@@ -1193,7 +1200,7 @@ Splash Page theming
     margin: 0 30px;
     overflow: hidden;
     text-align: left;
-    width: 245px;
+    width: 250px;
 }
 #block-views-most-liked-lib-craousel-block .jcarousel-skin-default .jcarousel-next-disabled, 
 #block-views-most-liked-lib-craousel-block .jcarousel-skin-default .jcarousel-prev-disabled {
@@ -1207,7 +1214,7 @@ Splash Page theming
 }
 #block-views-most-liked-lib-craousel-block .jcarousel-skin-default .jcarousel-prev-horizontal {
     background-position: 8px 0;
-      left: 30px;
+      left: 25px;
     position: absolute;
     top: 120px;
   }
@@ -1217,7 +1224,7 @@ Splash Page theming
   #block-views-most-liked-lib-craousel-block .jcarousel-skin-default .jcarousel-next-horizontal {
     background-position: 1px -48px;
     position: absolute;
-    right: 45px;
+    right: 38px;
     top: 120px;
   }
    #block-views-most-liked-lib-craousel-block  .jcarousel-skin-default .jcarousel-next-horizontal:hover {

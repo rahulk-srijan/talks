@@ -2305,13 +2305,13 @@ div.modal-forms-modal-content .form-item label {
     margin: 0;
 }
 
-.region-sidebar-second.sidebar .block-inner h2 {
-    border-bottom: 1px solid #666666;
-    color: #E37222;
-    font-size: 13px;
-    letter-spacing: -0.2px;
-    padding-bottom: 4px;
-}
+    .region-sidebar-second.sidebar .block-inner h2 {
+        border-bottom: 1px solid #666666;
+        color: #333;
+        font-size: 13px;
+        letter-spacing: -0.2px;
+        padding-bottom: 4px;
+    }
 
 .region-sidebar-second .views-row {
     margin-top: 19px;
