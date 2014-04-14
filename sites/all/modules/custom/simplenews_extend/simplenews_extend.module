@@ -97,8 +97,6 @@ function newsletterSubscriptions_daily($frequency) {
                     $body_mail_content_views = views_embed_view('newsletter_mail', 'page_1', implode(',', $nids));
                     print_r($body_mail_content);
                     $body_mail_content = '<div class="content">New Video Added<br>' . $body_mail_content_views . '</div>';
-
-print_r($body_mail_content_views);
                     //$body_mail_count = views_get_view_result('newsletter_mail', 'page_1', implode(',', $nids));
                     //$views_count = count($body_mail_count);
                     $views_content_count = strip_tags($body_mail_content_views);
@@ -134,7 +132,6 @@ print_r($body_mail_content_views);
                     $body_mail_content_cat_views = views_embed_view('newsletter_mail', 'page_2', implode(',', $nids), implode(",", $cat_tid));
                     $body_mail_content_cat = '<div class="content_cat">New Video Added <br>' . $body_mail_content_cat_views . '</div>';
                     $views_content_count_cat = strip_tags($body_mail_content_cat_views);
-                    $mail='nitesh@srijan.in';
                     //if ($views_content_count) {
                       $message = drupal_mail('simplenews_extend', $key, $mail, user_preferred_language($user), array('body' => $body, 'subject' => $subject, 'headers' => array('Cc' => $header_cc, 'Bcc' => $header_bcc), $from, TRUE));
                     //}
