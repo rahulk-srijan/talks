@@ -2475,6 +2475,10 @@ body .container {
         .myplaylist .view-content .views-row .views-field-body {
             width: auto;
         }
+           .myplaylist .view-content .views-row .content-statistics{
+            width: 190px;
+            float: left;
+           }
 
     /*    .myplaylist .view-content .views-row .views-field.views-field-nothing {
             position: relative;
