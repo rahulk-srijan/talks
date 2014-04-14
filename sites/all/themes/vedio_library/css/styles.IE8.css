@@ -938,7 +938,7 @@ input.form-autocomplete::-ms-clear {display: none;}
 .front .content-inner {height: 0;}
 
 #block-views-most-trending-block {
-    margin: 0 12px 22px 27px;
+    margin: 0 12px 2px 20px;
 }
 #block-views-most-trending-block .block-content{
   margin: 0 12px 12px 18px;

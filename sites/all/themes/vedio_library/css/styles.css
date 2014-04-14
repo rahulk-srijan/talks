@@ -937,7 +937,7 @@ input.form-autocomplete::-ms-clear {display: none;}
 .front .content-inner {height: 0;}
 
 #block-views-most-trending-block {
-    margin: 0 12px 22px 27px;
+    margin: 0 12px 2px 20px;
 }
 #block-views-most-trending-block .block-content{
   margin: 0 12px 12px 18px;
@@ -1184,11 +1184,11 @@ Splash Page theming
 #block-views-most-liked-lib-craousel-block .jcarousel-skin-default .jcarousel-container-horizontal {
    height: 300px;
     padding: 0 40px;
-    width: 930px;
+    width: 945px;
 }
 
 #block-views-most-liked-lib-craousel-block .jcarousel-skin-default .jcarousel-clip-horizontal {
-  width: 930px;
+  width: 945px;
 }
 #block-views-most-liked-lib-craousel-block .jcarousel-list{
   width: 100% !important;
@@ -1200,7 +1200,7 @@ Splash Page theming
     margin: 0 30px;
     overflow: hidden;
     text-align: left;
-    width: 245px;
+    width: 250px;
 }
 #block-views-most-liked-lib-craousel-block .jcarousel-skin-default .jcarousel-next-disabled, 
 #block-views-most-liked-lib-craousel-block .jcarousel-skin-default .jcarousel-prev-disabled {
@@ -1214,7 +1214,7 @@ Splash Page theming
 }
 #block-views-most-liked-lib-craousel-block .jcarousel-skin-default .jcarousel-prev-horizontal {
     background-position: 8px 0;
-      left: 30px;
+      left: 25px;
     position: absolute;
     top: 120px;
   }
@@ -1224,7 +1224,7 @@ Splash Page theming
   #block-views-most-liked-lib-craousel-block .jcarousel-skin-default .jcarousel-next-horizontal {
     background-position: 1px -48px;
     position: absolute;
-    right: 45px;
+    right: 40px;
     top: 120px;
   }
    #block-views-most-liked-lib-craousel-block  .jcarousel-skin-default .jcarousel-next-horizontal:hover {
