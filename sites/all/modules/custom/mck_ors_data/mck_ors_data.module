@@ -75,7 +75,7 @@ function mck_ors_data_block_info() {
     $blocks = array();
     $blocks['ors_user_fetch'] = array(
         'info' => t('Ors User Fetch'),
-        'weight' => '5',
+        'weight' => '99',
     );
 
     return $blocks;
@@ -92,7 +92,7 @@ function mck_ors_data_block_view($delta = '') {
 }
 
 function ors_fetch_user_link() {
-  return l('PDIX User Conversion Report', 'ors_user/fetch');
+  return '<ul><li>' . l('PDIX User Conversion Report', 'ors_user/fetch') . '</li></ul>';
 }
 
 /*
