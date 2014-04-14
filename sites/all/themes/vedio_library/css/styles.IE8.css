@@ -1185,11 +1185,11 @@ display: inline-block;
 #block-views-most-liked-lib-craousel-block .jcarousel-skin-default .jcarousel-container-horizontal {
    height: 300px;
     padding: 0 40px;
-    width: 930px;
+    width: 945px;
 }
 
 #block-views-most-liked-lib-craousel-block .jcarousel-skin-default .jcarousel-clip-horizontal {
-  width: 930px;
+  width: 945px;
 }
 #block-views-most-liked-lib-craousel-block .jcarousel-list{
   width: 100% !important;
@@ -1201,7 +1201,7 @@ display: inline-block;
     margin: 0 30px;
     overflow: hidden;
     text-align: left;
-    width: 245px;
+    width: 250px;
 }
 #block-views-most-liked-lib-craousel-block .jcarousel-skin-default .jcarousel-next-disabled, 
 #block-views-most-liked-lib-craousel-block .jcarousel-skin-default .jcarousel-prev-disabled {
@@ -1215,7 +1215,7 @@ display: inline-block;
 }
 #block-views-most-liked-lib-craousel-block .jcarousel-skin-default .jcarousel-prev-horizontal {
     background-position: 8px 0;
-      left: 30px;
+      left: 25px;
     position: absolute;
     top: 120px;
   }
@@ -1225,7 +1225,7 @@ display: inline-block;
   #block-views-most-liked-lib-craousel-block .jcarousel-skin-default .jcarousel-next-horizontal {
     background-position: 1px -48px;
     position: absolute;
-    right: 45px;
+    right: 38px;
     top: 120px;
   }
    #block-views-most-liked-lib-craousel-block  .jcarousel-skin-default .jcarousel-next-horizontal:hover {
