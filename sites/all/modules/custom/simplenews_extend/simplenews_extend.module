@@ -98,7 +98,7 @@ function newsletterSubscriptions_daily($frequency) {
                     print_r($body_mail_content);
                     $body_mail_content = '<div class="content">New Video Added<br>' . $body_mail_content_views . '</div>';
 
-
+print_r($body_mail_content_views);
                     //$body_mail_count = views_get_view_result('newsletter_mail', 'page_1', implode(',', $nids));
                     //$views_count = count($body_mail_count);
                     $views_content_count = strip_tags($body_mail_content_views);
@@ -142,10 +142,12 @@ function newsletterSubscriptions_daily($frequency) {
             //if user select category send newsletter End
 
             if ($views_content_count || $body_mail_comment_count || $views_content_count_cat) {
+
                 $body = '<div>' . $body_mail_content . '</div>';
                 $body .= '<div>' . $body_mail_content_cat . '</div>';
                 $body .= '<div>' . $body_mail_comment . '</div>';
-                $message = drupal_mail('simplenews_extend', $key, $mail, user_preferred_language($user), array('body' => $body, 'subject' => $subject, 'headers' => array('Cc' => $header_cc, 'Bcc' => $header_bcc), $from, TRUE));
+                print_r($body);
+               // $message = drupal_mail('simplenews_extend', $key, $mail, user_preferred_language($user), array('body' => $body, 'subject' => $subject, 'headers' => array('Cc' => $header_cc, 'Bcc' => $header_bcc), $from, TRUE));
                 if ($message['result']) {
                     print('<br/>' . $subs_obj->mail);
                 }
@@ -228,8 +230,6 @@ function simplenews_extend_taxonomy_term_insert($term) {
         menu_save_alter($term);
         //print (drupal_get_form('taxonomy_overview_terms'));
         //drupal_add_js('jQuery(document).ready(function () { Jquery("#taxonomy_overview_terms #edit-submit").click(); });', 'inline');
-        drupal_build_form('taxonomy_overview_terms');
-        $form['actions']['submit']['#value'] == 'Save';
 
     }
 }
