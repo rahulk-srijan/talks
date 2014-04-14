@@ -39,7 +39,7 @@ $video_path = $root_path . '/sites/default/files/videos/original/' . $video_file
     $node_path = $row->field_field_upload_video[0]['rendered']['#path']['path'];
     global $base_url;
     $node_path_alias = drupal_get_path_alias($node_path);
-//print l(t("<img src=sites/all/themes/vedio_library/css/images/play_icon.png />"),$node_path_alias);
-    print "<a href=" . $base_url . "/" . $node_path_alias . "><img src=" . $base_url . "/sites/all/themes/vedio_library/css/images/newplay.png /></a>";
+print l(t("<img src=sites/all/themes/vedio_library/css/images/newplay.png />"),$node_path_alias);
+//    print "<a href=" . $base_url . "/" . $node_path_alias . "><img src=" . $base_url . "/sites/all/themes/vedio_library/css/images/newplay.png /></a>";
     ?>
 </div>
