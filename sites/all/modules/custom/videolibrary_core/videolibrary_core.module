@@ -422,6 +422,7 @@ function videolibrary_core_form($form, $form_state) {
   '#options' => array(0 => 'General', 1 => 'BTO Academy',2=>'Ops in Action',3=>'Org in Action'),
   '#required'=>TRUE
 );*/
+
   $gen = ' <a class="lib" id="gen" href="mailto:' . $mail_to . '?Subject=' . $subject . '&body=' . $msg . '">General</a><br/>';
   $bto= ' <a class="lib" id="bto" href="mailto:' . $mail_to_bto . '?Subject=' . $subject_bto . '&body=' . $msg_bto . '">Bto Academy</a><br/>';
   $ops ='<a class="lib" id="ops" href="mailto:' . $mail_to_ops . '?Subject=' . $subject_ops . '&body=' . $msg_ops . '">Ops in action</a><br/>';
