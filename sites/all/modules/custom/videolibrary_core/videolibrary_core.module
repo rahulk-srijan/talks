@@ -415,13 +415,13 @@ function videolibrary_core_form($form, $form_state) {
     $mail_to_org = $library_subsite_variable['orginaction']['to'];
     $subject_org = $library_subsite_variable['orginaction']['subject'];
     $msg_org = $library_subsite_variable['orginaction']['msg'];
-
+/*
   $form['lib_list']= array(
   '#type' => 'radios',
 //  '#title' => t('Choose library you want to suggest video.'),
   '#options' => array(0 => 'General', 1 => 'BTO Academy',2=>'Ops in Action',3=>'Org in Action'),
   '#required'=>TRUE
-);
+);*/
   $gen = ' <a class="lib" id="gen" href="mailto:' . $mail_to . '?Subject=' . $subject . '&body=' . $msg . '">General</a><br/>';
   $bto= ' <a class="lib" id="bto" href="mailto:' . $mail_to_bto . '?Subject=' . $subject_bto . '&body=' . $msg_bto . '">Bto Academy</a><br/>';
   $ops ='<a class="lib" id="ops" href="mailto:' . $mail_to_ops . '?Subject=' . $subject_ops . '&body=' . $msg_ops . '">Ops in action</a><br/>';
@@ -432,41 +432,41 @@ function videolibrary_core_form($form, $form_state) {
 //    '#title' => t('Click below to suggest a video'),
     '#type' => 'item',
     '#markup'=> $gen,
-    '#states' => array(
-      'visible' => array(
-        ':input[name="lib_list"]' => array('value' => '0'),
-      ),
-    ),
+    // '#states' => array(
+    //   'visible' => array(
+    //     ':input[name="lib_list"]' => array('value' => '0'),
+    //   ),
+    // ),
   );
  $form['lib_list_bto'] = array(
 //    '#title' => t(''),
     '#type' => 'item',
     '#markup'=> $bto,
-    '#states' => array(
-      'visible' => array(
-        ':input[name="lib_list"]' => array('value' => '1'),
-      ),
-    ),
+    // '#states' => array(
+    //   'visible' => array(
+    //     ':input[name="lib_list"]' => array('value' => '1'),
+    //   ),
+    // ),
   );
  $form['lib_list_ops'] = array(
 //    '#title' => t('Click below to suggest a video'),
     '#type' => 'item',
     '#markup'=> $ops,
-    '#states' => array(
-      'visible' => array(
-        ':input[name="lib_list"]' => array('value' => '2'),
-      ),
-    ),
+    // '#states' => array(
+    //   'visible' => array(
+    //     ':input[name="lib_list"]' => array('value' => '2'),
+    //   ),
+    // ),
   );
  $form['lib_list_org'] = array(
 //    '#title' => t('Click below to suggest a video'),
     '#type' => 'item',
     '#markup'=> $org,
-    '#states' => array(
-      'visible' => array(
-        ':input[name="lib_list"]' => array('value' => '3'),
-      ),
-    ),
+    // '#states' => array(
+    //   'visible' => array(
+    //     ':input[name="lib_list"]' => array('value' => '3'),
+    //   ),
+    // ),
   );
     return $form;
 }
