@@ -458,7 +458,7 @@ input.form-autocomplete::-ms-clear {display: none;}
 .view-most-trending div.new_video_duration,
 .slideshow-bottom-content .totalcount,
 .slideshow-bottom-content .count{
- background: url("images/icons-sprite.png") no-repeat scroll 0 0 transparent;
+ background: url("images/icons-sprite.png") no-repeat scroll  0 1px transparent;
  display: inline;
  margin: 0 12px 0 0;
  padding-left: 20px;
@@ -543,6 +543,9 @@ input.form-autocomplete::-ms-clear {display: none;}
   .view-most-trending ul.pager li a{
 
  }
+  .view-most-trending .new_video_duration{
+    background-position:  0px 1px;
+  }
  .view-most-trending ul.pager .pager-item a{
   background: url("images/pager-gray.png") no-repeat scroll 0 0 transparent;
   display: inline-block;
@@ -921,7 +924,7 @@ input.form-autocomplete::-ms-clear {display: none;}
    margin: 2px 0;
 }
 .view-related-video .new-video-duration {
-    background-position: 0 4px;
+    background-position: 0 2px;
     float: left;
     margin-left: 6px;
     width: 136px;
