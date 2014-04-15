@@ -375,6 +375,8 @@ input.form-autocomplete::-ms-clear {display: none;}
  font-size: 13px;
  margin: 6px 0;
  padding: 0;
+ text-rendering: optimizeLegibility !important;
+ -webkit-font-smoothing: antialiased !important;
 }
 .video-info{
   float: left;
@@ -950,25 +952,29 @@ input.form-autocomplete::-ms-clear {display: none;}
 
 
 #block-views-most-liked-lib-craousel-block h2{
-   border-bottom: 1px solid #CECDCD;
-    clear: both;
-    color: #0066BE;
-    font-size: 13px;
-    font-weight: bold;
-    margin: -20px 22px 0 35px;
-    overflow: hidden;
-    padding-bottom: 5px;
+ border-bottom: 1px solid #CECDCD;
+ clear: both;
+ color: #0066BE;
+ font-size: 13px;
+ font-weight: bold;
+ margin: -20px 22px 0 35px;
+ overflow: hidden;
+ padding-bottom: 5px;
+ text-rendering: optimizeLegibility !important;
+ -webkit-font-smoothing: antialiased !important;
 }
 #block-views-most-trending-block h2{
   color: #0066BE;
   font-size: 13px;
   font-weight: bold;
   float: left;
+  text-rendering: optimizeLegibility !important;
+  -webkit-font-smoothing: antialiased !important;
 }
 #block-views-most-trending-block .item-list ul.pager{
-   clear: none;
-    float: left;
-    margin: 10px 0 0;
+ clear: none;
+ float: left;
+ margin: 10px 0 0;
 }
 #block-views-most-trending-block .view-content{
   clear: both;
@@ -1053,9 +1059,11 @@ input.form-autocomplete::-ms-clear {display: none;}
   width: 68px;
   word-wrap: break-word;
     font-size: 13px;
-  font-weight: bold;
-  line-height: 14px;
-}
+    font-weight: bold;
+    line-height: 14px;
+    text-rendering: optimizeLegibility !important;
+    -webkit-font-smoothing: antialiased !important;
+  }
 
 .view-most-trending .views-field-field-upload-video .field-content {
   width: 100px;
