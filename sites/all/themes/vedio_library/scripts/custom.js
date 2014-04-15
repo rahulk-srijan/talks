@@ -97,7 +97,6 @@ jQuery('document').ready(function() {
     //   }
     // });
     addDivNewsletter();
-    changeLibraryFilterLabel();
     tooglechild();
     carousel();
     activetag();
