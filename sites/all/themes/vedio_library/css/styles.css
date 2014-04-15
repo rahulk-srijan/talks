@@ -1265,6 +1265,10 @@ Splash Page theming
   padding: 0 0 0 15px;
 }
 #block-apachesolr-extend-clear-search-result .clear-search-result{
-  font-weight: bold;
+   color: #666666;
+    font-weight: bold
+}
+.view-home-page-video-listing .cooment-info {
+    margin: 5px 0 0 !important;
 }
 }
