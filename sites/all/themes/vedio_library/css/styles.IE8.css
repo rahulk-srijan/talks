@@ -300,7 +300,8 @@ input.form-autocomplete::-ms-clear {display: none;}
   font-size: 12px;
   line-height: 15px;
 }
-#superfish-1 ul li a.active{
+#superfish-1 ul li a.active,
+#superfish-1 ul li a{
   color: #00ACEE;
 }
 .sf-menu li:hover > ul,
