@@ -417,3 +417,21 @@ function search_api_solr($str) {
     echo $content;
     drupal_exit();
 }
+
+function apachesolr_extend_facet_items_alter(&$build, &$settings) {
+    if ($settings->facet == "im_field_library") {
+        foreach($build as $key => $item) {
+            switch ($key) {
+                case '455':
+                    $build[$key]["#markup"] = 'Org in Action';
+                    break;
+                case '456':
+                    $build[$key]["#markup"] = 'Ops in Action';
+                    break;
+                case '457':
+                    $build[$key]["#markup"] = 'BTO Academy';
+                    break;
+            }
+        }
+    }
+}
