@@ -1265,3 +1265,6 @@ display: inline-block;
 .page-search.block-content ul, .block-content ol {
     padding: 0 0 0 15px;
 }
+#block-apachesolr-extend-clear-search-result .clear-search-result{
+  font-weight: bold;
+}
