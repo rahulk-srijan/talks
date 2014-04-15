@@ -1265,3 +1265,10 @@ display: inline-block;
 .page-search.block-content ul, .block-content ol {
     padding: 0 0 0 15px;
 }
+#block-apachesolr-extend-clear-search-result .clear-search-result{
+   color: #666666;
+    font-weight: bold
+}
+.view-home-page-video-listing .cooment-info {
+    margin: 5px 0 0 !important;
+}
