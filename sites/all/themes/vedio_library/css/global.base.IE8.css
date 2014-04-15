@@ -2667,13 +2667,14 @@ body.page-admin-user-list .form-item-name {
     display: inline-block;
 }
 
-}
+
 #back-to-search {
     text-decoration: none;
     padding: 3px 5px;
     color: #00ACEE;
     font-size: 11px;
     font-weight: bold;
+    margin-left: 47px;
 }
 
 
