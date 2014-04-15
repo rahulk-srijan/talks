@@ -2032,7 +2032,7 @@
   }
   /* line 1883, ../sass/custom.scss */
   #columns #content-column .content-inner #back-to-search {
-    margin-top: 45px;
+    margin: 45px 9px 4px;
     display: block;
   }
   /* line 1888, ../sass/custom.scss */
