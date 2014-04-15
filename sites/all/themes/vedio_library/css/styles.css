@@ -744,7 +744,7 @@ input.form-autocomplete::-ms-clear {display: none;}
    top: 20px;
  }
  .post-menu-strip .default a{
-  color: #333;
+  color: #999;
 }
 .post-menu-strip .resources{
  float: right;
@@ -1269,6 +1269,6 @@ Splash Page theming
     font-weight: bold
 }
 .view-home-page-video-listing .cooment-info {
-    margin: 5px 0 0 !important;
+    margin: 5px 0 0;
 }
 }
