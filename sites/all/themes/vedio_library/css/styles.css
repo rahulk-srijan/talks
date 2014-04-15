@@ -358,16 +358,22 @@ input.form-autocomplete::-ms-clear {display: none;}
   width: 50px;
 }
 .color-orange,
+#edit-lib-list-org a,
 #page .org-in-action a {
   color: #e27120;
 }
 .color-purple,
+#edit-lib-list-bto a,
 #page .bto-academy a{
   color: #642f7a;
 }
 .color-magenta,
+#edit-lib-list-ops a,
 #page .ops-in-action a{
   color: #ad0059;
+}
+#edit-lib-list-gen a{
+  color: #333;
 }
 
 .video-info h2{
@@ -1139,7 +1145,7 @@ height: 138px;*/
   font-weight: normal;
 }
 
-#videolibrary-core-form .form-radios .form-type-radio:nth-child(1){
+/*#videolibrary-core-form .form-radios .form-type-radio:nth-child(1){
   color: #082040;
 }   
 #videolibrary-core-form .form-radios .form-type-radio:nth-child(2){
@@ -1152,7 +1158,7 @@ height: 138px;*/
 }   
 #videolibrary-core-form .form-radios .form-type-radio:nth-child(4){
   color: #E27121;
-}
+}*/
 /*****************
 Splash Page theming
 ******************/
