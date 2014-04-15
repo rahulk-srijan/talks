@@ -1082,11 +1082,11 @@ a {
 				color: $darker-gray;
 			}
 			.views-slideshow-controls-bottom {
-				 margin: 0 0 10px;
-    position: relative;
-    text-align: center;
-    top: 6px;
-    z-index: 5;
+				margin: 0 0 10px;
+				position: relative;
+				text-align: center;
+				top: 6px;
+				z-index: 5;
 
 				.views-slideshow-pager-field-item {
 					background-color: $gray;
@@ -1243,9 +1243,9 @@ a {
 			}
 			.form-item-newsletters-54{
 				clear: both;
-    display: block;
-    overflow: hidden;
-    padding-top: 12px;
+				display: block;
+				overflow: hidden;
+				padding-top: 12px;
 			}
 		}
 
@@ -1743,10 +1743,10 @@ a {
 		.upload-video{
 			position: relative;
 			.play-button{
-	    left: 76%;
-    position: absolute;
-    top: 60%;
-    width: 20%;
+				left: 76%;
+				position: absolute;
+				top: 60%;
+				width: 20%;
 			}
 		}
 	}
@@ -1873,15 +1873,18 @@ a {
 		}
 	}
 
+
 	#columns {
 		#content-column {
 			// margin-top: -20px;
 			
 			.content-inner {
 				margin: 0;
-
+				#back-to-search{
+					margin-top: 45px;
+					display: block;
+				}
 				header#main-content-header {
-
 					h1#page-title {
 						@extend .video-title;
 						@extend .mobile-box;
@@ -1890,10 +1893,27 @@ a {
 					}
 				}
 
+				#back-to-search + header#main-content-header{
+					h1#page-title {
+						margin-top: 0;
+					}
+				}
+
 				.view-content {
 					margin: 20px 10px;
 				}
 			}
+		}
+	}
+
+	#messages + #columns{
+		#content-column .content-inner header#main-content-header h1#page-title{
+			margin-top: 0;
+		}
+	}
+	#messages{
+		.messages{
+			margin-top: 42px;
 		}
 	}
 
