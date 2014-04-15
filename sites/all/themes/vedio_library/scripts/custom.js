@@ -162,9 +162,9 @@ function addDivNewsletter() {
 }
 
 function changeLibraryFilterLabel() {
-    jQuery('#facetapi-link--6').text('Org in Action');
-    jQuery('#facetapi-link--7').text('Ops in Action');
-    jQuery('#facetapi-link--8').text('BTO Academy');
+    //jQuery('#facetapi-link--6').text('Org in Action');
+    //jQuery('#facetapi-link--7').text('Ops in Action');
+    //jQuery('#facetapi-link--8').text('BTO Academy');
 }
 
 function toggleControls() {
