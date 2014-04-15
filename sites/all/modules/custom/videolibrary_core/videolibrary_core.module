@@ -250,6 +250,13 @@ function videolibrary_core_views_pre_render(&$view) {
 }
 
 function videolibrary_core_form_alter(&$form, &$form_state, $form_id) {
+    if($form_id=='upload_video_node_form') {
+        $form['field_library']['und']['#options'][536]='Spotlight';
+        $form['field_library']['und']['#options'][457]='BTO Academy';
+        $form['field_library']['und']['#options'][456]='Ops in Action';
+        $form['field_library']['und']['#options'][455]='Org in Action';
+    }
+
     if($form_id=='views_exposed_form') {
     $form['field_library_tid']['#options'][536] ='Spotlight';
     $form['field_library_tid']['#options'][457] ='BTO Academy';
