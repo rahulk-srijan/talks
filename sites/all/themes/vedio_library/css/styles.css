@@ -933,7 +933,7 @@ height: 138px;*/
   width: 136px;
   padding-left: 16px;
 }
-#block-views-related-video-block-1 .region-sidebar-second .views-field.views-field-title a{
+.region-sidebar-second #block-views-related-video-block-1  .views-field.views-field-title a{
   color: #333;
 }
 #block-block-35{
@@ -1039,7 +1039,7 @@ height: 138px;*/
   width: 160px;
   overflow: hidden;
   }*/
-  
+
   .view-home-page-video-listing .cooment-info {
     margin: 5px 0 0;
 }
