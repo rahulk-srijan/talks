@@ -547,7 +547,10 @@ input.form-autocomplete::-ms-clear {display: none;}
 
 }
 .view-most-trending .new_video_duration{
-  background-position:  0px 1px;
+   background-position: 0 1px;
+    left: 131px;
+    position: absolute;
+    top: 46px;
 }
 .view-most-trending ul.pager .pager-item a{
   background: url("images/pager-gray.png") no-repeat scroll 0 0 transparent;
@@ -865,6 +868,9 @@ input.form-autocomplete::-ms-clear {display: none;}
       font-size: 12px;
       line-height: 21px;
     }
+      .view-most-liked-lib-craousel .views-field-title{
+        min-height: 52px;
+      }
     .available_channels_block .views-field-title a,
     .view-most-liked-lib-craousel .views-field-title a{
       color: #333333;
@@ -1086,6 +1092,7 @@ height: 138px;*/
     margin: 6px 26px 16px 0;
     overflow: hidden;
     width: 208px;
+    position: relative;
   }
   .view-most-trending .view-header{
    margin: 2px 0 20px;
