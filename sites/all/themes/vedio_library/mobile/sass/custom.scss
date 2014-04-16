@@ -1873,7 +1873,10 @@ a {
 		}
 	}
 
-
+#back-to-search{
+	color: $darker-gray;
+	font-size: $font-size-small;
+}
 	#columns {
 		#content-column {
 			// margin-top: -20px;

@@ -348,11 +348,11 @@ input.form-autocomplete::-ms-clear {display: none;}
   overflow: hidden;
 }
 .popular-video-slide .play-button {
-  left: 45%;
-  opacity: 1;
-  position: absolute;
-  top: 42%;
-  width: 50px;
+   left: 88%;
+    opacity: 1;
+    position: absolute;
+    top: 79%;
+    width: 50px;
 }
 .popular-video-slide .play-button img{
   width: 50px;
