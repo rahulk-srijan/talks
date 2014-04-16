@@ -93,7 +93,7 @@ input.form-autocomplete::-ms-clear {display: none;}
 /*newsletter page css*/
 .page-newsletter .region-sidebar-first {display:none;}
 .page-newsletter #columns header, .page-newsletter #columns fieldset legend {display:none;}
-#simplenews-subscriptions-page-form {     
+#simplenews-subscriptions-page-form {
  background: none repeat scroll 0 0 #EDEFEF;
  clear: both;
  color: #333333;
@@ -111,7 +111,7 @@ input.form-autocomplete::-ms-clear {display: none;}
 .page-newsletter #columns fieldset .fieldset-description {color:#333; font-weight:bold;}
 .page-newsletter #columns fieldset #edit-newsletters .fequency {clear: both; overflow: hidden; width: 100%;}
 .page-newsletter #columns fieldset #edit-newsletters .fequency .form-item {float:left; margin: 0; width:125px;}
-.page-newsletter #columns fieldset #edit-newsletters .fequency .form-item-newsletters-54, 
+.page-newsletter #columns fieldset #edit-newsletters .fequency .form-item-newsletters-54,
 .page-newsletter #columns fieldset #edit-newsletters .fequency .form-item-newsletters-52 { margin-right: 12px; }
 .page-newsletter #columns fieldset #edit-newsletters .category_label { display: inline-block; margin: 0; margin-top: 10px; }
 /*#simplenews-subscriptions-page-form .form-item-newsletters-4{margin-top: 3%;}
@@ -395,7 +395,7 @@ input.form-autocomplete::-ms-clear {display: none;}
   margin: 20px;
   width: 495px;
 }
-.video-thumb{   
+.video-thumb{
   color: #999999;
   font-size: 14px;
   line-height: 14px;
@@ -460,7 +460,7 @@ input.form-autocomplete::-ms-clear {display: none;}
 .cooment-info .video-views,
 .cooment-info .video-count,
 .cooment-info .video-commentcount,
-.new-video-duration, 
+.new-video-duration,
 .node-statistics span.field-content,
 .new_video_duration,
 .node-statistics-like span.field-content,
@@ -635,7 +635,7 @@ input.form-autocomplete::-ms-clear {display: none;}
 }
 .views-slideshow-controls-text-previous{
 
-} 
+}
 .views-slideshow-controls-text-previous a{
  display: inline-block;
  height: 20px;
@@ -784,7 +784,7 @@ input.form-autocomplete::-ms-clear {display: none;}
    border: 1px solid #FFFFFF;
    }*/
 /* .available_channels_block .block-inner{
-  
+
   }*/
   .available_channels_block .view-header,
   .available_channels_block .header,
@@ -1055,12 +1055,12 @@ height: 138px;*/
   .view-home-page-video-listing .cooment-info {
     margin: 5px 0 0;
 }
-  .cooment-info .video-views, 
-  .cooment-info .video-count, 
-  .cooment-info .video-commentcount,  
+  .cooment-info .video-views,
+  .cooment-info .video-count,
+  .cooment-info .video-commentcount,
   .node-statistics span.field-content,
   .node-statistics-like span.field-content
-  .slideshow-bottom-content .totalcount, 
+  .slideshow-bottom-content .totalcount,
   .slideshow-bottom-content .count {
     margin: 0 3px;
   }
@@ -1125,7 +1125,7 @@ height: 138px;*/
   padding-left: 0;
 }
 .view-most-trending .views-field-comment-count{
-  display: inline-block; 
+  display: inline-block;
   padding-left: 0;
   }*/
 
@@ -1147,15 +1147,15 @@ height: 138px;*/
 
 /*#videolibrary-core-form .form-radios .form-type-radio:nth-child(1){
   color: #082040;
-}   
+}
 #videolibrary-core-form .form-radios .form-type-radio:nth-child(2){
   color: #632F7A;
 
-}   
+}
 #videolibrary-core-form .form-radios .form-type-radio:nth-child(3){
   color: #AD0059;
 
-}   
+}
 #videolibrary-core-form .form-radios .form-type-radio:nth-child(4){
   color: #E27121;
 }*/
@@ -1220,7 +1220,8 @@ Splash Page theming
   width: 945px;
 }
 #block-views-most-liked-lib-craousel-block .jcarousel-list{
-  width: 100% !important;
+  /*width: 100% !important;*/
+  width: 15000px !important;
 }
 
 #block-views-most-liked-lib-craousel-block .jcarousel-skin-default .jcarousel-item {
@@ -1231,7 +1232,7 @@ Splash Page theming
  text-align: left;
  width: 250px;
 }
-#block-views-most-liked-lib-craousel-block .jcarousel-skin-default .jcarousel-next-disabled, 
+#block-views-most-liked-lib-craousel-block .jcarousel-skin-default .jcarousel-next-disabled,
 #block-views-most-liked-lib-craousel-block .jcarousel-skin-default .jcarousel-prev-disabled {
   display: block;
 }
