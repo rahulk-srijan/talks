@@ -66,7 +66,6 @@ function apachesolr_extend_apachesolr_query_prepare(DrupalSolrQueryInterface &$q
     $query->addParam('fl', 'is_number_of_like');
     $query->addParam('fl', 'is_total_node_views');
     $query->addParam('fl', 'ds_created');
-
     //pass default search library tid
     if($subsite_home_page_url!=NULl) {
     $default_filter_tid = default_filter_term_id();
@@ -296,7 +295,7 @@ function apachesolr_search_submit($form, &$form_state) {
     global $subsite_home_page_url;
     // Get form ID
   $form_id = $form['form_id']['#value'];
-  if($subsite_home_page_url==NULl) {
+  if($subsite_home_page_url==NULl || $subsite_home_page_url=="spotlight") {
     $subsite_home_page_url = 'global';
   }
   // Create new redirect
