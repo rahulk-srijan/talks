@@ -348,11 +348,11 @@ input.form-autocomplete::-ms-clear {display: none;}
   overflow: hidden;
 }
 .popular-video-slide .play-button {
-  left: 45%;
-  opacity: 1;
-  position: absolute;
-  top: 42%;
-  width: 50px;
+   left: 88%;
+    opacity: 1;
+    position: absolute;
+    top: 79%;
+    width: 50px;
 }
 .popular-video-slide .play-button img{
   width: 50px;
@@ -1217,20 +1217,24 @@ Splash Page theming
 }
 
 #block-views-most-liked-lib-craousel-block .jcarousel-skin-default .jcarousel-clip-horizontal {
-  width: 945px;
+   left: 20px;
+    margin-left: 22px;
+    overflow: hidden !important;
+    position: relative;
+    width: 892px !important;
 }
 #block-views-most-liked-lib-craousel-block .jcarousel-list{
-  /*width: 100% !important;*/
-  width: 15000px !important;
+/*  width: 100% !important;
+  width: 15000px !important;*/
 }
 
 #block-views-most-liked-lib-craousel-block .jcarousel-skin-default .jcarousel-item {
- border: medium none;
- height: 290px;
- margin: 0 30px;
- overflow: hidden;
- text-align: left;
- width: 250px;
+    border: medium none;
+    height: 290px;
+    margin: 0 48px 0 0;
+    overflow: hidden;
+    text-align: left;
+    width: 250px;
 }
 #block-views-most-liked-lib-craousel-block .jcarousel-skin-default .jcarousel-next-disabled,
 #block-views-most-liked-lib-craousel-block .jcarousel-skin-default .jcarousel-prev-disabled {
