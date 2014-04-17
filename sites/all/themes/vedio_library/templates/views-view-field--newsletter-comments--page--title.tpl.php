@@ -24,9 +24,6 @@
 ?>
 <?php
 $nid = $row->_field_data['cid']['entity']->nid;
-print_r($row);
-print_r($_SERVER);
-die();
 $raw_node= 'node/'.$nid;
 $path_alias = drupal_lookup_path('alias',$raw_node);
 $host= $_SERVER['HTTP_HOST'];
