@@ -2470,14 +2470,14 @@ body .container {
         }
 
         .myplaylist .view-content .views-row .views-field-title {
-            width: auto;
+            width: 175px;
         }
 
         .myplaylist .view-content .views-row .views-field-body {
-            width: auto;
+             width: 175px;
         }
            .myplaylist .view-content .views-row .content-statistics{
-            width: 190px;
+             width: 175px;
             float: left;
            }
 

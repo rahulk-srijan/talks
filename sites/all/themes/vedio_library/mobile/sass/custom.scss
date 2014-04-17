@@ -1339,7 +1339,7 @@ a {
 		}
 		#block-views-most-trending-block .view-most-trending{
 			.video-content{
-				width: 160px;
+				width: 47%;
 				height: auto;
 				float: left;
 				margin: 0 3%;
@@ -1351,12 +1351,9 @@ a {
 				padding: 2px 0 2px 17px;
 			}
 
-			.cooment-info{
-				display: block !important;
-			}
-			.views-row {
-				padding: 8px 0 !important;
-			}
+			// .cooment-info{
+			// 	display: block !important;
+			// }
 			.upload-video {
 				position: relative;
 				.play-button {
@@ -1737,6 +1734,7 @@ a {
 		}
 
 	}
+	.view-playlist,
 	#block-views-related-video-block,
 	.view-listing-by-category,
 	.view-listing-by-tags{
