@@ -134,7 +134,7 @@ function newsletterSubscriptions_daily($frequency) {
                     $views_content_count_cat = strip_tags($body_mail_content_cat_views);
                     //if ($views_content_count) {
 
-                      $message = drupal_mail('simplenews_extend', $key, $mail, user_preferred_language($user), array('body' => $body, 'subject' => $subject, 'headers' => array('Cc' => $header_cc, 'Bcc' => $header_bcc), $from, TRUE));
+                     // $message = drupal_mail('simplenews_extend', $key, $mail, user_preferred_language($user), array('body' => $body, 'subject' => $subject, 'headers' => array('Cc' => $header_cc, 'Bcc' => $header_bcc), $from, TRUE));
                     //}
                 }
             }
