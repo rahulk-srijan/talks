@@ -93,6 +93,7 @@
   regions[sidebar_second]    = Sidebar second
   regions[content]           = Main Content
   regions[highlighted]       = Highlighted
+  regions[popular_content]   = Popular Content
   regions[content_aside]     = Aside
   regions[secondary_content] = Secondary
   regions[tertiary]  = Tertiary 
