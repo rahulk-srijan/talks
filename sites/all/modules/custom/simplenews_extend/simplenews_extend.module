@@ -147,7 +147,7 @@ function newsletterSubscriptions_daily($frequency) {
                 $body = '<div>' . $body_mail_content . '</div>';
                 $body .= '<div>' . $body_mail_content_cat . '</div>';
                 $body .= '<div>' . $body_mail_comment . '</div>';
-                //$message = drupal_mail('simplenews_extend', $key, $mail, user_preferred_language($user), array('body' => $body, 'subject' => $subject, 'headers' => array('Cc' => $header_cc, 'Bcc' => $header_bcc), $from, TRUE));
+                $message = drupal_mail('simplenews_extend', $key, $mail, user_preferred_language($user), array('body' => $body, 'subject' => $subject, 'headers' => array('Cc' => $header_cc, 'Bcc' => $header_bcc), $from, TRUE));
                 if ($message['result']) {
                     print('<br/>' . $subs_obj->mail);
                 }
