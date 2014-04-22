@@ -207,7 +207,17 @@ input.form-autocomplete::-ms-clear {display: none;}
     float: right;
     margin: 6px 6px 0;
 }
-
+#simplenews-subscriptions-page-form #reset{
+  color: #333333;
+  font-size: 11px;
+  font-weight: normal;
+  margin: 3px 6px 0;
+  padding: 2px 12px;
+  text-transform: capitalize;
+}
+#simplenews-subscriptions-page-form #reset:hover{
+  text-decoration: none;
+}
 /*newsletter page css end*/
 
 #edit-tid-wrapper .jcarousel-skin-default .jcarousel-container-horizontal, #edit-tid-wrapper .jcarousel-skin-default .jcarousel-clip-horizontal { overflow: hidden;width:580px; height:65px;}
@@ -941,24 +951,17 @@ input.form-autocomplete::-ms-clear {display: none;}
      font-size: 11px;
    }
    .available_channels_block  .field-content .play-button ,
-   .view-most-liked-lib-craousel  .field-content .play-button{
-    left: 83%;
+   .view-most-liked-lib-craousel .field-content .play-button {
+  left: 72%;
     opacity: 0.8;
     position: absolute;
-    top: 68%;
-    width: 43px;
+    top: 62%;
+    width: 30px;
   }
   .upload-video{
     position: relative;
   }
   .view-most-liked-lib-craousel .upload-video {
- /*  background: none repeat scroll 0 0 #F5F5F5;
-   height: 138px;
-   overflow: hidden;
-   position: relative;
-   width: 245px;*/
-
-   /*   background: none repeat scroll 0 0 #F5F5F5;*/
    height: 90px;
    overflow: hidden;
    position: relative;
@@ -1330,31 +1333,31 @@ display: inline-block;
 
 #block-views-most-liked-lib-craousel-block .jcarousel-skin-default .jcarousel-next-disabled,
 #block-views-most-liked-lib-craousel-block .jcarousel-skin-default .jcarousel-prev-disabled {
-    display: block;
+  display: block;
 }
 #block-views-most-liked-lib-craousel-block .jcarousel-skin-default .jcarousel-next, .jcarousel-skin-default .jcarousel-prev {
-    background-image: url("images/car-nav-sprite.png");
+   background-image: url("images/nav.png");
     display: block;
-    height: 32px;
+    height: 60px;
     width: 32px;
 }
 #block-views-most-liked-lib-craousel-block .jcarousel-skin-default .jcarousel-prev-horizontal {
-  background-position: 8px 0;
+  background-position: 8px -2px;
   left: 25px;
   position: absolute;
   top: 20px;
 }
 #block-views-most-liked-lib-craousel-block .jcarousel-skin-default .jcarousel-prev-horizontal:hover{
-  background-position: 3px -91px;
+  background-position: 8px -2px;
 }
 #block-views-most-liked-lib-craousel-block .jcarousel-skin-default .jcarousel-next-horizontal {
-  background-position: 1px -48px;
+  background-position: 0px -91px;
   position: absolute;
   right: 38px;
   top: 20px;
 }
 #block-views-most-liked-lib-craousel-block  .jcarousel-skin-default .jcarousel-next-horizontal:hover {
-  background-position: 1px -131px;
+  background-position: 0px -91px;
 }
 
 
