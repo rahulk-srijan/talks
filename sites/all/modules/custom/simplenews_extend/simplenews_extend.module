@@ -128,9 +128,11 @@ function newsletterSubscriptions_daily($frequency) {
                 if (in_array($all_video_cat_tid, $cat_tid)) {
 
                 } else {
-
+                    //$body_mail_content_cat_views='';
                     $body_mail_content_cat_views = views_embed_view('newsletter_mail', 'page_2', implode(',', $nids), implode(",", $cat_tid));
-                    $body_mail_content_cat = '<div class="content_cat">New Video Added <br>' . $body_mail_content_cat_views . '</div>';
+                    $body_mail_content_cat_views_1 = views_embed_view('newsletter_mail', 'page_3', implode(',', $nids), implode(",", $cat_tid));
+                    $body_mail_content_cat_views_2 = views_embed_view('newsletter_mail', 'page_4', implode(',', $nids), implode(",", $cat_tid));
+                    $body_mail_content_cat = '<div class="content_cat">New Video Added <br>' . $body_mail_content_cat_views . $body_mail_content_cat_views_1 . $body_mail_content_cat_views_2 . '</div>';
                     $views_content_count_cat = strip_tags($body_mail_content_cat_views);
                     //if ($views_content_count) {
 
@@ -145,8 +147,7 @@ function newsletterSubscriptions_daily($frequency) {
                 $body = '<div>' . $body_mail_content . '</div>';
                 $body .= '<div>' . $body_mail_content_cat . '</div>';
                 $body .= '<div>' . $body_mail_comment . '</div>';
-
-                $message = drupal_mail('simplenews_extend', $key, $mail, user_preferred_language($user), array('body' => $body, 'subject' => $subject, 'headers' => array('Cc' => $header_cc, 'Bcc' => $header_bcc), $from, TRUE));
+                //$message = drupal_mail('simplenews_extend', $key, $mail, user_preferred_language($user), array('body' => $body, 'subject' => $subject, 'headers' => array('Cc' => $header_cc, 'Bcc' => $header_bcc), $from, TRUE));
                 if ($message['result']) {
                     print('<br/>' . $subs_obj->mail);
                 }
