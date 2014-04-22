@@ -925,7 +925,7 @@ input.form-autocomplete::-ms-clear {display: none;}
       font-size: 12px;
     }
 	.view-most-liked-lib-craousel .views-field-title .views-label{
-      font-size: 12px;
+      font-weight: bold;
     }
     .available_channels_block .views-field-title a,
     .view-most-liked-lib-craousel .views-field-title a{
