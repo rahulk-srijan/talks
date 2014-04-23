@@ -431,8 +431,8 @@ function videolibrary_core_form($form, $form_state) {
 );*/
 
   $gen = ' <a class="lib" id="gen" href="mailto:' . $mail_to . '?Subject=' . $subject . '&body=' . $msg . '">General</a><br/>';
-  $bto= ' <a class="lib" id="bto" href="mailto:' . $mail_to_bto . '?Subject=' . $subject_bto . '&body=' . $msg_bto . '">Bto Academy</a><br/>';
-  $ops ='<a class="lib" id="ops" href="mailto:' . $mail_to_ops . '?Subject=' . $subject_ops . '&body=' . $msg_ops . '">Ops in action</a><br/>';
+  $bto= ' <a class="lib" id="bto" href="mailto:' . $mail_to_bto . '?Subject=' . $subject_bto . '&body=' . $msg_bto . '">BTO Academy</a><br/>';
+  $ops ='<a class="lib" id="ops" href="mailto:' . $mail_to_ops . '?Subject=' . $subject_ops . '&body=' . $msg_ops . '">Ops in Action</a><br/>';
   $org= '<a class="lib" id="org" href="mailto:' . $mail_to_org . '?Subject=' . $subject_org . '&body=' . $msg_org . '">Org in Action</a>';
 
 
