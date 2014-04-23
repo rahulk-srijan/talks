@@ -1237,15 +1237,16 @@ left: 185px;
 
         .view-home-page-video-listing .views-field-title a,
         .view-listing-by-category .views-field-title a,
-        .view-listing-by-tags .views-field-title a,
-        .view-playlist .views-field-title a {
+        .view-listing-by-tags .views-field-title a{
             font-size: 12px;
             color: #E37222;
         }
-
-.view-playlist .views-field-ops {
-    clear: both;
-}
+        .view-playlist .views-field-title a {
+            color: #333;
+        }
+        .view-playlist .views-field-ops {
+            clear: both;
+        }
 
 #block-views-home-page-video-listing-block a {
     color: #d65917;

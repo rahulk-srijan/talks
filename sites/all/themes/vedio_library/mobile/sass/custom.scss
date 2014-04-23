@@ -1355,7 +1355,12 @@ a {
 			// 	display: block !important;
 			// }
 			.upload-video {
-				position: relative;
+				    background: none repeat scroll 0 0 #f5f5f5;
+    display: inline-block;
+    min-height: 85px;
+    position: relative;
+    width: 100%;
+				
 				.play-button {
 					left: 78%;
 					opacity: 0.75;
@@ -1456,7 +1461,11 @@ a {
 				padding: 2px 0 2px 18px;
 			}
 			.upload-video {
-				position: relative;
+			    background: none repeat scroll 0 0 #f5f5f5;
+    display: inline-block;
+    min-height: 85px;
+    position: relative;
+    width: 100%;
 
 				.play-button {
 					left: 76%;
@@ -1583,7 +1592,11 @@ a {
 				}
 
 				.views-field-field-upload-video {
-					position: relative;
+				    background: none repeat scroll 0 0 #f5f5f5;
+    display: inline-block;
+    min-height: 85px;
+    position: relative;
+    width: 100%;
 
 					.play-button {
 						position: absolute;
@@ -1740,7 +1753,11 @@ a {
 	.view-listing-by-category,
 	.view-listing-by-tags{
 		.upload-video{
-			position: relative;
+		    background: none repeat scroll 0 0 #f5f5f5;
+    display: inline-block;
+    min-height: 85px;
+    position: relative;
+    width: 100%;
 			.play-button{
 				left: 76%;
 				position: absolute;
@@ -1874,8 +1891,9 @@ a {
 	}
 
 #back-to-search{
-	color: $darker-gray;
+	color: #00ACEE;
 	font-size: $font-size-small;
+	margin-top: 12px;
 }
 	#columns {
 		#content-column {

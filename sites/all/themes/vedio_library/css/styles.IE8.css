@@ -397,6 +397,13 @@ input.form-autocomplete::-ms-clear {display: none;}
   color: #333;
 }
 
+#videolibrary-core-form .form-item{
+font-family: arial;
+    font-size: 13px;
+    font-weight: bold;
+    margin: 12px 0;
+}
+
 .video-info h2{
   background: none repeat scroll 0 0 #FFFFFF;
   border-bottom: 1px solid #DADADA;
@@ -1289,24 +1296,23 @@ display: inline-block;
 }
 
 #block-views-most-liked-lib-craousel-block .jcarousel-skin-default .jcarousel-clip-horizontal {
-   left: 20px;
+  left: 10px;
     margin-left: 22px;
     overflow: hidden !important;
     position: relative;
-    width: 892px !important;
+    width: 875px !important;
 }
 #block-views-most-liked-lib-craousel-block .jcarousel-list{
 /*  width: 100% !important;
-  width: 15000px !important;*/
+width: 15000px !important;*/
 }
 
 #block-views-most-liked-lib-craousel-block .jcarousel-skin-default .jcarousel-item {
-  border: medium none;
-  /* height: 290px;*/
-  margin: 0 48px 0 0;
-  overflow: hidden;
-  text-align: left;
-  width: 250px;
+   border: medium none;
+    margin: 0 23px 0 0;
+    overflow: hidden;
+    text-align: left;
+    width: 275px;
 }
 #block-views-most-liked-lib-craousel-block .library-item{
   color: #FFFFFF;
@@ -1339,28 +1345,28 @@ display: inline-block;
   display: block;
 }
 #block-views-most-liked-lib-craousel-block .jcarousel-skin-default .jcarousel-next, .jcarousel-skin-default .jcarousel-prev {
-   background-image: url("images/nav.png");
-    display: block;
-    height: 60px;
-    width: 32px;
+  background-image: url("images/car-nav-sprite.png");
+  display: block;
+  height: 32px;
+  width: 32px;
 }
 #block-views-most-liked-lib-craousel-block .jcarousel-skin-default .jcarousel-prev-horizontal {
- background-position: 8px -2px;
-    left: 35px;
-    position: absolute;
-    top: 20px;
+  background-position: 8px 0;
+  left: 25px;
+  position: absolute;
+  top: 20px;
 }
 #block-views-most-liked-lib-craousel-block .jcarousel-skin-default .jcarousel-prev-horizontal:hover{
-  background-position: 16px -2px;
+  background-position: 3px -91px;
 }
 #block-views-most-liked-lib-craousel-block .jcarousel-skin-default .jcarousel-next-horizontal {
-  background-position: 0px -91px;
+  background-position: 1px -48px;
   position: absolute;
-  right: 48px;
+  right: 38px;
   top: 20px;
 }
 #block-views-most-liked-lib-craousel-block  .jcarousel-skin-default .jcarousel-next-horizontal:hover {
-  background-position: 0px -91px;
+  background-position: 1px -131px;
 }
 
 

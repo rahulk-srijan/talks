@@ -1238,12 +1238,13 @@ display: none;
 
         .view-home-page-video-listing .views-field-title a,
         .view-listing-by-category .views-field-title a,
-        .view-listing-by-tags .views-field-title a,
-        .view-playlist .views-field-title a {
+        .view-listing-by-tags .views-field-title a{
             font-size: 12px;
             color: #E37222;
         }
-
+        .view-playlist .views-field-title a {
+            color: #333;
+        }
         .view-playlist .views-field-ops {
             clear: both;
         }
@@ -2472,14 +2473,14 @@ display: none;
         }
 
         .myplaylist .view-content .views-row .views-field-title {
-            width: 175px;
+            width: 180px;
         }
 
         .myplaylist .view-content .views-row .views-field-body {
-             width: 175px;
+             width: 180px;
         }
            .myplaylist .view-content .views-row .content-statistics{
-             width: 175px;
+             width: 180px;
             float: left;
            }
 
