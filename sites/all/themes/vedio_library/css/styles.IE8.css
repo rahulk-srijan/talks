@@ -1364,7 +1364,7 @@ width: 15000px !important;*/
   background-position: 8px 0;
   left: 25px;
   position: absolute;
-  top: 20px;
+  top: 32px;
 }
 #block-views-most-liked-lib-craousel-block .jcarousel-skin-default .jcarousel-prev-horizontal:hover{
   background-position: 3px -91px;
@@ -1373,7 +1373,7 @@ width: 15000px !important;*/
   background-position: 1px -48px;
   position: absolute;
   right: 38px;
-  top: 20px;
+  top: 32px;
 }
 #block-views-most-liked-lib-craousel-block  .jcarousel-skin-default .jcarousel-next-horizontal:hover {
   background-position: 1px -131px;
