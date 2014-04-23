@@ -260,9 +260,19 @@ input.form-autocomplete::-ms-clear {display: none;}
    .bef-select-as-links .form-item .form-item:first-child {padding:0 .75em;}
    .view-listing-by-tags .views-exposed-widgets .views-widget-sort-by {width:425px;}
 
+  }
+@media screen and (min-width: 700px) and (max-width: 1050px) {
+  #page .header-content {
+   width: 1050px;
  }
- /*hide jw player logo*/
- #content .jwplayer .jwlogo{display: none !important;}
+ #page #footer{ 
+width: 1050px;
+ }
+
+}
+
+  /*hide jw player logo*/
+  #content .jwplayer .jwlogo{display: none !important;}
 
 
  /** Parent Site Main menu**/
