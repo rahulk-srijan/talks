@@ -649,11 +649,13 @@ header[role=banner],
         background: #CECCCD;
     }*/
 
-.page-comment-delete #page, .page-comment-delete-own #page {
-    background: #CECCCD;
-    min-height: 665px;
+    .page-comment-delete #page, .page-comment-delete-own #page {
+      /*  background: #CECCCD;*/
+        min-height: 665px;
+    }
+.page-comment-delete #block-block-6{
+display: none;
 }
-
 
     #menu-bar {
 
@@ -2623,11 +2625,12 @@ div.modal-forms-modal-content .form-item label {
     text-decoration: none;
 }
 
-.page-comment-delete #footer, .page-comment-delete-own #footer {
+/*.page-comment-delete #footer, .page-comment-delete-own #footer {
     width: 955px;
     position: absolute;
     bottom: 0;
 }
+*/
 
 .page-comment-delete #breadcrumb, .page-comment-delete-own #breadcrumb {
     display: none;
