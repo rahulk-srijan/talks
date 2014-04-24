@@ -1380,6 +1380,9 @@ a {
 				margin: 0 6px 12px 6px;
 
 			}
+			.lib-title{
+				@extend .hidden-phone;
+			}
 		}
 		.cooment-info .video-views ,
 		.cooment-info .video-count ,
