@@ -1048,15 +1048,15 @@ opacity: 0.8*/
 
 
 #block-views-most-liked-lib-craousel-block h2{
- border-bottom: 1px solid #CECDCD;
- clear: both;
- color: #0066BE;
- font-size: 13px;
- font-weight: bold;
- margin: 20px 28px 0 35px;
- overflow: hidden;
- padding: 2px 1px 1px;
- text-rendering: optimizelegibility !important;
+   border-bottom: 1px solid #CECDCD;
+    clear: both;
+    color: #0066BE;
+    font-size: 13px;
+    font-weight: bold;
+    margin: 20px 2px 0 35px;
+    overflow: hidden;
+    padding: 2px 1px 1px;
+    text-rendering: optimizelegibility !important;
  -webkit-font-smoothing: antialiased !important;
 }
 #block-views-most-trending-block h2{
@@ -1076,7 +1076,7 @@ opacity: 0.8*/
  display: block;
  height: 2px;
  padding: 1px 0;
- margin-right: 20px;
+ margin-right: 2px;
 }
 #block-views-most-trending-block .item-list ul.pager{
  clear: none;

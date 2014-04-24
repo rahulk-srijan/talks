@@ -674,8 +674,8 @@ font-family: arial;
  z-index: 99;
  }*/
  .view-global-popular-video .views-slideshow-controls-bottom {
-   bottom: 18px;
-    left: 25px;
+    bottom: 18px;
+    left: 32px;
     position: absolute;
     z-index: 99;
 }
@@ -1052,14 +1052,14 @@ opacity: 0.8*/
     color: #0066BE;
     font-size: 13px;
     font-weight: bold;
-    margin: 20px 28px 0 35px;
+    margin: 20px 2px 0 35px;
     overflow: hidden;
     padding: 2px 1px 1px;
     text-rendering: optimizelegibility !important;
-  -webkit-font-smoothing: antialiased !important;
+ -webkit-font-smoothing: antialiased !important;
 }
 #block-views-most-trending-block h2{
-/*  border-top: 1px solid #CECDCD;*/
+  /*  border-top: 1px solid #CECDCD;*/
   color: #0066BE;
   float: left;
   font-size: 13px;
@@ -1075,7 +1075,7 @@ opacity: 0.8*/
  display: block;
  height: 2px;
  padding: 1px 0;
- margin-right: 20px;
+ margin-right: 2px;
 }
 #block-views-most-trending-block .item-list ul.pager{
  clear: none;
