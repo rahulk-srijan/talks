@@ -371,13 +371,15 @@ margin: 24px 0 12px;
   margin: 0;
 }
 #block-views-global-popular-video-block{
-    background: none repeat scroll 0 0 #F6F4F4;
+   background: none repeat scroll 0 0 #F6F4F4;
     clear: both;
     display: block;
+    left: 15px;
     margin: 0 auto;
     min-height: 340px;
     overflow: hidden;
-    width: 950px;
+    position: relative;
+    width: 975px;
 }
 .popular-video-slide{
 
@@ -431,15 +433,15 @@ margin: 24px 0 12px;
   -webkit-font-smoothing: antialiased !important;
 }
 .video-info{
- float: left;
- margin-left: 20px;
- padding: 10px 10px 20px 0;
- width: 412px;
+     float: left;
+    margin-left: 30px;
+    padding: 10px 10px 20px 0;
+    width: 408px;
 }
 .thumbnail-comment{
-  float: left;
-  margin: 20px 0 0 10px;
-  width: 470px;  
+    float: left;
+    margin: 20px 0 0 10px;
+    width: 495px; 
 }
 .video-thumb{
     color: #999999;
@@ -454,8 +456,8 @@ margin: 24px 0 12px;
   height: 260px;
 }
 .video-viewthumb img{
-  width: 470px;
-  height: auto;
+    height: auto;
+    width: 495px;
 }
 .video-viewthumb{
   color: #999999;
@@ -671,8 +673,8 @@ margin: 24px 0 12px;
  z-index: 99;
  }*/
  .view-global-popular-video .views-slideshow-controls-bottom {
-   bottom: 18px;
-    left: 25px;
+    bottom: 18px;
+    left: 32px;
     position: absolute;
     z-index: 99;
 }
@@ -1332,11 +1334,11 @@ width: 15000px !important;*/
  height: 140px;
 }
 #block-views-most-liked-lib-craousel-block .library-item{
-    color: #FFFFFF;
+   color: #FFFFFF;
     height: 90px;
     line-height: 15px;
     overflow: hidden;
-    padding: 8px;
+    padding: 10px;
 
 }
 h4.lib-title, .lib-title p{
