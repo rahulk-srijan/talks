@@ -371,15 +371,15 @@ margin: 24px 0 12px;
   margin: 0;
 }
 #block-views-global-popular-video-block{
- background: none repeat scroll 0 0 #F6F4F4;
- clear: both;
- display: block;
- left: 15px;
- margin: 0 auto;
- min-height: 340px;
- overflow: hidden;
- position: relative;
- width: 975px;
+    background: none repeat scroll 0 0 #F6F4F4;
+    clear: both;
+    display: block;
+    left: 15px;
+    margin: 0 auto;
+    min-height: 340px;
+    overflow: hidden;
+    position: relative;
+    width: 960px;
 }
 .popular-video-slide{
 
@@ -441,7 +441,7 @@ margin: 24px 0 12px;
 .thumbnail-comment{
    float: left;
     margin: 20px 0 0 10px;
-    width: 490px;
+    width: 480px;
 }
 .video-thumb{
   color: #999999;
@@ -456,8 +456,8 @@ margin: 24px 0 12px;
   height: 260px;
 }
 .video-viewthumb img{
-  height: auto;
-  width: 488px;
+   height: auto;
+    width: 478px;
 }
 .video-viewthumb{
   color: #999999;
