@@ -440,9 +440,9 @@ font-family: arial;
     width: 408px;
 }
 .thumbnail-comment{
-    float: left;
+   float: left;
     margin: 20px 0 0 10px;
-    width: 495px; 
+    width: 490px;
 }
 .video-thumb{
     color: #999999;
@@ -457,8 +457,8 @@ font-family: arial;
   height: 260px;
 }
 .video-viewthumb img{
-    height: auto;
-    width: 495px;
+  height: auto;
+  width: 488px;
 }
 .video-viewthumb{
   color: #999999;
