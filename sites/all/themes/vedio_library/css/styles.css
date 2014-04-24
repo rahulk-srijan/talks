@@ -371,10 +371,10 @@ margin: 24px 0 12px;
   margin: 0;
 }
 #block-views-global-popular-video-block{
-    background: none repeat scroll 0 0 #F6F4F4;
+   background: none repeat scroll 0 0 #F6F4F4;
     clear: both;
     display: block;
-    left: 15px;
+    left: 8px;
     margin: 0 auto;
     min-height: 340px;
     overflow: hidden;
