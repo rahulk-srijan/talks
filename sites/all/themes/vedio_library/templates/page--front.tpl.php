@@ -136,11 +136,11 @@ global $subsite_home_page_url;
 </header>
 </div>
 
+
+<div class="page-content">
 <div class="popular-content">
 <?php print render($page['popular_content']); ?>
 </div>
-<div class="page-content">
-
 
 
     <!-- Navigation elements -->

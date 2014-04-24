@@ -24,7 +24,9 @@
  * @ingroup views_templates
  */
 ?>
+
 <?php 
+
 if ($row->tid == 455)
 	$class = "color-orange";
 else if($row->tid == 456)
@@ -34,7 +36,9 @@ else if($row->tid == 457)
 else 
 	$color ="color-default";
 ?>
-<div class="library-item library-<?php print $class;?>">
+
+<h4 class="lib-title lib-title-<?php print $class;?>"><?php print $row->taxonomy_term_data_description;?></h4>
+<div class="library-item hargun library-<?php print $class;?>">
 <?php foreach ($fields as $id => $field): ?>
   <?php if (!empty($field->separator)): ?>
     <?php print $field->separator; ?>
