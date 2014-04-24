@@ -395,19 +395,19 @@ margin: 24px 0 12px;
   width: 50px;
 }
 .color-orange,
-.lib-title-color-orange,
+#block-views-most-liked-lib-craousel-block .lib-title-color-orange a,
 #edit-lib-list-org a,
 #page .org-in-action a {
   color: #e27120;
 }
 .color-purple,
-.lib-title-color-purple,
+#block-views-most-liked-lib-craousel-block .lib-title-color-purple a,
 #edit-lib-list-bto a,
 #page .bto-academy a{
   color: #642f7a;
 }
 .color-magenta,
-.lib-title-color-magenta,
+#block-views-most-liked-lib-craousel-block .lib-title-color-magenta a,
 #edit-lib-list-ops a,
 #page .ops-in-action a{
   color: #ad0059;
@@ -1345,7 +1345,7 @@ h4.lib-title, .lib-title p{
 #block-views-most-liked-lib-craousel-block .library-{
   background: #0066BE;
 }
-.lib-title-{
+#block-views-most-liked-lib-craousel-block .lib-title- a{
   color: #0066BE;
 }
 

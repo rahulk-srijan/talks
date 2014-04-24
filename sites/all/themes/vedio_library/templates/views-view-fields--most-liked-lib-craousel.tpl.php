@@ -27,6 +27,8 @@
 
 <?php 
 
+ //echo"<pre>";print_r($row->taxonomy_term_data_name); exit;
+
 if ($row->tid == 455)
 	$class = "color-orange";
 else if($row->tid == 456)
@@ -37,7 +39,8 @@ else
 	$color ="color-default";
 ?>
 
-<h4 class="lib-title lib-title-<?php print $class;?>"><?php print $row->taxonomy_term_data_description;?></h4>
+<h4 class="lib-title lib-title-<?php print $class;?>">
+  <a href="<?php print $row->taxonomy_term_data_name; ?>"><?php print $row->taxonomy_term_data_description;?></a></h4>
 <div class="library-item hargun library-<?php print $class;?>">
 <?php foreach ($fields as $id => $field): ?>
   <?php if (!empty($field->separator)): ?>
