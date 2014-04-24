@@ -439,9 +439,9 @@ margin: 24px 0 12px;
  width: 408px;
 }
 .thumbnail-comment{
-  float: left;
-  margin: 20px 0 0 10px;
-  width: 495px; 
+   float: left;
+    margin: 20px 0 0 10px;
+    width: 490px;
 }
 .video-thumb{
   color: #999999;
@@ -457,7 +457,7 @@ margin: 24px 0 12px;
 }
 .video-viewthumb img{
   height: auto;
-  width: 495px;
+  width: 488px;
 }
 .video-viewthumb{
   color: #999999;
