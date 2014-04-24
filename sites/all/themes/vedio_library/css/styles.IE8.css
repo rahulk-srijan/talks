@@ -1055,7 +1055,6 @@ opacity: 0.8*/
  display: block;
  height: 2px;
  padding: 1px 0;
- margin-right: 2px;
 }
 #block-views-most-trending-block .item-list ul.pager{
  clear: none;
@@ -1316,7 +1315,7 @@ width: 15000px !important;*/
     height: 90px;
     line-height: 15px;
     overflow: hidden;
-    padding: 10px;
+    padding: 10px 12px;
 
 }
 h4.lib-title, .lib-title p{
@@ -1332,13 +1331,13 @@ h4.lib-title, .lib-title p{
   line-height: 15px;
 }
 #block-views-most-liked-lib-craousel-block .library-color-purple{
-  background: #642f7a;
+  background: #632f7a;
 }
 #block-views-most-liked-lib-craousel-block .library-color-orange{
   background: none repeat scroll 0 0 #E69256;
 }
 #block-views-most-liked-lib-craousel-block .library-color-magenta{
-  background: none repeat scroll 0 0 #632F7A;
+  background: none repeat scroll 0 0 #AD0059;
 }
 #block-views-most-liked-lib-craousel-block .library-color-default,
 #block-views-most-liked-lib-craousel-block .library-{
@@ -1370,7 +1369,7 @@ h4.lib-title, .lib-title p{
 #block-views-most-liked-lib-craousel-block .jcarousel-skin-default .jcarousel-next-horizontal {
   background-position: 1px -48px;
   position: absolute;
-  right: 38px;
+  right: 36px;
   top: 62px;
 }
 #block-views-most-liked-lib-craousel-block  .jcarousel-skin-default .jcarousel-next-horizontal:hover {
