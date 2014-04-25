@@ -1066,7 +1066,7 @@ opacity: 0.8*/
   padding-top: 5px;
 }
 
-#block-block-7 .block-content p,
+
 #block-block-35 h1{
   padding-bottom: 5px;
   border-bottom: 1px solid #676766;
@@ -1199,13 +1199,14 @@ opacity: 0.8*/
   padding-left: 0;
   }*/
 
-#block-block-9 .block-content p{
-     color: #2175BF;
-    font-size: 19px;
-    font-weight: bold;
-    margin-bottom: 0;
-}
-.ctools-modal-content{
+  #block-block-9 .block-content p,
+  #block-block-7 .block-content p{
+   color: #2175BF;
+   font-size: 19px;
+   font-weight: bold;
+   margin-bottom: 0;
+ }
+ .ctools-modal-content{
   height: 210px !important;
   width: 250px !important;
 }
