@@ -371,15 +371,15 @@ margin: 24px 0 12px;
   margin: 0;
 }
 #block-views-global-popular-video-block{
- background: none repeat scroll 0 0 #F6F4F4;
- clear: both;
- display: block;
- left: 15px;
- margin: 0 auto;
- min-height: 340px;
- overflow: hidden;
- position: relative;
- width: 975px;
+   background: none repeat scroll 0 0 #F6F4F4;
+    clear: both;
+    display: block;
+    left: 8px;
+    margin: 0 auto;
+    min-height: 340px;
+    overflow: hidden;
+    position: relative;
+    width: 960px;
 }
 .popular-video-slide{
 
@@ -395,19 +395,19 @@ margin: 24px 0 12px;
   width: 50px;
 }
 .color-orange,
-.lib-title-color-orange,
+#block-views-most-liked-lib-craousel-block .lib-title-color-orange a,
 #edit-lib-list-org a,
 #page .org-in-action a {
   color: #e27120;
 }
 .color-purple,
-.lib-title-color-purple,
+#block-views-most-liked-lib-craousel-block .lib-title-color-purple a,
 #edit-lib-list-bto a,
 #page .bto-academy a{
   color: #642f7a;
 }
 .color-magenta,
-.lib-title-color-magenta,
+#block-views-most-liked-lib-craousel-block .lib-title-color-magenta a,
 #edit-lib-list-ops a,
 #page .ops-in-action a{
   color: #ad0059;
@@ -441,7 +441,7 @@ margin: 24px 0 12px;
 .thumbnail-comment{
    float: left;
     margin: 20px 0 0 10px;
-    width: 490px;
+    width: 480px;
 }
 .video-thumb{
   color: #999999;
@@ -456,8 +456,8 @@ margin: 24px 0 12px;
   height: 260px;
 }
 .video-viewthumb img{
-  height: auto;
-  width: 488px;
+   height: auto;
+    width: 478px;
 }
 .video-viewthumb{
   color: #999999;
@@ -1345,7 +1345,7 @@ h4.lib-title, .lib-title p{
 #block-views-most-liked-lib-craousel-block .library-{
   background: #0066BE;
 }
-.lib-title-{
+#block-views-most-liked-lib-craousel-block .lib-title- a{
   color: #0066BE;
 }
 
