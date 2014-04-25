@@ -1,3 +1,11 @@
+  @media screen and (min-width: 700px) and (max-width: 1050px) {
+    #page .header-content {
+     width: 1050px;
+   }
+   #page #footer{ 
+    width: 1050px;
+  }
+}
 
 
   #views_infinite_scroll-ajax-loader, .view-home-page-video-listing .view-content {clear:both;}
@@ -364,25 +372,25 @@ input.form-autocomplete::-ms-clear {display: none;}
   margin: 0;
 }
 #block-views-global-popular-video-block{
-   background: none repeat scroll 0 0 #F6F4F4;
-    clear: both;
-    display: block;
-    left: 8px;
-    margin: 0 auto;
-    min-height: 310px;
-    overflow: hidden;
-    position: relative;
-    width: 960px;
+ background: none repeat scroll 0 0 #F6F4F4;
+ clear: both;
+ display: block;
+ left: 8px;
+ margin: 0 auto;
+ min-height: 310px;
+ overflow: hidden;
+ position: relative;
+ width: 973px;
 }
 .popular-video-slide{
 
 }
 .popular-video-slide .play-button {
-   left: 88%;
-    opacity: 1;
-    position: absolute;
-    top: 79%;
-    width: 50px;
+  left: 85%;
+  opacity: 1;
+  position: absolute;
+  top: 74%;
+  width: 50px;
 }
 .popular-video-slide .play-button img{
   width: 50px;
@@ -426,22 +434,22 @@ font-family: arial;
   -webkit-font-smoothing: antialiased !important;
 }
 .video-info{
-   float: left;
-    margin-left: 30px;
+    float: left;
+    margin-left: 23px;
     padding: 10px 10px 20px 0;
-    width: 444px;
+    width: 460px;
 }
 .thumbnail-comment{
-   float: left;
-    margin: 20px 0 0 10px;
-    width: 442px
+ float: left;
+ margin: 20px 0 0 10px;
+ width: 442px
 }
 .video-thumb{
-    color: #999999;
-    font-size: 14px;
-    line-height: 14px;
-    margin: 4px 0 0;
-    position: relative;
+  color: #999999;
+  font-size: 14px;
+  line-height: 14px;
+  margin: 4px 0 0;
+  position: relative;
 }
 .video-thumb .image-style-featured-video-thumbnail {
   display: block;
@@ -948,10 +956,10 @@ font-family: arial;
    }
    .available_channels_block  .field-content .play-button ,
    .view-most-liked-lib-craousel .field-content .play-button {
-  left: 70%;
+ left: 72%;
     opacity: 1;
     position: absolute;
-    top: 60%;
+    top: 64%;
     width: 26px;
   }
   .upload-video{
