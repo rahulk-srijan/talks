@@ -366,7 +366,7 @@ input.form-autocomplete::-ms-clear {display: none;}
 .popular-content{
 /* background: none repeat scroll 0 0 #F6F4F4;
 width: 100%;*/
-margin: 24px 0 22px;
+margin: 24px 0 2px;
 }
 .region-popular-content{
   margin: 0;
