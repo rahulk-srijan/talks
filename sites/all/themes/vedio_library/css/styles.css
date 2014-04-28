@@ -2,7 +2,7 @@
     #page .header-content {
      width: 1050px;
    }
-   #page #footer{ 
+   #page #footer{
     width: 1050px;
   }
 }
@@ -366,7 +366,7 @@ input.form-autocomplete::-ms-clear {display: none;}
 .popular-content{
 /* background: none repeat scroll 0 0 #F6F4F4;
 width: 100%;*/
-margin: 24px 0 12px;
+margin: 24px 0 22px;
 }
 .region-popular-content{
   margin: 0;
@@ -661,7 +661,7 @@ margin: 24px 0 12px;
 /*#block-views-global-popular-video-block{
   margin-bottom: 0px;
   }*/
-  #block-views-global-popular-video-block .new-video-duration{ 
+  #block-views-global-popular-video-block .new-video-duration{
     display: none;
   }
   #block-views-global-popular-video-block .cooment-info span{
@@ -941,7 +941,7 @@ margin: 24px 0 12px;
      /*color: #1070C2;
      font-size: 13px;
      margin-top: 6px;
-     */  
+     */
      display: none;
    }
    .available_channels_block .views-field-body p,
