@@ -366,7 +366,7 @@ function videolibrary_core_node_view($node, $view_mode, $langcode) {
 function videolibrary_core_menu() {
     $items = array();
 
-  $items['suggest/%ctools_js'] = array(
+    $items['suggest/%ctools_js'] = array(
     'page callback' => 'videolibrary_core_callback',
     'page arguments' => array(1),
     'access callback' => TRUE,
