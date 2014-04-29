@@ -1038,7 +1038,7 @@ opacity: 0.8*/
  color: #0066BE;
  font-size: 13px;
  font-weight: bold;
- margin: 20px 24px 0 35px;
+ margin: 20px 22px 0 35px;
  overflow: hidden;
  padding: 2px 1px 1px;
  text-rendering: optimizelegibility !important;
@@ -1060,7 +1060,7 @@ opacity: 0.8*/
     content: "";
     display: block;
     height: 2px;
-    margin-right: -3px;
+    margin-right: 0;
     padding: 1px 0;
 
 }
@@ -1306,7 +1306,7 @@ display: inline-block;
   overflow: hidden !important;
   position: relative;
 /*  width: 875px !important;*/
-width: 946px !important;
+width: 948px !important;
 }
 
 

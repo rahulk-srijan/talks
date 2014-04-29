@@ -279,9 +279,9 @@
     float: left;
 }
 #page .region-menu-top{
-    float: right;
+ float: right;
+    margin-right: 40px;
     width: 510px;
-    margin-right: 38px;
 }
 
   /*
@@ -528,7 +528,7 @@ background: url("images/sitename.png") no-repeat scroll 1px 3px transparent;
    */
 .region-footer {
     margin: 0px auto;
-    width: 1050px;
+    width: 1005px;
   }
 
   .region.region-footer .block {
