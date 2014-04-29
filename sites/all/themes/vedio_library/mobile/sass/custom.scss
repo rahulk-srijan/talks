@@ -1355,11 +1355,11 @@ a {
 			// 	display: block !important;
 			// }
 			.upload-video {
-				    background: none repeat scroll 0 0 #f5f5f5;
-    display: inline-block;
-    min-height: 85px;
-    position: relative;
-    width: 100%;
+				background: none repeat scroll 0 0 #f5f5f5;
+				display: inline-block;
+				min-height: 85px;
+				position: relative;
+				width: 100%;
 
 				.play-button {
 					left: 78%;
@@ -1464,11 +1464,11 @@ a {
 				padding: 2px 0 2px 18px;
 			}
 			.upload-video {
-			    background: none repeat scroll 0 0 #f5f5f5;
-    display: inline-block;
-    min-height: 85px;
-    position: relative;
-    width: 100%;
+				background: none repeat scroll 0 0 #f5f5f5;
+				display: inline-block;
+				min-height: 85px;
+				position: relative;
+				width: 100%;
 
 				.play-button {
 					left: 76%;
@@ -1595,11 +1595,11 @@ a {
 				}
 
 				.views-field-field-upload-video {
-				    background: none repeat scroll 0 0 #f5f5f5;
-    display: inline-block;
-    min-height: 85px;
-    position: relative;
-    width: 100%;
+					background: none repeat scroll 0 0 #f5f5f5;
+					display: inline-block;
+					min-height: 85px;
+					position: relative;
+					width: 100%;
 
 					.play-button {
 						position: absolute;
@@ -1750,17 +1750,25 @@ a {
 		}
 
 	}
+	.view-playlist{
+		.video-content {
+			float: left;
+			height: auto;
+			margin: 0 3%;
+			width: 47%;
+		}
+	}
 	.view-playlist,
 	#block-views-related-video-block,
 	#block-views-related-video-block-1,
 	.view-listing-by-category,
 	.view-listing-by-tags{
 		.upload-video{
-		    background: none repeat scroll 0 0 #f5f5f5;
-    display: inline-block;
-    min-height: 85px;
-    position: relative;
-    width: 100%;
+			background: none repeat scroll 0 0 #f5f5f5;
+			display: inline-block;
+			min-height: 85px;
+			position: relative;
+			width: 100%;
 			.play-button{
 				left: 76%;
 				position: absolute;
@@ -1893,12 +1901,12 @@ a {
 		}
 	}
 
-#back-to-search{
-	color: #00ACEE;
-	font-size: 11px;
-	margin-top: 12px;
-	font-weight: bold;
-}
+	#back-to-search{
+		color: #00ACEE;
+		font-size: 11px;
+		margin-top: 12px;
+		font-weight: bold;
+	}
 	#columns {
 		#content-column {
 			// margin-top: -20px;
