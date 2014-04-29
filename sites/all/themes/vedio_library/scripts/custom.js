@@ -204,7 +204,7 @@ function sort_autosubmit() {
 //    }
 }
 function search_trim() {
-    jQuery(".search-snippet-info .search-snippet .video-title").more({length: 70, moreText: ''});
+    //jQuery(".search-snippet-info .search-snippet .video-title").more({length: 70, moreText: ''});
     jQuery(".search-snippet .snippet").more({length: 70, moreText: ''});
 }
 function mobileTweaks() {
