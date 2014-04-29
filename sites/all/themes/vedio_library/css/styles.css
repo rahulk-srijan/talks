@@ -372,15 +372,15 @@ margin: 24px 0 22px;
   margin: 0;
 }
 #block-views-global-popular-video-block{
- background: none repeat scroll 0 0 #F6F4F4;
- clear: both;
- display: block;
- left: 8px;
- margin: 0 auto;
- min-height: 310px;
- overflow: hidden;
- position: relative;
- width: 973px;
+   background: none repeat scroll 0 0 #F6F4F4;
+    clear: both;
+    display: block;
+    left: 8px;
+    margin: 0 auto;
+    min-height: 310px;
+    overflow: hidden;
+    position: relative;
+    width: 950px;
 }
 .popular-video-slide{
 
@@ -437,7 +437,7 @@ margin: 24px 0 22px;
     float: left;
     margin-left: 23px;
     padding: 10px 10px 20px 0;
-    width: 460px;
+    width: 442px;
 }
 .thumbnail-comment{
  float: left;
@@ -1031,7 +1031,7 @@ opacity: 0.8*/
  color: #0066BE;
  font-size: 13px;
  font-weight: bold;
- margin: 20px 24px 0 35px;
+ margin: 20px 20px 0 35px;
  overflow: hidden;
  padding: 2px 1px 1px;
  text-rendering: optimizelegibility !important;   border-bottom: 1px solid #CECDCD;
@@ -1057,11 +1057,13 @@ opacity: 0.8*/
   -webkit-font-smoothing: antialiased !important;
 }
 #block-views-most-trending-block h2:after{
- border-bottom: 1px solid #CECDCD;
- content: "";
- display: block;
- height: 2px;
- padding: 1px 0;
+  border-bottom: 1px solid #CECDCD;
+    content: "";
+    display: block;
+    height: 2px;
+    margin-right: -3px;
+    padding: 1px 0;
+
 }
 #block-views-most-trending-block .item-list ul.pager{
  clear: none;
@@ -1175,11 +1177,11 @@ opacity: 0.8*/
   .view-most-trending .views-row{
     float: left;
     font-size: 12px;
-    height: 130px;
-    margin: 6px 26px 16px 0;
+    height: auto;
+    margin: 6px 26px 6px 0;
     overflow: hidden;
-    width: 208px;
     position: relative;
+    width: 210px;
   }
   .view-most-trending .view-header{
    margin: 2px 0 20px;
@@ -1294,30 +1296,41 @@ Splash Page theming
 
 #block-views-most-liked-lib-craousel-block .jcarousel-skin-default .jcarousel-container-horizontal {
   margin: 26px 0 0;
-  padding: 0 40px;
+ /* padding: 0 40px;*/
+ padding: 0;
   width: 945px;
   height: 140px;
 }
 
 #block-views-most-liked-lib-craousel-block .jcarousel-skin-default .jcarousel-clip-horizontal {
-  left: 10px;
+  left: 14px;
   margin-left: 22px;
   overflow: hidden !important;
   position: relative;
-  width: 875px !important;
-}
-#block-views-most-liked-lib-craousel-block .jcarousel-list{
-/*  width: 100% !important;
-width: 15000px !important;*/
+/*  width: 875px !important;*/
+width: 946px !important;
 }
 
+
+/*#block-views-most-liked-lib-craousel-block .jcarousel-list{
+  width: 100% !important;
+width: 15000px !important;
+}*/
+
 #block-views-most-liked-lib-craousel-block .jcarousel-skin-default .jcarousel-item {
- border: medium none;
+/* border: medium none;
  margin: 0 23px 0 0;
  overflow: hidden;
  text-align: left;
  width: 275px;
- height: 140px;
+ height: 140px;*/ /* In case more than 3 items in carousel  */
+ border: medium none;
+    height: 140px;
+    margin: 0 40px 0 0;
+    overflow: hidden;
+    text-align: left;
+    width: 289px;
+
 }
 #block-views-most-liked-lib-craousel-block .library-item{
  color: #FFFFFF;
@@ -1367,23 +1380,25 @@ h4.lib-title, .lib-title p{
   width: 32px;
 }
 #block-views-most-liked-lib-craousel-block .jcarousel-skin-default .jcarousel-prev-horizontal {
-  background-position: 8px 0;
+display: none;
+/*  background-position: 8px 0;
   left: 25px;
   position: absolute;
-  top: 62px;
+  top: 62px;*/
 }
-#block-views-most-liked-lib-craousel-block .jcarousel-skin-default .jcarousel-prev-horizontal:hover{
+/*#block-views-most-liked-lib-craousel-block .jcarousel-skin-default .jcarousel-prev-horizontal:hover{
   background-position: 3px -91px;
-}
+}*/
 #block-views-most-liked-lib-craousel-block .jcarousel-skin-default .jcarousel-next-horizontal {
-  background-position: 1px -48px;
+display: none;
+/*  background-position: 1px -48px;
   position: absolute;
   right: 36px;
-  top: 62px;
+  top: 62px;*/
 }
-#block-views-most-liked-lib-craousel-block  .jcarousel-skin-default .jcarousel-next-horizontal:hover {
+/*#block-views-most-liked-lib-craousel-block  .jcarousel-skin-default .jcarousel-next-horizontal:hover {
   background-position: 1px -131px;
-}
+}*/
 
 
 #block-views-most-liked-lib-craousel-block-1{
