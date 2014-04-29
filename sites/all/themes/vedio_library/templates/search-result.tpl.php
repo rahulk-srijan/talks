@@ -86,28 +86,28 @@ global $base_url;
             </div>
             <?php if ($video_duration): ?>
                 <div class="video-search-duration"><?php print $video_duration; ?></div>
-            <?php endif; ?> 
+            <?php endif; ?>
         </div>
 
 
         <?php if ($snippet): ?>
             <div class="search-snippet"<?php print $content_attributes; ?>>
-                <div class="video-title">
+                <a href="<?php print $url; ?>"><div class="video-title">
                     <span class="title"<?php print $title_attributes; ?>>
-                        <a href="<?php print $url; ?>"><?php print $title; ?></a>
+                        <?php print $title; ?>
                     </span>
-                </div>
+                </div></a>
                 <div class="snippet">  <?php print $snippet; ?></div>
 
 
-                <?php if ($author): ?>    
+                <?php if ($author): ?>
                     <div class="author">
                         <?php
                         $profile_url = mck_user_profile1($author);
                         print '<strong class="profile">Author: </strong><a href="' . $profile_url . '" target="_blank">' . $author . '</a>';
                         ?>
                     </div>
-                <?php endif; ?>  
+                <?php endif; ?>
 
 
                 <?php if ($category): ?>
@@ -118,7 +118,7 @@ global $base_url;
             <?php endif; ?>
 
         </div>
-         <?php if ($bm_field_share){ ?>    
+         <?php if ($bm_field_share){ ?>
                 <div class="field_share"><?php print t('*Not client shareable'); ?></div>
          <?php } else { ?>
                 <div class="field_share"></div>
