@@ -1016,7 +1016,7 @@ opacity: 0.8*/
 .front .content-inner {height: 0;}
 
 #block-views-most-trending-block {
-    margin: 0 12px 2px 20px;
+  margin: 0 12px 2px 18px;
 }
 #block-views-most-trending-block .block-content{
   margin: 0 12px 12px 18px;
@@ -1116,6 +1116,11 @@ opacity: 0.8*/
  margin-bottom: 20px;
     margin-right: 6px;
     width: 125px;
+}
+.view-most-trending .upload-video{
+height: 65px;
+ width: 125px;
+ background: #F5F5F5;
 }
 .view-home-page-video-listing .upload-video{
   background: none repeat scroll 0 0 #F5F5F5;
