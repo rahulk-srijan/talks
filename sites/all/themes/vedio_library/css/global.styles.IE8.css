@@ -253,7 +253,7 @@ var {
    */
   #branding {
     float: left;
-    margin: 20px 0 0 40px  ;
+    margin: 20px 0 0 37px  ;
     width: 405px;
   }
 
@@ -279,9 +279,9 @@ var {
     float: left;
 }
 #page .region-menu-top{
-    float: right;
+ float: right;
+    margin-right: 40px;
     width: 510px;
-    margin-right: 38px;
 }
 
   /*
@@ -528,7 +528,7 @@ font-size: 1em;
    */
 .region-footer {
     margin: 0px auto;
-    width: 1050px;
+    width: 1005px;
   }
 
 .region.region-footer .block {

@@ -1018,7 +1018,7 @@ opacity: 0.8*/
 .front .content-inner {height: 0;}
 
 #block-views-most-trending-block {
-  margin: 0 12px 2px 20px;
+  margin: 0 12px 2px 18px;
 }
 #block-views-most-trending-block .block-content{
   margin: 0 12px 12px 18px;
@@ -1040,7 +1040,7 @@ opacity: 0.8*/
  color: #0066BE;
  font-size: 13px;
  font-weight: bold;
- margin: 20px 24px 0 35px;
+ margin: 20px 22px 0 35px;
  overflow: hidden;
  padding: 2px 1px 1px;
  text-rendering: optimizelegibility !important;
@@ -1048,13 +1048,14 @@ opacity: 0.8*/
 }
 #block-views-most-trending-block h2{
   /*  border-top: 1px solid #CECDCD;*/
-  color: #0066BE;
-  float: left;
-  font-size: 13px;
-  font-weight: bold;
-  padding: 4px 0;
-  text-rendering: optimizelegibility !important;
-  width: 100%;
+ color: #0066BE;
+    float: left;
+    font-size: 13px;
+    font-weight: bold;
+    margin-left: -1px;
+    padding: 4px 0;
+    text-rendering: optimizelegibility !important;
+    width: 100%;
   -webkit-font-smoothing: antialiased !important;
 }
 #block-views-most-trending-block h2:after{
@@ -1062,7 +1063,7 @@ opacity: 0.8*/
     content: "";
     display: block;
     height: 2px;
-    margin-right: -3px;
+    margin-right: 0;
     padding: 1px 0;
 
 }
@@ -1117,6 +1118,11 @@ opacity: 0.8*/
  margin-bottom: 20px;
  margin-right: 6px;
  width: 125px;
+}
+.view-most-trending .upload-video{
+height: 65px;
+ width: 125px;
+ background: #F5F5F5;
 }
 .view-home-page-video-listing .upload-video{
   background: none repeat scroll 0 0 #F5F5F5;
@@ -1299,7 +1305,7 @@ Splash Page theming
   margin: 26px 0 0;
  /* padding: 0 40px;*/
  padding: 0;
-  width: 945px;
+  width: 960px;
   height: 140px;
 }
 
@@ -1309,7 +1315,7 @@ Splash Page theming
   overflow: hidden !important;
   position: relative;
 /*  width: 875px !important;*/
-width: 946px !important;
+width: 950px !important;
 }
 
 
@@ -1330,7 +1336,7 @@ width: 15000px !important;
     margin: 0 40px 0 0;
     overflow: hidden;
     text-align: left;
-    width: 289px;
+    width: 290px;
 
 }
 #block-views-most-liked-lib-craousel-block .library-item{
