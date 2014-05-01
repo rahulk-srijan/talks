@@ -485,6 +485,10 @@ margin: 24px 0 2px;
 .video-title{
  margin: 6px 30px 4px 6px;
 }
+.search-snippet .video-title{
+  margin: 0;
+  color: #333;
+}
 .video-body{
  color: #333333;
  font-family: georgia;
