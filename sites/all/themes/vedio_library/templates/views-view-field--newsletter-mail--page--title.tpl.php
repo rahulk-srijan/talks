@@ -37,7 +37,7 @@ if($host == 'videolibrary2qa.intranet.mckinsey.com'){
 if($host == 'videolibrary2int.intranet.mckinsey.com'){
   print '<a href="http://devhome.intranet.mckinsey.com/talks/'.$path_alias.'">'.$node_title.'</a>';
 }
-if($host == 'videolibrary2.intranet.mckinsey.com'){
+if($host == 'talks.intranet.mckinsey.com'){
   print '<a href="http://home.intranet.mckinsey.com/talks/'.$path_alias.'">'.$node_title.'</a>';
 }
 ?>
