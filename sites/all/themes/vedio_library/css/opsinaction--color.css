@@ -65,7 +65,10 @@ color: #AD0059 !important;
 #edit-tid-wrapper .jcarousel-skin-default .jcarousel-item a.active-tag {
 color: #AD0059;
 }
-
+.search-snippet .video-title, .search-snippet a{
+  margin: 0;
+color: #AD0059;
+}
 /*.lib-name , .default{
     background: none repeat scroll 0 0 #AD0059;
     }

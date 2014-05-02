@@ -485,7 +485,7 @@ margin: 24px 0 2px;
 .video-title{
  margin: 6px 30px 4px 6px;
 }
-.search-snippet .video-title{
+.search-snippet .video-title, .search-snippet a{
   margin: 0;
   color: #333;
 }

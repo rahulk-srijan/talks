@@ -19,3 +19,7 @@
 #page-title{
    color: #E37222; 
 }
+.search-snippet .video-title, .search-snippet a{
+  margin: 0;
+color: #E37222; 
+}
