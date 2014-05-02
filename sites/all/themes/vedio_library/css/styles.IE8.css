@@ -1163,12 +1163,13 @@ height: 65px;
   }
   .view-most-trending .views-field-title{
     display: inline-block;
-    width: 68px;
-    word-wrap: break-word;
     font-size: 13px;
     font-weight: bold;
     line-height: 15px;
-    text-rendering: optimizeLegibility !important;
+    overflow: hidden;
+    text-rendering: optimizelegibility !important;
+    width: 82px;
+    word-wrap: break-word;
     -webkit-font-smoothing: antialiased !important;
   }
 
@@ -1186,10 +1187,10 @@ height: 65px;
     float: left;
     font-size: 12px;
     height: auto;
-    margin: 6px 26px 6px 0;
+    margin: 6px 21px 6px 0;
     overflow: hidden;
     position: relative;
-    width: 210px;
+    width: 215px;
   }
   .view-most-trending .view-header{
    margin: 2px 0 20px;
