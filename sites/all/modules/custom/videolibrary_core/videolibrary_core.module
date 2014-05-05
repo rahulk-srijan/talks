@@ -43,6 +43,24 @@ $library_subsite_variable = array(
         'tid'=>'536',
         'resource'=>'',
         'recommend_text' => ' recommends a Spotlight video.'),
+    'it' =>
+    array('to' => 'IT@mckinsey.com',
+        'from_email' => 'it_team@mckinsey.com',
+        'subject' => 'Suggest a video',
+        'msg' => 'I recommend adding the following video to the IT video library',
+        'site_name' => 'IT Video Library',
+         'tid'=>'591',
+         'resource'=>'http://home.intranet.mckinsey.com/practicespaces/ps/org/',
+        'recommend_text' => ' recommends an IT video.'),
+     'nwd' =>
+    array('to' => 'nwd@mckinsey.com',
+        'from_email' => 'nwd_team@mckinsey.com',
+        'subject' => 'Suggest a video',
+        'msg' => 'I recommend adding the following video to the nwd video library',
+        'site_name' => 'nwd Video Library',
+         'tid'=>'592',
+         'resource'=>'http://home.intranet.mckinsey.com/practicespaces/ps/org/',
+        'recommend_text' => ' recommends an nwd video.'),
         );
 
 /**
@@ -107,7 +125,7 @@ function get_term_id($name) {
 function category_menu() {
     $argument = explode('/', request_path());
     global $subsite_home_page_url;
-    $category_vocab = array('orginaction' => 'category', 'btoacademy' => 'bto_category', 'opsinaction' => 'ops_category');
+    $category_vocab = array('orginaction' => 'category', 'btoacademy' => 'bto_category', 'opsinaction' => 'ops_category','it'=>'it_category','nwd'=>'nwd_category');
 
     $homeclass = '';
     $tagsclass = '';
