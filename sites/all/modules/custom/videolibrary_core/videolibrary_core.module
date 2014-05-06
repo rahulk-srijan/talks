@@ -443,6 +443,12 @@ function videolibrary_core_form($form, $form_state) {
     $mail_to_org = $library_subsite_variable['orginaction']['to'];
     $subject_org = $library_subsite_variable['orginaction']['subject'];
     $msg_org = $library_subsite_variable['orginaction']['msg'];
+    $mail_to_it = $library_subsite_variable['it']['to'];
+    $subject_it = $library_subsite_variable['it']['subject'];
+    $msg_it = $library_subsite_variable['it']['msg'];
+    $mail_to_nwd = $library_subsite_variable['nwd']['to'];
+    $subject_nwd = $library_subsite_variable['nwd']['subject'];
+    $msg_nwd = $library_subsite_variable['nwd']['msg'];
 /*
   $form['lib_list']= array(
   '#type' => 'radios',
@@ -455,6 +461,8 @@ function videolibrary_core_form($form, $form_state) {
   $bto= ' <a class="lib" id="bto" href="mailto:' . $mail_to_bto . '?Subject=' . $subject_bto . '&body=' . $msg_bto . '">BTO Academy</a><br/>';
   $ops ='<a class="lib" id="ops" href="mailto:' . $mail_to_ops . '?Subject=' . $subject_ops . '&body=' . $msg_ops . '">Ops in Action</a><br/>';
   $org= '<a class="lib" id="org" href="mailto:' . $mail_to_org . '?Subject=' . $subject_org . '&body=' . $msg_org . '">Org in Action</a>';
+  $it= '<a class="lib" id="org" href="mailto:' . $mail_to_org . '?Subject=' . $subject_org . '&body=' . $msg_org . '">IT Video Library</a>';
+  $nwd= '<a class="lib" id="org" href="mailto:' . $mail_to_org . '?Subject=' . $subject_org . '&body=' . $msg_org . '">NWD Video Library</a>';
 
 
  $form['lib_list_gen'] = array(
@@ -494,6 +502,26 @@ function videolibrary_core_form($form, $form_state) {
     // '#states' => array(
     //   'visible' => array(
     //     ':input[name="lib_list"]' => array('value' => '3'),
+    //   ),
+    // ),
+  );
+ $form['lib_list_it'] = array(
+//    '#title' => t('Click below to suggest a video'),
+    '#type' => 'item',
+    '#markup'=> $it,
+    // '#states' => array(
+    //   'visible' => array(
+    //     ':input[name="lib_list"]' => array('value' => '2'),
+    //   ),
+    // ),
+  );
+ $form['lib_list_nwd'] = array(
+//    '#title' => t('Click below to suggest a video'),
+    '#type' => 'item',
+    '#markup'=> $nwd,
+    // '#states' => array(
+    //   'visible' => array(
+    //     ':input[name="lib_list"]' => array('value' => '2'),
     //   ),
     // ),
   );
