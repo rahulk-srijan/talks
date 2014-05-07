@@ -14,6 +14,7 @@ $library_subsite_variable = array(
         'msg' => 'I recommend adding the following video to the Org in Action video library',
         'site_name' => 'Org in Action',
          'tid'=>'455',
+         'channel_path'=>'orginaction',
          'resource'=>'http://home.intranet.mckinsey.com/practicespaces/ps/org/',
         'recommend_text' => ' recommends an Org in Action video.'),
     'opsinaction' =>
@@ -23,6 +24,7 @@ $library_subsite_variable = array(
         'msg' => 'I recommend adding the following video to the Ops in Action video library',
         'site_name' => 'Ops in Action',
         'tid'=>'456',
+        'channel_path'=>'opsinaction',
         'resource'=>'http://home.intranet.mckinsey.com/practicespaces/ps/ops/',
         'recommend_text' => ' recommends an Ops in Action video.'),
     'btoacademy' =>
@@ -32,6 +34,7 @@ $library_subsite_variable = array(
         'msg' => 'I recommend adding the following video to the BTO Academy video library',
         'site_name' => 'BTO Academy',
         'tid'=>'457',
+        'channel_path'=>'btoacademy',
         'resource'=>'http://home.intranet.mckinsey.com/practicespaces/ps/bt/',
         'recommend_text' => ' recommends a BTO Academy video.'),
     'spotlight' =>
@@ -41,6 +44,7 @@ $library_subsite_variable = array(
         'msg' => 'I recommend adding the following video to the miscellaneous library',
         'site_name' => 'Miscellaneous: Video Library',
         'tid'=>'536',
+        'channel_path'=>'spotlight',
         'resource'=>'',
         'recommend_text' => ' recommends a Spotlight video.'),
     'it' =>
@@ -50,6 +54,7 @@ $library_subsite_variable = array(
         'msg' => 'I recommend adding the following video to the IT video library',
         'site_name' => 'IT Video Library',
          'tid'=>'591',
+         'channel_path'=>'it',
          'resource'=>'http://home.intranet.mckinsey.com/practicespaces/ps/org/',
         'recommend_text' => ' recommends an IT video.'),
      'nwd' =>
@@ -59,6 +64,7 @@ $library_subsite_variable = array(
         'msg' => 'I recommend adding the following video to the nwd video library',
         'site_name' => 'nwd Video Library',
          'tid'=>'592',
+         'channel_path'=>'nwd',
          'resource'=>'http://home.intranet.mckinsey.com/practicespaces/ps/org/',
         'recommend_text' => ' recommends an nwd video.'),
         );
@@ -359,6 +365,7 @@ function videolibrary_core_menu_alter(&$items) {
 function videolibrary_core_node_view($node, $view_mode, $langcode) {
     //dsm($GLOBALS);
      //$device = array('ipad', 'iphone');
+    global $library_subsite_variable;
     $uri= $GLOBALS['_GET']['redirect'];
      if ((bool) strpos($_SERVER['HTTP_USER_AGENT'], 'iPad') && (bool) strpos($_SERVER['HTTP_USER_AGENT'], 'iPhone' && $uri= 'true')) {
      //    return;
@@ -369,10 +376,10 @@ function videolibrary_core_node_view($node, $view_mode, $langcode) {
     elseif(($_SERVER['HTTP_REFERER']==NULL) && ($GLOBALS['_GET']['q'] == 'node/5')) {
     $flag = flag_get_flag('default');
     if($flag) {
-    $libs=array('455'=>'orginaction','456'=>'opsinaction','457'=>'btoacademy');
-    foreach($libs as $key=>$value) {
-    if ($flag->is_flagged($key)) {
-      drupal_goto($value);
+   // $libs=array('455'=>'orginaction','456'=>'opsinaction','457'=>'btoacademy');
+    foreach($library_subsite_variable as $channel) {
+    if ($flag->is_flagged($channel['tid'])) {
+      drupal_goto($channel['channel_path']);
     }
     }
 }else {
@@ -461,8 +468,8 @@ function videolibrary_core_form($form, $form_state) {
   $bto= ' <a class="lib" id="bto" href="mailto:' . $mail_to_bto . '?Subject=' . $subject_bto . '&body=' . $msg_bto . '">BTO Academy</a><br/>';
   $ops ='<a class="lib" id="ops" href="mailto:' . $mail_to_ops . '?Subject=' . $subject_ops . '&body=' . $msg_ops . '">Ops in Action</a><br/>';
   $org= '<a class="lib" id="org" href="mailto:' . $mail_to_org . '?Subject=' . $subject_org . '&body=' . $msg_org . '">Org in Action</a>';
-  $it= '<a class="lib" id="org" href="mailto:' . $mail_to_org . '?Subject=' . $subject_org . '&body=' . $msg_org . '">IT Video Library</a>';
-  $nwd= '<a class="lib" id="org" href="mailto:' . $mail_to_org . '?Subject=' . $subject_org . '&body=' . $msg_org . '">NWD Video Library</a>';
+  $it= '<a class="lib" id="org" href="mailto:' . $mail_to_it . '?Subject=' . $subject_it . '&body=' . $msg_it . '">IT Video Library</a>';
+  $nwd= '<a class="lib" id="org" href="mailto:' . $mail_to_nwd . '?Subject=' . $subject_nwd . '&body=' . $msg_nwd . '">NWD Video Library</a>';
 
 
  $form['lib_list_gen'] = array(
