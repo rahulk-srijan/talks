@@ -142,16 +142,21 @@ function addDivNewsletter() {
 
     var term_count_ops = (1 + Drupal.settings.term_count[1]) + term_count_bto;
     var term_count_org = (1 + Drupal.settings.term_count[2]) + term_count_ops;
+    var term_count_it = (2 + Drupal.settings.term_count[3]) + term_count_org;
+    var term_count_nwd = (1 + Drupal.settings.term_count[4]) + term_count_it;
    //jQuery('#edit-newsletters').append('<div id="bto-newsletter" class="newsletter-block">' + news + '</div>');
    jQuery('#edit-newsletters .form-item').slice(start, term_count_bto).wrapAll('<div id="bto-newsletter" class="newsletter-block" />');
    jQuery('#edit-newsletters .form-item').slice(term_count_bto, term_count_ops).wrapAll('<div id="ops-newsletter" class="newsletter-block" />');
    jQuery('#edit-newsletters .form-item').slice(term_count_ops, term_count_org).wrapAll('<div id="org-newsletter" class="newsletter-block" />');
-
+   jQuery('#edit-newsletters .form-item').slice(term_count_org, term_count_it).wrapAll('<div id="it-newsletter" class="newsletter-block" />');
+   jQuery('#edit-newsletters .form-item').slice(term_count_it, term_count_nwd).wrapAll('<div id="nwd-newsletter" class="newsletter-block" />');
    //jQuery('#edit-newsletters .form-item:gt(13):lt(22)').wrapAll('<div id="ops-newsletter" class="newsletter-block" />');
    //jQuery('#edit-newsletters .form-item:gt(21):lt(25)').wrapAll('<div id="org-newsletter" class="newsletter-block" />');
    jQuery('#bto-newsletter').before('<p class="main-cat" id="bto-collapsible">BTO Academy Notifications</p>').hide();
    jQuery('#ops-newsletter').before('<p class="main-cat" id="ops-collapsible">Ops in Action Notifications</p>').hide();
    jQuery('#org-newsletter').before('<p class="main-cat" id="org-collapsible">Org in Action Notifications</p>').hide();
+   jQuery('#it-newsletter').before('<p class="main-cat" id="it-collapsible">IT Notifications</p>').hide();
+   jQuery('#nwd-newsletter').before('<p class="main-cat" id="nwd-collapsible">NWD Notifications</p>').hide();
    jQuery('.main-cat').each(function() {
         jQuery(this).click(function(){
             jQuery(this).next().toggle();

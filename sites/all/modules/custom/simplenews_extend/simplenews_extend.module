@@ -132,10 +132,9 @@ function newsletterSubscriptions_daily($frequency) {
                     $body_mail_content_cat_views = views_embed_view('newsletter_mail', 'page_2', implode(',', $nids), implode(",", $cat_tid));
                     $body_mail_content_cat_views_1 = views_embed_view('newsletter_mail', 'page_3', implode(',', $nids), implode(",", $cat_tid));
                     $body_mail_content_cat_views_2 = views_embed_view('newsletter_mail', 'page_4', implode(',', $nids), implode(",", $cat_tid));
-                    $body_mail_content_cat = '<div class="content_cat">New Video Added <br>' . $body_mail_content_cat_views . $body_mail_content_cat_views_1 . $body_mail_content_cat_views_2 . '</div>';
+                    $body_mail_content_cat = $body_mail_content_cat_views . $body_mail_content_cat_views_1 . $body_mail_content_cat_views_2 . '</div>';
                     $views_content_count_cat = strip_tags($body_mail_content_cat_views);
                     //if ($views_content_count) {
-
                      // $message = drupal_mail('simplenews_extend', $key, $mail, user_preferred_language($user), array('body' => $body, 'subject' => $subject, 'headers' => array('Cc' => $header_cc, 'Bcc' => $header_bcc), $from, TRUE));
                     //}
                 }
@@ -147,7 +146,8 @@ function newsletterSubscriptions_daily($frequency) {
                 $body = '<div>' . $body_mail_content . '</div>';
                 $body .= '<div>' . $body_mail_content_cat . '</div>';
                 $body .= '<div>' . $body_mail_comment . '</div>';
-                $message = drupal_mail('simplenews_extend', $key, $mail, user_preferred_language($user), array('body' => $body, 'subject' => $subject, 'headers' => array('Cc' => $header_cc, 'Bcc' => $header_bcc), $from, TRUE));
+
+                //$message = drupal_mail('simplenews_extend', $key, $mail, user_preferred_language($user), array('body' => $body, 'subject' => $subject, 'headers' => array('Cc' => $header_cc, 'Bcc' => $header_bcc), $from, TRUE));
                 if ($message['result']) {
                     print('<br/>' . $subs_obj->mail);
                 }
@@ -199,8 +199,8 @@ function newsletterSubscriptions_daily($frequency) {
 // }
 //}
 
-function simplenews_extend_taxonomy_term_insert($term) {
-    $vids =array(2,5,6,7);
+function simplenews_extend_taxonomy_term_update($term) {
+    $vids =array(2,5,6,7,10,12);
     $vid= $term->vid;
     if (isset($term->tid) && in_array($vid,$vids) && $term->op == 'Save') {
         $address_default = variable_get('site_mail', ini_get('sendmail_from'));
@@ -278,34 +278,25 @@ function simplenews_extend_form_alter(&$form, &$form_state, $form_id) {
     if ($form_id == 'taxonomy_overview_terms') {
         //update the simple news category weight
         if ($form['#vocabulary']->vid == 2 && $form['actions']['submit']['#value'] == 'Save') {
-            $weight = db_query('SELECT my_weight FROM {simplenews_category} WHERE tid=:tid', array(':tid'=>455))->fetchField();
-            foreach ($form as $val) {
-                $term = array_shift($val);
-                //update newsletter category weight
-                $weight= $weight +1;
-                db_query("UPDATE {simplenews_category} SET my_weight = :weight WHERE tid = :tid", array(':tid' => $term['tid'], ':weight' => $weight));
+           update_term_weight(455);
 
 
-                //update menu weight
+                /*update menu weight
                 $link_path = 'taxonomy/term/' . $term['tid'];
                 db_query("UPDATE {menu_links} SET weight = :weight WHERE link_path = :link_path AND plid = 1004", array(':link_path' => $link_path, ':weight' => $term['weight']));
-            }
+            }*/
         }
         if ($form['#vocabulary']->vid == 6 && $form['actions']['submit']['#value'] == 'Save') {
-             $weight = db_query('SELECT my_weight FROM {simplenews_category} WHERE tid=:tid', array(':tid'=> 456))->fetchField();
-            foreach($form as $val) {
-                  $term = array_shift($val);
-                $weight = $weight + 1;
-                db_query("UPDATE {simplenews_category} SET my_weight = :weight WHERE tid = :tid", array(':tid' => $term['tid'], ':weight' => $weight));
-            }
+            update_term_weight($form,456);
         }
         if ($form['#vocabulary']->vid == 7 && $form['actions']['submit']['#value'] == 'Save') {
-             $weight = db_query('SELECT my_weight FROM {simplenews_category} WHERE tid=:tid', array(':tid'=> 457))->fetchField();
-            foreach($form as $val) {
-                  $term = array_shift($val);
-                $weight = $weight + 1;
-                db_query("UPDATE {simplenews_category} SET my_weight = :weight WHERE tid = :tid", array(':tid' => $term['tid'], ':weight' => $weight));
-            }
+            update_term_weight($form,457);
+        }
+        if ($form['#vocabulary']->vid == 10 && $form['actions']['submit']['#value'] == 'Save') {
+            update_term_weight($form,591);
+        }
+        if ($form['#vocabulary']->vid == 12 && $form['actions']['submit']['#value'] == 'Save') {
+            update_term_weight($form,592);
         }
         if ($form['#vocabulary']->vid == 5 && $form['actions']['submit']['#value'] == 'Save') {
             $weight =0;
@@ -327,6 +318,17 @@ function simplenews_extend_form_alter(&$form, &$form_state, $form_id) {
         );
     }
 }
+
+// set the wight od the term on "notification" page
+
+function update_term_weight($form,$lib_tid) {
+     $weight = db_query('SELECT my_weight FROM {simplenews_category} WHERE tid=:tid', array(':tid'=> $lib_tid))->fetchField();
+            foreach($form as $val) {
+                  $term = array_shift($val);
+                $weight = $weight + 1;
+                db_query("UPDATE {simplenews_category} SET my_weight = :weight WHERE tid = :tid", array(':tid' => $term['tid'], ':weight' => $weight));
+            }
+        }
 
 function simplenews_extend_taxonomy_term_delete($term) {
     //delete newletter category

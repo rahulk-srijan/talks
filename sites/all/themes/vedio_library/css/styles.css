@@ -147,7 +147,7 @@ input.form-autocomplete::-ms-clear {display: none;}
   margin: 24px 0 0;
   padding: 6px 5px;
 }
-#org-collapsible,#bto-collapsible,#ops-collapsible{
+#org-collapsible,#bto-collapsible,#ops-collapsible,#it-collapsible,#nwd-collapsible{
  background-image: url("images/drop-right.png");
  background-position: 98% center;
  background-repeat: no-repeat;
@@ -161,19 +161,29 @@ input.form-autocomplete::-ms-clear {display: none;}
 #ops-collapsible{
   background-color: #ad0059;
 }
+#it-collapsible{
+  background-color: #ceb003;
+}
+#nwd-collapsible{
+  background-color: #0066be;
+}
 #edit-newsletters .expanded-newsletter{
   background-image: url("images/drop-down.png");
 }
 #bto-newsletter,
 #ops-newsletter,
-#org-newsletter{
+#org-newsletter,
+#it-newsletter,
+#nwd-newsletter{
  background: none repeat scroll 0 0 #FFFFFF;
  margin-top: -4px;
  padding: 12px 24px;
 }
 #bto-newsletter .form-item-newsletters-457,
 #ops-newsletter .form-item-newsletters-456,
-#org-newsletter .form-item-newsletters-455{
+#org-newsletter .form-item-newsletters-455,
+#it-newsletter .form-item-newsletters-591,
+#nwd-newsletter .form-item-newsletters-592{
   float: left;
   width: 30%;
 }
