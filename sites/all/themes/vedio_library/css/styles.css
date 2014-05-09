@@ -1399,7 +1399,7 @@ h4.lib-title, .lib-title p{
 #block-views-most-liked-lib-craousel-block .jcarousel-skin-default .jcarousel-next, .jcarousel-skin-default .jcarousel-prev {
   background-image: url("images/car-nav-sprite.png");
   display: block;
-  height: 53px; /* css change by prashant from 32px */
+  height: 47px; /* css change by prashant from 32px */
   width: 32px;
 }
 /*#block-views-most-liked-lib-craousel-block .jcarousel-skin-default .jcarousel-prev-horizontal {
@@ -1458,6 +1458,9 @@ display: none;
 a.jcarousel-next.jcarousel-next-horizontal {
 margin-top: -17px;
 margin-right: -3px;
+}
+.view-most-liked-lib-craousel .jcarousel-skin-default .jcarousel-prev-horizontal:hover {
+background-position: -30px 0 !important;
 }
 /* Css Ends over here by Prashant*/
 }
