@@ -1399,7 +1399,7 @@ h4.lib-title, .lib-title p{
 #block-views-most-liked-lib-craousel-block .jcarousel-skin-default .jcarousel-next, .jcarousel-skin-default .jcarousel-prev {
   background-image: url("images/car-nav-sprite.png");
   display: block;
-  height: 32px;
+  height: 53px; /* css change by prashant from 32px */
   width: 32px;
 }
 /*#block-views-most-liked-lib-craousel-block .jcarousel-skin-default .jcarousel-prev-horizontal {
