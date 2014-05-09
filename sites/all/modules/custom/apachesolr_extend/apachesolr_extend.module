@@ -369,6 +369,9 @@ function default_filter_term_id(){
         'orginaction'=>455,
         'opsinaction'=>456,
         'btoacademy'=>457,
+        'it'=>591,
+        'nwd'=>592,
+
     );
     return $library;
 }
