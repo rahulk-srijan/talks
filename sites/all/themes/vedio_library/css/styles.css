@@ -1449,5 +1449,15 @@ display: none;
  color: #666666;
  font-weight: bold
 }
+
+/* Added By Prashant for Demo */
+#block-views-most-liked-lib-craousel-block .jcarousel-skin-default .jcarousel-container-horizontal {
+  width: 1020 !important;
+}
+a.jcarousel-next.jcarousel-next-horizontal {
+margin-top: -17px;
+margin-right: -3px;
+}
+/* Css Ends over here by Prashant*/
 }
 
