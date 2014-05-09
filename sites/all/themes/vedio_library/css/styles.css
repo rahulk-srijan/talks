@@ -1320,7 +1320,8 @@ Splash Page theming
   margin: 26px 0 0;
  /* padding: 0 40px;*/
  padding: 0;
-  width: 960px;
+  /*width: 960px;*/
+  width: 1020px;/* Added by prashant */
   height: 140px;
 }
 
