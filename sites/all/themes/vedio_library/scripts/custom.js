@@ -142,7 +142,7 @@ function addDivNewsletter() {
 
     var term_count_ops = (1 + Drupal.settings.term_count[1]) + term_count_bto;
     var term_count_org = (1 + Drupal.settings.term_count[2]) + term_count_ops;
-    var term_count_it = (2 + Drupal.settings.term_count[3]) + term_count_org;
+    var term_count_it = (2 + Drupal.settings.term_count[3]) + term_count_org; //we used 2 instead of one because of spotlight category, hidden with css
     var term_count_nwd = (1 + Drupal.settings.term_count[4]) + term_count_it;
    //jQuery('#edit-newsletters').append('<div id="bto-newsletter" class="newsletter-block">' + news + '</div>');
    jQuery('#edit-newsletters .form-item').slice(start, term_count_bto).wrapAll('<div id="bto-newsletter" class="newsletter-block" />');
@@ -428,10 +428,10 @@ function menustripMobile(){
   });
 }
 function menuMobile() {
-    jQuery("#block-menu-menu-main-menu-mobile > ul.menu,#block-menu-menu-main-menu-mobile-ops > ul.menu,#block-menu-menu-main-menu-mobile-bto > ul.menu,#block-menu-menu-global-mobile-menu > ul.menu, .mobile-nav > ul.menu").css("max-height", jQuery(window).height() - 40);
+    jQuery("#block-menu-menu-main-menu-mobile > ul.menu,#block-menu-menu-main-menu-mobile-ops > ul.menu,#block-menu-menu-main-menu-mobile-bto > ul.menu,#block-menu-menu-main-menu-mobile-it > ul.menu,#block-menu-menu-global-mobile-menu > ul.menu, .mobile-nav > ul.menu").css("max-height", jQuery(window).height() - 40);
     //jQuery(".mobile-menu-common > ul.menu").css("max-height", jQuery(window).height() - 40);
     jQuery(window).resize(function() {
-        jQuery("#block-menu-menu-main-menu-mobile > ul.menu,#block-menu-menu-main-menu-mobile-ops > ul.menu,#block-menu-menu-main-menu-mobile-bto > ul.menu,#block-menu-menu-global-mobile-menu > ul.menu, .mobile-nav > ul.menu").css("max-height", jQuery(window).height() - 40);
+        jQuery("#block-menu-menu-main-menu-mobile > ul.menu,#block-menu-menu-main-menu-mobile-ops > ul.menu,#block-menu-menu-main-menu-mobile-bto > ul.menu,#block-menu-menu-main-menu-mobile-it > ul.menu,#block-menu-menu-global-mobile-menu > ul.menu, .mobile-nav > ul.menu").css("max-height", jQuery(window).height() - 40);
         //jQuery(".mobile-menu-common > ul.menu").css("max-height", jQuery(window).height() - 40);
     });
 
@@ -441,7 +441,7 @@ function menuMobile() {
 
     jQuery("#menu-bar .nav-btn").click(function() {
         //jQuery(".mobile-menu-common > ul.menu").slideToggle("fast");
-        jQuery("#block-menu-menu-main-menu-mobile > ul.menu,#block-menu-menu-main-menu-mobile-ops > ul.menu,#block-menu-menu-main-menu-mobile-bto > ul.menu, #block-menu-menu-global-mobile-menu > ul.menu").slideToggle("fast");
+        jQuery("#block-menu-menu-main-menu-mobile > ul.menu,#block-menu-menu-main-menu-mobile-ops > ul.menu,#block-menu-menu-main-menu-mobile-bto > ul.menu,#block-menu-menu-main-menu-mobile-it > ul.menu, #block-menu-menu-global-mobile-menu > ul.menu").slideToggle("fast");
         jQuery(".mobile-nav > ul.menu").hide();
         jQuery("#lightbox2-overlay").toggle();
     });
