@@ -543,7 +543,7 @@ function menu_save_alter($term) {
         $menu_name= 'menu-main-menu-mobile-it';
         $mlid='2630';
     }elseif($term->vid=='12') {
-        $menu_name= 'menu-main-menu-mobile-ops';
+        $menu_name= 'menu-main-menu-mobile-nwd';
         $mlid='2637';
     }else {
         $menu_name= '';
