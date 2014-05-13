@@ -151,7 +151,7 @@ function get_term_id($name) {
 function category_menu() {
     $argument = explode('/', request_path());
     global $subsite_home_page_url;
-    $category_vocab = array('orginaction' => 'category', 'btoacademy' => 'bto_category', 'opsinaction' => 'ops_category','it'=>'it_category','nwd'=>'nwd_category');
+    $category_vocab = array('orginaction' => 'category', 'btoacademy' => 'bto_category', 'opsinaction' => 'ops_category','it'=>'it_category','nwd'=>'nwd_category','entrepreneur'=>'entrepreneur_category','compete_to_win'=>'compete_to_win_category');
 
     $homeclass = '';
     $tagsclass = '';
@@ -476,6 +476,12 @@ function videolibrary_core_form($form, $form_state) {
     $mail_to_nwd = $library_subsite_variable['nwd']['to'];
     $subject_nwd = $library_subsite_variable['nwd']['subject'];
     $msg_nwd = $library_subsite_variable['nwd']['msg'];
+    $mail_to_entrepreneur = $library_subsite_variable['nwd']['to'];
+    $subject_entrepreneur = $library_subsite_variable['nwd']['subject'];
+    $msg_entrepreneur = $library_subsite_variable['nwd']['msg'];
+    $mail_to_compete_to_win = $library_subsite_variable['nwd']['to'];
+    $subject_compete_to_win = $library_subsite_variable['nwd']['subject'];
+    $msg_compete_to_win = $library_subsite_variable['nwd']['msg'];
 /*
   $form['lib_list']= array(
   '#type' => 'radios',
@@ -490,6 +496,8 @@ function videolibrary_core_form($form, $form_state) {
   $org= '<a class="lib" id="org" href="mailto:' . $mail_to_org . '?Subject=' . $subject_org . '&body=' . $msg_org . '">Org in Action</a>';
   $it= '<a class="lib" id="org" href="mailto:' . $mail_to_it . '?Subject=' . $subject_it . '&body=' . $msg_it . '">IT Video Library</a>';
   $nwd= '<a class="lib" id="org" href="mailto:' . $mail_to_nwd . '?Subject=' . $subject_nwd . '&body=' . $msg_nwd . '">NWD Video Library</a>';
+  $entrepreneur= '<a class="lib" id="org" href="mailto:' . $mail_to_entrepreneur . '?Subject=' . $subject_entrepreneur . '&body=' . $msg_entrepreneur . '">Entrepreneur</a>';
+  $compete_to_win= '<a class="lib" id="org" href="mailto:' . $mail_to_compete_to_win . '?Subject=' . $subject_compete_to_win . '&body=' . $msg_compete_to_win . '">Compete to Win</a>';
 
 
  $form['lib_list_gen'] = array(
@@ -546,6 +554,26 @@ function videolibrary_core_form($form, $form_state) {
 //    '#title' => t('Click below to suggest a video'),
     '#type' => 'item',
     '#markup'=> $nwd,
+    // '#states' => array(
+    //   'visible' => array(
+    //     ':input[name="lib_list"]' => array('value' => '2'),
+    //   ),
+    // ),
+  );
+ $form['lib_list_nwd'] = array(
+//    '#title' => t('Click below to suggest a video'),
+    '#type' => 'item',
+    '#markup'=> $entrepreneur,
+    // '#states' => array(
+    //   'visible' => array(
+    //     ':input[name="lib_list"]' => array('value' => '2'),
+    //   ),
+    // ),
+  );
+ $form['lib_list_nwd'] = array(
+//    '#title' => t('Click below to suggest a video'),
+    '#type' => 'item',
+    '#markup'=> $compete_to_win,
     // '#states' => array(
     //   'visible' => array(
     //     ':input[name="lib_list"]' => array('value' => '2'),
