@@ -57,16 +57,16 @@ $library_subsite_variable = array(
          'channel_path'=>'it',
          'resource'=>'http://home.intranet.mckinsey.com/practicespaces/ps/org/',
         'recommend_text' => ' recommends an IT video.'),
-     'nwd' =>
-    array('to' => 'nwd@mckinsey.com',
-        'from_email' => 'nwd_team@mckinsey.com',
+     'ndm' =>
+    array('to' => 'ndm@mckinsey.com',
+        'from_email' => 'ndm_team@mckinsey.com',
         'subject' => 'Suggest a video',
-        'msg' => 'I recommend adding the following video to the nwd video library',
+        'msg' => 'I recommend adding the following video to the ndm video library',
         'site_name' => 'NDM',
          'tid'=>'592',
-         'channel_path'=>'nwd',
+         'channel_path'=>'ndm',
          'resource'=>'http://home.intranet.mckinsey.com/practicespaces/ps/org/',
-        'recommend_text' => ' recommends an nwd video.'),
+        'recommend_text' => ' recommends an ndm video.'),
     'entrepreneur' =>
     array('to' => 'entrepreneur@mckinsey.com',
         'from_email' => 'entrepreneur_team@mckinsey.com',
@@ -151,7 +151,7 @@ function get_term_id($name) {
 function category_menu() {
     $argument = explode('/', request_path());
     global $subsite_home_page_url;
-    $category_vocab = array('orginaction' => 'category', 'btoacademy' => 'bto_category', 'opsinaction' => 'ops_category','it'=>'it_category','nwd'=>'nwd_category');
+    $category_vocab = array('orginaction' => 'category', 'btoacademy' => 'bto_category', 'opsinaction' => 'ops_category','it'=>'it_category','ndm'=>'ndm_category');
 
     $homeclass = '';
     $tagsclass = '';
@@ -473,9 +473,9 @@ function videolibrary_core_form($form, $form_state) {
     $mail_to_it = $library_subsite_variable['it']['to'];
     $subject_it = $library_subsite_variable['it']['subject'];
     $msg_it = $library_subsite_variable['it']['msg'];
-    $mail_to_nwd = $library_subsite_variable['nwd']['to'];
-    $subject_nwd = $library_subsite_variable['nwd']['subject'];
-    $msg_nwd = $library_subsite_variable['nwd']['msg'];
+    $mail_to_ndm = $library_subsite_variable['ndm']['to'];
+    $subject_ndm = $library_subsite_variable['ndm']['subject'];
+    $msg_ndm = $library_subsite_variable['ndm']['msg'];
 /*
   $form['lib_list']= array(
   '#type' => 'radios',
@@ -489,7 +489,7 @@ function videolibrary_core_form($form, $form_state) {
   $ops ='<a class="lib" id="ops" href="mailto:' . $mail_to_ops . '?Subject=' . $subject_ops . '&body=' . $msg_ops . '">Ops in Action</a><br/>';
   $org= '<a class="lib" id="org" href="mailto:' . $mail_to_org . '?Subject=' . $subject_org . '&body=' . $msg_org . '">Org in Action</a>';
   $it= '<a class="lib" id="org" href="mailto:' . $mail_to_it . '?Subject=' . $subject_it . '&body=' . $msg_it . '">IT Video Library</a>';
-  $nwd= '<a class="lib" id="org" href="mailto:' . $mail_to_nwd . '?Subject=' . $subject_nwd . '&body=' . $msg_nwd . '">NWD Video Library</a>';
+  $ndm= '<a class="lib" id="org" href="mailto:' . $mail_to_ndm . '?Subject=' . $subject_ndm . '&body=' . $msg_ndm . '">ndm Video Library</a>';
 
 
  $form['lib_list_gen'] = array(
@@ -542,10 +542,10 @@ function videolibrary_core_form($form, $form_state) {
     //   ),
     // ),
   );
- $form['lib_list_nwd'] = array(
+ $form['lib_list_ndm'] = array(
 //    '#title' => t('Click below to suggest a video'),
     '#type' => 'item',
-    '#markup'=> $nwd,
+    '#markup'=> $ndm,
     // '#states' => array(
     //   'visible' => array(
     //     ':input[name="lib_list"]' => array('value' => '2'),
