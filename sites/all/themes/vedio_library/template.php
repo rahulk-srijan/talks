@@ -5,7 +5,7 @@
  *
  */
 global $subsite_home_page_url;
-$library_array = array('orginaction', 'opsinaction', 'btoacademy','spotlight','it','ndm','entrepreneur','compete_to_win');
+$library_array = array('orginaction', 'opsinaction', 'btoacademy','spotlight','it','ndm','entrepreneur','compete');
 
 $argument = explode('/', request_path());
 if (in_array($argument[0], $library_array)) {
