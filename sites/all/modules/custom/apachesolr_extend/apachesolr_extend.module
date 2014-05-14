@@ -371,6 +371,8 @@ function default_filter_term_id(){
         'btoacademy'=>457,
         'it'=>591,
         'nwd'=>592,
+        'entrepreneur'=>'602',
+        'compete_to_win'=>'603',
 
     );
     return $library;
