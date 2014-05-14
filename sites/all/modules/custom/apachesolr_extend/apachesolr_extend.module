@@ -372,7 +372,7 @@ function default_filter_term_id(){
         'it'=>591,
         'nwd'=>592,
         'entrepreneur'=>'602',
-        'compete_to_win'=>'603',
+        'compete'=>'603',
 
     );
     return $library;
