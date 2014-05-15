@@ -434,10 +434,10 @@ function menustripMobile(){
   });
 }
 function menuMobile() {
-    jQuery("#block-menu-menu-main-menu-mobile > ul.menu,#block-menu-menu-main-menu-mobile-ops > ul.menu,#block-menu-menu-main-menu-mobile-bto > ul.menu,#block-menu-menu-main-menu-mobile-it > ul.menu,#block-menu-menu-main-menu-mobile-ndm > ul.menu,#block-menu-menu-global-mobile-menu > ul.menu, .mobile-nav > ul.menu").css("max-height", jQuery(window).height() - 40);
+    jQuery("#block-menu-menu-main-menu-mobile > ul.menu,#block-menu-menu-main-menu-mobile-ops > ul.menu,#block-menu-menu-main-menu-mobile-bto > ul.menu,#block-menu-menu-main-menu-mobile-it > ul.menu,#block-menu-menu-main-menu-mobile-ndm > ul.menu,#block-menu-menu-main-menu-mobile-entre > ul.menu,#block-menu-menu-main-menu-mobile-compete > ul.menu,#block-menu-menu-global-mobile-menu > ul.menu, .mobile-nav > ul.menu").css("max-height", jQuery(window).height() - 40);
     //jQuery(".mobile-menu-common > ul.menu").css("max-height", jQuery(window).height() - 40);
     jQuery(window).resize(function() {
-        jQuery("#block-menu-menu-main-menu-mobile > ul.menu,#block-menu-menu-main-menu-mobile-ops > ul.menu,#block-menu-menu-main-menu-mobile-bto > ul.menu,#block-menu-menu-main-menu-mobile-it > ul.menu,#block-menu-menu-main-menu-mobile-ndm > ul.menu,#block-menu-menu-global-mobile-menu > ul.menu, .mobile-nav > ul.menu").css("max-height", jQuery(window).height() - 40);
+        jQuery("#block-menu-menu-main-menu-mobile > ul.menu,#block-menu-menu-main-menu-mobile-ops > ul.menu,#block-menu-menu-main-menu-mobile-bto > ul.menu,#block-menu-menu-main-menu-mobile-it > ul.menu,#block-menu-menu-main-menu-mobile-ndm > ul.menu,#block-menu-menu-main-menu-mobile-entre > ul.menu,#block-menu-menu-main-menu-mobile-compete > ul.menu,#block-menu-menu-global-mobile-menu > ul.menu, .mobile-nav > ul.menu").css("max-height", jQuery(window).height() - 40);
         //jQuery(".mobile-menu-common > ul.menu").css("max-height", jQuery(window).height() - 40);
     });
 
@@ -447,7 +447,7 @@ function menuMobile() {
 
     jQuery("#menu-bar .nav-btn").click(function() {
         //jQuery(".mobile-menu-common > ul.menu").slideToggle("fast");
-        jQuery("#block-menu-menu-main-menu-mobile > ul.menu,#block-menu-menu-main-menu-mobile-ops > ul.menu,#block-menu-menu-main-menu-mobile-bto > ul.menu,#block-menu-menu-main-menu-mobile-it > ul.menu,#block-menu-menu-main-menu-mobile-ndm > ul.menu, #block-menu-menu-global-mobile-menu > ul.menu").slideToggle("fast");
+        jQuery("#block-menu-menu-main-menu-mobile > ul.menu,#block-menu-menu-main-menu-mobile-ops > ul.menu,#block-menu-menu-main-menu-mobile-bto > ul.menu,#block-menu-menu-main-menu-mobile-it > ul.menu,#block-menu-menu-main-menu-mobile-ndm > ul.menu,#block-menu-menu-main-menu-mobile-entre > ul.menu,#block-menu-menu-main-menu-mobile-compete > ul.menu, #block-menu-menu-global-mobile-menu > ul.menu").slideToggle("fast");
         jQuery(".mobile-nav > ul.menu").hide();
         jQuery("#lightbox2-overlay").toggle();
     });
