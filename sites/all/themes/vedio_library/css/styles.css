@@ -147,7 +147,7 @@ input.form-autocomplete::-ms-clear {display: none;}
   margin: 24px 0 0;
   padding: 6px 5px;
 }
-#org-collapsible,#bto-collapsible,#ops-collapsible,#it-collapsible,#nwd-collapsible{
+#org-collapsible,#bto-collapsible,#ops-collapsible,#it-collapsible,#ndm-collapsible,#entrepreneur-collapsible,#compete-collapsible{
  background-image: url("images/drop-right.png");
  background-position: 98% center;
  background-repeat: no-repeat;
@@ -164,8 +164,14 @@ input.form-autocomplete::-ms-clear {display: none;}
 #it-collapsible{
   background-color: #ceb003;
 }
-#nwd-collapsible{
+#ndm-collapsible{
   background-color: #0066be;
+}
+#entrepreneur-collapsible{
+  background-color: #738102;
+}
+#compete-collapsible{
+  background-color: #00abee;
 }
 #edit-newsletters .expanded-newsletter{
   background-image: url("images/drop-down.png");
@@ -174,7 +180,10 @@ input.form-autocomplete::-ms-clear {display: none;}
 #ops-newsletter,
 #org-newsletter,
 #it-newsletter,
-#nwd-newsletter{
+#ndm-newsletter,
+#entrepreneur-newsletter,
+#compete-newsletter
+{
  background: none repeat scroll 0 0 #FFFFFF;
  margin-top: -4px;
  padding: 12px 24px;
@@ -183,7 +192,7 @@ input.form-autocomplete::-ms-clear {display: none;}
 #ops-newsletter .form-item-newsletters-456,
 #org-newsletter .form-item-newsletters-455,
 #it-newsletter .form-item-newsletters-591,
-#nwd-newsletter .form-item-newsletters-592{
+#ndm-newsletter .form-item-newsletters-592{
   float: left;
   width: 30%;
 }
