@@ -146,7 +146,6 @@ function addDivNewsletter() {
     var term_count_ndm = (1 + Drupal.settings.term_count[4]) + term_count_it;
     var term_count_entrepreneur = (1 + Drupal.settings.term_count[5]) + term_count_ndm;
     var term_count_compete = (1 + Drupal.settings.term_count[6]) + term_count_entrepreneur;
-
    //jQuery('#edit-newsletters').append('<div id="bto-newsletter" class="newsletter-block">' + news + '</div>');
    jQuery('#edit-newsletters .form-item').slice(start, term_count_bto).wrapAll('<div id="bto-newsletter" class="newsletter-block" />');
    jQuery('#edit-newsletters .form-item').slice(term_count_bto, term_count_ops).wrapAll('<div id="ops-newsletter" class="newsletter-block" />');
