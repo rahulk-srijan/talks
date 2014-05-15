@@ -551,6 +551,12 @@ function menu_save_alter($term) {
     }elseif($term->vid=='12') {
         $menu_name= 'menu-main-menu-mobile-nwd';
         $mlid='2637';
+    }elseif($term->vid=='14') {
+        $menu_name= 'menu-main-menu-mobile-entre';
+        $mlid='2687';
+    }elseif($term->vid=='16') {
+        $menu_name= 'menu-main-menu-mobile-compete';
+        $mlid='2694';
     }else {
         $menu_name= '';
         $mlid='';
