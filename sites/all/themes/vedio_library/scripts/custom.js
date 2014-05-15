@@ -143,8 +143,8 @@ function addDivNewsletter() {
     var term_count_ops = (1 + Drupal.settings.term_count[1]) + term_count_bto;
     var term_count_org = (1 + Drupal.settings.term_count[2]) + term_count_ops;
     var term_count_it = (2 + Drupal.settings.term_count[3]) + term_count_org; //we used 2 instead of one because of spotlight category, hidden with css
-    var term_count_nwd = (1 + Drupal.settings.term_count[4]) + term_count_it;
-    var term_count_entrepreneur = (1 + Drupal.settings.term_count[5]) + term_count_nwd;
+    var term_count_ndm = (1 + Drupal.settings.term_count[4]) + term_count_it;
+    var term_count_entrepreneur = (1 + Drupal.settings.term_count[5]) + term_count_ndm;
     var term_count_compete = (1 + Drupal.settings.term_count[6]) + term_count_entrepreneur;
 
    //jQuery('#edit-newsletters').append('<div id="bto-newsletter" class="newsletter-block">' + news + '</div>');
@@ -152,8 +152,8 @@ function addDivNewsletter() {
    jQuery('#edit-newsletters .form-item').slice(term_count_bto, term_count_ops).wrapAll('<div id="ops-newsletter" class="newsletter-block" />');
    jQuery('#edit-newsletters .form-item').slice(term_count_ops, term_count_org).wrapAll('<div id="org-newsletter" class="newsletter-block" />');
    jQuery('#edit-newsletters .form-item').slice(term_count_org, term_count_it).wrapAll('<div id="it-newsletter" class="newsletter-block" />');
-   jQuery('#edit-newsletters .form-item').slice(term_count_it, term_count_nwd).wrapAll('<div id="nwd-newsletter" class="newsletter-block" />');
-    jQuery('#edit-newsletters .form-item').slice(term_count_nwd, term_count_entrepreneur).wrapAll('<div id="entrepreneur-newsletter" class="newsletter-block" />');
+   jQuery('#edit-newsletters .form-item').slice(term_count_it, term_count_ndm).wrapAll('<div id="ndm-newsletter" class="newsletter-block" />');
+    jQuery('#edit-newsletters .form-item').slice(term_count_ndm, term_count_entrepreneur).wrapAll('<div id="entrepreneur-newsletter" class="newsletter-block" />');
     jQuery('#edit-newsletters .form-item').slice(term_count_entrepreneur, term_count_compete).wrapAll('<div id="compete-newsletter" class="newsletter-block" />');
    //jQuery('#edit-newsletters .form-item:gt(13):lt(22)').wrapAll('<div id="ops-newsletter" class="newsletter-block" />');
    //jQuery('#edit-newsletters .form-item:gt(21):lt(25)').wrapAll('<div id="org-newsletter" class="newsletter-block" />');
@@ -161,7 +161,7 @@ function addDivNewsletter() {
    jQuery('#ops-newsletter').before('<p class="main-cat" id="ops-collapsible">Ops in Action Notifications</p>').hide();
    jQuery('#org-newsletter').before('<p class="main-cat" id="org-collapsible">Org in Action Notifications</p>').hide();
    jQuery('#it-newsletter').before('<p class="main-cat" id="it-collapsible">IT Notifications</p>').hide();
-   jQuery('#nwd-newsletter').before('<p class="main-cat" id="nwd-collapsible">NWD Notifications</p>').hide();
+   jQuery('#ndm-newsletter').before('<p class="main-cat" id="ndm-collapsible">NDM Notifications</p>').hide();
    jQuery('#entrepreneur-newsletter').before('<p class="main-cat" id="entrepreneur-collapsible">Entrepreneur Notifications</p>').hide();
    jQuery('#compete-newsletter').before('<p class="main-cat" id="compete-collapsible">Compete to win Notifications</p>').hide();
    jQuery('.main-cat').each(function() {
@@ -435,10 +435,10 @@ function menustripMobile(){
   });
 }
 function menuMobile() {
-    jQuery("#block-menu-menu-main-menu-mobile > ul.menu,#block-menu-menu-main-menu-mobile-ops > ul.menu,#block-menu-menu-main-menu-mobile-bto > ul.menu,#block-menu-menu-main-menu-mobile-it > ul.menu,#block-menu-menu-main-menu-mobile-nwd > ul.menu,#block-menu-menu-global-mobile-menu > ul.menu, .mobile-nav > ul.menu").css("max-height", jQuery(window).height() - 40);
+    jQuery("#block-menu-menu-main-menu-mobile > ul.menu,#block-menu-menu-main-menu-mobile-ops > ul.menu,#block-menu-menu-main-menu-mobile-bto > ul.menu,#block-menu-menu-main-menu-mobile-it > ul.menu,#block-menu-menu-main-menu-mobile-ndm > ul.menu,#block-menu-menu-global-mobile-menu > ul.menu, .mobile-nav > ul.menu").css("max-height", jQuery(window).height() - 40);
     //jQuery(".mobile-menu-common > ul.menu").css("max-height", jQuery(window).height() - 40);
     jQuery(window).resize(function() {
-        jQuery("#block-menu-menu-main-menu-mobile > ul.menu,#block-menu-menu-main-menu-mobile-ops > ul.menu,#block-menu-menu-main-menu-mobile-bto > ul.menu,#block-menu-menu-main-menu-mobile-it > ul.menu,#block-menu-menu-main-menu-mobile-nwd > ul.menu,#block-menu-menu-global-mobile-menu > ul.menu, .mobile-nav > ul.menu").css("max-height", jQuery(window).height() - 40);
+        jQuery("#block-menu-menu-main-menu-mobile > ul.menu,#block-menu-menu-main-menu-mobile-ops > ul.menu,#block-menu-menu-main-menu-mobile-bto > ul.menu,#block-menu-menu-main-menu-mobile-it > ul.menu,#block-menu-menu-main-menu-mobile-ndm > ul.menu,#block-menu-menu-global-mobile-menu > ul.menu, .mobile-nav > ul.menu").css("max-height", jQuery(window).height() - 40);
         //jQuery(".mobile-menu-common > ul.menu").css("max-height", jQuery(window).height() - 40);
     });
 
@@ -448,7 +448,7 @@ function menuMobile() {
 
     jQuery("#menu-bar .nav-btn").click(function() {
         //jQuery(".mobile-menu-common > ul.menu").slideToggle("fast");
-        jQuery("#block-menu-menu-main-menu-mobile > ul.menu,#block-menu-menu-main-menu-mobile-ops > ul.menu,#block-menu-menu-main-menu-mobile-bto > ul.menu,#block-menu-menu-main-menu-mobile-it > ul.menu,#block-menu-menu-main-menu-mobile-nwd > ul.menu, #block-menu-menu-global-mobile-menu > ul.menu").slideToggle("fast");
+        jQuery("#block-menu-menu-main-menu-mobile > ul.menu,#block-menu-menu-main-menu-mobile-ops > ul.menu,#block-menu-menu-main-menu-mobile-bto > ul.menu,#block-menu-menu-main-menu-mobile-it > ul.menu,#block-menu-menu-main-menu-mobile-ndm > ul.menu, #block-menu-menu-global-mobile-menu > ul.menu").slideToggle("fast");
         jQuery(".mobile-nav > ul.menu").hide();
         jQuery("#lightbox2-overlay").toggle();
     });
