@@ -132,10 +132,10 @@ function newsletterSubscriptions_daily($frequency) {
                     $body_mail_content_cat_views = views_embed_view('newsletter_mail', 'page_2', implode(',', $nids), implode(",", $cat_tid));
                     $body_mail_content_cat_views_1 = views_embed_view('newsletter_mail', 'page_3', implode(',', $nids), implode(",", $cat_tid));
                     $body_mail_content_cat_views_2 = views_embed_view('newsletter_mail', 'page_4', implode(',', $nids), implode(",", $cat_tid));
-                    $body_mail_content_cat_views_3 = views_embed_view('newsletter_mail', 'page_5', implode(',', $nids), implode(",", $cat_tid));
-                    $body_mail_content_cat_views_4 = views_embed_view('newsletter_mail', 'page_6', implode(',', $nids), implode(",", $cat_tid));
-                    $body_mail_content_cat_views_5 = views_embed_view('newsletter_mail', 'page_7', implode(',', $nids), implode(",", $cat_tid));
-                    $body_mail_content_cat_views_6 = views_embed_view('newsletter_mail', 'page_8', implode(',', $nids), implode(",", $cat_tid));
+                    //$body_mail_content_cat_views_3 = views_embed_view('newsletter_mail', 'page_5', implode(',', $nids), implode(",", $cat_tid));
+                    //$body_mail_content_cat_views_4 = views_embed_view('newsletter_mail', 'page_6', implode(',', $nids), implode(",", $cat_tid));
+                    //$body_mail_content_cat_views_5 = views_embed_view('newsletter_mail', 'page_7', implode(',', $nids), implode(",", $cat_tid));
+                    //$body_mail_content_cat_views_6 = views_embed_view('newsletter_mail', 'page_8', implode(',', $nids), implode(",", $cat_tid));
                     $body_mail_content_cat = $body_mail_content_cat_views . $body_mail_content_cat_views_1 . $body_mail_content_cat_views_2 .$body_mail_content_cat_views_3 .$body_mail_content_cat_views_4 .$body_mail_content_cat_views_5 .$body_mail_content_cat_views_6 . $body_mail_content_cat_views_7 '</div>';
                     $views_content_count_cat = strip_tags($body_mail_content_cat_views);
                 }
