@@ -29,6 +29,11 @@ $dark-orange-ops: #9f0058;
 $light-orange-bto: #edefee;
 $dark-orange-bto: #562179;
 
+$yellow :#ceb003;
+$bright-blue:#0066be;
+$entre:#738102;
+$compete:#00abee;
+
 $font-size-huge: 17px;
 $font-size-bigger: 13px;
 $font-size-big: 12px;
@@ -248,7 +253,7 @@ a {
 
 	.button-large {
 		@extend .button;
-		
+
 		width: 86%;
 		margin: 10px 7%;
 		@include border-radius(7px);
@@ -478,7 +483,7 @@ a {
 					margin-top: 20px;
 				}
 
-				
+
 				// .form-item-newsletters-1 {
 				// 	position: absolute;
 				// 	top: 180px;
@@ -571,19 +576,19 @@ a {
 //Custom Styles
 
 	// Hiding stuff
-	#logo, 
+	#logo,
 	#site-name,
 	#breadcrumb,
-	#block-views-comments-recent-block, 
+	#block-views-comments-recent-block,
 	#block-system-main-menu,
 	#block-menu-menu-ops-main-menu,
-	#block-menu-menu-bto-academy, 
+	#block-menu-menu-bto-academy,
 	#block-block-6,
-	#block-block-8, 
+	#block-block-8,
 	#views_slideshow_controls_text_featured_vedios-block,
-	// #block-system-main .view-filters, 
+	// #block-system-main .view-filters,
 	#block-views-comments-recent-block,
-	#tasks, 
+	#tasks,
 	footer #block-block-3,
 	#block-views-logging-block,
 	#block-superfish-1,
@@ -642,7 +647,7 @@ a {
 	// .body-btoacademy #block-block-4 {
 	// 	background: $orange-bto;
 	// }
-	
+
 
 
 
@@ -741,12 +746,12 @@ a {
 
 
 
-	#block-menu-menu-main-menu-mobile, 
-	#block-menu-menu-main-menu-mobile-ops, 
+	#block-menu-menu-main-menu-mobile,
+	#block-menu-menu-main-menu-mobile-ops,
 	#block-menu-menu-main-menu-mobile-bto,
 	#block-menu-menu-global-mobile-menu {
 		@extend .fixed-top;
-		
+
 		.mobile-nav {
 			background: $mck_blue;
 			height: 25px;
@@ -765,7 +770,7 @@ a {
 
 			.block-title, h2 {
 				@extend .title-text;
-				
+
 				margin-top: 5px;
 				width: 88%;
 				text-align: center;
@@ -875,14 +880,14 @@ a {
 	}
 	#block-apachesolr-search-sort .item-list ul li a.active{
 		background-color: $orange !important;
-		
+
 	}
 	#block-block-36 .mobile-nav ul.menu{
 		background:  $dark-orange;
 	}
 	#block-block-36 .mobile-nav  ul.menu li ul.menu{
 		background: $light-orange;
-	}	
+	}
 }
 
 .body-opsinaction {
@@ -902,14 +907,14 @@ a {
 	}
 	#block-apachesolr-search-sort .item-list ul li a.active{
 		background-color: $magenta_ops !important;
-		
+
 	}
 	#block-block-36 .mobile-nav ul.menu{
 		background:  $dark-orange-ops;
 	}
 	#block-block-36 .mobile-nav  ul.menu li ul.menu{
 		background: $light-orange-ops;
-	}	
+	}
 
 
 }
@@ -931,16 +936,16 @@ a {
 	}
 	#block-apachesolr-search-sort .item-list ul li a.active{
 		background-color: $purple_bto !important;
-		
+
 	}
 	#block-block-36 .mobile-nav ul.menu{
 		background:  $dark-orange-bto;
 	}
 	#block-block-36 .mobile-nav  ul.menu li ul.menu{
 		background: $light-orange-bto;
-	}	
+	}
 
-}		
+}
 
 .view-most-trending {
 	.throbber{
@@ -1142,7 +1147,7 @@ a {
 			top: 35px;
 			width: 100%;
 			z-index: 99;
-			height: 23px;	
+			height: 23px;
 			@extend .clearfix;
 			.menu-container{
 				float: right;
@@ -1237,7 +1242,7 @@ a {
 			#edit-emai-textl{
 				@extend .hidden-phone;
 			}
-			
+
 			.form-item, .form-actions {
 				margin: 4px 0;
 			}
@@ -1387,7 +1392,7 @@ a {
 		.cooment-info .video-views ,
 		.cooment-info .video-count ,
 		.cooment-info .video-commentcount ,
-		.new-video-duration, 
+		.new-video-duration,
 		.node-statistics span.field-content,
 		.new_video_duration,
 		.node-statistics-like span.field-content,
@@ -1442,6 +1447,18 @@ a {
 			}
 			.org-in-action  {
 				background: $orange;
+			}
+			.it-channel{
+				background: $yellow;
+			}
+			.ndm-channel{
+				background: $bright-blue;
+			}
+			.entrepreneur-channel{
+				background: $entre;
+			}
+			.compete-to-win{
+				background: $compete;
 			}
 		}
 
@@ -1650,7 +1667,7 @@ a {
 		}
 	}
 
-	//ishan: 
+	//ishan:
 	.body-orginaction #block-views-featured-vedios-block {
 		.views-slideshow-controls-bottom {
 			.views-slideshow-pager-field-item {
@@ -1723,13 +1740,13 @@ a {
 			border-bottom: 1px solid #DADBDC;
 			margin: 0  0 24px;
 			padding-bottom: 6px;
-			
+
 		}
 		.view-header{
 			margin: 6px 0;
 		}
-		.views-field-totalcount, 
-		.views-field-count, 
+		.views-field-totalcount,
+		.views-field-count,
 		.views-field-comment-count {
 			display: inline-block;
 			font-size: 10px;
@@ -1743,7 +1760,7 @@ a {
 			border-right: 1px solid #666;
 			padding-right: 4px;
 		}
-		
+
 		.views-field-totalcount{
 			margin-left: 3%;
 			padding-left: 0;
@@ -1782,7 +1799,7 @@ a {
 			}
 		}
 	}
-	#block-system-main, 
+	#block-system-main,
 	#block-views-related-video-block,
 	#block-views-most-trending-block,
 	#block-views-related-video-block-1
@@ -1915,7 +1932,7 @@ a {
 	#columns {
 		#content-column {
 			// margin-top: -20px;
-			
+
 			.content-inner {
 				margin: 0;
 				#back-to-search{
@@ -2071,7 +2088,7 @@ a {
 							border-right: 1px solid $black;
 							margin-left: 5px;
 							padding-right: 5px;
-							
+
 							a {
 								@extend .link-text;
 							}
@@ -2150,7 +2167,7 @@ a {
 
 						form#comment-form {
 							// @extend .modal;
-							
+
 
 							#edit-author--2 {
 								display: none;
@@ -2409,7 +2426,7 @@ a {
 				}
 			}
 		}
-	}		
+	}
 
 	// Browse By Category page
 	body.page-taxonomy {
@@ -2418,7 +2435,7 @@ a {
 			@extend .sort-by-collapsible;
 		}
 
-		#views_slideshow_cycle_main_featured_vedios-block, 
+		#views_slideshow_cycle_main_featured_vedios-block,
 		.views-slideshow-controls-bottom {
 			@extend .hidden-phone;
 		}
@@ -2428,7 +2445,7 @@ a {
 				@extend .mobile-box;
 				@extend .subheader;
 			}
-			
+
 		}
 	}
 
@@ -2440,14 +2457,14 @@ a {
 			@extend .hidden-phone;
 		}
 
-		#block-system-main {		
+		#block-system-main {
 
 			.view-filters {
 				display: block;
-				#edit-name-wrapper, 
-				#edit-tid-wrapper, 
-				// .views-widget-sort-by, 
-				.views-widget-sort-order, 
+				#edit-name-wrapper,
+				#edit-tid-wrapper,
+				// .views-widget-sort-by,
+				.views-widget-sort-order,
 				.views-submit-button {
 					@extend .hidden-phone;
 				}
@@ -2494,7 +2511,7 @@ a {
     	strong {
     		color: $orange-bto;
     	}
-    }									
+    }
 
 	// My Playlist page
 	body.page-my-playlist {
@@ -2777,7 +2794,7 @@ a {
 				margin: 0;
 				margin-left: 11px;
 				overflow: hidden;
-				overflow-y:auto; 
+				overflow-y:auto;
 				.region-inner {
 					background-color: #666;
 					padding: 5%;
@@ -2876,9 +2893,9 @@ a {
 		width: auto;
 		height: auto;
 	}
-	
+
 	#block-menu-menu-global-mobile-menu,
-	#block-menu-menu-main-menu-mobile, 
+	#block-menu-menu-main-menu-mobile,
 	#block-menu-menu-main-menu-mobile-ops,
 	#block-menu-menu-main-menu-mobile-bto {
 		.mobile-nav {
@@ -2890,7 +2907,7 @@ a {
 			}
 			img {
 				width: auto;
-			}			
+			}
 		}
 	}
 
