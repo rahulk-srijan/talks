@@ -37,17 +37,21 @@ function file_download_count_extend_menu() {
 function file_download_file() {
     if (isset($_GET['file']) && (isset($_GET['filename']))) {
         $file = file_load($_GET['file']);
-        $filepath = file_create_url($file->uri);
+        // $filepath = file_create_url($file->uri);
 
-        //track the downloading file
-        file_download_count_track_file_download($file);
-        $realpath = drupal_realpath($file->uri);
-        $filename = basename($filepath);
-        $extension = pathinfo($filepath, PATHINFO_EXTENSION);
-        if (in_array($extension, array('mp4', 'MP4'))) {
-            drupal_add_http_header('Content-disposition', 'attachment; filename=' . $filename);
-            readfile($realpath);
-        } else {
+        // //track the downloading file
+        // file_download_count_track_file_download($file);
+        // $realpath = drupal_realpath($file->uri);
+        // $filename = basename($filepath);
+        // $extension = pathinfo($filepath, PATHINFO_EXTENSION);
+        // if (in_array($extension, array('mp4', 'MP4'))) {
+        //     drupal_add_http_header('Content-disposition', 'attachment; filename=' . $filename);
+        //     readfile($realpath);
+        // } else {
+        if($file) {
+            file_transfer($file->uri, array('Content-disposition' => 'attachment; filename="'.$file->filename . '"'));
+        }
+        else {
             return drupal_access_denied();
         }
     }
