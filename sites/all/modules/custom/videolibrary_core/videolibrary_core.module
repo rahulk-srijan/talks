@@ -185,7 +185,7 @@ function category_menu() {
             }
         }elseif($arg0 == 'compete')
         {
-            if(in_array('compete web master', $roles) || in_array('administrator', $roles) || in_array('super admin', $roles))
+            if(in_array('compete to win web master', $roles) || in_array('administrator', $roles) || in_array('super admin', $roles))
             {
                 $show_block = true;
             }            
