@@ -173,17 +173,24 @@ function category_menu() {
         $browse_url = url("$arg0/browse");
         $tag_url = url("$arg0/tags");
         $content = '';
-        print_r($user);
+        //print_r($user);
         $roles = $user->roles;
         $show_block = false;
     
         if($arg0 == 'entrepreneur')
         {
-            if(in_array('entrepreneur web master', $roles) || in_array('administrator', $roles))
+            if(in_array('entrepreneur web master', $roles) || in_array('administrator', $roles) || in_array('super admin', $roles))
             {
                 $show_block = true;
             }
-        }else
+        }elseif($arg0 == 'compete')
+        {
+            if(in_array('compete web master', $roles) || in_array('administrator', $roles) || in_array('super admin', $roles))
+            {
+                $show_block = true;
+            }            
+        }        
+        else
         {
             $show_block = true;
         }
