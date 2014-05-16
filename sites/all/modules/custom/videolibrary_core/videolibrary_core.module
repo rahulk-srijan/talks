@@ -176,6 +176,8 @@ function category_menu() {
         //print_r($user);
         $roles = $user->roles;
         $show_block = false;
+        echo "<pre>";
+        print_r($roles);
         if($arg0 == 'entrepreneur')
         {
             if(in_array('entrepreneur_web_master', $roles) || in_array('administrator', $roles))
