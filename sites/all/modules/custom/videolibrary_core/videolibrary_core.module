@@ -149,6 +149,7 @@ function get_term_id($name) {
  */
 
 function category_menu() {
+    global $user;
     $argument = explode('/', request_path());
     global $subsite_home_page_url;
     $category_vocab = array('orginaction' => 'category', 'btoacademy' => 'bto_category', 'opsinaction' => 'ops_category','it'=>'it_category','ndm'=>'ndm_category','entrepreneur'=>'entrepreneur_category','compete'=>'compete_category');
@@ -166,27 +167,45 @@ function category_menu() {
     }
 
     $vocab = $category_vocab[$arg0];
+    
 //#block-views-views-by-category-block .block-content.content .left-side-menu li.selected
     if ($vocab) {
         $browse_url = url("$arg0/browse");
         $tag_url = url("$arg0/tags");
         $content = '';
-        $content .= '<div class="block view-views-by-category" id="block-views-views-by-category-block"><div class="block-content content"><div class="left-side-menu"><ul>
-<li class="view-all ' . $homeclass . '"><a href="' . $browse_url . '">View All</a></li>
-<li class="by-tags ' . $tagsclass . '"><a href="' . $tag_url . '">By Tags</a></li>
-<li class="by-category">By Category</li></ul>';
-
-        $query = db_query("SELECT taxonomy_term_data.name AS taxonomy_term_data_name, taxonomy_term_data.vid AS taxonomy_term_data_vid, taxonomy_term_data.tid AS tid, taxonomy_vocabulary.machine_name AS taxonomy_vocabulary_machine_name FROM
-{taxonomy_term_data} taxonomy_term_data LEFT JOIN {taxonomy_vocabulary} taxonomy_vocabulary ON taxonomy_term_data.vid = taxonomy_vocabulary.vid WHERE (( (taxonomy_vocabulary.machine_name IN  ('$vocab')) ))")->fetchAll();
-        $content .= '<ul class="category-list">';
-        foreach ($query as $row) {
+        //print_r($user);
+        $roles = $user->roles;
+        $show_block = false;
+        if($arg0 == 'entrepreneur')
+        {
+            if(in_array('entrepreneur_web_master', $roles) || in_array('administrator', $roles))
+            {
+                $show_block = true;
+            }
+        }else
+        {
+            $show_block = true;
+        }
+        if($show_block == true)
+        {
+            $content .= '<div class="block view-views-by-category" id="block-views-views-by-category-block"><div class="block-content content"><div class="left-side-menu"><ul>
+            <li class="view-all ' . $homeclass . '"><a href="' . $browse_url . '">View All</a></li>
+            <li class="by-tags ' . $tagsclass . '"><a href="' . $tag_url . '">By Tags</a></li>
+            <li class="by-category">By Category</li></ul>';
+            
+            $query = db_query("SELECT taxonomy_term_data.name AS taxonomy_term_data_name, taxonomy_term_data.vid AS taxonomy_term_data_vid, taxonomy_term_data.tid AS tid, taxonomy_vocabulary.machine_name AS taxonomy_vocabulary_machine_name FROM
+            {taxonomy_term_data} taxonomy_term_data LEFT JOIN {taxonomy_vocabulary} taxonomy_vocabulary ON taxonomy_term_data.vid = taxonomy_vocabulary.vid WHERE (( (taxonomy_vocabulary.machine_name IN  ('$vocab')) ))")->fetchAll();
+            $content .= '<ul class="category-list">';
+            foreach ($query as $row) {
             if ($arg2 == $row->tid) {
                 $content .='<li>' . l($row->taxonomy_term_data_name, 'taxonomy/term/' . $row->tid, array('attributes' => array('class' => array('active')))) . '</li>';
             } else {
                 $content .='<li>' . l($row->taxonomy_term_data_name, 'taxonomy/term/' . $row->tid) . '</li>';
             }
+            }
+            $content .= '</ul></div></div></div>';
         }
-        $content .= '</ul></div></div></div>';
+        
         return $content;
     }
 }
