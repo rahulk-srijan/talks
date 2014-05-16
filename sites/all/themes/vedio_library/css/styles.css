@@ -432,6 +432,30 @@ margin: 24px 0 2px;
 #page .ops-in-action a{
   color: #ad0059;
 }
+.color-yellow,
+#block-views-most-liked-lib-craousel-block .lib-title-color-yellow a,
+#edit-lib-list-ops a,
+#page .ops-in-action a{
+  color: #ceb003;
+}
+.color-bright-blue,
+#block-views-most-liked-lib-craousel-block .lib-title-color-bright-blue a,
+#edit-lib-list-ops a,
+#page .ops-in-action a{
+  color: #0066be;
+}
+.color-entre,
+#block-views-most-liked-lib-craousel-block .lib-title-color-entre a,
+#edit-lib-list-ops a,
+#page .ops-in-action a{
+  color: #738102;
+}
+.color-compete,
+#block-views-most-liked-lib-craousel-block .lib-title-color-compete a,
+#edit-lib-list-ops a,
+#page .ops-in-action a{
+  color: #00abee;
+}
 #edit-lib-list-gen a{
   color: #333;
 }
@@ -1389,6 +1413,18 @@ h4.lib-title, .lib-title p{
 }
 #block-views-most-liked-lib-craousel-block .library-color-orange{
   background: none repeat scroll 0 0 #E69256;
+}
+#block-views-most-liked-lib-craousel-block .library-color-yellow{
+  background: none repeat scroll 0 0 #ceb003;
+}
+#block-views-most-liked-lib-craousel-block .library-color-bright-blue{
+  background: none repeat scroll 0 0 #0066be;
+}
+#block-views-most-liked-lib-craousel-block .library-color-entre{
+  background: none repeat scroll 0 0 #738102;
+}
+#block-views-most-liked-lib-craousel-block .library-color-compete{
+  background: none repeat scroll 0 0 #00abee;
 }
 #block-views-most-liked-lib-craousel-block .library-color-magenta{
   background: none repeat scroll 0 0 #AD0059;
