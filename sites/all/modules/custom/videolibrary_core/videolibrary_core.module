@@ -174,19 +174,9 @@ function category_menu() {
         $tag_url = url("$arg0/tags");
         $content = '';
         //print_r($user);
-        $roles = $user->roles;
+       
         $show_block = false;
-    
-        if($arg0 == 'entrepreneur')
-        {
-            if(in_array('entrepreneur_web_master', $roles) || in_array('administrator', $roles))
-            {
-                $show_block = true;
-            }
-        }else
-        {
-            $show_block = true;
-        }
+        $show_block = user_library_permission($arg0);        
         if($show_block == true)
         {
             $content .= '<div class="block view-views-by-category" id="block-views-views-by-category-block"><div class="block-content content"><div class="left-side-menu"><ul>
@@ -209,6 +199,31 @@ function category_menu() {
 
         return $content;
     }
+}
+
+function user_library_permission($arg)
+{
+    global $user;
+    $roles = $user->roles;
+    $show_block = false;
+    if($arg == 'entrepreneur')
+    {
+        if(in_array('entrepreneur web master', $roles) || in_array('entrepreneur user', $roles) || in_array('administrator', $roles) || in_array('super admin', $roles))
+        {
+            $show_block = true;
+        }
+    }elseif($arg == 'compete')
+    {
+        if(in_array('compete to win web master', $roles) || in_array('compete to win user', $roles) || in_array('administrator', $roles) || in_array('super admin', $roles))
+        {
+            $show_block = true;
+        }            
+    }        
+    else
+    {
+        $show_block = true;
+    }
+    return $show_block;
 }
 
 function user_top_menu_link() {
