@@ -627,7 +627,8 @@ function videolibrary_core_init(){
     global $user;
     $roles = $user->roles;
     $private_access = true;
-    $arg = arg(0);
+    $argument = explode('/', request_path());
+    $arg = $argument[0];
     if($arg == 'entrepreneur')
     {
         $private_access = false;
