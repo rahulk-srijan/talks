@@ -150,13 +150,15 @@ function custom_ovl_form_alter(&$form, &$form_state, $form_id) {
         $form['subscriptions']['newsletters']['#options'][4]='All new videos added to McKinsey Talks';
         $form['subscriptions']['newsletters']['#options'][591]='All new videos added to IT Video Library';
         $form['subscriptions']['newsletters']['#options'][592]='All new videos added to NWD Video Library';
+         $form['subscriptions']['newsletters']['#options'][602]='All new videos added to Entrepreneur Video Library';
+          $form['subscriptions']['newsletters']['#options'][603]='All new videos added to compete to win';
                 /*  $form['subscriptions']['new_1'] = array(
           '#type' => 'item',
           '#markup' => 'ONLY new videos added to these categories',
           '#weight' => 56,
           ); */
         $count= array();
-        $terms = array(458,465,1,593,597);
+        $terms = array(458,465,1,593,606,610,612);
         foreach ($terms as $term) {
           $term_count = taxonomy_term_load($term);
           $vid = $term_count->vid;
