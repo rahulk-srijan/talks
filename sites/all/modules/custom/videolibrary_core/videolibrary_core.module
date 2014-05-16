@@ -174,12 +174,11 @@ function category_menu() {
         $tag_url = url("$arg0/tags");
         $content = '';
         //print_r($user);
-        $roles = $user->roles;
+       
         $show_block = false;
         $show_block = user_library_permission($arg0);        
         if($show_block == true)
         {
-            
             $content .= '<div class="block view-views-by-category" id="block-views-views-by-category-block"><div class="block-content content"><div class="left-side-menu"><ul>
             <li class="view-all ' . $homeclass . '"><a href="' . $browse_url . '">View All</a></li>
             <li class="by-tags ' . $tagsclass . '"><a href="' . $tag_url . '">By Tags</a></li>
@@ -204,6 +203,8 @@ function category_menu() {
 
 function user_library_permission($arg)
 {
+    global $user;
+    $roles = $user->roles;
     $show_block = false;
     if($arg == 'entrepreneur')
     {
