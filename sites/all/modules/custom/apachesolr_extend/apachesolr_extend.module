@@ -80,8 +80,8 @@ function apachesolr_extend_apachesolr_query_prepare(DrupalSolrQueryInterface &$q
             $query->addFilter('im_field_library', 603, TRUE);
         }        
     }
-    print_r($query->getFilters());
-    die;
+    //print_r($query->getFilters());
+    //die;
 
     // $query->set_available_sort('ds_created', array('title' => t('Latest'), 'default' => 'desc'));
     //  $query->removeAvailableSort('score');
