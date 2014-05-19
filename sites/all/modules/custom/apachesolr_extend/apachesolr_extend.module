@@ -70,6 +70,14 @@ function apachesolr_extend_apachesolr_query_prepare(DrupalSolrQueryInterface &$q
     if($subsite_home_page_url!=NULl) {
     $default_filter_tid = default_filter_term_id();
     $query->addFilter('im_field_library', $default_filter_tid[$subsite_home_page_url]);
+    }else{
+        if(!check_library_access('entrepreneur'))
+        {
+            $query->addFilter('im_field_library', 602, TRUE);
+        }elseif(!check_library_access('compete'))
+        {
+            $query->addFilter('im_field_library', 603, TRUE);
+        }        
     }
 
     // $query->set_available_sort('ds_created', array('title' => t('Latest'), 'default' => 'desc'));
@@ -83,6 +91,30 @@ function apachesolr_extend_apachesolr_query_prepare(DrupalSolrQueryInterface &$q
     //$query->setAvailableSort('score', array('title' => t('Relevance'), 'default' => 'desc'));
 }
 
+function check_library_access($lib)
+{
+    global $user;
+    $roles = $user->roles;
+    switch($lib){
+        case 'entrepreneur':
+            if(in_array('entrepreneur web master', $roles) || in_array('entrepreneur user', $roles) || in_array('administrator', $roles) || in_array('super admin', $roles))
+            {
+                return true;
+            }else{
+                return false;
+            }
+        case 'compete':
+            if(in_array('compete to win web master', $roles) || in_array('compete to win user', $roles) || in_array('administrator', $roles) || in_array('super admin', $roles))
+            {
+                return true;
+            }else
+            {
+                return false;
+            }
+        default:
+            return false;
+    }
+}
 
 /*
  * hook_apachesolr_query_alter()
