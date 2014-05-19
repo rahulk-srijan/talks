@@ -74,7 +74,8 @@ function apachesolr_extend_apachesolr_query_prepare(DrupalSolrQueryInterface &$q
         if(!check_library_access('entrepreneur'))
         {
             $query->addFilter('im_field_library', 602, TRUE);
-        }elseif(!check_library_access('compete'))
+        }
+        if(!check_library_access('compete'))
         {
             $query->addFilter('im_field_library', 603, TRUE);
         }        
