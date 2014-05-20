@@ -353,18 +353,20 @@ function videolibrary_core_form_alter(&$form, &$form_state, $form_id) {
             '602' => 'entrepreneur web master',
             '603' => 'compete to win web master',
             '591'=> 'it web master',
-            '592'=> 'nwd web master',
+            '592'=> 'ndm web master',
              );
         $roles = user_roles();
         $current_user_role = $user->roles;
         $result = array_intersect($library_roles, $current_user_role);
         $result_count = count($result);
+       // print_r($result);die();
         if(in_array('super admin', $current_user_role)) {
     return;}else{
         if($result_count==1) {
 foreach($library_roles as $tid=>$role) {
     if(in_array($role, $current_user_role)) {
         $form = videolibrary_core_unset_field_library($form, $library_roles, $tid);
+        //print_r($form);
     }
 }
     }elseif($result_count > 1) {
