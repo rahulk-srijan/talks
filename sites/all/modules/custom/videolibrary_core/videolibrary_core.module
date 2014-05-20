@@ -152,7 +152,7 @@ function category_menu() {
     global $user;
     $argument = explode('/', request_path());
     global $subsite_home_page_url;
-    $category_vocab = array('orginaction' => 'category', 'btoacademy' => 'bto_category', 'opsinaction' => 'ops_category','it'=>'it_category','mi-matters'=>'mi-matters_category','partner_entrepreneurship'=>'partner_entrepreneurship_category','competetowin'=>'competetowin_category');
+    $category_vocab = array('orginaction' => 'category', 'btoacademy' => 'bto_category', 'opsinaction' => 'ops_category','it'=>'it_category','mi-matters'=>'ndm_category','partner_entrepreneurship'=>'entrepreneur_category','competetowin'=>'compete_category');
 
     $homeclass = '';
     $tagsclass = '';
@@ -643,8 +643,8 @@ function videolibrary_core_init(){
         if(in_array('compete to win web master', $roles) || in_array('compete to win user', $roles) || in_array('administrator', $roles) || in_array('super admin', $roles))
         {
             $private_access = true;
-        }            
-    }        
+        }
+    }
     if(!$private_access){
         drupal_access_denied();
     }
