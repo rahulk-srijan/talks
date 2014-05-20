@@ -201,7 +201,7 @@ function newsletterSubscriptions_daily($frequency) {
 // }
 //}
 
-function simplenews_extend_taxonomy_term_update($term) {
+function simplenews_extend_taxonomy_term_insert($term) {
     $vids =array(2,5,6,7,10,12,14,16);
     $vid= $term->vid;
     if (isset($term->tid) && in_array($vid,$vids) && $term->op == 'Save') {
