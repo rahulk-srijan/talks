@@ -619,3 +619,33 @@ function videolibrary_core_form($form, $form_state) {
   );
     return $form;
 }
+
+/***
+function hook_init()
+**/
+function videolibrary_core_init(){
+    global $user;
+    $roles = $user->roles;
+    $private_access = true;
+    $argument = explode('/', request_path());
+    $arg = $argument[0];
+    if($arg == 'entrepreneur')
+    {
+        $private_access = false;
+        if(in_array('entrepreneur web master', $roles) || in_array('entrepreneur user', $roles) || in_array('administrator', $roles) || in_array('super admin', $roles))
+        {
+            $private_access = true;
+        }
+
+    }elseif($arg == 'compete')
+    {
+        $private_access = false;
+        if(in_array('compete to win web master', $roles) || in_array('compete to win user', $roles) || in_array('administrator', $roles) || in_array('super admin', $roles))
+        {
+            $private_access = true;
+        }            
+    }        
+    if(!$private_access){
+        drupal_access_denied();
+    }
+}
