@@ -131,6 +131,8 @@ FROM psn_person where person_status = 'Active'";
 
     $stid = oci_parse($connection, $query);
     $execute = oci_execute($stid);
+    print_r($execute);
+    print "execute ends";
     $row_count = ocirowcount($stid);
     // if records are in connection
     if (sizeof(oci_fetch_array($stid, OCI_RETURN_NULLS + OCI_ASSOC)) > 0) {
