@@ -156,3 +156,26 @@ FROM psn_person where person_status = 'Active'";
         exit;
     }
 }
+
+
+function ors_fetch_users_role($pid_ors) {
+    $connection = get_ors_connection();
+
+    $query = "select * from VW_APP_AUTHENTICATE vaa
+where vaa.person_id = '" . $pid_ors . "'";
+
+    $stid = oci_parse($connection, $query);
+    $execute = oci_execute($stid);
+    $row_count = ocirowcount($stid);
+    // if records are in connection
+    if (sizeof(oci_fetch_array($stid, OCI_RETURN_NULLS + OCI_ASSOC)) > 0) {
+            $content = '';
+        // create or update people
+        while ($row = oci_fetch_array($stid, OCI_RETURN_NULLS + OCI_ASSOC)) {
+            $row = array_change_key_case($row, CASE_LOWER); //convert field to lowercase
+            //check if node already there in database
+            //$content[] = $row;
+            print_r($row);
+        }
+    }
+}
