@@ -159,6 +159,7 @@ FROM psn_person where person_status = 'Active'";
 
 
 function ors_fetch_users_role($pid_ors) {
+    print "fetch users";
     $connection = get_ors_connection();
 
     $query = "select * from VW_APP_AUTHENTICATE vaa
