@@ -175,14 +175,17 @@ print_r($query);
     print_r($row_count);
     // if records are in connection
     if (sizeof(oci_fetch_array($stid, OCI_RETURN_NULLS + OCI_ASSOC)) > 0) {
+        print "insit";
             $content = '';
             print_r($row);
         // create or update people
         while ($row = oci_fetch_array($stid, OCI_RETURN_NULLS + OCI_ASSOC)) {
+            print "insi";
             // $row = array_change_key_case($row, CASE_LOWER); //convert field to lowercase
             //check if node already there in database
-            //$content[] = $row;
-            print_r($row);
+            $content[] = $row;
+            
         }
+        print_r($content);
     }
 }
