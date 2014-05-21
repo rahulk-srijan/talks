@@ -47,46 +47,46 @@ $library_subsite_variable = array(
         'channel_path'=>'spotlight',
         'resource'=>'',
         'recommend_text' => ' recommends a Spotlight video.'),
-    'it' =>
+    'ourtechnology' =>
     array('to' => 'IT@mckinsey.com',
         'from_email' => 'it_team@mckinsey.com',
         'subject' => 'Suggest a video',
-        'msg' => 'I recommend adding the following video to the IT video library',
-        'site_name' => 'IT',
+        'msg' => 'I recommend adding the following video to the Our Technology video channel.',
+        'site_name' => 'Our Technology',
          'tid'=>'591',
-         'channel_path'=>'it',
-         'resource'=>'http://home.intranet.mckinsey.com/practicespaces/ps/org/',
-        'recommend_text' => ' recommends an IT video.'),
-     'mi-matters' =>
-    array('to' => 'mi-matters@mckinsey.com',
-        'from_email' => 'mi-matters_team@mckinsey.com',
+         'channel_path'=>'ourtechnology',
+         'resource'=>'http://home.intranet.mckinsey.com/otcs/',
+        'recommend_text' => ' recommended a Our Technology video.'),
+     'mi_matters' =>
+    array('to' => 'mi_matters@mckinsey.com',
+        'from_email' => 'mi_matters_team@mckinsey.com',
         'subject' => 'Suggest a video',
-        'msg' => 'I recommend adding the following video to the mi-matters video library',
-        'site_name' => 'mi-matters',
+        'msg' => 'I recommend adding the following video to the MI Matters video channel.',
+        'site_name' => 'MI Matters',
          'tid'=>'592',
-         'channel_path'=>'mi-matters',
-         'resource'=>'http://home.intranet.mckinsey.com/practicespaces/ps/org/',
-        'recommend_text' => ' recommends an mi-matters video.'),
+         'channel_path'=>'mi_matters',
+         'resource'=>'http://home.intranet.mckinsey.com/practicespaces/ps/mck-implementation/',
+        'recommend_text' => '  recommended an MI Matters video.'),
     'partner_entrepreneurship' =>
     array('to' => 'partner_entrepreneurship@mckinsey.com',
         'from_email' => 'partner_entrepreneurship_team@mckinsey.com',
         'subject' => 'Suggest a video',
-        'msg' => 'I recommend adding the following video to the partner_entrepreneurship video library',
+        'msg' => 'I recommend adding the following video to the Entrepreneurship Stories video channel.',
         'site_name' => 'partner_entrepreneurship',
          'tid'=>'602',
          'channel_path'=>'partner_entrepreneurship',
-         'resource'=>'http://home.intranet.mckinsey.com/practicespaces/ps/org/',
-        'recommend_text' => ' recommends an partner_entrepreneurship video.'),
+         'resource'=>'',
+        'recommend_text' => ' recommended an Entrepreneurship Stories video.'),
     'competetowin' =>
     array('to' => 'competetowin@mckinsey.com',
         'from_email' => 'competetowin_team@mckinsey.com',
         'subject' => 'Suggest a video',
-        'msg' => 'I recommend adding the following video to the competetowin to Win video library',
+        'msg' => 'I recommend adding the following video to the Compete to Win video channel.',
         'site_name' => 'competetowin to Win',
          'tid'=>'603',
          'channel_path'=>'competetowin',
-         'resource'=>'http://home.intranet.mckinsey.com/practicespaces/ps/org/',
-        'recommend_text' => ' recommends an competetowin to win video.'),
+         'resource'=>'http://home.intranet.mckinsey.com/intcomms/clientchannel/Get-competitive-intelligence-Competitor-information-Tools',
+        'recommend_text' => ' recommended a Compete to Win video.'),
         );
 
 /**
@@ -152,7 +152,7 @@ function category_menu() {
     global $user;
     $argument = explode('/', request_path());
     global $subsite_home_page_url;
-    $category_vocab = array('orginaction' => 'category', 'btoacademy' => 'bto_category', 'opsinaction' => 'ops_category','it'=>'it_category','mi-matters'=>'ndm_category','partner_entrepreneurship'=>'entrepreneur_category','competetowin'=>'compete_category');
+    $category_vocab = array('orginaction' => 'category', 'btoacademy' => 'bto_category', 'opsinaction' => 'ops_category','ourtechnology'=>'it_category','mi_matters'=>'ndm_category','partner_entrepreneurship'=>'entrepreneur_category','competetowin'=>'compete_category');
 
     $homeclass = '';
     $tagsclass = '';
@@ -257,7 +257,7 @@ function user_top_menu_link() {
         $content .='<li class="first">' . t('Welcome ') . '<a href="' . $profile_url . '" target="_blank">' . $user->name . '</a></li>';
         $content .='<li class="second"><a href="' . url('newsletter/subscriptions') . '">My Notifications</a></li>';
 
-        $adminRoles = array("orginaction"=>"org web master", "opsinaction"=> "ops web master", "btoacademy" => "bto web master" ,"admin"=>"administrator","super admin"=>"super admin","it"=>"it web master","mi-matters"=>"mi-matters web master","partner_entrepreneurship"=>"partner_entrepreneurship web master","competetowin"=>"competetowin to win web master");
+        $adminRoles = array("orginaction"=>"org web master", "opsinaction"=> "ops web master", "btoacademy" => "bto web master" ,"admin"=>"administrator","super admin"=>"super admin","ourtechnology"=>"it web master","mi_matters"=>"mi_matters web master","partner_entrepreneurship"=>"partner_entrepreneurship web master","competetowin"=>"competetowin to win web master");
         $device = array('ipad', 'iphone');
         foreach ($adminRoles as $value=>$role) {
             if (in_array($role, $user->roles) && !(bool) strpos($_SERVER['HTTP_USER_AGENT'], 'iPad') && !(bool) strpos($_SERVER['HTTP_USER_AGENT'], 'iPhone')) {
@@ -507,12 +507,12 @@ function videolibrary_core_form($form, $form_state) {
     $mail_to_org = $library_subsite_variable['orginaction']['to'];
     $subject_org = $library_subsite_variable['orginaction']['subject'];
     $msg_org = $library_subsite_variable['orginaction']['msg'];
-    $mail_to_it = $library_subsite_variable['it']['to'];
-    $subject_it = $library_subsite_variable['it']['subject'];
-    $msg_it = $library_subsite_variable['it']['msg'];
-    $mail_to_mi_matters = $library_subsite_variable['mi-matters']['to'];
-    $subject_mi_matters = $library_subsite_variable['mi-matters']['subject'];
-    $msg_mi_matters = $library_subsite_variable['mi-matters']['msg'];
+    $mail_to_ourtechnology = $library_subsite_variable['ourtechnology']['to'];
+    $subject_ourtechnology = $library_subsite_variable['ourtechnology']['subject'];
+    $msg_ourtechnology = $library_subsite_variable['ourtechnology']['msg'];
+    $mail_to_mi_matters = $library_subsite_variable['mi_matters']['to'];
+    $subject_mi_matters = $library_subsite_variable['mi_matters']['subject'];
+    $msg_mi_matters = $library_subsite_variable['mi_matters']['msg'];
     $mail_to_partner_entrepreneurship = $library_subsite_variable['partner_entrepreneurship']['to'];
     $subject_partner_entrepreneurship = $library_subsite_variable['partner_entrepreneurship']['subject'];
     $msg_partner_entrepreneurship = $library_subsite_variable['partner_entrepreneurship']['msg'];
@@ -532,9 +532,9 @@ function videolibrary_core_form($form, $form_state) {
   $bto= ' <a class="lib" id="bto" href="mailto:' . $mail_to_bto . '?Subject=' . $subject_bto . '&body=' . $msg_bto . '">BTO Academy</a><br/>';
   $ops ='<a class="lib" id="ops" href="mailto:' . $mail_to_ops . '?Subject=' . $subject_ops . '&body=' . $msg_ops . '">Ops in Action</a><br/>';
   $org= '<a class="lib" id="org" href="mailto:' . $mail_to_org . '?Subject=' . $subject_org . '&body=' . $msg_org . '">Org in Action</a>';
-  $it= '<a class="lib" id="org" href="mailto:' . $mail_to_it . '?Subject=' . $subject_it . '&body=' . $msg_it . '">IT Video Library</a>';
+  $ourtechnology= '<a class="lib" id="org" href="mailto:' . $mail_to_ourtechnology . '?Subject=' . $subject_ourtechnology . '&body=' . $msg_ourtechnology . '">Our Technology</a>';
 
-  $mi_matters= '<a class="lib" id="org" href="mailto:' . $mail_to_mi_matters . '?Subject=' . $subject_mi_matters . '&body=' . $msg_mi_matters . '">mi-matters Video Library</a>';
+  $mi_matters= '<a class="lib" id="org" href="mailto:' . $mail_to_mi_matters . '?Subject=' . $subject_mi_matters . '&body=' . $msg_mi_matters . '">mi_matters Video Library</a>';
   $partner_entrepreneurship= '<a class="lib" id="org" href="mailto:' . $mail_to_partner_entrepreneurship . '?Subject=' . $subject_partner_entrepreneurship . '&body=' . $msg_partner_entrepreneurship . '">partner_entrepreneurship</a>';
   $competetowin= '<a class="lib" id="org" href="mailto:' . $mail_to_competetowin . '?Subject=' . $subject_competetowin . '&body=' . $msg_competetowin . '">competetowin to Win</a>';
 
@@ -582,14 +582,14 @@ function videolibrary_core_form($form, $form_state) {
  $form['lib_list_it'] = array(
 //    '#title' => t('Click below to suggest a video'),
     '#type' => 'item',
-    '#markup'=> $it,
+    '#markup'=> $ourtechnology,
     // '#states' => array(
     //   'visible' => array(
     //     ':input[name="lib_list"]' => array('value' => '2'),
     //   ),
     // ),
   );
- $form['lib_list_mi-matters'] = array(
+ $form['lib_list_mi_matters'] = array(
 //    '#title' => t('Click below to suggest a video'),
     '#type' => 'item',
     '#markup'=> $mi_matters,
