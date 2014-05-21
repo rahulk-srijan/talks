@@ -168,12 +168,15 @@ where vaa.person_id = '" . $pid_ors . "'";
     $stid = oci_parse($connection, $query);
     $execute = oci_execute($stid);
     $row_count = ocirowcount($stid);
+    print "row count";
+    print_r($row_count);
     // if records are in connection
     if (sizeof(oci_fetch_array($stid, OCI_RETURN_NULLS + OCI_ASSOC)) > 0) {
             $content = '';
+            print_r($row);
         // create or update people
         while ($row = oci_fetch_array($stid, OCI_RETURN_NULLS + OCI_ASSOC)) {
-            $row = array_change_key_case($row, CASE_LOWER); //convert field to lowercase
+            // $row = array_change_key_case($row, CASE_LOWER); //convert field to lowercase
             //check if node already there in database
             //$content[] = $row;
             print_r($row);
