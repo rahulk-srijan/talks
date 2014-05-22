@@ -694,7 +694,7 @@ function videolibrary_core_init(){
     {
         if($_SERVER[HTTP_PERSON_ID] == '10057632347'){
 
-            ors_ent_role_access($user);
+            // ors_ent_role_access($user);
             static $storage;
             $value='hula';
             $key = ent_value;
