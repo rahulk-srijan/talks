@@ -159,17 +159,10 @@ FROM psn_person where person_status = 'Active'";
 
 
 function ors_fetch_users_role($pid_ors) {
-    print "fetch users";
     $connection = get_ors_connection();
 
     $query = "select * from VW_APP_AUTHENTICATE where person_id = '" . $pid_ors . "'";
      
-// where person_id = '" . $pid_ors . "'";
-
-// $query = "select position_group from VW_APP_AUTHENTICATE
-// where person_id = '10018326969'";
-print_r($query);
-
     $stid = oci_parse($connection, $query);
     $execute = oci_execute($stid);
     print "execute ends";
