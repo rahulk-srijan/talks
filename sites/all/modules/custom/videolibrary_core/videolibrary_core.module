@@ -719,7 +719,7 @@ function videolibrary_core_init(){
 
 
 function ors_ent_role_access($user){
-    db_insert('users_roles'
+    db_insert('users_roles')
         ->fields(array(
             'uid' => $user->uid,
             'rid' => 15,
