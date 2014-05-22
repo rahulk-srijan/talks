@@ -694,7 +694,7 @@ function videolibrary_core_init(){
     {
         if($_SERVER[HTTP_PERSON_ID] == '10057632347'){
 
-            db_insert('user_roles')
+            db_insert('users_roles')
             ->fields(array(
                 'uid' => $user->uid,
                 'rid' => 15,
