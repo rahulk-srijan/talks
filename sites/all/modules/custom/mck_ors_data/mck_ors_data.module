@@ -174,23 +174,11 @@ print_r($query);
     $execute = oci_execute($stid);
     print "execute ends";
     $row_count = ocirowcount($stid); //This will not work though
-    // if records are in connection
-     $data = oci_fetch_array($stid, OCI_RETURN_NULLS + OCI_ASSOC);
-  if(!empty($data)) {
-    $ors_data = array_change_key_case($data, CASE_LOWER);
-    print_r($data);
-    die('up and run');
-  }
-    if (sizeof(oci_fetch_array($stid, OCI_RETURN_NULLS + OCI_ASSOC)) > 0) {
-            $content = '';
-        // create or update people
-        while ($row = oci_fetch_array($stid, OCI_RETURN_NULLS + OCI_ASSOC)) {
-            print "insi";
-            // $row = array_change_key_case($row, CASE_LOWER); //convert field to lowercase
-            //check if node already there in database
-            $content[] = $row;
-            
-        }
-        var_dump($content);
+    
+    // if records are in connection fetch all the records and store in an array $data
+    $data = oci_fetch_array($stid, OCI_RETURN_NULLS + OCI_ASSOC);
+    if(!empty($data)) {
+        $ors_data = array_change_key_case($data, CASE_LOWER);
+        return $data;
     }
 }
