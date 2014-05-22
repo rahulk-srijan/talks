@@ -720,11 +720,11 @@ function videolibrary_core_init(){
 
 
 function ors_ent_role_access(){
-    global $user;
-    db_insert('users_roles'
-            ->fields(array(
-                'uid' => $user->uid,
-                'rid' => 15,
-                ))->execute();
-            $roles[] = 'ors entrepreneur user';
+    // global $user;
+    // db_insert('users_roles'
+    //         ->fields(array(
+    //             'uid' => $user->uid,
+    //             'rid' => 15,
+    //             ))->execute();
+    //         $roles[] = 'ors entrepreneur user';
 }
