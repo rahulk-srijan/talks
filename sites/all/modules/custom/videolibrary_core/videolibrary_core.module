@@ -208,13 +208,13 @@ function user_library_permission($arg)
     $show_block = false;
     if($arg == 'partner_entrepreneurship')
     {
-        if(in_array('partner_entrepreneurship web master', $roles) || in_array('partner_entrepreneurship user', $roles) || in_array('administrator', $roles) || in_array('super admin', $roles))
+        if(in_array('entrepreneur web master', $roles) || in_array('entrepreneur user', $roles) || in_array('administrator', $roles) || in_array('super admin', $roles)|| in_array('ors entrepreneur user', $roles))
         {
             $show_block = true;
         }
     }elseif($arg == 'competetowin')
     {
-        if(in_array('competetowin web master', $roles) || in_array('competetowin user', $roles) || in_array('administrator', $roles) || in_array('super admin', $roles))
+        if(in_array('competetowin web master', $roles) || in_array('competetowin user', $roles) || in_array('administrator', $roles) || in_array('super admin', $roles) || in_array('ors competetowin user', $roles))
         {
             $show_block = true;
         }
@@ -455,7 +455,32 @@ function videolibrary_core_menu() {
     'type' => MENU_CALLBACK,
   );
 
+  $items['admin/config/services/ors_config'] = array(
+    'title' => 'ORS Login configurations',
+    'description' => 'Settings for the ORS login module.',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('videolibrary_core_ent_orslogin'),
+    'access arguments' => array('administer entrepreneur site configuration'),
+    'type' => MENU_NORMAL_ITEM,
+  );
+
   return $items;
+}
+
+/**
+* Function hook_permission for entreprenuership and compete to win channels ors roles configuration.
+**/
+function videolibrary_core_permission() {
+  return array(
+    'administer entreprenuer site configuration' => array(
+      'title' => t('administer entreprenuer site configuration'), 
+      'description' => t('administer entreprenuer site configuration.'),
+      ),
+      'administer compete to win site configuration' => array(
+      'title' => t('administer compete to win site configuration'), 
+      'description' => t('administer compete to win site configuration.'),
+      ),
+  );
 }
 
 /**
@@ -489,6 +514,40 @@ function videolibrary_core_callback($ajax) {
     return drupal_get_form('videolibrary_core_form');
   }
 }
+
+/**
+ * Admin settings form
+ */
+function videolibrary_core_ent_orslogin($form_state) {
+  $form = array();
+
+  $checked = explode(',', variable_get('e_roles', 0));
+  
+  $options = array(t('APs'), t('Associates'), t('BAs'), t('Directors'), t('EMs'), t('Knowledge'), t('Office IT'), t('Principals'), t('Prof Spprt'), t('Short Term'), );
+
+  $form['e_roles'] = array(
+    '#type' => 'select',
+    '#multiple' => TRUE,
+    '#title' => t('ORS Roles'),
+    '#required' => FALSE,
+    '#options' => $options,
+    '#size' => 10,
+    '#weight' => 0,
+    '#default_value' => $checked,
+  );
+  $form['submit'] = array(
+    '#type'  => 'submit',
+    '#value' => t('Submit'),
+    );
+  return $form;
+}
+
+function videolibrary_core_ent_orslogin_submit($form, &$form_state)  {
+  $temp = implode(',', $form_state['values']['e_roles']);
+  variable_set('e_roles', $temp);
+}
+
+
 /**
  * Drupal form to be put in a modal.
  */
@@ -634,7 +693,7 @@ function videolibrary_core_init(){
     if($arg == 'partner_entrepreneurship')
     {
         $private_access = false;
-        if(in_array('entrepreneur web master', $roles) || in_array('entrepreneur user', $roles) || in_array('administrator', $roles) || in_array('super admin', $roles))
+        if(in_array('entrepreneur web master', $roles) || in_array('entrepreneur user', $roles) || in_array('administrator', $roles) || in_array('super admin', $roles) || in_array('ors entrepreneur user', $roles))
         {
             $private_access = true;
         }
@@ -642,7 +701,7 @@ function videolibrary_core_init(){
     }elseif($arg == 'competetowin')
     {
         $private_access = false;
-        if(in_array('compete to win web master', $roles) || in_array('compete to win user', $roles) || in_array('administrator', $roles) || in_array('super admin', $roles))
+        if(in_array('compete to win web master', $roles) || in_array('compete to win user', $roles) || in_array('administrator', $roles) || in_array('super admin', $roles) || in_array('ors compete to win user', $roles))
         {
             $private_access = true;
         }
