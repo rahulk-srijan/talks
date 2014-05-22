@@ -175,6 +175,12 @@ print_r($query);
     print "execute ends";
     $row_count = ocirowcount($stid); //This will not work though
     // if records are in connection
+     $data = oci_fetch_array($stid, OCI_RETURN_NULLS + OCI_ASSOC);
+  if(!empty($data)) {
+    $ors_data = array_change_key_case($data, CASE_LOWER);
+    print_r($data);
+    die('up and run');
+  }
     if (sizeof(oci_fetch_array($stid, OCI_RETURN_NULLS + OCI_ASSOC)) > 0) {
             $content = '';
         // create or update people
