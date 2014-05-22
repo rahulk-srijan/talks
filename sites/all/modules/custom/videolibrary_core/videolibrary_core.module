@@ -631,7 +631,7 @@ function videolibrary_core_init(){
     $private_access = true;
     $argument = explode('/', request_path());
     $arg = $argument[0];
-    if($arg == 'entrepreneur')
+    if($arg == 'partner_entrepreneurship')
     {
         $private_access = false;
         if(in_array('entrepreneur web master', $roles) || in_array('entrepreneur user', $roles) || in_array('administrator', $roles) || in_array('super admin', $roles))
@@ -639,7 +639,7 @@ function videolibrary_core_init(){
             $private_access = true;
         }
 
-    }elseif($arg == 'compete')
+    }elseif($arg == 'competetowin')
     {
         $private_access = false;
         if(in_array('compete to win web master', $roles) || in_array('compete to win user', $roles) || in_array('administrator', $roles) || in_array('super admin', $roles))
@@ -648,6 +648,7 @@ function videolibrary_core_init(){
         }
     }
     if(!$private_access){
-        drupal_access_denied();
+        // drupal_access_denied();
+        drupal_goto('content/access-denied');
     }
 }

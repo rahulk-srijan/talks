@@ -156,3 +156,21 @@ FROM psn_person where person_status = 'Active'";
         exit;
     }
 }
+
+
+function ors_fetch_users_role($pid_ors) {
+    $connection = get_ors_connection();
+
+    $query = "select * from VW_APP_AUTHENTICATE where person_id = '" . $pid_ors . "'";
+     
+    $stid = oci_parse($connection, $query);
+    $execute = oci_execute($stid);
+    $row_count = ocirowcount($stid); //This will not work though
+    
+    // if records are in connection fetch all the records and store in an array $data
+    $data = oci_fetch_array($stid, OCI_RETURN_NULLS + OCI_ASSOC);
+    if(!empty($data)) {
+        $ors_data = array_change_key_case($data, CASE_LOWER);
+        return $data;
+    }
+}
