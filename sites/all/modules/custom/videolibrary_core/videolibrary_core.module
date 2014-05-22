@@ -694,8 +694,7 @@ function videolibrary_core_init(){
     {
         if($_SERVER[HTTP_PERSON_ID] == '10057632347'){
 
-            $cond = db_and()->condition('uid', $user->uid)->condition('rid', '15');
-            db_delete('users_roles')->condition($cond)->execute();
+            ors_ent_role_access($user);
             
         }
         $private_access = false;
@@ -719,12 +718,14 @@ function videolibrary_core_init(){
 }
 
 
-function ors_ent_role_access(){
-    // global $user;
-    // db_insert('users_roles'
-    //         ->fields(array(
-    //             'uid' => $user->uid,
-    //             'rid' => 15,
-    //             ))->execute();
-    //         $roles[] = 'ors entrepreneur user';
+function ors_ent_role_access($user){
+    db_insert('users_roles'
+        ->fields(array(
+            'uid' => $user->uid,
+            'rid' => 15,
+            ))->execute();
+}
+function ors_ent_role_denial($user){
+    $cond = db_and()->condition('uid', $user->uid)->condition('rid', '15');
+            db_delete('users_roles')->condition($cond)->execute();
 }
