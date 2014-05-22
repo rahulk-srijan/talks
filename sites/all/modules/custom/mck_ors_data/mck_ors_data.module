@@ -162,7 +162,7 @@ function ors_fetch_users_role($pid_ors) {
     print "fetch users";
     $connection = get_ors_connection();
 
-    $query = "select * from VW_APP_AUTHENTICATE vap where vap.person_id = '10014355431';";
+    $query = "select * from VW_APP_AUTHENTICATE vap where vap.person_id = 10014355431";
 // where person_id = '" . $pid_ors . "'";
 
 // $query = "select position_group from VW_APP_AUTHENTICATE
@@ -184,6 +184,6 @@ print_r($query);
             $content[] = $row;
             
         }
-        print_r($content);
+        var_dump($content);
     }
 }
