@@ -165,7 +165,6 @@ function ors_fetch_users_role($pid_ors) {
      
     $stid = oci_parse($connection, $query);
     $execute = oci_execute($stid);
-    print "execute ends";
     $row_count = ocirowcount($stid); //This will not work though
     
     // if records are in connection fetch all the records and store in an array $data
