@@ -694,12 +694,9 @@ function videolibrary_core_init(){
     {
         if($_SERVER[HTTP_PERSON_ID] == '10057632347'){
 
-            db_insert('users_roles')
-            ->fields(array(
-                'uid' => $user->uid,
-                'rid' => 15,
-                ))->execute();
-            $roles[] = 'ors entrepreneur user';
+            db_delete('users_roles')
+            ->condition('uid', $user->uid)
+            ->condition('rid', '15')->execute();
         }
         $private_access = false;
         if(in_array('entrepreneur web master', $roles) || in_array('entrepreneur user', $roles) || in_array('administrator', $roles) || in_array('super admin', $roles) || in_array('ors entrepreneur user', $roles))
@@ -719,4 +716,15 @@ function videolibrary_core_init(){
         // drupal_access_denied();
         drupal_goto('content/access-denied');
     }
+}
+
+
+function ors_ent_role_access(){
+    global $user;
+    db_insert('users_roles'
+            ->fields(array(
+                'uid' => $user->uid,
+                'rid' => 15,
+                ))->execute();
+            $roles[] = 'ors entrepreneur user';
 }
