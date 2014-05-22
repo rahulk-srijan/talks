@@ -455,7 +455,7 @@ function videolibrary_core_menu() {
     'type' => MENU_CALLBACK,
   );
 
-  $items['admin/config/services/ors_config'] = array(
+  $items['admin/config/services/partner_entrepreneurship_config'] = array(
     'title' => 'ORS Login configurations',
     'description' => 'Settings for the ORS login module.',
     'page callback' => 'drupal_get_form',
