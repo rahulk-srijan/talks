@@ -1786,6 +1786,21 @@ elseif ($queue->qid=='1') {
    $tid='455';
      $query = taxonomy_based_autocomplete_alter($tid);
 }
+elseif ($queue->qid=='4') {
+   $tid='591  ';
+     $query = taxonomy_based_autocomplete_alter($tid);
+}
+elseif ($queue->qid=='5') {
+   $tid='592';
+     $query = taxonomy_based_autocomplete_alter($tid);
+}elseif ($queue->qid=='6') {
+   $tid='602';
+     $query = taxonomy_based_autocomplete_alter($tid);
+}
+elseif ($queue->qid=='7') {
+   $tid='603';
+     $query = taxonomy_based_autocomplete_alter($tid);
+}
 else {
   $query = db_select('node', 'n')
     ->addTag('node_access')
