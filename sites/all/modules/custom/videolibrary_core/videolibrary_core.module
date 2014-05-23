@@ -778,13 +778,13 @@ function videolibrary_core_init(){
 function ors_ent_role_access(){
     global $user;
     if (!in_array('ors entrepreneur user', $user->roles)){
-    db_insert('users_roles')
-        ->fields(array(
-            'uid' => $user->uid,
-            'rid' => 15,
-            )
-        )
-        ->execute();
+    // db_insert('users_roles')
+    //     ->fields(array(
+    //         'uid' => $user->uid,
+    //         'rid' => 15,
+    //         )
+    //     )
+    //     ->execute();
     }
     drupal_goto(request_path());
 }
@@ -801,13 +801,13 @@ function ors_ent_role_denial(){
 function ors_comp_role_access(){
     global $user;
     if (!in_array('ors compete to win user', $user->roles)){
-    db_insert('users_roles')
-        ->fields(array(
-            'uid' => $user->uid,
-            'rid' => 16,
-            )
-        )
-        ->execute();
+    // db_insert('users_roles')
+    //     ->fields(array(
+    //         'uid' => $user->uid,
+    //         'rid' => 16,
+    //         )
+    //     )
+    //     ->execute();
     }
     drupal_goto(request_path());
 }
