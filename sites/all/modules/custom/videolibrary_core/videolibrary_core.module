@@ -744,7 +744,7 @@ function videolibrary_core_init(){
      !(in_array('ors entrepreneur user', $roles)) || 
         !(in_array('ors compete to win user', $roles)) || 
         ($_COOKIE['Drupal_visitor_compvalue'] != 'access_comp'))  {
-            ors_role_assign();
+            // ors_role_assign();
         }
     if($arg == 'partner_entrepreneurship')
     {
@@ -776,6 +776,7 @@ function videolibrary_core_init(){
 
 
 function ors_ent_role_access($user){
+    if (!(in_array('ors entrepreneur user', $user->roles))){
     db_insert('users_roles')
         ->fields(array(
             'uid' => $user->uid,
@@ -783,17 +784,21 @@ function ors_ent_role_access($user){
             )
         )
         ->execute();
+    }
     drupal_goto(request_path());
 }
 
 function ors_ent_role_denial($user){
-    $cond = db_and()->condition('uid', $user->uid)->condition('rid', '15');
-    db_delete('users_roles')->condition($cond)->execute();
+    if (in_array('ors entrepreneur user', $user->roles)){
+        $cond = db_and()->condition('uid', $user->uid)->condition('rid', '15');
+        db_delete('users_roles')->condition($cond)->execute();
+    }
     drupal_goto(request_path());
 }
 
 function ors_comp_role_access($user){
     user_cookie_save(array('compvalue'=>'access_comp'));
+    if (!(in_array('ors compete to win user', $user->roles))){
     db_insert('users_roles')
         ->fields(array(
             'uid' => $user->uid,
@@ -801,11 +806,15 @@ function ors_comp_role_access($user){
             )
         )
         ->execute();
+    }
     drupal_goto(request_path());
 }
 function ors_comp_role_denial($user){
+    if (in_array('ors compete to win user', $user->roles)){
     $cond = db_and()->condition('uid', $user->uid)->condition('rid', '16');
             db_delete('users_roles')->condition($cond)->execute();
+    }
+    drupal_goto(request_path()); 
 }
 
 function ors_role_assign(){
