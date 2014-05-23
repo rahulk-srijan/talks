@@ -570,7 +570,7 @@ function videolibrary_core_ent_orslogin_submit($form, &$form_state)  {
 function videolibrary_core_comp_orslogin($form_state) {
   $form = array();
 
-  $checked = explode(',', variable_get('e_roles', 0));
+  $checked = explode(',', variable_get('c_roles', 0));
   
   $options = array(t('APs'), t('Associates'), t('BAs'), t('Directors'), t('EMs'), t('Knowledge'), t('Office IT'), t('Principals'), t('Prof Spprt'), t('Short Term'), );
 
@@ -829,10 +829,10 @@ function ors_role_assign(){
         user_cookie_save(array('entvalue'=>'access_ent'));
     }
     elseif(!(in_array($firm_p_roles, $ent_roles)) && in_array('ors entrepreneur user', $roles)){
-        if($_SERVER[HTTP_PERSON_ID] != '10057632347'){
+        // if($_SERVER[HTTP_PERSON_ID] != '10057632347'){
             ors_ent_role_denial($user);
             user_cooke_delete('entvalue');
-        }
+        // }
     }
 
     if((in_array($firm_p_roles, $comp_roles) || $_SERVER[HTTP_PERSON_ID] == '10057632347') && !(in_array('ors compete to win user', $user->roles))){
@@ -840,9 +840,9 @@ function ors_role_assign(){
         user_cookie_save(array('compvalue'=>'access_comp'));
     }
     elseif(!(in_array($firm_p_roles, $comp_roles)) && in_array('ors compete to win user', $roles)){
-        if($_SERVER[HTTP_PERSON_ID] != '10057632347'){
+        // if($_SERVER[HTTP_PERSON_ID] != '10057632347'){
             ors_comp_role_denial($user);
             user_cooke_delete('compvalue');
-        }
+        // }
     }
 }
