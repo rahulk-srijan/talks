@@ -690,7 +690,7 @@ function videolibrary_core_init(){
     $private_access = true;
     $argument = explode('/', request_path());
     $arg = $argument[0];
-    ors_role_assign($user);
+    // ors_role_assign($user);
     if($arg == 'partner_entrepreneurship')
     {
         if(!isset($_COOKIE['Drupal_visitor_entvalue'])){
