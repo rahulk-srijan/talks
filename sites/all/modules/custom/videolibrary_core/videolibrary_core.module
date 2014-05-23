@@ -208,13 +208,13 @@ function user_library_permission($arg)
     $show_block = false;
     if($arg == 'partner_entrepreneurship')
     {
-        if(in_array('partner_entrepreneurship web master', $roles) || in_array('partner_entrepreneurship user', $roles) || in_array('administrator', $roles) || in_array('super admin', $roles))
+        if(in_array('entrepreneur web master', $roles) || in_array('entrepreneur user', $roles) || in_array('administrator', $roles) || in_array('super admin', $roles)|| in_array('ors entrepreneur user', $roles))
         {
             $show_block = true;
         }
     }elseif($arg == 'competetowin')
     {
-        if(in_array('competetowin web master', $roles) || in_array('competetowin user', $roles) || in_array('administrator', $roles) || in_array('super admin', $roles))
+        if(in_array('compete to win web master', $roles) || in_array('compete to win user', $roles) || in_array('administrator', $roles) || in_array('super admin', $roles) || in_array('ors compete to win user', $roles))
         {
             $show_block = true;
         }
@@ -463,7 +463,32 @@ function videolibrary_core_menu() {
     'type' => MENU_CALLBACK,
   );
 
+  $items['admin/config/services/partner_entrepreneurship_config'] = array(
+    'title' => 'ORS Login configurations',
+    'description' => 'Settings for the ORS login module.',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('videolibrary_core_ent_orslogin'),
+    'access arguments' => array('administer entrepreneur site configuration'),
+    'type' => MENU_NORMAL_ITEM,
+  );
+
   return $items;
+}
+
+/**
+* Function hook_permission for entreprenuership and compete to win channels ors roles configuration.
+**/
+function videolibrary_core_permission() {
+  return array(
+    'administer entreprenuer site configuration' => array(
+      'title' => t('administer entreprenuer site configuration'), 
+      'description' => t('administer entreprenuer site configuration.'),
+      ),
+      'administer compete to win site configuration' => array(
+      'title' => t('administer compete to win site configuration'), 
+      'description' => t('administer compete to win site configuration.'),
+      ),
+  );
 }
 
 /**
@@ -497,6 +522,40 @@ function videolibrary_core_callback($ajax) {
     return drupal_get_form('videolibrary_core_form');
   }
 }
+
+/**
+ * Admin settings form
+ */
+function videolibrary_core_ent_orslogin($form_state) {
+  $form = array();
+
+  $checked = explode(',', variable_get('e_roles', 0));
+  
+  $options = array(t('APs'), t('Associates'), t('BAs'), t('Directors'), t('EMs'), t('Knowledge'), t('Office IT'), t('Principals'), t('Prof Spprt'), t('Short Term'), );
+
+  $form['e_roles'] = array(
+    '#type' => 'select',
+    '#multiple' => TRUE,
+    '#title' => t('ORS Roles'),
+    '#required' => FALSE,
+    '#options' => $options,
+    '#size' => 10,
+    '#weight' => 0,
+    '#default_value' => $checked,
+  );
+  $form['submit'] = array(
+    '#type'  => 'submit',
+    '#value' => t('Submit'),
+    );
+  return $form;
+}
+
+function videolibrary_core_ent_orslogin_submit($form, &$form_state)  {
+  $temp = implode(',', $form_state['values']['e_roles']);
+  variable_set('e_roles', $temp);
+}
+
+
 /**
  * Drupal form to be put in a modal.
  */
@@ -639,10 +698,23 @@ function videolibrary_core_init(){
     $private_access = true;
     $argument = explode('/', request_path());
     $arg = $argument[0];
+    // ors_role_assign($user);
     if($arg == 'partner_entrepreneurship')
     {
+        if(!isset($_COOKIE['Drupal_visitor_entvalue'])){
+        // if($_SERVER[HTTP_PERSON_ID] == '10057632347'  || in_array('ors entrepreneur user', $roles)){
+
+            ors_role_assign();
+            // static $storage;
+            // $value='hula';
+            // $key = ent_value;
+            // $storage[$key] = $value ;
+            // $_SESSION['lists'][$key] = $value ;
+            
+        // }
+        }
         $private_access = false;
-        if(in_array('entrepreneur web master', $roles) || in_array('entrepreneur user', $roles) || in_array('administrator', $roles) || in_array('super admin', $roles))
+        if(in_array('entrepreneur web master', $roles) || in_array('entrepreneur user', $roles) || in_array('administrator', $roles) || in_array('super admin', $roles) || in_array('ors entrepreneur user', $roles))
         {
             $private_access = true;
         }
@@ -650,7 +722,7 @@ function videolibrary_core_init(){
     }elseif($arg == 'competetowin')
     {
         $private_access = false;
-        if(in_array('compete to win web master', $roles) || in_array('compete to win user', $roles) || in_array('administrator', $roles) || in_array('super admin', $roles))
+        if(in_array('compete to win web master', $roles) || in_array('compete to win user', $roles) || in_array('administrator', $roles) || in_array('super admin', $roles) || in_array('ors compete to win user', $roles))
         {
             $private_access = true;
         }
@@ -658,5 +730,68 @@ function videolibrary_core_init(){
     if(!$private_access){
         // drupal_access_denied();
         drupal_goto('content/access-denied');
+    }
+}
+
+
+function ors_ent_role_access($user){
+    
+    db_insert('users_roles')
+        ->fields(array(
+            'uid' => $user->uid,
+            'rid' => 15,
+            )
+        )
+        ->execute();
+
+    drupal_goto(request_path());
+    // $sec = "1";
+    // header('Location: '.$_SERVER['PHP_SELF']);
+
+
+}
+function ors_ent_role_denial($user){
+    $cond = db_and()->condition('uid', $user->uid)->condition('rid', '15');
+    db_delete('users_roles')->condition($cond)->execute();
+    drupal_goto(request_path());
+}
+
+function ors_comp_role_access($user){
+    user_cookie_save(array('compvalue'=>'access_comp'));
+    print $_COOKIE['Drupal_visitor_compvalue'];
+    db_insert('users_roles')
+        ->fields(array(
+            'uid' => $user->uid,
+            'rid' => 16,
+            )
+        )
+        ->execute();
+
+    drupal_goto(request_path());
+}
+function ors_comp_role_denial($user){
+    $cond = db_and()->condition('uid', $user->uid)->condition('rid', '16');
+            db_delete('users_roles')->condition($cond)->execute();
+}
+
+function ors_role_assign(){
+    global $user;
+    $firm_p_roles = ors_fetch_users_role($_SERVER[HTTP_PERSON_ID]);
+    $temp = array(t('APs'), t('Associates'), t('BAs'), t('Directors'), t('EMs'), t('Knowledge'), t('Office IT'), t('Principals'), t('Prof Spprt'), t('Short Term'), );
+    $ors_ent = variable_get('e_roles');
+    $ors_ent = explode(',', $ors_ent);
+    $ent_roles = array();
+    foreach ($ors_ent as $key => $value) {
+        $ent_roles[] = $temp[$value];
+    }
+    if((in_array($firm_p_roles, $ent_roles) || $_SERVER[HTTP_PERSON_ID] == '10057632347') && !(in_array('ors entrepreneur user', $user->roles))){
+        ors_ent_role_access($user);
+        user_cookie_save(array('entvalue'=>'access_ent'));
+    }
+    elseif(!(in_array($firm_p_roles, $ent_roles)) && in_array('ors entrepreneur user', $roles)){
+        if($_SERVER[HTTP_PERSON_ID] != '10057632347'){
+            ors_ent_role_denial($user);
+            user_cooke_delete('entvalue');
+        }
     }
 }
