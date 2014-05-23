@@ -692,9 +692,9 @@ function videolibrary_core_init(){
     $arg = $argument[0];
     if($arg == 'partner_entrepreneurship')
     {
-        if(!isset($_SESSION['lists']['ent_value'])){
+        // if(!isset($_SESSION['lists']['ent_value'])){
         if($_SERVER[HTTP_PERSON_ID] == '10057632347'){
-            ors_ent_role_access($user);
+            // ors_ent_role_access($user);
             // static $storage;
             // $value='hula';
             // $key = ent_value;
@@ -705,7 +705,7 @@ function videolibrary_core_init(){
             die();
             
         }
-        }
+        // }
         $private_access = false;
         if(in_array('entrepreneur web master', $roles) || in_array('entrepreneur user', $roles) || in_array('administrator', $roles) || in_array('super admin', $roles) || in_array('ors entrepreneur user', $roles))
         {
