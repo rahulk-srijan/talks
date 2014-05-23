@@ -797,7 +797,6 @@ function ors_ent_role_denial($user){
 }
 
 function ors_comp_role_access($user){
-    user_cookie_save(array('compvalue'=>'access_comp'));
     if (!(in_array('ors compete to win user', $user->roles))){
     db_insert('users_roles')
         ->fields(array(
@@ -834,24 +833,32 @@ function ors_role_assign(){
         $comp_roles[] = $temp[$value];
     }
     if((in_array($firm_p_roles, $ent_roles) || $_SERVER[HTTP_PERSON_ID] == '10057632347') && !(in_array('ors entrepreneur user', $user->roles))){
-        // print "hello enter";
-        // die('123');
+        print "hello enter";
+        die('123');
+        if (!(in_array('ors entrepreneur user', $user->roles))){
         ors_ent_role_access($user);
+    }
         user_cookie_save(array('entvalue'=>'access_ent'));
     }
     elseif(!(in_array($firm_p_roles, $ent_roles)) && in_array('ors entrepreneur user', $roles)){
         if($_SERVER[HTTP_PERSON_ID] != '10057632347'){
+            if (in_array('ors entrepreneur user', $user->roles)){
             ors_ent_role_denial($user);
             user_cooke_delete('entvalue');
+        }
         }
     }
 
     if((in_array($firm_p_roles, $comp_roles) || $_SERVER[HTTP_PERSON_ID] == '10057632347') && !(in_array('ors compete to win user', $user->roles))){
+        if (!(in_array('ors compete to win user', $user->roles))){
         ors_comp_role_access($user);
+    }
         user_cookie_save(array('compvalue'=>'access_comp'));
+
     }
     elseif(!(in_array($firm_p_roles, $comp_roles)) && in_array('ors compete to win user', $roles)){
         if($_SERVER[HTTP_PERSON_ID] != '10057632347'){
+        if (in_array('ors compete to win user', $user->roles)){
             ors_comp_role_denial($user);
             user_cooke_delete('compvalue');
         }
