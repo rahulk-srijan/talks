@@ -545,7 +545,7 @@ function videolibrary_core_ent_orslogin($form_state) {
   $form['e_roles'] = array(
     '#type' => 'select',
     '#multiple' => TRUE,
-    '#title' => t('ORS Roles'),
+    '#title' => t('Entrepreneurship Roles Assignment'),
     '#required' => FALSE,
     '#options' => $options,
     '#size' => 10,
@@ -577,7 +577,7 @@ function videolibrary_core_comp_orslogin($form_state) {
   $form['c_roles'] = array(
     '#type' => 'select',
     '#multiple' => TRUE,
-    '#title' => t('ORS Roles'),
+    '#title' => t('Competetowin Roles Assignment'),
     '#required' => FALSE,
     '#options' => $options,
     '#size' => 10,
