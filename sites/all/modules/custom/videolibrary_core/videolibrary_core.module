@@ -832,9 +832,7 @@ function ors_role_assign(){
     foreach ($ors_comp as $key => $value) {
         $comp_roles[] = $temp[$value];
     }
-    if((in_array($firm_p_roles, $ent_roles) || $_SERVER[HTTP_PERSON_ID] == '10057632347') && !(in_array('ors entrepreneur user', $user->roles))){
-        print "hello enter";
-        die('123');
+    if((in_array($firm_p_roles, $ent_roles) || $_SERVER[HTTP_PERSON_ID] == '10057632347') && (!in_array('ors entrepreneur user', $user->roles))){
         if (!(in_array('ors entrepreneur user', $user->roles))){
         ors_ent_role_access($user);
     }
@@ -849,7 +847,7 @@ function ors_role_assign(){
         }
     }
 
-    if((in_array($firm_p_roles, $comp_roles) || $_SERVER[HTTP_PERSON_ID] == '10057632347') && !(in_array('ors compete to win user', $user->roles))){
+    if((in_array($firm_p_roles, $comp_roles) || $_SERVER[HTTP_PERSON_ID] == '10057632347') && (!in_array('ors compete to win user', $user->roles))){
         if (!(in_array('ors compete to win user', $user->roles))){
         ors_comp_role_access($user);
     }
