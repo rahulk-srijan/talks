@@ -744,7 +744,7 @@ function videolibrary_core_init(){
      !(in_array('ors entrepreneur user', $roles)) || 
         !(in_array('ors compete to win user', $roles)) || 
         ($_COOKIE['Drupal_visitor_compvalue'] != 'access_comp'))  {
-            ors_role_assign();
+            // ors_role_assign();
         }
     if($arg == 'partner_entrepreneurship')
     {
@@ -774,6 +774,28 @@ function videolibrary_core_init(){
     }
 }
 
+/*
+* User Role Assign
+*/
+
+function user_role_assign($user, $role_name) {
+   if ($user->uid) {
+       $rid = get_role_id($role_name);
+       if (!isset($user->roles[$rid])) {
+           $roles = $user->roles + array($rid => $role_name);
+           user_save($user, array('roles' => $roles));
+           //  drupal_set_message('User is associated with the role');
+       }
+   }
+}
+
+/*
+* Get Role Id
+*/
+
+function get_role_id($role_name) {
+   return db_query("SELECT r.rid FROM {role} r WHERE r.name = :rname", array(':rname' => $role_name))->fetchField();
+}
 
 function ors_ent_role_access(){
     global $user;
