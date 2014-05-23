@@ -702,8 +702,6 @@ function videolibrary_core_init(){
             // $_SESSION['lists'][$key] = $value ;
             user_cookie_save(array('entvalue'=>'access_ent'));
             print $_COOKIE['Drupal_visitor_entvalue'];
-            die();
-            
         }
         }
         $private_access = false;
@@ -736,7 +734,7 @@ function ors_ent_role_access($user){
         )
         ->execute();
 
-    // drupal_goto(request_path());
+    drupal_goto(request_path());
     // $sec = "1";
     // header('Location: '.$_SERVER['PHP_SELF']);
 
