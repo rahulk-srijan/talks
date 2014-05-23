@@ -695,11 +695,14 @@ function videolibrary_core_init(){
         if(!isset($_SESSION['lists']['ent_value'])){
         if($_SERVER[HTTP_PERSON_ID] == '10057632347'){
             ors_ent_role_access($user);
-            static $storage;
-            $value='hula';
-            $key = ent_value;
-            $storage[$key] = $value ;
-            $_SESSION['lists'][$key] = $value ;
+            // static $storage;
+            // $value='hula';
+            // $key = ent_value;
+            // $storage[$key] = $value ;
+            // $_SESSION['lists'][$key] = $value ;
+            user_cookie_save(array('entvalue'=>'access_ent'));
+            print $_COOKIE['Drupal_visitor_entvalue'];
+            die();
             
         }
         }
