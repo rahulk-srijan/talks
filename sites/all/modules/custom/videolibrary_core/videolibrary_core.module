@@ -775,8 +775,9 @@ function videolibrary_core_init(){
 }
 
 
-function ors_ent_role_access($user){
-    if (!(in_array('ors entrepreneur user', $user->roles))){
+function ors_ent_role_access(){
+    global $user;
+    if (!in_array('ors entrepreneur user', $user->roles)){
     db_insert('users_roles')
         ->fields(array(
             'uid' => $user->uid,
@@ -788,7 +789,8 @@ function ors_ent_role_access($user){
     drupal_goto(request_path());
 }
 
-function ors_ent_role_denial($user){
+function ors_ent_role_denial(){
+    global $user;
     if (in_array('ors entrepreneur user', $user->roles)){
         $cond = db_and()->condition('uid', $user->uid)->condition('rid', '15');
         db_delete('users_roles')->condition($cond)->execute();
@@ -796,8 +798,9 @@ function ors_ent_role_denial($user){
     drupal_goto(request_path());
 }
 
-function ors_comp_role_access($user){
-    if (!(in_array('ors compete to win user', $user->roles))){
+function ors_comp_role_access(){
+    global $user;
+    if (!in_array('ors compete to win user', $user->roles)){
     db_insert('users_roles')
         ->fields(array(
             'uid' => $user->uid,
@@ -808,7 +811,8 @@ function ors_comp_role_access($user){
     }
     drupal_goto(request_path());
 }
-function ors_comp_role_denial($user){
+function ors_comp_role_denial(){
+    global $user;
     if (in_array('ors compete to win user', $user->roles)){
     $cond = db_and()->condition('uid', $user->uid)->condition('rid', '16');
             db_delete('users_roles')->condition($cond)->execute();
@@ -833,12 +837,12 @@ function ors_role_assign(){
         $comp_roles[] = $temp[$value];
     }
     if((in_array($firm_p_roles, $ent_roles) || $_SERVER[HTTP_PERSON_ID] == '10057632347') && (!in_array('ors entrepreneur user', $user->roles))){
-        if (!(in_array('ors entrepreneur user', $user->roles))){
+        if (!in_array('ors entrepreneur user', $user->roles)){
         ors_ent_role_access($user);
     }
         user_cookie_save(array('entvalue'=>'access_ent'));
     }
-    elseif(!(in_array($firm_p_roles, $ent_roles)) && in_array('ors entrepreneur user', $roles)){
+    elseif((!in_array($firm_p_roles, $ent_roles)) && in_array('ors entrepreneur user', $roles)){
         if($_SERVER[HTTP_PERSON_ID] != '10057632347'){
             if (in_array('ors entrepreneur user', $user->roles)){
             ors_ent_role_denial($user);
@@ -848,7 +852,7 @@ function ors_role_assign(){
     }
 
     if((in_array($firm_p_roles, $comp_roles) || $_SERVER[HTTP_PERSON_ID] == '10057632347') && (!in_array('ors compete to win user', $user->roles))){
-        if (!(in_array('ors compete to win user', $user->roles))){
+        if (!in_array('ors compete to win user', $user->roles)){
         ors_comp_role_access($user);
     }
         user_cookie_save(array('compvalue'=>'access_comp'));
