@@ -699,6 +699,10 @@ function videolibrary_core_init(){
     $argument = explode('/', request_path());
     $arg = $argument[0];
     // ors_role_assign($user);
+    if($_COOKIE['Drupal_visitor_entvalue'] != 'access_ent' || !(in_array('ors entrepreneur user', $roles))){
+
+            ors_role_assign();
+        }
     if($arg == 'partner_entrepreneurship')
     {
         if($_COOKIE['Drupal_visitor_entvalue'] != 'access_ent' || !(in_array('ors entrepreneur user', $roles))){
