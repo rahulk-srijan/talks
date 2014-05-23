@@ -78,7 +78,7 @@ function apachesolr_extend_apachesolr_query_prepare(DrupalSolrQueryInterface &$q
         if(!check_library_access('compete'))
         {
             $query->addFilter('im_field_library', 603, TRUE);
-        }        
+        }
     }
     //print_r($query->getFilters());
     //die;
@@ -469,6 +469,18 @@ function apachesolr_extend_facet_items_alter(&$build, &$settings) {
                     break;
                 case '457':
                     $build[$key]["#markup"] = 'BTO Academy';
+                    break;
+                case '591':
+                    $build[$key]["#markup"] = 'Our Technology';
+                    break;
+                case '592':
+                    $build[$key]["#markup"] = 'MI Matters';
+                    break;
+                case '602':
+                    $build[$key]["#markup"] = 'Entrepreneurship Stories';
+                    break;
+                 case '603':
+                    $build[$key]["#markup"] = 'Compete to Win';
                     break;
             }
         }
