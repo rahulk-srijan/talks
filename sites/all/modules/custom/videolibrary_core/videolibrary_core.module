@@ -846,7 +846,6 @@ function ors_role_assign(){
             ors_ent_role_denial($user);
             user_cooke_delete('entvalue');
         }
-        }
     }
 
     if((in_array($firm_p_roles, $comp_roles) || $_SERVER[HTTP_PERSON_ID] == '10057632347') && !(in_array('ors compete to win user', $user->roles))){
