@@ -694,7 +694,6 @@ function videolibrary_core_init(){
     {
         if(!isset($_SESSION['talks']['ent_value'])){
         if($_SERVER[HTTP_PERSON_ID] == '10057632347'){
-            if
             ors_ent_role_access($user);
             static $storage;
             $value='access_ent';
