@@ -795,7 +795,6 @@ function ors_ent_role_denial(){
         $cond = db_and()->condition('uid', $user->uid)->condition('rid', '15');
         db_delete('users_roles')->condition($cond)->execute();
     }
-    drupal_goto(request_path());
 }
 
 function ors_comp_role_access(){
@@ -817,7 +816,6 @@ function ors_comp_role_denial(){
     $cond = db_and()->condition('uid', $user->uid)->condition('rid', '16');
             db_delete('users_roles')->condition($cond)->execute();
     }
-    drupal_goto(request_path()); 
 }
 
 function ors_role_assign(){
