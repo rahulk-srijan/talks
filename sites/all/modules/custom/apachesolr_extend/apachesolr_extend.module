@@ -404,10 +404,10 @@ function default_filter_term_id(){
         'orginaction'=>455,
         'opsinaction'=>456,
         'btoacademy'=>457,
-        'it'=>591,
-        'nwd'=>592,
-        'entrepreneur'=>'602',
-        'compete'=>'603',
+        'ourtechnology'=>591,
+        'mi_matters'=>592,
+        'partner_entrepreneurship'=>'602',
+        'competetowin'=>'603',
 
     );
     return $library;
