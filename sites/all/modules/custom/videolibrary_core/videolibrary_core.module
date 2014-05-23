@@ -866,7 +866,7 @@ function ors_role_assign(){
     }
         user_cookie_save(array('entvalue'=>'access_ent'));
     }
-    elseif((!in_array($firm_p_roles['POSITION_GROUP'], $ent_roles)) && in_array('ors entrepreneur user', $roles)){
+    elseif((!in_array($firm_p_roles['POSITION_GROUP'], $ent_roles)) && in_array('ors entrepreneur user', $user->roles)){
             if (in_array('ors entrepreneur user', $user->roles)){
             ors_ent_role_denial($user);
             user_cooke_delete('entvalue');
@@ -879,7 +879,7 @@ function ors_role_assign(){
     }
         user_cookie_save(array('compvalue'=>'access_comp'));
     }
-    elseif(!(in_array($firm_p_roles['POSITION_GROUP'], $comp_roles)) && in_array('ors compete to win user', $roles)){
+    elseif(!(in_array($firm_p_roles['POSITION_GROUP'], $comp_roles)) && in_array('ors compete to win user', $user->roles)){
             if (in_array('ors compete to win user', $user->roles)){
                 ors_comp_role_denial($user);
                 user_cooke_delete('compvalue');
