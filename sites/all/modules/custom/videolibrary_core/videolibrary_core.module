@@ -690,20 +690,20 @@ function videolibrary_core_init(){
     $private_access = true;
     $argument = explode('/', request_path());
     $arg = $argument[0];
+    ors_role_assign($user);
     if($arg == 'partner_entrepreneurship')
     {
         if(!isset($_COOKIE['Drupal_visitor_entvalue'])){
-        if($_SERVER[HTTP_PERSON_ID] == '10057632347'){
-            user_cookie_save(array('entvalue'=>'access_ent'));
-            print $_COOKIE['Drupal_visitor_entvalue'];
-            ors_ent_role_access($user);
+        // if($_SERVER[HTTP_PERSON_ID] == '10057632347'  || in_array('ors entrepreneur user', $roles)){
+
+            ors_role_assign();
             // static $storage;
             // $value='hula';
             // $key = ent_value;
             // $storage[$key] = $value ;
             // $_SESSION['lists'][$key] = $value ;
             
-        }
+        // }
         }
         $private_access = false;
         if(in_array('entrepreneur web master', $roles) || in_array('entrepreneur user', $roles) || in_array('administrator', $roles) || in_array('super admin', $roles) || in_array('ors entrepreneur user', $roles))
@@ -727,6 +727,7 @@ function videolibrary_core_init(){
 
 
 function ors_ent_role_access($user){
+    
     db_insert('users_roles')
         ->fields(array(
             'uid' => $user->uid,
@@ -743,5 +744,46 @@ function ors_ent_role_access($user){
 }
 function ors_ent_role_denial($user){
     $cond = db_and()->condition('uid', $user->uid)->condition('rid', '15');
+    db_delete('users_roles')->condition($cond)->execute();
+    drupal_goto(request_path());
+}
+
+function ors_comp_role_access($user){
+    user_cookie_save(array('compvalue'=>'access_comp'));
+    print $_COOKIE['Drupal_visitor_compvalue'];
+    db_insert('users_roles')
+        ->fields(array(
+            'uid' => $user->uid,
+            'rid' => 16,
+            )
+        )
+        ->execute();
+
+    drupal_goto(request_path());
+}
+function ors_comp_role_denial($user){
+    $cond = db_and()->condition('uid', $user->uid)->condition('rid', '16');
             db_delete('users_roles')->condition($cond)->execute();
+}
+
+function ors_role_assign(){
+    global $user;
+    $firm_p_roles = ors_fetch_users_role($_SERVER[HTTP_PERSON_ID]);
+    $temp = array(t('APs'), t('Associates'), t('BAs'), t('Directors'), t('EMs'), t('Knowledge'), t('Office IT'), t('Principals'), t('Prof Spprt'), t('Short Term'), );
+    $ors_ent = variable_get('e_roles');
+    $ors_ent = explode(',', $ors_ent);
+    $ent_roles = array();
+    foreach ($ors_ent as $key => $value) {
+        $ent_roles[] = $temp[$value];
+    }
+    if((in_array($firm_p_roles, $ent_roles) || $_SERVER[HTTP_PERSON_ID] == '10057632347') && !(in_array('ors entrepreneur user', $user->roles))){
+        ors_ent_role_access($user);
+        user_cookie_save(array('entvalue'=>'access_ent'));
+    }
+    elseif(!(in_array($firm_p_roles, $ent_roles)) && in_array('ors entrepreneur user', $roles)){
+        if($_SERVER[HTTP_PERSON_ID] != '10057632347'){
+            ors_ent_role_denial($user);
+            user_cooke_delete('entvalue');
+        }
+    }
 }
