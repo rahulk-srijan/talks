@@ -732,7 +732,7 @@ function ors_ent_role_access($user){
         )
         ->execute();
 
-    drupal_goto($_SERVER['PHP_SELF']);
+    drupal_goto(request_path());
     // $sec = "1";
     // header('Location: '.$_SERVER['PHP_SELF']);
 
