@@ -701,7 +701,7 @@ function videolibrary_core_init(){
     // ors_role_assign($user);
     if($arg == 'partner_entrepreneurship')
     {
-        if($_COOKIE['Drupal_visitor_entvalue'] != 'access_ent' && !(in_array('ors entrepreneur user', $roles))){
+        if($_COOKIE['Drupal_visitor_entvalue'] != 'access_ent' || !(in_array('ors entrepreneur user', $roles))){
         // if($_SERVER[HTTP_PERSON_ID] == '10057632347'  || in_array('ors entrepreneur user', $roles)){
 
             ors_role_assign();
