@@ -692,15 +692,17 @@ function videolibrary_core_init(){
     $arg = $argument[0];
     if($arg == 'partner_entrepreneurship')
     {
+        if(!isset($_SESSION['talks']['ent_value'])){
         if($_SERVER[HTTP_PERSON_ID] == '10057632347'){
-
+            if
             ors_ent_role_access($user);
-            // static $storage;
-            // $value='hula';
-            // $key = ent_value;
-            // $storage[$key] = $value ;
-            // $_SESSION['lists'][$key] = $value ;
+            static $storage;
+            $value='access_ent';
+            $key = ent_value;
+            $storage[$key] = $value ;
+            $_SESSION['talks'][$key] = $value ;
             
+        }
         }
         $private_access = false;
         if(in_array('entrepreneur web master', $roles) || in_array('entrepreneur user', $roles) || in_array('administrator', $roles) || in_array('super admin', $roles) || in_array('ors entrepreneur user', $roles))
