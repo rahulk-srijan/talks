@@ -864,7 +864,7 @@ function ors_role_assign(){
     foreach ($ors_comp as $key => $value) {
         $comp_roles[] = $temp[$value];
     }
-    if((in_array($firm_p_roles, $ent_roles)) && (!in_array('ors entrepreneur user', $user->roles))){
+    if((in_array($firm_p_roles['POSITION_GROUP'], $ent_roles)) && (!in_array('ors entrepreneur user', $user->roles))){
         if (!in_array('ors entrepreneur user', $user->roles)){
         ors_ent_role_access($user);
     }
