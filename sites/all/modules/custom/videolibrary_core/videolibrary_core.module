@@ -489,9 +489,9 @@ function videolibrary_core_menu() {
 **/
 function videolibrary_core_permission() {
   return array(
-    'administer entreprenuer site configuration' => array(
-      'title' => t('administer entreprenuer site configuration'), 
-      'description' => t('administer entreprenuer site configuration.'),
+    'administer entrepreneur site configuration' => array(
+      'title' => t('administer entrepreneur site configuration'), 
+      'description' => t('administer entrepreneur site configuration.'),
       ),
       'administer compete to win site configuration' => array(
       'title' => t('administer compete to win site configuration'), 
