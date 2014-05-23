@@ -694,7 +694,7 @@ function videolibrary_core_init(){
     {
         if($_SERVER[HTTP_PERSON_ID] == '10057632347'){
 
-            // ors_ent_role_access($user);
+            ors_ent_role_access($user);
             static $storage;
             $value='hula';
             $key = ent_value;
@@ -728,7 +728,15 @@ function ors_ent_role_access($user){
         ->fields(array(
             'uid' => $user->uid,
             'rid' => 15,
-            ))->execute();
+            )
+        )
+        ->execute();
+
+    $page = $_SERVER['PHP_SELF'];
+    $sec = "0";
+    header("Refresh: $sec; url=$page");
+
+
 }
 function ors_ent_role_denial($user){
     $cond = db_and()->condition('uid', $user->uid)->condition('rid', '15');
