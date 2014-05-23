@@ -799,6 +799,7 @@ function get_role_id($role_name) {
 
 function ors_ent_role_access(){
     global $user;
+    print_r($user);
     if (!in_array('ors entrepreneur user', $user->roles)){
     db_insert('users_roles')
         ->fields(array(
@@ -821,6 +822,7 @@ function ors_ent_role_denial(){
 
 function ors_comp_role_access(){
     global $user;
+    print_r($user->roles);
     if (!in_array('ors compete to win user', $user->roles)){
     db_insert('users_roles')
         ->fields(array(
@@ -834,6 +836,7 @@ function ors_comp_role_access(){
 }
 function ors_comp_role_denial(){
     global $user;
+
     if (in_array('ors compete to win user', $user->roles)){
     $cond = db_and()->condition('uid', $user->uid)->condition('rid', '16');
             db_delete('users_roles')->condition($cond)->execute();
