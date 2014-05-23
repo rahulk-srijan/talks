@@ -334,6 +334,10 @@ function videolibrary_core_form_alter(&$form, &$form_state, $form_id) {
         $form['field_library']['und']['#options'][457]='BTO Academy';
         $form['field_library']['und']['#options'][456]='Ops in Action';
         $form['field_library']['und']['#options'][455]='Org in Action';
+        $form['field_library']['und']['#options'][591]='Our Technology';
+        $form['field_library']['und']['#options'][592]='MI Matters';
+        $form['field_library']['und']['#options'][602]='Entrepreneurship Stories';
+        $form['field_library']['und']['#options'][603]='Compete to Win';
     }
 
     if($form_id=='views_exposed_form') {
@@ -341,6 +345,10 @@ function videolibrary_core_form_alter(&$form, &$form_state, $form_id) {
     $form['field_library_tid']['#options'][457] ='BTO Academy';
     $form['field_library_tid']['#options'][456] ='Ops in Action';
     $form['field_library_tid']['#options'][455] ='Org in Action';
+    $form['field_library_tid']['#options'][591] ='Our Technology';
+    $form['field_library_tid']['#options'][592] ='MI Matters';
+    $form['field_library_tid']['#options'][602] ='Entrepreneurship Stories';
+    $form['field_library_tid']['#options'][603] ='Compete to Win';
 }
     if($form_id =='upload_video_node_form') {
         global $user;

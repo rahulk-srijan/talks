@@ -148,10 +148,10 @@ function custom_ovl_form_alter(&$form, &$form_state, $form_id) {
         $form['subscriptions']['newsletters']['#options'][455]=' All new videos added to Org in Action';
         $form['subscriptions']['newsletters']['#options'][457]=' All new videos added to BTO Academy';
         $form['subscriptions']['newsletters']['#options'][4]='All new videos added to McKinsey Talks';
-        $form['subscriptions']['newsletters']['#options'][591]='All new videos added to IT Video Library';
-        $form['subscriptions']['newsletters']['#options'][592]='All new videos added to NWD Video Library';
-         $form['subscriptions']['newsletters']['#options'][602]='All new videos added to Entrepreneur Video Library';
-          $form['subscriptions']['newsletters']['#options'][603]='All new videos added to compete to win';
+        $form['subscriptions']['newsletters']['#options'][591]='All new videos added to Our Technology';
+        $form['subscriptions']['newsletters']['#options'][592]='All new videos added to MI Matters';
+         $form['subscriptions']['newsletters']['#options'][602]='All new videos added to Entrepreneurship Stories';
+          $form['subscriptions']['newsletters']['#options'][603]='All new videos added to Compete to Win';
                 /*  $form['subscriptions']['new_1'] = array(
           '#type' => 'item',
           '#markup' => 'ONLY new videos added to these categories',

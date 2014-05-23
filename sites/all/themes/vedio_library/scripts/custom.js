@@ -159,10 +159,10 @@ function addDivNewsletter() {
    jQuery('#bto-newsletter').before('<p class="main-cat" id="bto-collapsible">BTO Academy Notifications</p>').hide();
    jQuery('#ops-newsletter').before('<p class="main-cat" id="ops-collapsible">Ops in Action Notifications</p>').hide();
    jQuery('#org-newsletter').before('<p class="main-cat" id="org-collapsible">Org in Action Notifications</p>').hide();
-   jQuery('#it-newsletter').before('<p class="main-cat" id="it-collapsible">IT Notifications</p>').hide();
-   jQuery('#ndm-newsletter').before('<p class="main-cat" id="ndm-collapsible">NDM Notifications</p>').hide();
-   jQuery('#entrepreneur-newsletter').before('<p class="main-cat" id="entrepreneur-collapsible">Entrepreneur Notifications</p>').hide();
-   jQuery('#compete-newsletter').before('<p class="main-cat" id="compete-collapsible">Compete to win Notifications</p>').hide();
+   jQuery('#it-newsletter').before('<p class="main-cat" id="it-collapsible">Our Technology Notifications</p>').hide();
+   jQuery('#ndm-newsletter').before('<p class="main-cat" id="ndm-collapsible">MI Matters Notifications</p>').hide();
+   jQuery('#entrepreneur-newsletter').before('<p class="main-cat" id="entrepreneur-collapsible">Entrepreneurship Stories Notifications</p>').hide();
+   jQuery('#compete-newsletter').before('<p class="main-cat" id="compete-collapsible">Compete to Win Notifications</p>').hide();
    jQuery('.main-cat').each(function() {
         jQuery(this).click(function(){
             jQuery(this).next().toggle();
