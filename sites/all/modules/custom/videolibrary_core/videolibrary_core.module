@@ -734,7 +734,7 @@ function ors_ent_role_access($user){
 
     $page = $_SERVER['PHP_SELF'];
     $sec = "1";
-    header("Refresh: $sec; url=$page");
+    Header('Location: '.$_SERVER['PHP_SELF']);
 
 
 }
