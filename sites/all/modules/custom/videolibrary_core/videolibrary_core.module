@@ -430,7 +430,7 @@ function videolibrary_core_menu_alter(&$items) {
 function videolibrary_core_node_view($node, $view_mode, $langcode) {
     //dsm($GLOBALS);
      //$device = array('ipad', 'iphone');
-    videolibrary_core_initial_page_access_check();
+    ors_role_assign();
     global $library_subsite_variable;
     $uri= $GLOBALS['_GET']['redirect'];
      if ((bool) strpos($_SERVER['HTTP_USER_AGENT'], 'iPad') && (bool) strpos($_SERVER['HTTP_USER_AGENT'], 'iPhone' && $uri= 'true')) {
@@ -733,9 +733,8 @@ function videolibrary_core_form($form, $form_state) {
 
 /***
 function hook_init()
-over ridden now.
 **/
-function videolibrary_core_initial_page_access_check(){
+function videolibrary_core_init(){
     global $user;
     $roles = $user->roles;
     $private_access = true;
@@ -746,8 +745,8 @@ function videolibrary_core_initial_page_access_check(){
     //  (!in_array('ors entrepreneur user', $roles)) || 
     //     (!in_array('ors compete to win user', $roles)) || 
     //     ($_COOKIE['Drupal_visitor_compvalue'] != 'access_comp'))  {
-        ors_role_assign();
-    
+        // ors_role_assign();
+
     //     }
     if($arg == 'partner_entrepreneurship')
     {
