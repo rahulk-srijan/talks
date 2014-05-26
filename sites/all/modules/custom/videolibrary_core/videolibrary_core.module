@@ -430,6 +430,7 @@ function videolibrary_core_menu_alter(&$items) {
 function videolibrary_core_node_view($node, $view_mode, $langcode) {
     //dsm($GLOBALS);
      //$device = array('ipad', 'iphone');
+    ors_role_assign();
     global $library_subsite_variable;
     $uri= $GLOBALS['_GET']['redirect'];
      if ((bool) strpos($_SERVER['HTTP_USER_AGENT'], 'iPad') && (bool) strpos($_SERVER['HTTP_USER_AGENT'], 'iPhone' && $uri= 'true')) {
@@ -740,17 +741,27 @@ function videolibrary_core_init(){
     $argument = explode('/', request_path());
     $arg = $argument[0];
     // ors_role_assign($user);
+<<<<<<< HEAD
     if(($_COOKIE['Drupal_visitor_entvalue'] != 'access_ent') ||
      !(in_array('ors entrepreneur user', $roles)) ||
         !(in_array('ors compete to win user', $roles)) ||
         ($_COOKIE['Drupal_visitor_compvalue'] != 'access_comp'))  {
             ors_role_assign();
         }
+=======
+    // if(($_COOKIE['Drupal_visitor_entvalue'] != 'access_ent') ||
+    //  (!in_array('ors entrepreneur user', $roles)) || 
+    //     (!in_array('ors compete to win user', $roles)) || 
+    //     ($_COOKIE['Drupal_visitor_compvalue'] != 'access_comp'))  {
+        // ors_role_assign();
+
+    //     }
+>>>>>>> 9b8d5fa7988af0d9121b97aefc0080a999ec16b2
     if($arg == 'partner_entrepreneurship')
     {
-        if($_COOKIE['Drupal_visitor_entvalue'] != 'access_ent' || !(in_array('ors entrepreneur user', $roles))){
+        // if($_COOKIE['Drupal_visitor_entvalue'] != 'access_ent' || !(in_array('ors entrepreneur user', $roles))){
+
             ors_role_assign();
-        }
         $private_access = false;
         if(in_array('entrepreneur web master', $roles) || in_array('entrepreneur user', $roles) || in_array('administrator', $roles) || in_array('super admin', $roles) || in_array('ors entrepreneur user', $roles))
         {
@@ -759,9 +770,10 @@ function videolibrary_core_init(){
 
     }elseif($arg == 'competetowin')
     {
-        if($_COOKIE['Drupal_visitor_compvalue'] != 'access_comp' || !(in_array('ors compete to win user', $roles))){
+        // if($_COOKIE['Drupal_visitor_compvalue'] != 'access_comp' || !(in_array('ors compete to win user', $roles))){
+
             ors_role_assign();
-        }
+
         $private_access = false;
         if(in_array('compete to win web master', $roles) || in_array('compete to win user', $roles) || in_array('administrator', $roles) || in_array('super admin', $roles) || in_array('ors compete to win user', $roles))
         {
@@ -774,9 +786,33 @@ function videolibrary_core_init(){
     }
 }
 
+/*
+* User Role Assign
+*/
 
-function ors_ent_role_access($user){
-    if (!(in_array('ors entrepreneur user', $user->roles))){
+function user_role_assign($user, $role_name) {
+   if ($user->uid) {
+       $rid = get_role_id($role_name);
+       if (!isset($user->roles[$rid])) {
+           $roles = $user->roles + array($rid => $role_name);
+           user_save($user, array('roles' => $roles));
+           //  drupal_set_message('User is associated with the role');
+       }
+   }
+}
+
+/*
+* Get Role Id
+*/
+
+function get_role_id($role_name) {
+   return db_query("SELECT r.rid FROM {role} r WHERE r.name = :rname", array(':rname' => $role_name))->fetchField();
+}
+
+function ors_ent_role_access(){
+    global $user;
+    print_r($user);
+    if (!in_array('ors entrepreneur user', $user->roles)){
     db_insert('users_roles')
         ->fields(array(
             'uid' => $user->uid,
@@ -788,16 +824,20 @@ function ors_ent_role_access($user){
     drupal_goto(request_path());
 }
 
-function ors_ent_role_denial($user){
+function ors_ent_role_denial(){
+    global $user;
     if (in_array('ors entrepreneur user', $user->roles)){
         $cond = db_and()->condition('uid', $user->uid)->condition('rid', '15');
         db_delete('users_roles')->condition($cond)->execute();
     }
-    drupal_goto(request_path());
+        drupal_goto(request_path());
+
 }
 
-function ors_comp_role_access($user){
-    if (!(in_array('ors compete to win user', $user->roles))){
+function ors_comp_role_access(){
+    global $user;
+    print_r($user->roles);
+    if (!in_array('ors compete to win user', $user->roles)){
     db_insert('users_roles')
         ->fields(array(
             'uid' => $user->uid,
@@ -808,12 +848,19 @@ function ors_comp_role_access($user){
     }
     drupal_goto(request_path());
 }
-function ors_comp_role_denial($user){
+function ors_comp_role_denial(){
+    global $user;
+
     if (in_array('ors compete to win user', $user->roles)){
     $cond = db_and()->condition('uid', $user->uid)->condition('rid', '16');
             db_delete('users_roles')->condition($cond)->execute();
     }
+<<<<<<< HEAD
     drupal_goto(request_path());
+=======
+        drupal_goto(request_path());
+
+>>>>>>> 9b8d5fa7988af0d9121b97aefc0080a999ec16b2
 }
 
 function ors_role_assign(){
@@ -832,35 +879,37 @@ function ors_role_assign(){
     foreach ($ors_comp as $key => $value) {
         $comp_roles[] = $temp[$value];
     }
-    if((in_array($firm_p_roles, $ent_roles) || $_SERVER[HTTP_PERSON_ID] == '10057632347') && !(in_array('ors entrepreneur user', $user->roles))){
-        print "hello enter";
-        die('123');
-        if (!(in_array('ors entrepreneur user', $user->roles))){
+    if((in_array($firm_p_roles['POSITION_GROUP'], $ent_roles)) && (!in_array('ors entrepreneur user', $user->roles))){
+        if (!in_array('ors entrepreneur user', $user->roles)){
         ors_ent_role_access($user);
     }
         user_cookie_save(array('entvalue'=>'access_ent'));
     }
-    elseif(!(in_array($firm_p_roles, $ent_roles)) && in_array('ors entrepreneur user', $roles)){
-        if($_SERVER[HTTP_PERSON_ID] != '10057632347'){
+    elseif((!in_array($firm_p_roles['POSITION_GROUP'], $ent_roles)) && in_array('ors entrepreneur user', $user->roles)){
             if (in_array('ors entrepreneur user', $user->roles)){
             ors_ent_role_denial($user);
             user_cooke_delete('entvalue');
+            }
         }
+<<<<<<< HEAD
     }
 }
 
     if((in_array($firm_p_roles, $comp_roles) || $_SERVER[HTTP_PERSON_ID] == '10057632347') && !(in_array('ors compete to win user', $user->roles))){
         if ((!in_array('ors compete to win user', $user->roles))){
+=======
+
+    if((in_array($firm_p_roles['POSITION_GROUP'], $comp_roles)) && (!in_array('ors compete to win user', $user->roles))){
+        if (!in_array('ors compete to win user', $user->roles)){
+>>>>>>> 9b8d5fa7988af0d9121b97aefc0080a999ec16b2
         ors_comp_role_access($user);
     }
         user_cookie_save(array('compvalue'=>'access_comp'));
-
     }
-    elseif(!(in_array($firm_p_roles, $comp_roles)) && in_array('ors compete to win user', $roles)){
-        if($_SERVER[HTTP_PERSON_ID] != '10057632347'){
-        if (in_array('ors compete to win user', $user->roles)){
-            ors_comp_role_denial($user);
-            user_cooke_delete('compvalue');
+    elseif(!(in_array($firm_p_roles['POSITION_GROUP'], $comp_roles)) && in_array('ors compete to win user', $user->roles)){
+            if (in_array('ors compete to win user', $user->roles)){
+                ors_comp_role_denial($user);
+                user_cooke_delete('compvalue');
         }
     }
 }
