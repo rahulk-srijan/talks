@@ -132,6 +132,8 @@ function custom_ovl_form_alter(&$form, &$form_state, $form_id) {
         //print_r($form_state);
     }
     if ($form_id == 'simplenews_subscriptions_page_form') {
+      global $user;
+        $roles=$user->roles;
         $form['subscriptions']['#description'] = 'Select your email notifications preferences';
         // $form['update']['#value'] = 'Save';
         $form['subscriptions']['new'] = array(
@@ -166,6 +168,7 @@ function custom_ovl_form_alter(&$form, &$form_state, $form_id) {
           $count[] = count($term_list);
         }
         drupal_add_js(array('term_count' => $count), 'setting');
+        drupal_add_js(array('roles' => $roles), 'setting');
     }
 }
 
