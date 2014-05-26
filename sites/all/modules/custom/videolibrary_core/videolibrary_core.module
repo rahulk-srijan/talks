@@ -491,11 +491,11 @@ function videolibrary_core_menu() {
 function videolibrary_core_permission() {
   return array(
     'administer entrepreneur site configuration' => array(
-      'title' => t('administer entrepreneur site configuration'),
+      'title' => t('administer entrepreneur site configuration'), 
       'description' => t('administer entrepreneur site configuration.'),
       ),
       'administer compete to win site configuration' => array(
-      'title' => t('administer compete to win site configuration'),
+      'title' => t('administer compete to win site configuration'), 
       'description' => t('administer compete to win site configuration.'),
       ),
   );
@@ -540,7 +540,7 @@ function videolibrary_core_ent_orslogin($form_state) {
   $form = array();
 
   $checked = explode(',', variable_get('e_roles', 0));
-
+  
   $options = array(t('APs'), t('Associates'), t('BAs'), t('Directors'), t('EMs'), t('Knowledge'), t('Office IT'), t('Principals'), t('Prof Spprt'), t('Short Term'), );
 
   $form['e_roles'] = array(
@@ -572,7 +572,7 @@ function videolibrary_core_comp_orslogin($form_state) {
   $form = array();
 
   $checked = explode(',', variable_get('c_roles', 0));
-
+  
   $options = array(t('APs'), t('Associates'), t('BAs'), t('Directors'), t('EMs'), t('Knowledge'), t('Office IT'), t('Principals'), t('Prof Spprt'), t('Short Term'), );
 
   $form['c_roles'] = array(
@@ -741,14 +741,6 @@ function videolibrary_core_init(){
     $argument = explode('/', request_path());
     $arg = $argument[0];
     // ors_role_assign($user);
-<<<<<<< HEAD
-    if(($_COOKIE['Drupal_visitor_entvalue'] != 'access_ent') ||
-     !(in_array('ors entrepreneur user', $roles)) ||
-        !(in_array('ors compete to win user', $roles)) ||
-        ($_COOKIE['Drupal_visitor_compvalue'] != 'access_comp'))  {
-            ors_role_assign();
-        }
-=======
     // if(($_COOKIE['Drupal_visitor_entvalue'] != 'access_ent') ||
     //  (!in_array('ors entrepreneur user', $roles)) || 
     //     (!in_array('ors compete to win user', $roles)) || 
@@ -756,7 +748,6 @@ function videolibrary_core_init(){
         // ors_role_assign();
 
     //     }
->>>>>>> 9b8d5fa7988af0d9121b97aefc0080a999ec16b2
     if($arg == 'partner_entrepreneurship')
     {
         // if($_COOKIE['Drupal_visitor_entvalue'] != 'access_ent' || !(in_array('ors entrepreneur user', $roles))){
@@ -855,17 +846,13 @@ function ors_comp_role_denial(){
     $cond = db_and()->condition('uid', $user->uid)->condition('rid', '16');
             db_delete('users_roles')->condition($cond)->execute();
     }
-<<<<<<< HEAD
-    drupal_goto(request_path());
-=======
         drupal_goto(request_path());
 
->>>>>>> 9b8d5fa7988af0d9121b97aefc0080a999ec16b2
 }
 
 function ors_role_assign(){
     global $user;
-    $firm_p_roles = 'ap';
+    $firm_p_roles = ors_fetch_users_role($_SERVER[HTTP_PERSON_ID]);
     $temp = array(t('APs'), t('Associates'), t('BAs'), t('Directors'), t('EMs'), t('Knowledge'), t('Office IT'), t('Principals'), t('Prof Spprt'), t('Short Term'), );
     $ors_ent = variable_get('e_roles');
     $ors_ent = explode(',', $ors_ent);
@@ -891,17 +878,9 @@ function ors_role_assign(){
             user_cooke_delete('entvalue');
             }
         }
-<<<<<<< HEAD
-    }
-}
-
-    if((in_array($firm_p_roles, $comp_roles) || $_SERVER[HTTP_PERSON_ID] == '10057632347') && !(in_array('ors compete to win user', $user->roles))){
-        if ((!in_array('ors compete to win user', $user->roles))){
-=======
 
     if((in_array($firm_p_roles['POSITION_GROUP'], $comp_roles)) && (!in_array('ors compete to win user', $user->roles))){
         if (!in_array('ors compete to win user', $user->roles)){
->>>>>>> 9b8d5fa7988af0d9121b97aefc0080a999ec16b2
         ors_comp_role_access($user);
     }
         user_cookie_save(array('compvalue'=>'access_comp'));
@@ -913,5 +892,3 @@ function ors_role_assign(){
         }
     }
 }
-}
-
