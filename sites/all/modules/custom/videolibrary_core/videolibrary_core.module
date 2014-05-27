@@ -350,11 +350,11 @@ function videolibrary_core_form_alter(&$form, &$form_state, $form_id) {
     $form['field_library_tid']['#options'][602] ='Entrepreneurship Stories';
     $form['field_library_tid']['#options'][603] ='Compete to Win';
      global $user;
-        $role = $user->roles;
-    if(in_array('ors entrepreneur user', $role)) {
+    $role = $user->roles;
+    if(!in_array('ors entrepreneur user', $role)) {
         unset($form['field_library_tid']['#options'][602]);
     }
-    if(in_array('ors compete to win user', $role)) {
+    if(!in_array('ors compete to win user', $role)) {
         unset($form['field_library_tid']['#options'][603]);
     }
 }
