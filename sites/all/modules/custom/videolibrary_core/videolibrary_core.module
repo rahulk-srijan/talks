@@ -351,7 +351,8 @@ function videolibrary_core_form_alter(&$form, &$form_state, $form_id) {
     $form['field_library_tid']['#options'][603] ='Compete to Win';
      global $user;
     $role = $user->roles;
-    if(!in_array('ors entrepreneur user', $role) OR !in_array('entrepreneur user', $role)) {
+    $private= array('ors entrepreneur user', 'entrepreneur user');
+    if(empty(array_diff($private, $role))) {
         unset($form['field_library_tid']['#options'][602]);
     }
     if(!in_array('ors compete to win user', $role) OR !in_array('compete to win user', $role)) {
