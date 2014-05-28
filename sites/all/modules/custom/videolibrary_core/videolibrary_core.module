@@ -358,7 +358,7 @@ function videolibrary_core_form_alter(&$form, &$form_state, $form_id) {
     }
     $private_compete= array('ors compete to win user', 'compete to win user');
     $result_compete = array_intersect($private_compete, $role);
-    if(count($result_compte) == '0') {
+    if(count($result_compete) == '0') {
         unset($form['field_library_tid']['#options'][603]);
     }
 }
