@@ -352,13 +352,13 @@ function videolibrary_core_form_alter(&$form, &$form_state, $form_id) {
      global $user;
     $role = $user->roles;
     $private_entre= array('ors entrepreneur user', 'entrepreneur user');
-    $result_entre = array_diff($private_entre, $role);
-    if(empty($result_entre)) {
+    $result_entre = array_intersect($private_entre, $role);
+    if(count($result_entre) == '0') {
         unset($form['field_library_tid']['#options'][602]);
     }
     $private_compete= array('ors compete to win user', 'compete to win user');
-    $result_compete = array_diff($private_compete, $role);
-    if(empty($result_compte)) {
+    $result_compete = array_intersect($private_compete, $role);
+    if(count($result_compte) == '0') {
         unset($form['field_library_tid']['#options'][602]);
     }
 }
