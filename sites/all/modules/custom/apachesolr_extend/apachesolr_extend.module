@@ -459,6 +459,7 @@ function search_api_solr($str) {
 
 function apachesolr_extend_facet_items_alter(&$build, &$settings) {
     if ($settings->facet == "im_field_library") {
+        $settings->settings['soft_limit']=10;
         foreach($build as $key => $item) {
             switch ($key) {
                 case '455':
