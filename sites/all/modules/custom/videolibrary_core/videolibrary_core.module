@@ -357,15 +357,15 @@ function videolibrary_core_form_alter(&$form, &$form_state, $form_id) {
     $form['field_library_tid']['#options'][603] ='Compete to Win';
      global $user;
     $role = $user->roles;
-    $private_entre= array('ors entrepreneur user', 'entrepreneur user');
-    $result_entre = array_diff($private_entre, $role);
-    if(empty($result_entre)) {
+    $private_entre= array('ors entrepreneur user', 'entrepreneur user', 'administrator', 'super admin', 'entrepreneur web master');
+    $result_entre = array_intersect($private_entre, $role);
+    if(count($result_entre) == '0') {
         unset($form['field_library_tid']['#options'][602]);
     }
-    $private_compete= array('ors compete to win user', 'compete to win user');
-    $result_compete = array_diff($private_compete, $role);
-    if(empty($result_compte)) {
-        unset($form['field_library_tid']['#options'][602]);
+    $private_compete= array('ors compete to win user', 'compete to win user', 'administrator', 'super admin', 'compete to win web master');
+    $result_compete = array_intersect($private_compete, $role);
+    if(count($result_compete) == '0') {
+        unset($form['field_library_tid']['#options'][603]);
     }
 }
     if($form_id =='upload_video_node_form') {
