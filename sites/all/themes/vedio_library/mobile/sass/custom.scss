@@ -947,6 +947,34 @@ a {
 
 }
 
+.body-mi_matters {
+	.menu-strip{
+		background: $bright-blue;
+	}
+	#block-search-form .apachesolr-autocomplete {
+		margin-top: 40px;
+	}
+	.region-secondary-content{
+		margin-top: 36px;
+	}
+	.block-facetapi-category, .block-facetapi-date ,.block-facetapi-library{
+		h2 {
+			background-color: $bright-blue !important;
+		}
+	}
+	#block-apachesolr-search-sort .item-list ul li a.active{
+		background-color: $bright-blue !important;
+
+	}
+	#block-block-36 .mobile-nav ul.menu{
+		background:  $bright-blue;
+	}
+	#block-block-36 .mobile-nav  ul.menu li ul.menu{
+		background: $bright-blue;
+	}
+
+}
+
 .view-most-trending {
 	.throbber{
 		display: none;
@@ -1451,13 +1479,13 @@ a {
 			.it-channel{
 				background: $yellow;
 			}
-			.ndm-channel{
+			.mi_matters{
 				background: $bright-blue;
 			}
 			.entrepreneur-channel{
 				background: $entre;
 			}
-			.compete-to-win{
+			.compete-to-win-channel{
 				background: $compete;
 			}
 		}
