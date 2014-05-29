@@ -1452,7 +1452,7 @@ a {
 				margin: 24px 0 0;
 				padding: 8px 5px;
 			}
-			#bto-newsletter, #ops-newsletter, #org-newsletter {
+			#bto-newsletter, #ops-newsletter, #org-newsletter,#it-newsletter,#nmd-newsletter,#compete-newsletter,#entrepreneur-newsletter {
 				background: none repeat scroll 0 0 #FFFFFF;
 				padding: 12px 24px;
 				.category_label{
@@ -3317,7 +3317,11 @@ a {
 	#block-menu-menu-global-mobile-menu,
 	#block-menu-menu-main-menu-mobile,
 	#block-menu-menu-main-menu-mobile-ops,
-	#block-menu-menu-main-menu-mobile-bto {
+	#block-menu-menu-main-menu-mobile-bto,
+	#block-menu-menu-main-menu-mobile-it,
+	#block-menu-menu-main-menu-mobile-nwd,
+	#block-menu-menu-main-menu-mobile-entre,
+	#block-menu-menu-main-menu-mobile-compete {
 		.mobile-nav {
 			.mobile-search {
 				position: absolute;

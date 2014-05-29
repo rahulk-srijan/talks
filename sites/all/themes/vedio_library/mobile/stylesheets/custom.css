@@ -1656,12 +1656,12 @@
     padding: 8px 5px;
   }
   /* line 1455, ../sass/custom.scss */
-  #edit-subscriptions #bto-newsletter, #edit-subscriptions #ops-newsletter, #edit-subscriptions #org-newsletter {
+  #edit-subscriptions #bto-newsletter, #edit-subscriptions #ops-newsletter, #edit-subscriptions #org-newsletter, #edit-subscriptions #it-newsletter, #edit-subscriptions #nmd-newsletter, #edit-subscriptions #compete-newsletter, #edit-subscriptions #entrepreneur-newsletter {
     background: none repeat scroll 0 0 #FFFFFF;
     padding: 12px 24px;
   }
   /* line 1458, ../sass/custom.scss */
-  #edit-subscriptions #bto-newsletter .category_label, #edit-subscriptions #ops-newsletter .category_label, #edit-subscriptions #org-newsletter .category_label {
+  #edit-subscriptions #bto-newsletter .category_label, #edit-subscriptions #ops-newsletter .category_label, #edit-subscriptions #org-newsletter .category_label, #edit-subscriptions #it-newsletter .category_label, #edit-subscriptions #nmd-newsletter .category_label, #edit-subscriptions #compete-newsletter .category_label, #edit-subscriptions #entrepreneur-newsletter .category_label {
     margin-top: 12px;
   }
   /* line 1462, ../sass/custom.scss */
@@ -3154,25 +3154,33 @@
     height: auto;
   }
 
-  /* line 3322, ../sass/custom.scss */
+  /* line 3326, ../sass/custom.scss */
   #block-menu-menu-global-mobile-menu .mobile-nav .mobile-search,
   #block-menu-menu-main-menu-mobile .mobile-nav .mobile-search,
   #block-menu-menu-main-menu-mobile-ops .mobile-nav .mobile-search,
-  #block-menu-menu-main-menu-mobile-bto .mobile-nav .mobile-search {
+  #block-menu-menu-main-menu-mobile-bto .mobile-nav .mobile-search,
+  #block-menu-menu-main-menu-mobile-it .mobile-nav .mobile-search,
+  #block-menu-menu-main-menu-mobile-nwd .mobile-nav .mobile-search,
+  #block-menu-menu-main-menu-mobile-entre .mobile-nav .mobile-search,
+  #block-menu-menu-main-menu-mobile-compete .mobile-nav .mobile-search {
     position: absolute;
     right: 10px;
     padding: 6px;
     top: 6px;
   }
-  /* line 3328, ../sass/custom.scss */
+  /* line 3332, ../sass/custom.scss */
   #block-menu-menu-global-mobile-menu .mobile-nav img,
   #block-menu-menu-main-menu-mobile .mobile-nav img,
   #block-menu-menu-main-menu-mobile-ops .mobile-nav img,
-  #block-menu-menu-main-menu-mobile-bto .mobile-nav img {
+  #block-menu-menu-main-menu-mobile-bto .mobile-nav img,
+  #block-menu-menu-main-menu-mobile-it .mobile-nav img,
+  #block-menu-menu-main-menu-mobile-nwd .mobile-nav img,
+  #block-menu-menu-main-menu-mobile-entre .mobile-nav img,
+  #block-menu-menu-main-menu-mobile-compete .mobile-nav img {
     width: auto;
   }
 
-  /* line 3341, ../sass/custom.scss */
+  /* line 3345, ../sass/custom.scss */
   body.page-comment-delete-own #block-system-main form.confirmation .form-actions input#edit-submit {
     display: block;
     padding: 5px;
@@ -3186,18 +3194,18 @@
     background-image: -o-linear-gradient(top, #ffbdb7 0%, #ff3019 46%, #cf0404 100%);
     background-image: linear-gradient(top, #ffbdb7 0%, #ff3019 46%, #cf0404 100%);
   }
-  /* line 3353, ../sass/custom.scss */
+  /* line 3357, ../sass/custom.scss */
   body.page-comment-delete-own #block-system-main form.confirmation .form-actions a#edit-cancel {
     display: inline-block;
     margin: 7px;
   }
 
-  /* line 3363, ../sass/custom.scss */
+  /* line 3367, ../sass/custom.scss */
   .download-link, .download-video {
     display: none;
   }
 
-  /* line 3366, ../sass/custom.scss */
+  /* line 3370, ../sass/custom.scss */
   views_slideshow_controls_text_pause_global_popular_video-block {
     display: none;
   }

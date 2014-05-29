@@ -726,7 +726,7 @@ function videolibrary_core_form($form, $form_state) {
     //   ),
     // ),
   );
- $form['lib_list_nwd'] = array(
+ $form['lib_list_entre'] = array(
 //    '#title' => t('Click below to suggest a video'),
     '#type' => 'item',
     '#markup'=> $partner_entrepreneurship,
