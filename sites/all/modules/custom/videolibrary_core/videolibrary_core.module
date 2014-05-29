@@ -319,12 +319,18 @@ function videolibrary_core_views_pre_render(&$view) {
     $result2 = views_get_view_result('global_popular_video', $display_id = 'block_1');
     // Get most popular from 3rd library
     $result3 = views_get_view_result('global_popular_video', $display_id = 'block_2');
+    // Get most popular from 4th library
+    $result4 = views_get_view_result('global_popular_video', $display_id = 'block_3');
+     // Get most popular from 5th library
+    $result5 = views_get_view_result('global_popular_video', $display_id = 'block_4');
     // Merge the result arrays
     $new_double = array_merge($result1, $result2);
     $new_triple = array_merge($new_double, $result3);
-    shuffle($new_triple);
+    $new_fourth = array_merge($new_triple,$result4);
+    $new_fifth = array_merge($new_fourth,$result5);
+    shuffle($new_fifth);
     // Final result array is a combination of the 2 libraries
-    $view->result = $new_triple;
+    $view->result = $new_fifth;
   }
 }
 
