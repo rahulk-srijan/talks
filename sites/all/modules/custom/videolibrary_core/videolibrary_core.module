@@ -622,6 +622,8 @@ function videolibrary_core_comp_orslogin_submit($form, &$form_state)  {
 function videolibrary_core_form($form, $form_state) {
     global $library_subsite_variable;
     global $subsite_home_page_url;
+    global $user;
+    $roles= $user->roles;
     $mail_to = 'McKinsey_Talks_Video_Suggestions@mckinsey.com';
     $subject = 'Suggest a video';
     $msg = 'I recommend adding the following video to the McKinsey Talks video library';
@@ -726,6 +728,9 @@ function videolibrary_core_form($form, $form_state) {
     //   ),
     // ),
   );
+$entre_roles = array('entrepreneur user','ors entrepreneur user','super admin');
+$entre_result= array_intersect($entre_roles, $roles);
+ if(!empty($entre_result)) {
  $form['lib_list_entre'] = array(
 //    '#title' => t('Click below to suggest a video'),
     '#type' => 'item',
@@ -735,8 +740,11 @@ function videolibrary_core_form($form, $form_state) {
     //     ':input[name="lib_list"]' => array('value' => '2'),
     //   ),
     // ),
-  );
- $form['lib_list_nwd'] = array(
+  );}
+ $compete_roles = array('compete to win user','ors compete to win user','super admin');
+$compete_result= array_intersect($compete_roles, $roles);
+ if(!empty($compete_result)) {
+ $form['lib_list_compete'] = array(
 //    '#title' => t('Click below to suggest a video'),
     '#type' => 'item',
     '#markup'=> $competetowin,
@@ -745,7 +753,7 @@ function videolibrary_core_form($form, $form_state) {
     //     ':input[name="lib_list"]' => array('value' => '2'),
     //   ),
     // ),
-  );
+  );}
     return $form;
 }
 
