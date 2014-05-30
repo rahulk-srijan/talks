@@ -492,7 +492,7 @@ function videolibrary_core_menu() {
   );
 
   $items['admin/config/services/competetowin_config'] = array(
-    'title' => 'Competetowin ORS Login configurations',
+    'title' => 'Compete to Win ORS Login configurations',
     'description' => 'Settings for the Competetowin ORS login module.',
     'page callback' => 'drupal_get_form',
     'page arguments' => array('videolibrary_core_comp_orslogin'),
@@ -564,7 +564,7 @@ function videolibrary_core_ent_orslogin($form_state) {
   $form['e_roles'] = array(
     '#type' => 'select',
     '#multiple' => TRUE,
-    '#title' => t('Entrepreneurship Roles Assignment'),
+    '#title' => t('To select more than one role, hold down the CTRL-key while clicking.'),
     '#required' => FALSE,
     '#options' => $options,
     '#size' => 10,
@@ -596,7 +596,7 @@ function videolibrary_core_comp_orslogin($form_state) {
   $form['c_roles'] = array(
     '#type' => 'select',
     '#multiple' => TRUE,
-    '#title' => t('Competetowin Roles Assignment'),
+    '#title' => t('To select more than one role, hold down the CTRL-key while clicking.'),
     '#required' => FALSE,
     '#options' => $options,
     '#size' => 10,
