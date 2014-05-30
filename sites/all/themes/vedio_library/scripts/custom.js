@@ -138,7 +138,9 @@ setTimeout( function(){
 
 function addDivNewsletter() {
     var role_entre = jQuery.inArray("ors entrepreneur user",Drupal.settings.roles);
+    var role_entre_ors = jQuery.inArray("entrepreneur user",Drupal.settings.roles);
     var role_compete = jQuery.inArray("ors compete to win user",Drupal.settings.roles);
+    var role_compete_ors = jQuery.inArray("compete to win user",Drupal.settings.roles);
     var start = 6;
     var term_count_bto = (1 + Drupal.settings.term_count[0]) + start;
 
@@ -157,10 +159,13 @@ function addDivNewsletter() {
     jQuery('#edit-newsletters .form-item').slice(term_count_ndm, term_count_entrepreneur).wrapAll('<div id="entrepreneur-newsletter" class="newsletter-block" />');
     jQuery('#edit-newsletters .form-item').slice(term_count_entrepreneur, term_count_compete).wrapAll('<div id="compete-newsletter" class="newsletter-block" />');
 
-    if(role_entre == -1) {
+    if((role_entre == -1) && (role_entre_ors ==-1)) {
         jQuery('#entrepreneur-newsletter').remove();
     }
-    if (role_compete == -1) {
+    // if(role_entre_ors== -1) {
+    //     jQuery('#entrepreneur-newsletter').remove();
+    // }
+    if ((role_compete == -1) && (role_compete_ors ==-1)) {
         jQuery('#compete-newsletter').remove();
     }
    //jQuery('#edit-newsletters .form-item:gt(13):lt(22)').wrapAll('<div id="ops-newsletter" class="newsletter-block" />');

@@ -134,6 +134,18 @@ a {
     .body-btoacademy .subheader {
     	color: $orange-bto;
     }
+    .body-mi_matters .subheader {
+    	color: $bright-blue;
+    }
+    .body-ourtechnology .subheader {
+    	color: $yellow;
+    }
+    .body-partner_entrepreneurship .subheader {
+    	color: $entre;
+    }
+    .body-competetowin .subheader {
+    	color: $compete;
+    }
 
     .video-title {
     	text-decoration: none;
@@ -947,6 +959,117 @@ a {
 
 }
 
+.body-mi_matters {
+	.menu-strip{
+		background: $bright-blue;
+	}
+	#block-search-form .apachesolr-autocomplete {
+		margin-top: 40px;
+	}
+	.region-secondary-content{
+		margin-top: 36px;
+	}
+	.block-facetapi-category, .block-facetapi-date ,.block-facetapi-library{
+		h2 {
+			background-color: $bright-blue !important;
+		}
+	}
+	#block-apachesolr-search-sort .item-list ul li a.active{
+		background-color: $bright-blue !important;
+
+	}
+	#block-block-36 .mobile-nav ul.menu{
+		background:  $bright-blue;
+	}
+	#block-block-36 .mobile-nav  ul.menu li ul.menu{
+		background: $light-orange-bto;
+	}
+
+}
+
+.body-competetowin{
+	.menu-strip{
+		background: $compete;
+	}
+	#block-search-form .apachesolr-autocomplete {
+		margin-top: 40px;
+	}
+	.region-secondary-content{
+		margin-top: 36px;
+	}
+	.block-facetapi-category, .block-facetapi-date ,.block-facetapi-library{
+		h2 {
+			background-color:$compete !important;
+		}
+	}
+	#block-apachesolr-search-sort .item-list ul li a.active{
+		background-color: $compete !important;
+
+	}
+	#block-block-36 .mobile-nav ul.menu{
+		background:  $compete;
+	}
+	#block-block-36 .mobile-nav  ul.menu li ul.menu{
+		background: $light-orange-bto;
+	}
+
+}
+
+.body-ourtechnology{
+	.menu-strip{
+		background: $yellow;
+	}
+	#block-search-form .apachesolr-autocomplete {
+		margin-top: 40px;
+	}
+	.region-secondary-content{
+		margin-top: 36px;
+	}
+	.block-facetapi-category, .block-facetapi-date ,.block-facetapi-library{
+		h2 {
+			background-color:$yellow !important;
+		}
+	}
+	#block-apachesolr-search-sort .item-list ul li a.active{
+		background-color: $yellow !important;
+
+	}
+	#block-block-36 .mobile-nav ul.menu{
+		background:  $yellow;
+	}
+	#block-block-36 .mobile-nav  ul.menu li ul.menu{
+		background: $light-orange-bto;
+	}
+
+}
+
+.body-partner_entrepreneurship{
+	.menu-strip{
+		background: $entre;
+	}
+	#block-search-form .apachesolr-autocomplete {
+		margin-top: 40px;
+	}
+	.region-secondary-content{
+		margin-top: 36px;
+	}
+	.block-facetapi-category, .block-facetapi-date ,.block-facetapi-library{
+		h2 {
+			background-color:$entre !important;
+		}
+	}
+	#block-apachesolr-search-sort .item-list ul li a.active{
+		background-color: $entre !important;
+
+	}
+	#block-block-36 .mobile-nav ul.menu{
+		background:  $entre;
+	}
+	#block-block-36 .mobile-nav  ul.menu li ul.menu{
+		background: $light-orange-bto;
+	}
+
+}
 .view-most-trending {
 	.throbber{
 		display: none;
@@ -1329,7 +1452,7 @@ a {
 				margin: 24px 0 0;
 				padding: 8px 5px;
 			}
-			#bto-newsletter, #ops-newsletter, #org-newsletter {
+			#bto-newsletter, #ops-newsletter, #org-newsletter,#it-newsletter,#nmd-newsletter,#compete-newsletter,#entrepreneur-newsletter {
 				background: none repeat scroll 0 0 #FFFFFF;
 				padding: 12px 24px;
 				.category_label{
@@ -1451,13 +1574,13 @@ a {
 			.it-channel{
 				background: $yellow;
 			}
-			.ndm-channel{
+			.mi_matters{
 				background: $bright-blue;
 			}
 			.entrepreneur-channel{
 				background: $entre;
 			}
-			.compete-to-win{
+			.compete-to-win-channel{
 				background: $compete;
 			}
 		}
@@ -1696,6 +1819,42 @@ a {
 		}
 	}
 
+	.body-ourtechnology #block-views-featured-vedios-block {
+		.views-slideshow-controls-bottom {
+			.views-slideshow-pager-field-item {
+				&.active {
+					background-color: $yellow;
+				}
+			}
+		}
+	}
+	.body-mi_matters #block-views-featured-vedios-block {
+		.views-slideshow-controls-bottom {
+			.views-slideshow-pager-field-item {
+				&.active {
+					background-color: $bright-blue;
+				}
+			}
+		}
+	}
+	.body-partner_entrepreneurship #block-views-featured-vedios-block {
+		.views-slideshow-controls-bottom {
+			.views-slideshow-pager-field-item {
+				&.active {
+					background-color: $entre;
+				}
+			}
+		}
+	}
+.body-competetowin #block-views-featured-vedios-block {
+		.views-slideshow-controls-bottom {
+			.views-slideshow-pager-field-item {
+				&.active {
+					background-color: $compete;
+				}
+			}
+		}
+	}
 	.all-mobile {
 		@extend .subheader;
 		margin-left: 3%;
@@ -2428,6 +2587,245 @@ a {
 		}
 	}
 
+	// Latest Comments page bto
+	body.page-ourtechnology-latest-comment {
+		#columns {
+			#content-column {
+
+				header#main-content-header {
+					margin-top: 10px;
+					h1#page-title {
+						@extend .subheader;
+						color: $yellow;
+					}
+				}
+
+				.content-inner {
+					#block-system-main {
+						.view-latest-comment-mobile {
+							@extend .escape-view;
+							@extend .mobile-box;
+
+							.view-content {
+								.views-row {
+									position: relative;
+									margin: 10px 0;
+									padding: 10px;
+									padding-right: 10%;
+									@include border-radius(7px);
+									background: url('../../css/images/arrow-r-orange.png') 96% 55% no-repeat $light-gray;
+
+									.views-field {
+										margin: 0;
+
+										&.views-field-name {
+											@extend .subheader;
+											color: $yellow;
+											font-size: $font-size-normal;
+											margin-bottom: 0;
+										}
+
+										&.views-field-comment-body {
+											@extend .body-text;
+										}
+
+										&.views-field-nothing a {
+											position: absolute;
+											left: 0;
+											width: 100%;
+											height: 100%;
+											top: 0;
+											text-indent: -9999em;
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+		// Latest Comments page bto
+	body.page-mi_matters-latest-comment {
+		#columns {
+			#content-column {
+
+				header#main-content-header {
+					margin-top: 10px;
+					h1#page-title {
+						@extend .subheader;
+						color: $bright-blue;
+					}
+				}
+
+				.content-inner {
+					#block-system-main {
+						.view-latest-comment-mobile {
+							@extend .escape-view;
+							@extend .mobile-box;
+
+							.view-content {
+								.views-row {
+									position: relative;
+									margin: 10px 0;
+									padding: 10px;
+									padding-right: 10%;
+									@include border-radius(7px);
+									background: url('../../css/images/arrow-r-orange.png') 96% 55% no-repeat $light-gray;
+
+									.views-field {
+										margin: 0;
+
+										&.views-field-name {
+											@extend .subheader;
+											color: $bright-blue;
+											font-size: $font-size-normal;
+											margin-bottom: 0;
+										}
+
+										&.views-field-comment-body {
+											@extend .body-text;
+										}
+
+										&.views-field-nothing a {
+											position: absolute;
+											left: 0;
+											width: 100%;
+											height: 100%;
+											top: 0;
+											text-indent: -9999em;
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+		// Latest Comments page bto
+	body.page-competetowin-latest-comment {
+		#columns {
+			#content-column {
+
+				header#main-content-header {
+					margin-top: 10px;
+					h1#page-title {
+						@extend .subheader;
+						color: $compete;
+					}
+				}
+
+				.content-inner {
+					#block-system-main {
+						.view-latest-comment-mobile {
+							@extend .escape-view;
+							@extend .mobile-box;
+
+							.view-content {
+								.views-row {
+									position: relative;
+									margin: 10px 0;
+									padding: 10px;
+									padding-right: 10%;
+									@include border-radius(7px);
+									background: url('../../css/images/arrow-r-orange.png') 96% 55% no-repeat $light-gray;
+
+									.views-field {
+										margin: 0;
+
+										&.views-field-name {
+											@extend .subheader;
+											color: $compete;
+											font-size: $font-size-normal;
+											margin-bottom: 0;
+										}
+
+										&.views-field-comment-body {
+											@extend .body-text;
+										}
+
+										&.views-field-nothing a {
+											position: absolute;
+											left: 0;
+											width: 100%;
+											height: 100%;
+											top: 0;
+											text-indent: -9999em;
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+		// Latest Comments page bto
+	body.page-partner_entrepreneurship-latest-comment {
+		#columns {
+			#content-column {
+
+				header#main-content-header {
+					margin-top: 10px;
+					h1#page-title {
+						@extend .subheader;
+						color: $entre;
+					}
+				}
+
+				.content-inner {
+					#block-system-main {
+						.view-latest-comment-mobile {
+							@extend .escape-view;
+							@extend .mobile-box;
+
+							.view-content {
+								.views-row {
+									position: relative;
+									margin: 10px 0;
+									padding: 10px;
+									padding-right: 10%;
+									@include border-radius(7px);
+									background: url('../../css/images/arrow-r-orange.png') 96% 55% no-repeat $light-gray;
+
+									.views-field {
+										margin: 0;
+
+										&.views-field-name {
+											@extend .subheader;
+											color: $entre;
+											font-size: $font-size-normal;
+											margin-bottom: 0;
+										}
+
+										&.views-field-comment-body {
+											@extend .body-text;
+										}
+
+										&.views-field-nothing a {
+											position: absolute;
+											left: 0;
+											width: 100%;
+											height: 100%;
+											top: 0;
+											text-indent: -9999em;
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
 	// Browse By Category page
 	body.page-taxonomy {
 
@@ -2510,6 +2908,28 @@ a {
     .body-btoacademy .node-author {
     	strong {
     		color: $orange-bto;
+    	}
+    }
+
+    .body-ourtechnology .node-author {
+    	strong {
+    		color: $yellow;
+    	}
+    }
+
+    .body-mi_matters .node-author {
+    	strong {
+    		color: $bright-blue;
+    	}
+    }
+    .body-partner_entrepreneurship .node-author {
+    	strong {
+    		color: $entre;
+    	}
+    }
+    .body-competetowin .node-author {
+    	strong {
+    		color: $compete;
     	}
     }
 
@@ -2897,7 +3317,11 @@ a {
 	#block-menu-menu-global-mobile-menu,
 	#block-menu-menu-main-menu-mobile,
 	#block-menu-menu-main-menu-mobile-ops,
-	#block-menu-menu-main-menu-mobile-bto {
+	#block-menu-menu-main-menu-mobile-bto,
+	#block-menu-menu-main-menu-mobile-it,
+	#block-menu-menu-main-menu-mobile-nwd,
+	#block-menu-menu-main-menu-mobile-entre,
+	#block-menu-menu-main-menu-mobile-compete {
 		.mobile-nav {
 			.mobile-search {
 				position: absolute;
