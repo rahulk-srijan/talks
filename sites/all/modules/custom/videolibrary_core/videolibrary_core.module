@@ -661,11 +661,11 @@ function videolibrary_core_form($form, $form_state) {
   $bto= ' <a class="lib" id="bto" href="mailto:' . $mail_to_bto . '?Subject=' . $subject_bto . '&body=' . $msg_bto . '">BTO Academy</a><br/>';
   $ops ='<a class="lib" id="ops" href="mailto:' . $mail_to_ops . '?Subject=' . $subject_ops . '&body=' . $msg_ops . '">Ops in Action</a><br/>';
   $org= '<a class="lib" id="org" href="mailto:' . $mail_to_org . '?Subject=' . $subject_org . '&body=' . $msg_org . '">Org in Action</a>';
-  $ourtechnology= '<a class="lib" id="org" href="mailto:' . $mail_to_ourtechnology . '?Subject=' . $subject_ourtechnology . '&body=' . $msg_ourtechnology . '">Our Technology</a>';
+  $ourtechnology= '<a class="lib" id="it" href="mailto:' . $mail_to_ourtechnology . '?Subject=' . $subject_ourtechnology . '&body=' . $msg_ourtechnology . '">Our Technology</a>';
 
-  $mi_matters= '<a class="lib" id="org" href="mailto:' . $mail_to_mi_matters . '?Subject=' . $subject_mi_matters . '&body=' . $msg_mi_matters . '">MI Matters</a>';
-  $partner_entrepreneurship= '<a class="lib" id="org" href="mailto:' . $mail_to_partner_entrepreneurship . '?Subject=' . $subject_partner_entrepreneurship . '&body=' . $msg_partner_entrepreneurship . '">Entrepreneurship Stories</a>';
-  $competetowin= '<a class="lib" id="org" href="mailto:' . $mail_to_competetowin . '?Subject=' . $subject_competetowin . '&body=' . $msg_competetowin . '">Compete to Win</a>';
+  $mi_matters= '<a class="lib" id="ndm" href="mailto:' . $mail_to_mi_matters . '?Subject=' . $subject_mi_matters . '&body=' . $msg_mi_matters . '">MI Matters</a>';
+  $partner_entrepreneurship= '<a class="lib" id="entre" href="mailto:' . $mail_to_partner_entrepreneurship . '?Subject=' . $subject_partner_entrepreneurship . '&body=' . $msg_partner_entrepreneurship . '">Entrepreneurship Stories</a>';
+  $competetowin= '<a class="lib" id="compete" href="mailto:' . $mail_to_competetowin . '?Subject=' . $subject_competetowin . '&body=' . $msg_competetowin . '">Compete to Win</a>';
 
 
  $form['lib_list_gen'] = array(
