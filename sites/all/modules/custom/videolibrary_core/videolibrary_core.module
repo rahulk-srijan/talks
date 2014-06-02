@@ -347,7 +347,6 @@ function videolibrary_core_form_alter(&$form, &$form_state, $form_id) {
     }
 
     if($form_id=='views_exposed_form') {
-        dsm($form);
     $form['field_library_tid']['#options'][536] ='Spotlight';
     $form['field_library_tid']['#options'][457] ='BTO Academy';
     $form['field_library_tid']['#options'][456] ='Ops in Action';
