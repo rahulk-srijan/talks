@@ -1440,7 +1440,20 @@ a {
 			#org-collapsible {
 				background-color: $orange;
 			}
-			#org-collapsible, #bto-collapsible, #ops-collapsible {
+			#it-collapsible {
+				background-color: $yellow;
+			}
+			#ndm-collapsible {
+				background-color: $bright-blue;
+			}
+			#compete-collapsible {
+				background-color: $compete;
+			}
+			#entrepreneur-collapsible {
+				background-color: $entre;
+			}
+
+			#org-collapsible, #bto-collapsible, #ops-collapsible,#entrepreneur-collapsible,#compete-collapsible,#ndm-collapsible,#it-collapsible {
 				background-image: url("../../css/images/drop-right.png");
 				background-position: 99% center;
 				background-repeat: no-repeat;
