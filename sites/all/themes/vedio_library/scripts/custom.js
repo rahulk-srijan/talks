@@ -702,7 +702,7 @@ function defaultText() {
 
 
 function addLabel() {
-    jQuery('.form-item-newsletters-457,.form-item-newsletters-455,.form-item-newsletters-456').after('<h5 class="category_label">ONLY new videos added to these categories</h5>');
+    jQuery('.form-item-newsletters-457,.form-item-newsletters-455,.form-item-newsletters-456,.form-item-newsletters-591,.form-item-newsletters-592,.form-item-newsletters-602,.form-item-newsletters-603').after('<h5 class="category_label">ONLY new videos added to these categories</h5>');
 }
 
 function toogleSearch() {
