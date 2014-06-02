@@ -3,7 +3,7 @@
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
-    background: url("images/quotes_bto.png") no-repeat scroll 8px center transparent;
+    background: url("images/quotes-it.png") no-repeat scroll 8px center transparent;
     height: 52px;
     width: 600px;
     padding: 10px 80px 10px 60px;
@@ -14,7 +14,7 @@
 }
 
 .views-slideshow-pager-field-item.views_slideshow_pager_field_item.active .views-content-counter {
-    background: url(images/pager-active_bto.png) no-repeat;
+    background: url(images/it-dot.png) no-repeat;
     text-indent: -9999em;
     height: 16px;
     width: 16px;
