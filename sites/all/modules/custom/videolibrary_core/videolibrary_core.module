@@ -688,6 +688,42 @@ function videolibrary_core_form($form, $form_state) {
     //   ),
     // ),
   );
+  $compete_roles = array('compete to win user','ors compete to win user','super admin');
+$compete_result= array_intersect($compete_roles, $roles);
+ if(!empty($compete_result)) {
+ $form['lib_list_compete'] = array(
+//    '#title' => t('Click below to suggest a video'),
+    '#type' => 'item',
+    '#markup'=> $competetowin,
+    // '#states' => array(
+    //   'visible' => array(
+    //     ':input[name="lib_list"]' => array('value' => '2'),
+    //   ),
+    // ),
+  );}
+ $entre_roles = array('entrepreneur user','ors entrepreneur user','super admin');
+$entre_result= array_intersect($entre_roles, $roles);
+ if(!empty($entre_result)) {
+ $form['lib_list_entre'] = array(
+//    '#title' => t('Click below to suggest a video'),
+    '#type' => 'item',
+    '#markup'=> $partner_entrepreneurship,
+    // '#states' => array(
+    //   'visible' => array(
+    //     ':input[name="lib_list"]' => array('value' => '2'),
+    //   ),
+    // ),
+  );}
+ $form['lib_list_mi_matters'] = array(
+//    '#title' => t('Click below to suggest a video'),
+    '#type' => 'item',
+    '#markup'=> $mi_matters,
+    // '#states' => array(
+    //   'visible' => array(
+    //     ':input[name="lib_list"]' => array('value' => '2'),
+    //   ),
+    // ),
+  );
  $form['lib_list_ops'] = array(
 //    '#title' => t('Click below to suggest a video'),
     '#type' => 'item',
@@ -718,42 +754,6 @@ function videolibrary_core_form($form, $form_state) {
     //   ),
     // ),
   );
- $form['lib_list_mi_matters'] = array(
-//    '#title' => t('Click below to suggest a video'),
-    '#type' => 'item',
-    '#markup'=> $mi_matters,
-    // '#states' => array(
-    //   'visible' => array(
-    //     ':input[name="lib_list"]' => array('value' => '2'),
-    //   ),
-    // ),
-  );
-$entre_roles = array('entrepreneur user','ors entrepreneur user','super admin');
-$entre_result= array_intersect($entre_roles, $roles);
- if(!empty($entre_result)) {
- $form['lib_list_entre'] = array(
-//    '#title' => t('Click below to suggest a video'),
-    '#type' => 'item',
-    '#markup'=> $partner_entrepreneurship,
-    // '#states' => array(
-    //   'visible' => array(
-    //     ':input[name="lib_list"]' => array('value' => '2'),
-    //   ),
-    // ),
-  );}
- $compete_roles = array('compete to win user','ors compete to win user','super admin');
-$compete_result= array_intersect($compete_roles, $roles);
- if(!empty($compete_result)) {
- $form['lib_list_compete'] = array(
-//    '#title' => t('Click below to suggest a video'),
-    '#type' => 'item',
-    '#markup'=> $competetowin,
-    // '#states' => array(
-    //   'visible' => array(
-    //     ':input[name="lib_list"]' => array('value' => '2'),
-    //   ),
-    // ),
-  );}
     return $form;
 }
 
