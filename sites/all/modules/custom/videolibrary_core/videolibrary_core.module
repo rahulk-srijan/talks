@@ -699,7 +699,7 @@ function videolibrary_core_form($form, $form_state) {
     //   ),
     // ),
   );
-  $compete_roles = array('compete to win user','ors compete to win user','super admin');
+  $compete_roles = array('compete to win user','ors compete to win user','super admin','compete to win web master');
 $compete_result= array_intersect($compete_roles, $roles);
  if(!empty($compete_result)) {
  $form['lib_list_compete'] = array(
@@ -712,7 +712,7 @@ $compete_result= array_intersect($compete_roles, $roles);
     //   ),
     // ),
   );}
- $entre_roles = array('entrepreneur user','ors entrepreneur user','super admin');
+ $entre_roles = array('entrepreneur user','ors entrepreneur user','super admin','entrepreneur web master');
 $entre_result= array_intersect($entre_roles, $roles);
  if(!empty($entre_result)) {
  $form['lib_list_entre'] = array(
