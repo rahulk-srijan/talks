@@ -268,7 +268,7 @@ input.form-autocomplete::-ms-clear {display: none;}
   #edit-tid-wrapper .jcarousel-skin-default .jcarousel-item a.active-tag {color: #E37222;}
   #edit-tid-wrapper .jcarousel-skin-default .jcarousel-item .form-type-bef-link {height:18px; text-align: left; font-size:12px;}
 
-  #edit-tid-wrapper .jcarousel-skin-default .jcarousel-prev-horizontal, #edit-tid-wrapper .jcarousel-skin-default .jcarousel-next-horizontal { top:45px;width:21px; height:21px; cursor:pointer;}
+  #edit-tid-wrapper .jcarousel-skin-default .jcarousel-prev-horizontal, #edit-tid-wrapper .jcarousel-skin-default .jcarousel-next-horizontal { top:45px;width:21px; height:50px; cursor:pointer;}
   #edit-tid-wrapper .jcarousel-skin-default .jcarousel-prev-horizontal {background:url(images/arrow_prev.png) 0 0 no-repeat;}
   #edit-tid-wrapper .jcarousel-skin-default .jcarousel-next-horizontal {background:url(images/arrow_next.png) 0 0 no-repeat;}
 
@@ -1494,4 +1494,25 @@ h4.lib-title, .lib-title p{
    color: #666666;
     font-weight: bold
 }
+/* Added By Prashant for Demo */
+#block-views-most-liked-lib-craousel-block .jcarousel-skin-default .jcarousel-container-horizontal {
+  width: 1020 !important;
+}
+a.jcarousel-next.jcarousel-next-horizontal {
+margin-top: -12px;
+margin-right: -65px;
+}
+.view-most-liked-lib-craousel .jcarousel-skin-default .jcarousel-prev-horizontal:hover {
+background-position: -30px 0 !important;
+}
+/* Css Ends over here by Prashant*/
+}
 
+
+
+.jcarousel-skin-default .jcarousel-next-horizontal:hover {
+background-position: -29px -32px !important;
+}
+.jcarousel-skin-default .jcarousel-next-horizontal:active {
+background-position: -57px -32px !important;
+}
