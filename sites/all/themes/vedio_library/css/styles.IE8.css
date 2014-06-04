@@ -1416,6 +1416,18 @@ h4.lib-title, .lib-title p{
 #block-views-most-liked-lib-craousel-block .library-color-magenta{
   background: none repeat scroll 0 0 #AD0059;
 }
+#block-views-most-liked-lib-craousel-block .library-color-yellow{
+  background: none repeat scroll 0 0 #ceb003;
+}
+#block-views-most-liked-lib-craousel-block .library-color-entre{
+  background: none repeat scroll 0 0 #738102;
+}
+#block-views-most-liked-lib-craousel-block .library-color-compete{
+  background: none repeat scroll 0 0 #00abee;
+}
+#block-views-most-liked-lib-craousel-block .library-color-bright-blue{
+  background: none repeat scroll 0 0 #0066be;
+}
 #block-views-most-liked-lib-craousel-block .library-color-default,
 #block-views-most-liked-lib-craousel-block .library-{
   background: #0066BE;
