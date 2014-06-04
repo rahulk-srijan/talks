@@ -10,6 +10,18 @@ elseif (isset($node->field_ops_tags['und'])) {
 elseif (isset($node->field_bto_tags['und'])) {
   $tags_obj = $node->field_bto_tags['und'];
 }
+elseif (isset($node->field_it_tags['und'])) {
+  $tags_obj = $node->field_it_tags['und'];
+}
+elseif (isset($node->field_nwd_tags['und'])) {
+  $tags_obj = $node->field_nwd_tags['und'];
+}
+elseif (isset($node->field_entrepreneurship_tags['und'])) {
+  $tags_obj = $node->field_entrepreneurship_tags['und'];
+}
+elseif (isset($node->field_compete_to_win_tags['und'])) {
+  $tags_obj = $node->field_compete_to_win_tags['und'];
+}
 
 if (isset($tags_obj)) {
   foreach ($tags_obj as $taxonomy_term) {
@@ -102,6 +114,18 @@ if (isset($tags_obj)) {
                       break;
                   case 'btoacademy':
                       print render($content['field_bto_category']);
+                      break;
+                  case 'competetowin':
+                      print render($content['field_compete_to_win_category']);
+                      break;
+                  case 'partner_entrepreneurship':
+                      print render($content['field_entrepreneurship_category']);
+                      break;
+                  case 'ourtechnology':
+                      print render($content['field_it_category']);
+                      break;
+                  case 'mi_matters':
+                      print render($content['field_nwd_category']);
                       break;
               } 
              ?>
