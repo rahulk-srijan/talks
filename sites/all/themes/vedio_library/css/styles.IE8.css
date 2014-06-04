@@ -1435,8 +1435,8 @@ h4.lib-title, .lib-title p{
   width: 32px;
 }
 #block-views-most-liked-lib-craousel-block .jcarousel-skin-default .jcarousel-prev-horizontal {
-display: none;
-/*  background-position: 8px 0;
+/*display: none;
+  background-position: 8px 0;
   left: 25px;
   position: absolute;
   top: 62px;*/
@@ -1445,8 +1445,8 @@ display: none;
   background-position: 3px -91px;
 }*/
 #block-views-most-liked-lib-craousel-block .jcarousel-skin-default .jcarousel-next-horizontal {
-display: none;
-/*  background-position: 1px -48px;
+/*display: none;
+  background-position: 1px -48px;
   position: absolute;
   right: 36px;
   top: 62px;*/
