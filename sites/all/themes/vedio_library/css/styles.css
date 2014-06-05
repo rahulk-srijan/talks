@@ -192,7 +192,9 @@ input.form-autocomplete::-ms-clear {display: none;}
 #ops-newsletter .form-item-newsletters-456,
 #org-newsletter .form-item-newsletters-455,
 #it-newsletter .form-item-newsletters-591,
-#ndm-newsletter .form-item-newsletters-592{
+#ndm-newsletter .form-item-newsletters-592,
+#ndm-newsletter .form-item-newsletters-602,
+#ndm-newsletter .form-item-newsletters-603{
   float: left;
   width: 30%;
 }
@@ -226,7 +228,7 @@ input.form-autocomplete::-ms-clear {display: none;}
 #org-newsletter .form-item-newsletters-3,
 #org-newsletter .form-item-newsletters-11,
 #org-newsletter .form-item-newsletters-12,
-#org-newsletter .form-item-newsletters-13{
+#org-newsletter .form-item-newsletters-13, #it-newsletter .category_label {
   width: 60%;
 }
 #simplenews-subscriptions-page-form #reset,
