@@ -193,8 +193,8 @@ input.form-autocomplete::-ms-clear {display: none;}
 #org-newsletter .form-item-newsletters-455,
 #it-newsletter .form-item-newsletters-591,
 #ndm-newsletter .form-item-newsletters-592,
-#ndm-newsletter .form-item-newsletters-602,
-#ndm-newsletter .form-item-newsletters-603{
+#entre-newsletter .form-item-newsletters-602,
+#compete-newsletter .form-item-newsletters-603{
   float: left;
   width: 30%;
 }
@@ -228,7 +228,42 @@ input.form-autocomplete::-ms-clear {display: none;}
 #org-newsletter .form-item-newsletters-3,
 #org-newsletter .form-item-newsletters-11,
 #org-newsletter .form-item-newsletters-12,
-#org-newsletter .form-item-newsletters-13, #it-newsletter .category_label {
+#org-newsletter .form-item-newsletters-13,
+#it-newsletter .category_label,
+#it-newsletter .form-item-newsletters-593,
+#it-newsletter .form-item-newsletters-594,
+#it-newsletter .form-item-newsletters-616,
+#it-newsletter .form-item-newsletters-11,
+#it-newsletter .form-item-newsletters-12,
+#it-newsletter .form-item-newsletters-13,
+#ndm-newsletter .category_label,
+#ndm-newsletter .form-item-newsletters-606,
+#ndm-newsletter .form-item-newsletters-607,
+#ndm-newsletter .form-item-newsletters-608,
+#ndm-newsletter .form-item-newsletters-11,
+#ndm-newsletter .form-item-newsletters-12,
+#ndm-newsletter .form-item-newsletters-13,
+#entre-newsletter .category_label,
+#entre-newsletter .form-item-newsletters-633,
+#entre-newsletter .form-item-newsletters-635,
+#entre-newsletter .form-item-newsletters-637,
+#entre-newsletter .form-item-newsletters-639,
+#entre-newsletter .form-item-newsletters-641,
+#entre-newsletter .form-item-newsletters-643,
+#entre-newsletter .form-item-newsletters-645,
+#entre-newsletter .form-item-newsletters-647,
+#entre-newsletter .form-item-newsletters-617,
+#entre-newsletter .form-item-newsletters-610,
+#entre-newsletter .form-item-newsletters-615,
+#entre-newsletter .form-item-newsletters-623,
+#entre-newsletter .form-item-newsletters-625,
+#compete-newsletter .form-item-newsletters-612,
+#compete-newsletter .form-item-newsletters-614,
+#compete-newsletter .form-item-newsletters-619,
+#compete-newsletter .form-item-newsletters-669,
+#compete-newsletter .form-item-newsletters-663,
+#compete-newsletter .form-item-newsletters-683,
+#compete-newsletter .form-item-newsletters-693,{
   width: 60%;
 }
 #simplenews-subscriptions-page-form #reset,
