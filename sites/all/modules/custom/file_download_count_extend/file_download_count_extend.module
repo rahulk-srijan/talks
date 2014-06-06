@@ -40,7 +40,6 @@ function file_download_file() {
         // $filepath = file_create_url($file->uri);
 
         // //track the downloading file
-        // file_download_count_track_file_download($file);
         // $realpath = drupal_realpath($file->uri);
         // $filename = basename($filepath);
         // $extension = pathinfo($filepath, PATHINFO_EXTENSION);
@@ -50,6 +49,7 @@ function file_download_file() {
         // } else {
         if($file) {
             file_transfer($file->uri, array('Content-disposition' => 'attachment; filename="'.$file->filename . '"'));
+            file_download_count_track_file_download($file);
         }
         else {
             return drupal_access_denied();
