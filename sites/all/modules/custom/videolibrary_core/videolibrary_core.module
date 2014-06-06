@@ -427,6 +427,7 @@ elseif ($form_id =='user_profile_form') {
       $current_user_roles['14'] = 'compete to win user';}
       $form['account']['roleassign_roles']['#options'] = $current_user_roles;
     }
+  }
 }
 
 function videolibrary_core_unset_field_library($form,$library_roles,$tid) {
