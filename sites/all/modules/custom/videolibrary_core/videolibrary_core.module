@@ -411,12 +411,6 @@ else {
 elseif ($form_id =='user_profile_form') {
     global $user;
     $current_user_roles = $user->roles;
-    // Show all assignable roles to the super admin role
-    if (!array_key_exists('8', $current_user_roles)) {
-      $valid_roles = $form['account']['roleassign_roles']['#options'];
-      unset($current_user_roles["2"]);
-      $form['account']['roleassign_roles']['#options'] = $current_user_roles;
-    }
     if (array_key_exists('11', $current_user_roles)) {
       if(in_array('entrepreneur web master', $current_user_roles)){
       $current_user_roles['13'] = 'entrepreneur user';}
@@ -425,6 +419,12 @@ elseif ($form_id =='user_profile_form') {
     if (array_key_exists('12', $current_user_roles)) {
       if(in_array('compete to win web master', $current_user_roles)){
       $current_user_roles['14'] = 'compete to win user';}
+      $form['account']['roleassign_roles']['#options'] = $current_user_roles;
+    }
+    // Show all assignable roles to the super admin role
+    if (!array_key_exists('8', $current_user_roles)) {
+      $valid_roles = $form['account']['roleassign_roles']['#options'];
+      unset($current_user_roles["2"]);
       $form['account']['roleassign_roles']['#options'] = $current_user_roles;
     }
   }
