@@ -416,8 +416,6 @@ elseif ($form_id =='user_profile_form') {
       $valid_roles = $form['account']['roleassign_roles']['#options'];
       unset($current_user_roles["2"]);
       $form['account']['roleassign_roles']['#options'] = $current_user_roles;
-    }
-    else{
       if (array_key_exists('11', $current_user_roles)) {
       if(in_array('entrepreneur web master', $current_user_roles)){
       $current_user_roles['13'] = 'entrepreneur user';}
