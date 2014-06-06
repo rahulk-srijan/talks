@@ -406,8 +406,8 @@ function default_filter_term_id(){
         'btoacademy'=>457,
         'ourtechnology'=>591,
         'mi_matters'=>592,
-        'partner_entrepreneurship'=>'602',
-        'competetowin'=>'603',
+        'partner_entrepreneurship'=>602,
+        'competetowin'=>603,
 
     );
     return $library;
