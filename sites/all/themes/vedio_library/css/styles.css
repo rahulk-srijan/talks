@@ -1322,6 +1322,9 @@ height: 65px;
    font-size: 19px;
    font-weight: bold;
    margin-bottom: 0;
+  }
+ #block-block-9 .block-content p {
+  margin-left:19px;
  }
  .ctools-modal-content{
   height: 280px !important;
