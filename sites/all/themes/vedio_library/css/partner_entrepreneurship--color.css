@@ -14,7 +14,7 @@
 }
 
 .views-slideshow-pager-field-item.views_slideshow_pager_field_item.active .views-content-counter {
-    background: url(images/entre-dot.png) no-repeat;
+    background: url(images/entre-dot.png) no-repeat -1px -1px;
     text-indent: -9999em;
     height: 16px;
     width: 16px;
