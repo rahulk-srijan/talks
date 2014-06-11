@@ -1516,3 +1516,111 @@ background-position: -29px -32px !important;
 .jcarousel-skin-default .jcarousel-next-horizontal:active {
 background-position: -57px -32px !important;
 }
+
+/*newletter fixes*/
+#block-block-9 .block-content p {
+    margin-left: 19px;
+}
+
+#bto-newsletter,
+#ops-newsletter,
+#org-newsletter,
+#it-newsletter,
+#ndm-newsletter,
+#entrepreneur-newsletter,
+#compete-newsletter
+{
+ background: none repeat scroll 0 0 #FFFFFF;
+ margin-top: -4px;
+ padding: 12px 24px;
+}
+#bto-newsletter .form-item-newsletters-457,
+#ops-newsletter .form-item-newsletters-456,
+#org-newsletter .form-item-newsletters-455,
+#it-newsletter .form-item-newsletters-591,
+#ndm-newsletter .form-item-newsletters-592,
+#entrepreneur-newsletter .form-item-newsletters-602,
+#compete-newsletter .form-item-newsletters-603{
+  float: left;
+  width: 30%;
+}
+#org-newsletter .form-item-newsletters-455{
+  padding-bottom: 175px;
+}
+#bto-newsletter .form-item-newsletters-457{
+  padding-bottom: 175px;
+}
+#ops-newsletter .form-item-newsletters-456{
+  padding-bottom: 242px;
+}
+#it-newsletter .form-item-newsletters-591{
+  padding-bottom: 82px;
+}
+#ndm-newsletter .form-item-newsletters-592{
+  padding-bottom: 82px;
+}
+#entrepreneur-newsletter .form-item-newsletters-602{
+  padding-bottom: 180px;
+}
+#compete-newsletter .form-item-newsletters-603{
+  padding-bottom: 180px;
+}
+
+#bto-newsletter .category_label,
+#bto-newsletter .form-item-newsletters-458,
+#bto-newsletter .form-item-newsletters-459,
+#bto-newsletter .form-item-newsletters-460,
+#bto-newsletter .form-item-newsletters-461,
+#bto-newsletter .form-item-newsletters-462,
+#bto-newsletter .form-item-newsletters-463,
+#ops-newsletter .category_label,
+#ops-newsletter .form-item-newsletters-466,
+#ops-newsletter .form-item-newsletters-467,
+#ops-newsletter .form-item-newsletters-468,
+#ops-newsletter .form-item-newsletters-469,
+#ops-newsletter .form-item-newsletters-470,
+#ops-newsletter .form-item-newsletters-471,
+#org-newsletter .category_label,
+#org-newsletter .form-item-newsletters-1,
+#org-newsletter .form-item-newsletters-2,
+#org-newsletter .form-item-newsletters-3,
+#org-newsletter .form-item-newsletters-11,
+#org-newsletter .form-item-newsletters-12,
+#org-newsletter .form-item-newsletters-13,
+#it-newsletter .category_label,
+#it-newsletter .form-item-newsletters-593,
+#it-newsletter .form-item-newsletters-594,
+#it-newsletter .form-item-newsletters-616,
+#it-newsletter .form-item-newsletters-11,
+#it-newsletter .form-item-newsletters-12,
+#it-newsletter .form-item-newsletters-13,
+#ndm-newsletter .category_label,
+#ndm-newsletter .form-item-newsletters-606,
+#ndm-newsletter .form-item-newsletters-607,
+#ndm-newsletter .form-item-newsletters-608,
+#ndm-newsletter .form-item-newsletters-11,
+#ndm-newsletter .form-item-newsletters-12,
+#ndm-newsletter .form-item-newsletters-13,
+#entre-newsletter .category_label,
+#entre-newsletter .form-item-newsletters-633,
+#entre-newsletter .form-item-newsletters-635,
+#entre-newsletter .form-item-newsletters-637,
+#entre-newsletter .form-item-newsletters-639,
+#entre-newsletter .form-item-newsletters-641,
+#entre-newsletter .form-item-newsletters-643,
+#entre-newsletter .form-item-newsletters-645,
+#entre-newsletter .form-item-newsletters-647,
+#entre-newsletter .form-item-newsletters-617,
+#entre-newsletter .form-item-newsletters-610,
+#entre-newsletter .form-item-newsletters-615,
+#entre-newsletter .form-item-newsletters-623,
+#entre-newsletter .form-item-newsletters-625,
+#compete-newsletter .form-item-newsletters-612,
+#compete-newsletter .form-item-newsletters-614,
+#compete-newsletter .form-item-newsletters-619,
+#compete-newsletter .form-item-newsletters-669,
+#compete-newsletter .form-item-newsletters-663,
+#compete-newsletter .form-item-newsletters-683,
+#compete-newsletter .form-item-newsletters-693,{
+  width: 60%;
+}
