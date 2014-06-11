@@ -312,6 +312,28 @@ function videolibrary_core_views_query_alter(&$view, &$query) {
 }
 
 function videolibrary_core_views_pre_render(&$view) {
+  if($view->name == 'most_liked_lib_craousel'){
+    $temp = array();
+    if ($view->result['6']->taxonomy_term_data_name == 'partner_entrepreneurship'){
+        if ($view->result['1']->taxonomy_term_data_name == 'competetowin')  {
+            $temp['0'] = $view->result['6'];
+            $view->result['6'] = $view->result['5'];
+            $view->result['5'] = $view->result['4'];
+            $view->result['4'] = $view->result['3'];
+            $view->result['3'] = $view->result['2'];
+            $view->result['2'] = $temp['0'];
+        }
+    }
+    if ($view->result['5']->taxonomy_term_data_name == 'partner_entrepreneurship'){
+        $temp['0'] = $view->result['5'];
+        // $view->result['6'] = $view->result['5'];
+        $view->result['5'] = $view->result['4'];
+        $view->result['4'] = $view->result['3'];
+        $view->result['3'] = $view->result['2'];
+        $view->result['2'] = $view->result['1'];
+        $view->result['1'] = $temp['0'];
+    }
+  }
   if($view->name=='global_popular_video') {
     // Get most popular from 1st library
     $result1 = $view->result;
