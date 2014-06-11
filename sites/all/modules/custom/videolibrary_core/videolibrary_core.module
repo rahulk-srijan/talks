@@ -401,8 +401,8 @@ function videolibrary_core_form_alter(&$form, &$form_state, $form_id) {
             '536' => 'miscellaneous',
             '602' => 'entrepreneur web master',
             '603' => 'compete to win web master',
-            '591'=> 'it web master',
-            '592'=> 'ndm web master',
+            '591'=> 'our technology web master',
+            '592'=> 'mi matters web master',
              );
         $roles = user_roles();
         $current_user_role = $user->roles;
