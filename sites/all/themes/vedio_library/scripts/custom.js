@@ -137,10 +137,15 @@ setTimeout( function(){
 
 function addDivNewsletter() {
     //console.log(Drupal.settings);
-    var roles = Drupal.settings.roles;
-    var roles_array = jQuery.map(roles, function(value, index) {
-     return [value];
-    });
+    if (typeof Drupal.settings.roles === 'object') {
+        var roles_array = jQuery.map(Drupal.settings.roles, function(value, index) {
+         return [value];
+        });
+    }
+    else {
+        var roles_array = Drupal.settings.roles;
+    }
+
     var role_entre = jQuery.inArray("entrepreneur user",roles_array);
     var role_entre_ors = jQuery.inArray("ors entrepreneur user",roles_array);
     var role_entre_admin = jQuery.inArray("entrepreneur web master",roles_array);
