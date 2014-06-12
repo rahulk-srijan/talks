@@ -111,6 +111,7 @@ input.form-autocomplete::-ms-clear {display: none;}
     font-weight: bold;
     overflow: hidden;
     padding: 0 12px 12px;
+    margin-left: -1.5%;
   }
 #simplenews-subscriptions-page-form #edit-subscriptions {border: none;}
 #simplenews-subscriptions-page-form #edit-subscriptions #edit-new { margin: 25px 0 0 0;font-size: 11px;}
@@ -1627,3 +1628,6 @@ background-position: -57px -32px !important;
 #compete-newsletter .form-item-newsletters-693,{
   width: 60%;
 }
+#block-block-9 .block-content p {
+ margin-left:6px;
+  }
