@@ -165,7 +165,6 @@ function addDivNewsletter() {
    jQuery('#edit-newsletters .form-item').slice(term_count_it, term_count_ndm).wrapAll('<div id="ndm-newsletter" class="newsletter-block" />');
     jQuery('#edit-newsletters .form-item').slice(term_count_ndm, term_count_entrepreneur).wrapAll('<div id="entrepreneur-newsletter" class="newsletter-block" />');
     jQuery('#edit-newsletters .form-item').slice(term_count_entrepreneur, term_count_compete).wrapAll('<div id="compete-newsletter" class="newsletter-block" />');
-console.log(role_entre + " " + role_entre_ors + " " + role_entre_admin + " " + role_superadmin);
     if((role_entre == -1) && (role_entre_ors ==-1) && (role_entre_admin==-1) && (role_superadmin==-1)) {
         jQuery('#entrepreneur-newsletter').remove();
     }
