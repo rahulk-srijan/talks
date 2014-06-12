@@ -1624,3 +1624,7 @@ background-position: -57px -32px !important;
 #compete-newsletter .form-item-newsletters-693,{
   width: 60%;
 }
+
+#entrepreneur-newsletter .form-item-newsletters-602 .option {
+    padding: 0 8px 0 0;
+}
