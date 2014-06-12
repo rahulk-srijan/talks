@@ -194,10 +194,13 @@ input.form-autocomplete::-ms-clear {display: none;}
 #org-newsletter .form-item-newsletters-455,
 #it-newsletter .form-item-newsletters-591,
 #ndm-newsletter .form-item-newsletters-592,
-#entrepreneur-newsletter .form-item-newsletters-602,
 #compete-newsletter .form-item-newsletters-603{
   float: left;
   width: 30%;
+}
+#entrepreneur-newsletter .form-item-newsletters-602{
+  float: left;
+  width: 20%;
 }
 #org-newsletter .form-item-newsletters-455{
   padding-bottom: 175px;
@@ -1559,9 +1562,6 @@ margin-right: -3px;
 }
 .view-most-liked-lib-craousel .jcarousel-skin-default .jcarousel-prev-horizontal:hover {
 background-position: -30px 0 !important;
-}
-#entrepreneur-newsletter .form-item-newsletters-602 .option {
-    padding: 0 8px 0 0;
 }
 /* Css Ends over here by Prashant*/
 
