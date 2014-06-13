@@ -200,7 +200,7 @@ function addDivNewsletter() {
 function trimLatestActivity() {
     jQuery(".comment-body").text(function(index, currentText) {
         if(jQuery(".comment-body").text().length > 145){
-    return currentText.substr(0, 145)+ '...';
+    return currentText.substr(0, 145);
 }else{
     return currentText.substr(0, 145);
 }
