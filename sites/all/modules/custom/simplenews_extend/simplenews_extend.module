@@ -235,6 +235,20 @@ function simplenews_extend_taxonomy_term_insert($term) {
     }
 }
 
+function simplenews_extend_taxonomy_term_update($term) {
+    $link_path= 'taxonomy/term/' . $term->tid;
+    $mlid = db_query("SELECT mlid FROM {menu_links} where link_path=:link_path",array(':link_path'=>$link_path))->fetchField();
+    if(isset($mlid)) {
+        $menu = $term->name;
+        $table= 'menu_links';
+        db_update($table)
+      ->condition('mlid', $mlid)
+      ->fields(array('link_title' => $menu))
+      ->execute();
+      menu_cache_clear_all();
+    }
+}
+
 function findNewslettertid($tid) {
     if (isset($tid)) {
         $result = db_select('simplenews_category"', 'tid')
@@ -579,5 +593,6 @@ function menu_save_alter($term) {
     );
     $mlid = menu_link_save($menu_item); // You don't need to receive it in a variable
     $ml = menu_link_load($mlid);
+    menu_cache_clear_all();
 }
 
