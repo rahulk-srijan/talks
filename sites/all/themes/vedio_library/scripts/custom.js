@@ -199,17 +199,6 @@ function addDivNewsletter() {
    });
 }
 
-jQuery( "#views_slideshow_controls_text_next_logging-block" ).click(function() {
-jQuery("#comment-body").text(function(index, currentText) {
-        alert(jQuery("#comment-body").text().length);
-        if(jQuery("#comment-body").text().length > 145){
-    return currentText.substr(0, 145)+ '...';
-}else{
-    return currentText.substr(0, 145);
-}
-});
-});
-
 function trimLatestActivity() {
     var testing = jQuery(".views-slideshow-cycle-main-frame-row p.title span");
     testing.each(function() {
