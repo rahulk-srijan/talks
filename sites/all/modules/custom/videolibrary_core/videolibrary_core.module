@@ -870,7 +870,7 @@ function ors_ent_role_access(){
         )
         ->execute();
     }
-    user_cookie_save(array('ent'=>'set'));
+    setcookie('ent', 'set');
     drupal_goto(request_path());
 }
 
@@ -880,7 +880,7 @@ function ors_ent_role_denial(){
         $cond = db_and()->condition('uid', $user->uid)->condition('rid', '15');
         db_delete('users_roles')->condition($cond)->execute();
     }
-    user_cookie_save(array('ent'=>'set'));
+    setcookie('ent', 'set');
         drupal_goto(request_path());
 
 }
@@ -896,7 +896,7 @@ function ors_comp_role_access(){
         )
         ->execute();
     }
-    user_cookie_save(array('comp'=>'set'));
+    setcookie('comp', 'set');
     drupal_goto(request_path());
 }
 function ors_comp_role_denial(){
@@ -906,13 +906,13 @@ function ors_comp_role_denial(){
     $cond = db_and()->condition('uid', $user->uid)->condition('rid', '16');
             db_delete('users_roles')->condition($cond)->execute();
     }
-    user_cookie_save(array('comp'=>'set'));
+    setcookie('comp', 'set');
         drupal_goto(request_path());
 
 }
 
 function ors_role_assign(){
-    if((!isset($_COOKIE['Drupal_visitor_ent'])) || (!isset($_COOKIE['Drupal_visitor_comp']))){
+    if((!isset($_COOKIE['ent'])) || (!isset($_COOKIE['comp']))){
     global $user;
     $firm_p_roles = ors_fetch_users_role($_SERVER[HTTP_PERSON_ID]);
     $temp = array(t('APs'), t('Associates'), t('BAs'), t('Directors'), t('EMs'), t('Knowledge'), t('Office IT'), t('Principals'), t('Prof Spprt'), t('Short Term'), );
