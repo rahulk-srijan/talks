@@ -136,6 +136,8 @@ setTimeout( function(){
 
 });
 
+
+
 function addDivNewsletter() {
     //console.log(Drupal.settings);
     if (typeof Drupal.settings.roles === 'object') {
@@ -197,14 +199,25 @@ function addDivNewsletter() {
    });
 }
 
-function trimLatestActivity() {
-    jQuery(".comment-body").text(function(index, currentText) {
-        if(jQuery(".comment-body").text().length > 145){
-    return currentText.substr(0, 145);
+jQuery( "#views_slideshow_controls_text_next_logging-block" ).click(function() {
+jQuery("#comment-body").text(function(index, currentText) {
+        alert(jQuery("#comment-body").text().length);
+        if(jQuery("#comment-body").text().length > 145){
+    return currentText.substr(0, 145)+ '...';
 }else{
     return currentText.substr(0, 145);
 }
 });
+});
+
+function trimLatestActivity() {
+    var testing = jQuery(".views-slideshow-cycle-main-frame-row p.title span");
+    testing.each(function() {
+        textlng = jQuery(this).text().length;
+        if(textlng > 145){
+            jQuery(this).text(jQuery(this).text().substr(0, 145)+ '...');
+        }
+    });
 }
 
 function toggleControls() {
