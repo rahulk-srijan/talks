@@ -912,7 +912,7 @@ function ors_comp_role_denial(){
 }
 
 function ors_role_assign(){
-if(((!isset($_COOKIE['Drupal_visitor_ent'])) || (!isset($_COOKIE['Drupal_visitor_comp']))){
+if((!isset($_COOKIE['Drupal_visitor_ent'])) || (!isset($_COOKIE['Drupal_visitor_comp']))){
     user_cookie_save(array('ent'=>'access'));
     user_cookie_save(array('comp'=>'access'));
     global $user;
