@@ -201,6 +201,7 @@ input.form-autocomplete::-ms-clear {display: none;}
 #entrepreneur-newsletter .form-item-newsletters-602{
   float: left;
   width: 20%;
+  margin-right: 85px;
 }
 #org-newsletter .form-item-newsletters-455{
   padding-bottom: 175px;
