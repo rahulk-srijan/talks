@@ -324,7 +324,7 @@ function videolibrary_core_views_pre_render(&$view) {
             $view->result['2'] = $temp['0'];
         }
     }
-    if ($view->result['5']->taxonomy_term_data_name == 'partner_entrepreneurship'){
+    elseif ($view->result['5']->taxonomy_term_data_name == 'partner_entrepreneurship'){
         $temp['0'] = $view->result['5'];
         // $view->result['6'] = $view->result['5'];
         $view->result['5'] = $view->result['4'];
@@ -337,7 +337,7 @@ function videolibrary_core_views_pre_render(&$view) {
           $view->result['1'] = $temp['0'];
        }
     }
-    if ($view->result['4']->taxonomy_term_data_name == 'partner_entrepreneurship'){
+    elseif ($view->result['4']->taxonomy_term_data_name == 'partner_entrepreneurship'){
         $temp['0'] = $view->result['4'];
         // $view->result['6'] = $view->result['5'];
         // $view->result['5'] = $view->result['4'];
@@ -350,7 +350,7 @@ function videolibrary_core_views_pre_render(&$view) {
           $view->result['1'] = $temp['0'];
        }
     }
-    if ($view->result['3']->taxonomy_term_data_name == 'partner_entrepreneurship'){
+    elseif ($view->result['3']->taxonomy_term_data_name == 'partner_entrepreneurship'){
         $temp['0'] = $view->result['3'];
         // $view->result['6'] = $view->result['5'];
         // $view->result['5'] = $view->result['4'];
