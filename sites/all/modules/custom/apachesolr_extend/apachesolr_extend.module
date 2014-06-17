@@ -404,10 +404,10 @@ function default_filter_term_id(){
         'orginaction'=>455,
         'opsinaction'=>456,
         'btoacademy'=>457,
-        'ourtechnology'=>591,
-        'mi_matters'=>592,
-        'partner_entrepreneurship'=>602,
-        'competetowin'=>603,
+        'ourtechnology'=>609,
+        'mi_matters'=>610,
+        'partner_entrepreneurship'=>611,
+        'competetowin'=>612,
 
     );
     return $library;
@@ -471,16 +471,16 @@ function apachesolr_extend_facet_items_alter(&$build, &$settings) {
                 case '457':
                     $build[$key]["#markup"] = 'BTO Academy';
                     break;
-                case '591':
+                case '609':
                     $build[$key]["#markup"] = 'Our Technology';
                     break;
-                case '592':
+                case '610':
                     $build[$key]["#markup"] = 'MI Matters';
                     break;
-                case '602':
+                case '611':
                     $build[$key]["#markup"] = 'Entrepreneurship Stories';
                     break;
-                 case '603':
+                 case '612':
                     $build[$key]["#markup"] = 'Compete to Win';
                     break;
             }

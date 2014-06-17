@@ -318,16 +318,16 @@ function simplenews_extend_form_alter(&$form, &$form_state, $form_id) {
             update_term_weight($form,457);
         }
         if ($form['#vocabulary']->vid == 10 && $form['actions']['submit']['#value'] == 'Save') {
-            update_term_weight($form,591);
+            update_term_weight($form,609);
         }
         if ($form['#vocabulary']->vid == 12 && $form['actions']['submit']['#value'] == 'Save') {
-            update_term_weight($form,592);
+            update_term_weight($form,610);
         }
         if ($form['#vocabulary']->vid == 14 && $form['actions']['submit']['#value'] == 'Save') {
-            update_term_weight($form,602);
+            update_term_weight($form,611);
         }
         if ($form['#vocabulary']->vid == 16 && $form['actions']['submit']['#value'] == 'Save') {
-            update_term_weight($form,603);
+            update_term_weight($form,612);
         }
         if ($form['#vocabulary']->vid == 5 && $form['actions']['submit']['#value'] == 'Save') {
             $weight =0;
