@@ -331,7 +331,37 @@ function videolibrary_core_views_pre_render(&$view) {
         $view->result['4'] = $view->result['3'];
         $view->result['3'] = $view->result['2'];
         $view->result['2'] = $view->result['1'];
-        $view->result['1'] = $temp['0'];
+        if ($view->result['1']->taxonomy_term_data_name == 'competetowin')  {
+        }
+        else  {
+          $view->result['1'] = $temp['0'];
+       }
+    }
+    if ($view->result['4']->taxonomy_term_data_name == 'partner_entrepreneurship'){
+        $temp['0'] = $view->result['4'];
+        // $view->result['6'] = $view->result['5'];
+        // $view->result['5'] = $view->result['4'];
+        $view->result['4'] = $view->result['3'];
+        $view->result['3'] = $view->result['2'];
+        $view->result['2'] = $view->result['1'];
+        if ($view->result['1']->taxonomy_term_data_name == 'competetowin')  {
+        }
+        else  {
+          $view->result['1'] = $temp['0'];
+       }
+    }
+    if ($view->result['3']->taxonomy_term_data_name == 'partner_entrepreneurship'){
+        $temp['0'] = $view->result['3'];
+        // $view->result['6'] = $view->result['5'];
+        // $view->result['5'] = $view->result['4'];
+        // $view->result['4'] = $view->result['3'];
+        $view->result['3'] = $view->result['2'];
+        $view->result['2'] = $view->result['1'];
+        if ($view->result['1']->taxonomy_term_data_name == 'competetowin')  {
+        }
+        else  {
+          $view->result['1'] = $temp['0'];
+       }
     }
   }
   if($view->name=='global_popular_video') {
