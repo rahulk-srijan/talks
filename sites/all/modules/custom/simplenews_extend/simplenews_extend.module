@@ -210,8 +210,8 @@ function newsletterSubscriptions_daily($frequency) {
 // }
 //}
 
-function simplenews_extend_taxonomy_term_insert($term) {
-    $vids =array(2,5,6,7,10,12,14,16);
+function simplenews_extend_taxonomy_term_update($term) {
+    $vids =array(2,5,6,7,13,15,12,10);
     $vid= $term->vid;
     if (isset($term->tid) && in_array($vid,$vids) && $term->op == 'Save') {
         $address_default = variable_get('site_mail', ini_get('sendmail_from'));
