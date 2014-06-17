@@ -105,7 +105,7 @@ function videolibrary_core_block_info() {
 }
 
 function videolibrary_core_block_view($delta = '') {
-    switch ($delta) {
+        switch ($delta) {
         case 'site_switching':
             $block['subject'] = null; // Most forms don't have a subject
 //    $block['content'] = noti_block_view();
