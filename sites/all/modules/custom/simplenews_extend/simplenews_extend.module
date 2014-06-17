@@ -210,7 +210,7 @@ function newsletterSubscriptions_daily($frequency) {
 // }
 //}
 
-function simplenews_extend_taxonomy_term_update($term) {
+function simplenews_extend_taxonomy_term_insert($term) {
     $vids =array(2,5,6,7,13,15,12,10);
     $vid= $term->vid;
     if (isset($term->tid) && in_array($vid,$vids) && $term->op == 'Save') {
@@ -573,18 +573,18 @@ function menu_save_alter($term) {
     }elseif($term->vid=='6') {
         $menu_name= 'menu-main-menu-mobile-ops';
         $mlid='2290';
-    }elseif($term->vid=='10') {
+    }elseif($term->vid=='13') {
         $menu_name= 'menu-main-menu-mobile-it';
-        $mlid='2630';
-    }elseif($term->vid=='12') {
+        $mlid='2650';
+    }elseif($term->vid=='15') {
         $menu_name= 'menu-main-menu-mobile-nwd';
-        $mlid='2637';
-    }elseif($term->vid=='14') {
+        $mlid='2657';
+    }elseif($term->vid=='12') {
         $menu_name= 'menu-main-menu-mobile-entre';
-        $mlid='2687';
-    }elseif($term->vid=='16') {
+        $mlid='2644';
+    }elseif($term->vid=='10') {
         $menu_name= 'menu-main-menu-mobile-compete';
-        $mlid='2694';
+        $mlid='2637';
     }else {
         $menu_name= '';
         $mlid='';
