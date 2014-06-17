@@ -97,6 +97,7 @@ jQuery('document').ready(function() {
     //   }
     // });
     addDivNewsletter();
+    trimLatestActivity();
     tooglechild();
     carousel();
     activetag();
@@ -114,8 +115,7 @@ jQuery('document').ready(function() {
     toogleSearch()
 
     if (jQuery(window).width() < 700)
-        mobileTweaks();
-
+    mobileTweaks();
     defaultText();
 
 
@@ -136,14 +136,26 @@ setTimeout( function(){
 
 });
 
+
+
 function addDivNewsletter() {
-    var role_entre = jQuery.inArray("ors entrepreneur user",Drupal.settings.roles);
-    var role_entre_ors = jQuery.inArray("entrepreneur user",Drupal.settings.roles);
-    var role_entre_admin = jQuery.inArray("entrepreneur web master",Drupal.settings.roles);
-    var role_compete = jQuery.inArray("ors compete to win user",Drupal.settings.roles);
-    var role_compete_ors = jQuery.inArray("compete to win user",Drupal.settings.roles);
-    var role_compete_admin = jQuery.inArray("compete to win web master",Drupal.settings.roles);
-    var role_superadmin = jQuery.inArray("super admin",Drupal.settings.roles);
+    //console.log(Drupal.settings);
+    if (typeof Drupal.settings.roles === 'object') {
+        var roles_array = jQuery.map(Drupal.settings.roles, function(value, index) {
+         return [value];
+        });
+    }
+    else {
+        var roles_array = Drupal.settings.roles;
+    }
+
+    var role_entre = jQuery.inArray("entrepreneur user",roles_array);
+    var role_entre_ors = jQuery.inArray("ors entrepreneur user",roles_array);
+    var role_entre_admin = jQuery.inArray("entrepreneur web master",roles_array);
+    var role_compete = jQuery.inArray("compete to win user",roles_array);
+    var role_compete_ors = jQuery.inArray("ors compete to win user",roles_array);
+    var role_compete_admin = jQuery.inArray("compete to win web master",roles_array);
+    var role_superadmin = jQuery.inArray("super admin",roles_array);
     var start = 6;
     var term_count_bto = (1 + Drupal.settings.term_count[0]) + start;
 
@@ -161,7 +173,6 @@ function addDivNewsletter() {
    jQuery('#edit-newsletters .form-item').slice(term_count_it, term_count_ndm).wrapAll('<div id="ndm-newsletter" class="newsletter-block" />');
     jQuery('#edit-newsletters .form-item').slice(term_count_ndm, term_count_entrepreneur).wrapAll('<div id="entrepreneur-newsletter" class="newsletter-block" />');
     jQuery('#edit-newsletters .form-item').slice(term_count_entrepreneur, term_count_compete).wrapAll('<div id="compete-newsletter" class="newsletter-block" />');
-
     if((role_entre == -1) && (role_entre_ors ==-1) && (role_entre_admin==-1) && (role_superadmin==-1)) {
         jQuery('#entrepreneur-newsletter').remove();
     }
@@ -186,6 +197,16 @@ function addDivNewsletter() {
             jQuery(this).toggleClass('expanded-newsletter');
         });
    });
+}
+
+function trimLatestActivity() {
+    var testing = jQuery(".views-slideshow-cycle-main-frame-row p.title span");
+    testing.each(function() {
+        textlng = jQuery(this).text().length;
+        if(textlng > 145){
+            jQuery(this).text(jQuery(this).text().substr(0, 145)+ '...');
+        }
+    });
 }
 
 function toggleControls() {

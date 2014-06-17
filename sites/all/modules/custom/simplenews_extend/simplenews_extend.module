@@ -94,8 +94,18 @@ function newsletterSubscriptions_daily($frequency) {
                 // Send Newletter when All Videos Categories is selected
 
                 if (in_array($all_video_cat_tid, $subs_category_tid)) {
-                    $body_mail_content_views = views_embed_view('newsletter_mail', 'page_1', implode(',', $nids));
-
+                    $sub_user= user_load($subs_obj->uid);
+                    $roles= $sub_user->roles;
+                    $private_entre= array('ors entrepreneur user', 'entrepreneur user', 'administrator', 'super admin', 'entrepreneur web master');
+                     $private_compete= array('ors compete to win user', 'compete to win user', 'administrator', 'super admin', 'compete to win web master');
+                     $body_mail_content_views = views_embed_view('newsletter_mail', 'page_1', implode(',', $nids));
+                     if(array_intersect($private_compete,$roles )) {
+                         $body_mail_content_views_compete = views_embed_view('newsletter_mail', 'page_10', implode(',', $nids));
+                     }
+                     if(array_intersect($private_entre, $roles)) {
+                         $body_mail_content_views_entre = views_embed_view('newsletter_mail', 'page_9', implode(',', $nids));
+                     }
+                     $body_mail_content_views = $body_mail_content_views . $body_mail_content_views_entre . $body_mail_content_views_compete;
                     $body_mail_content = '<div class="content">New Video Added<br>' . $body_mail_content_views . '</div>';
                     //$body_mail_count = views_get_view_result('newsletter_mail', 'page_1', implode(',', $nids));
                     //$views_count = count($body_mail_count);
@@ -232,6 +242,20 @@ function simplenews_extend_taxonomy_term_insert($term) {
         //print (drupal_get_form('taxonomy_overview_terms'));
         //drupal_add_js('jQuery(document).ready(function () { Jquery("#taxonomy_overview_terms #edit-submit").click(); });', 'inline');
 
+    }
+}
+
+function simplenews_extend_taxonomy_term_update($term) {
+    $link_path= 'taxonomy/term/' . $term->tid;
+    $mlid = db_query("SELECT mlid FROM {menu_links} where link_path=:link_path",array(':link_path'=>$link_path))->fetchField();
+    if(isset($mlid)) {
+        $menu = $term->name;
+        $table= 'menu_links';
+        db_update($table)
+      ->condition('mlid', $mlid)
+      ->fields(array('link_title' => $menu))
+      ->execute();
+      menu_cache_clear_all();
     }
 }
 
@@ -579,5 +603,6 @@ function menu_save_alter($term) {
     );
     $mlid = menu_link_save($menu_item); // You don't need to receive it in a variable
     $ml = menu_link_load($mlid);
+    menu_cache_clear_all();
 }
 
