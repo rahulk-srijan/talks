@@ -94,8 +94,18 @@ function newsletterSubscriptions_daily($frequency) {
                 // Send Newletter when All Videos Categories is selected
 
                 if (in_array($all_video_cat_tid, $subs_category_tid)) {
-                    $body_mail_content_views = views_embed_view('newsletter_mail', 'page_1', implode(',', $nids));
-
+                    $sub_user= user_load($subs_obj->uid);
+                    $roles= $sub_user->roles;
+                    $private_entre= array('ors entrepreneur user', 'entrepreneur user', 'administrator', 'super admin', 'entrepreneur web master');
+                     $private_compete= array('ors compete to win user', 'compete to win user', 'administrator', 'super admin', 'compete to win web master');
+                     $body_mail_content_views = views_embed_view('newsletter_mail', 'page_1', implode(',', $nids));
+                     if(array_intersect($private_compete,$roles )) {
+                         $body_mail_content_views_compete = views_embed_view('newsletter_mail', 'page_10', implode(',', $nids));
+                     }
+                     if(array_intersect($private_entre, $roles)) {
+                         $body_mail_content_views_entre = views_embed_view('newsletter_mail', 'page_9', implode(',', $nids));
+                     }
+                     $body_mail_content_views = $body_mail_content_views . $body_mail_content_views_entre . $body_mail_content_views_compete;
                     $body_mail_content = '<div class="content">New Video Added<br>' . $body_mail_content_views . '</div>';
                     //$body_mail_count = views_get_view_result('newsletter_mail', 'page_1', implode(',', $nids));
                     //$views_count = count($body_mail_count);
@@ -148,6 +158,7 @@ function newsletterSubscriptions_daily($frequency) {
                 $body = '<div>' . $body_mail_content . '</div>';
                 $body .= '<div>' . $body_mail_content_cat . '</div>';
                 $body .= '<div>' . $body_mail_comment . '</div>';
+print_r($body);
                 $message = drupal_mail('simplenews_extend', $key, $mail, user_preferred_language($user), array('body' => $body, 'subject' => $subject, 'headers' => array('Cc' => $header_cc, 'Bcc' => $header_bcc), $from, TRUE));
                 if ($message['result']) {
                     print('<br/>' . $subs_obj->mail);
