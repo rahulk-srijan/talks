@@ -53,7 +53,7 @@ $library_subsite_variable = array(
         'subject' => 'Suggest a video',
         'msg' => 'I recommend adding the following video to the Our Technology video channel.',
         'site_name' => 'Our Technology',
-         'tid'=>'591',
+         'tid'=>'609',
          'channel_path'=>'ourtechnology',
          'resource'=>'http://home.intranet.mckinsey.com/otcs/',
         'recommend_text' => ' recommended a Our Technology video.'),
@@ -63,7 +63,7 @@ $library_subsite_variable = array(
         'subject' => 'Suggest a video',
         'msg' => 'I recommend adding the following video to the MI Matters video channel.',
         'site_name' => 'MI Matters',
-         'tid'=>'592',
+         'tid'=>'610',
          'channel_path'=>'mi_matters',
          'resource'=>'http://home.intranet.mckinsey.com/practicespaces/ps/mck-implementation/',
         'recommend_text' => '  recommended an MI Matters video.'),
@@ -73,7 +73,7 @@ $library_subsite_variable = array(
         'subject' => 'Suggest a video',
         'msg' => 'I recommend adding the following video to the Entrepreneurship Stories video channel.',
         'site_name' => 'Entrepreneurship Stories',
-         'tid'=>'602',
+         'tid'=>'611',
          'channel_path'=>'partner_entrepreneurship',
          'resource'=>'',
         'recommend_text' => ' recommended an Entrepreneurship Stories video.'),
@@ -83,7 +83,7 @@ $library_subsite_variable = array(
         'subject' => 'Suggest a video',
         'msg' => 'I recommend adding the following video to the Compete to Win video channel.',
         'site_name' => 'Compete to Win',
-         'tid'=>'603',
+         'tid'=>'612',
          'channel_path'=>'competetowin',
          'resource'=>'http://home.intranet.mckinsey.com/intcomms/clientchannel/Get-competitive-intelligence-Competitor-information-Tools',
         'recommend_text' => ' recommended a Compete to Win video.'),
@@ -362,10 +362,10 @@ function videolibrary_core_form_alter(&$form, &$form_state, $form_id) {
         $form['field_library']['und']['#options'][457]='BTO Academy';
         $form['field_library']['und']['#options'][456]='Ops in Action';
         $form['field_library']['und']['#options'][455]='Org in Action';
-        $form['field_library']['und']['#options'][591]='Our Technology';
-        $form['field_library']['und']['#options'][592]='MI Matters';
-        $form['field_library']['und']['#options'][602]='Entrepreneurship Stories';
-        $form['field_library']['und']['#options'][603]='Compete to Win';
+        $form['field_library']['und']['#options'][609]='Our Technology';
+        $form['field_library']['und']['#options'][610]='MI Matters';
+        $form['field_library']['und']['#options'][611]='Entrepreneurship Stories';
+        $form['field_library']['und']['#options'][612]='Compete to Win';
     }
 
     if($form_id=='views_exposed_form') {
@@ -373,22 +373,22 @@ function videolibrary_core_form_alter(&$form, &$form_state, $form_id) {
     $form['field_library_tid']['#options'][457] ='BTO Academy';
     $form['field_library_tid']['#options'][456] ='Ops in Action';
     $form['field_library_tid']['#options'][455] ='Org in Action';
-    $form['field_library_tid']['#options'][591] ='Our Technology';
-    $form['field_library_tid']['#options'][592] ='MI Matters';
-    $form['field_library_tid']['#options'][602] ='Entrepreneurship Stories';
-    $form['field_library_tid']['#options'][603] ='Compete to Win';
+    $form['field_library_tid']['#options'][609] ='Our Technology';
+    $form['field_library_tid']['#options'][610] ='MI Matters';
+    $form['field_library_tid']['#options'][611] ='Entrepreneurship Stories';
+    $form['field_library_tid']['#options'][612] ='Compete to Win';
     asort($form['field_library_tid']['#options']);
      global $user;
     $role = $user->roles;
     $private_entre= array('ors entrepreneur user', 'entrepreneur user', 'administrator', 'super admin', 'entrepreneur web master');
     $result_entre = array_intersect($private_entre, $role);
     if(count($result_entre) == '0') {
-        unset($form['field_library_tid']['#options'][602]);
+        unset($form['field_library_tid']['#options'][611]);
     }
     $private_compete= array('ors compete to win user', 'compete to win user', 'administrator', 'super admin', 'compete to win web master');
     $result_compete = array_intersect($private_compete, $role);
     if(count($result_compete) == '0') {
-        unset($form['field_library_tid']['#options'][603]);
+        unset($form['field_library_tid']['#options'][612]);
     }
 }
     if($form_id =='upload_video_node_form') {
@@ -399,10 +399,10 @@ function videolibrary_core_form_alter(&$form, &$form_state, $form_id) {
             '456' => 'ops web master',
             '457' => 'bto web master',
             '536' => 'miscellaneous',
-            '602' => 'entrepreneur web master',
-            '603' => 'compete to win web master',
-            '591'=> 'our technology web master',
-            '592'=> 'mi matters web master',
+            '611' => 'entrepreneur web master',
+            '612' => 'compete to win web master',
+            '609'=> 'our technology web master',
+            '610'=> 'mi matters web master',
              );
         $roles = user_roles();
         $current_user_role = $user->roles;
