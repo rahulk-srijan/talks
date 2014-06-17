@@ -10,11 +10,11 @@ elseif (isset($node->field_ops_tags['und'])) {
 elseif (isset($node->field_bto_tags['und'])) {
   $tags_obj = $node->field_bto_tags['und'];
 }
-elseif (isset($node->field_it_tags['und'])) {
-  $tags_obj = $node->field_it_tags['und'];
+elseif (isset($node->field_ourtechtags['und'])) {
+  $tags_obj = $node->field_ourtechtags['und'];
 }
-elseif (isset($node->field_nwd_tags['und'])) {
-  $tags_obj = $node->field_nwd_tags['und'];
+elseif (isset($node->field_mi_tags['und'])) {
+  $tags_obj = $node->field_mi_tags['und'];
 }
 elseif (isset($node->field_entrepreneurship_tags['und'])) {
   $tags_obj = $node->field_entrepreneurship_tags['und'];
@@ -122,10 +122,10 @@ if (isset($tags_obj)) {
                       print render($content['field_entrepreneurship_category']);
                       break;
                   case 'ourtechnology':
-                      print render($content['field_it_category']);
+                      print render($content['field_ourtech_category']);
                       break;
                   case 'mi_matters':
-                      print render($content['field_nwd_category']);
+                      print render($content['field_mi_category']);
                       break;
               } 
              ?>
