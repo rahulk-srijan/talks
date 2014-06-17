@@ -317,16 +317,16 @@ function simplenews_extend_form_alter(&$form, &$form_state, $form_id) {
         if ($form['#vocabulary']->vid == 7 && $form['actions']['submit']['#value'] == 'Save') {
             update_term_weight($form,457);
         }
-        if ($form['#vocabulary']->vid == 10 && $form['actions']['submit']['#value'] == 'Save') {
+        if ($form['#vocabulary']->vid == 13 && $form['actions']['submit']['#value'] == 'Save') {
             update_term_weight($form,609);
         }
-        if ($form['#vocabulary']->vid == 12 && $form['actions']['submit']['#value'] == 'Save') {
+        if ($form['#vocabulary']->vid == 15 && $form['actions']['submit']['#value'] == 'Save') {
             update_term_weight($form,610);
         }
-        if ($form['#vocabulary']->vid == 14 && $form['actions']['submit']['#value'] == 'Save') {
+        if ($form['#vocabulary']->vid == 12 && $form['actions']['submit']['#value'] == 'Save') {
             update_term_weight($form,611);
         }
-        if ($form['#vocabulary']->vid == 16 && $form['actions']['submit']['#value'] == 'Save') {
+        if ($form['#vocabulary']->vid == 10 && $form['actions']['submit']['#value'] == 'Save') {
             update_term_weight($form,612);
         }
         if ($form['#vocabulary']->vid == 5 && $form['actions']['submit']['#value'] == 'Save') {
