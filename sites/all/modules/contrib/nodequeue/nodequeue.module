@@ -1787,18 +1787,18 @@ elseif ($queue->qid=='1') {
      $query = taxonomy_based_autocomplete_alter($tid);
 }
 elseif ($queue->qid=='4') {
-   $tid='591  ';
+   $tid='609';
      $query = taxonomy_based_autocomplete_alter($tid);
 }
 elseif ($queue->qid=='5') {
-   $tid='592';
+   $tid='610';
      $query = taxonomy_based_autocomplete_alter($tid);
 }elseif ($queue->qid=='6') {
-   $tid='602';
+   $tid='611';
      $query = taxonomy_based_autocomplete_alter($tid);
 }
 elseif ($queue->qid=='7') {
-   $tid='603';
+   $tid='612';
      $query = taxonomy_based_autocomplete_alter($tid);
 }
 else {
