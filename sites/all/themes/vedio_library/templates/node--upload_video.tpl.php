@@ -16,11 +16,11 @@ elseif (isset($node->field_ourtechtags['und'])) {
 elseif (isset($node->field_mi_tags['und'])) {
   $tags_obj = $node->field_mi_tags['und'];
 }
-elseif (isset($node->field_entrepreneurship_tags['und'])) {
-  $tags_obj = $node->field_entrepreneurship_tags['und'];
+elseif (isset($node->field_entre_tags['und'])) {
+  $tags_obj = $node->field_entre_tags['und'];
 }
-elseif (isset($node->field_compete_to_win_tags['und'])) {
-  $tags_obj = $node->field_compete_to_win_tags['und'];
+elseif (isset($node->field_competetowin_tags['und'])) {
+  $tags_obj = $node->field_competetowin_tags['und'];
 }
 
 if (isset($tags_obj)) {
@@ -57,7 +57,7 @@ if (isset($tags_obj)) {
         $video_file_uri = $node->field_upload_video['und'][0]['uri'];
         $video_duration = video_library_get_video_duration($video_file_uri);
         ?>
-        <div class="video-duration"><?php print $video_duration; ?></div> 
+        <div class="video-duration"><?php print $video_duration; ?></div>
         <div class="node-statistics"><?php print views_embed_view('node_statistics', $display_id = 'block', $node->nid); ?></div>
         <div class="node-statistics-like"><?php print views_embed_view('node_statistics', $display_id = 'block_1', $node->nid); ?></div>
 
@@ -116,10 +116,10 @@ if (isset($tags_obj)) {
                       print render($content['field_bto_category']);
                       break;
                   case 'competetowin':
-                      print render($content['field_compete_to_win_category']);
+                      print render($content['field_compete_category']);
                       break;
                   case 'partner_entrepreneurship':
-                      print render($content['field_entrepreneurship_category']);
+                      print render($content['field_entre_category']);
                       break;
                   case 'ourtechnology':
                       print render($content['field_ourtech_category']);
@@ -127,7 +127,7 @@ if (isset($tags_obj)) {
                   case 'mi_matters':
                       print render($content['field_mi_category']);
                       break;
-              } 
+              }
              ?>
         </div>
         <div class="tags">
