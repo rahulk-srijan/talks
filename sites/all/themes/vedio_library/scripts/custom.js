@@ -192,6 +192,7 @@ function addDivNewsletter() {
         jQuery('#compete-newsletter').remove();
     }
 
+   if (jQuery(window).width() > 700) {
    jQuery('#bto-newsletter .form-item-newsletters-457').css('padding-bottom',count_bto*27+'px');
    jQuery('#ops-newsletter .form-item-newsletters-456').css('padding-bottom',count_ops*27+'px');
    jQuery('#org-newsletter .form-item-newsletters-455').css('padding-bottom',count_org*27+'px');
@@ -199,6 +200,7 @@ function addDivNewsletter() {
    jQuery('#ndm-newsletter .form-item-newsletters-610').css('padding-bottom',count_ndm*27+'px');
    jQuery('#entrepreneur-newsletter .form-item-newsletters-611').css('padding-bottom',count_entre*27+'px');
    jQuery('#compete-newsletter .form-item-newsletters-612').css('padding-bottom',count_compete*27+'px');
+   }
    //jQuery('#edit-newsletters .form-item:gt(13):lt(22)').wrapAll('<div id="ops-newsletter" class="newsletter-block" />');
    //jQuery('#edit-newsletters .form-item:gt(21):lt(25)').wrapAll('<div id="org-newsletter" class="newsletter-block" />');
    jQuery('#bto-newsletter').before('<p class="main-cat" id="bto-collapsible">BTO Academy Notifications</p>').hide();
