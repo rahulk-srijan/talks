@@ -160,10 +160,11 @@ function custom_ovl_form_alter(&$form, &$form_state, $form_id) {
           '#weight' => 56,
           ); */
         $count= array();
-        $terms = array(458,465,1,624,628,613,614);
-        foreach ($terms as $term) {
-          $term_count = taxonomy_term_load($term);
-          $vid = $term_count->vid;
+       // $terms = array(458,465,1,624,628,614,613);
+        $vids= array(7,6,2,13,15,12,10);
+        foreach ($vids as $vid) {
+          //$term_count = taxonomy_term_load($term);
+          //$vid = $term_count->vid;
           $term_list = taxonomy_get_tree($vid);
           $count[] = count($term_list);
         }
