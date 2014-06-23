@@ -96,7 +96,9 @@ jQuery('document').ready(function() {
     //     jQuery("body.page-my-playlist a.flag").text("Remove");
     //   }
     // });
+
     addDivNewsletter();
+    addLabel();
     trimLatestActivity();
     tooglechild();
     carousel();
@@ -108,7 +110,7 @@ jQuery('document').ready(function() {
     changeCheckBoxToRadio();
     uncheckRadio();
     checkedAllCategory();
-    addLabel();
+
     sort_autosubmit();
     checkChildCategory();
     suggestLink();
