@@ -149,6 +149,14 @@ function addDivNewsletter() {
         var roles_array = Drupal.settings.roles;
     }
 
+    var count_bto = Drupal.settings.term_count[0];
+    var count_ops = Drupal.settings.term_count[1];
+    var count_org = Drupal.settings.term_count[2];
+    var count_it = Drupal.settings.term_count[3];
+    var count_ndm = Drupal.settings.term_count[4];
+    var count_entre = Drupal.settings.term_count[5];
+    var count_compete = Drupal.settings.term_count[6];
+
     var role_entre = jQuery.inArray("entrepreneur user",roles_array);
     var role_entre_ors = jQuery.inArray("ors entrepreneur user",roles_array);
     var role_entre_admin = jQuery.inArray("entrepreneur web master",roles_array);
@@ -182,6 +190,14 @@ function addDivNewsletter() {
     if ((role_compete == -1) && (role_compete_ors ==-1) && (role_compete_admin==-1) && (role_superadmin==-1)) {
         jQuery('#compete-newsletter').remove();
     }
+
+   jQuery('#bto-newsletter .form-item-newsletters-457').css('padding-bottom',count_bto*25+'px');
+   jQuery('#ops-newsletter .form-item-newsletters-456').css('padding-bottom',count_ops*25+'px');
+   jQuery('#org-newsletter .form-item-newsletters-455').css('padding-bottom',count_org*25+'px');
+   jQuery('#it-newsletter .form-item-newsletters-609').css('padding-bottom',count_it*25+'px');
+   jQuery('#ndm-newsletter .form-item-newsletters-610').css('padding-bottom',count_ndm*25+'px');
+   jQuery('#entrepreneur-newsletter .form-item-newsletters-611').css('padding-bottom',count_entre*25+'px');
+   jQuery('#compete-newsletter .form-item-newsletters-612').css('padding-bottom',count_compete*25+'px');
    //jQuery('#edit-newsletters .form-item:gt(13):lt(22)').wrapAll('<div id="ops-newsletter" class="newsletter-block" />');
    //jQuery('#edit-newsletters .form-item:gt(21):lt(25)').wrapAll('<div id="org-newsletter" class="newsletter-block" />');
    jQuery('#bto-newsletter').before('<p class="main-cat" id="bto-collapsible">BTO Academy Notifications</p>').hide();
