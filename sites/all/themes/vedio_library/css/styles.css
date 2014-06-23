@@ -192,15 +192,15 @@ input.form-autocomplete::-ms-clear {display: none;}
 #bto-newsletter .form-item-newsletters-457,
 #ops-newsletter .form-item-newsletters-456,
 #org-newsletter .form-item-newsletters-455,
-#it-newsletter .form-item-newsletters-591,
-#ndm-newsletter .form-item-newsletters-592,
-#compete-newsletter .form-item-newsletters-603{
+#it-newsletter .form-item-newsletters-609,
+#ndm-newsletter .form-item-newsletters-610,
+#compete-newsletter .form-item-newsletters-612{
   float: left;
   width: 30%;
 }
-#entrepreneur-newsletter .form-item-newsletters-602{
+#entrepreneur-newsletter .form-item-newsletters-611{
   float: left;
-  width: 20%;
+  width: 30%;
   margin-right: 85px;
 }
 #org-newsletter .form-item-newsletters-455{
@@ -212,16 +212,16 @@ input.form-autocomplete::-ms-clear {display: none;}
 #ops-newsletter .form-item-newsletters-456{
   padding-bottom: 242px;
 }
-#it-newsletter .form-item-newsletters-591{
+#it-newsletter .form-item-newsletters-609{
   padding-bottom: 82px;
 }
-#ndm-newsletter .form-item-newsletters-592{
+#ndm-newsletter .form-item-newsletters-610{
   padding-bottom: 82px;
 }
-#entrepreneur-newsletter .form-item-newsletters-602{
+#entrepreneur-newsletter .form-item-newsletters-611{
   padding-bottom: 180px;
 }
-#compete-newsletter .form-item-newsletters-603{
+#compete-newsletter .form-item-newsletters-612{
   padding-bottom: 180px;
 }
 
@@ -247,40 +247,26 @@ input.form-autocomplete::-ms-clear {display: none;}
 #org-newsletter .form-item-newsletters-12,
 #org-newsletter .form-item-newsletters-13,
 #it-newsletter .category_label,
-#it-newsletter .form-item-newsletters-593,
-#it-newsletter .form-item-newsletters-594,
-#it-newsletter .form-item-newsletters-616,
-#it-newsletter .form-item-newsletters-11,
-#it-newsletter .form-item-newsletters-12,
-#it-newsletter .form-item-newsletters-13,
+#it-newsletter .form-item-newsletters-624,
+#it-newsletter .form-item-newsletters-625,
+#it-newsletter .form-item-newsletters-626,
+#it-newsletter .form-item-newsletters-627,
 #ndm-newsletter .category_label,
-#ndm-newsletter .form-item-newsletters-606,
-#ndm-newsletter .form-item-newsletters-607,
-#ndm-newsletter .form-item-newsletters-608,
-#ndm-newsletter .form-item-newsletters-11,
-#ndm-newsletter .form-item-newsletters-12,
-#ndm-newsletter .form-item-newsletters-13,
+#ndm-newsletter .form-item-newsletters-628,
+#ndm-newsletter .form-item-newsletters-629,
 #entre-newsletter .category_label,
-#entre-newsletter .form-item-newsletters-633,
-#entre-newsletter .form-item-newsletters-635,
-#entre-newsletter .form-item-newsletters-637,
-#entre-newsletter .form-item-newsletters-639,
-#entre-newsletter .form-item-newsletters-641,
-#entre-newsletter .form-item-newsletters-643,
-#entre-newsletter .form-item-newsletters-645,
-#entre-newsletter .form-item-newsletters-647,
-#entre-newsletter .form-item-newsletters-617,
-#entre-newsletter .form-item-newsletters-610,
+#entre-newsletter .form-item-newsletters-614,
 #entre-newsletter .form-item-newsletters-615,
-#entre-newsletter .form-item-newsletters-623,
-#entre-newsletter .form-item-newsletters-625,
-#compete-newsletter .form-item-newsletters-612,
-#compete-newsletter .form-item-newsletters-614,
-#compete-newsletter .form-item-newsletters-619,
-#compete-newsletter .form-item-newsletters-669,
-#compete-newsletter .form-item-newsletters-663,
-#compete-newsletter .form-item-newsletters-683,
-#compete-newsletter .form-item-newsletters-693,{
+#entre-newsletter .form-item-newsletters-616,
+#entre-newsletter .form-item-newsletters-617,
+#entre-newsletter .form-item-newsletters-618,
+#entre-newsletter .form-item-newsletters-619,
+#entre-newsletter .form-item-newsletters-620,
+#entre-newsletter .form-item-newsletters-621,
+#entre-newsletter .category_label,
+#compete-newsletter .form-item-newsletters-613,
+#compete-newsletter .form-item-newsletters-622,
+#compete-newsletter .form-item-newsletters-623{
   width: 60%;
 }
 #simplenews-subscriptions-page-form #reset,
