@@ -110,7 +110,6 @@ jQuery('document').ready(function() {
     changeCheckBoxToRadio();
     uncheckRadio();
     checkedAllCategory();
-
     sort_autosubmit();
     checkChildCategory();
     suggestLink();
@@ -173,8 +172,8 @@ function addDivNewsletter() {
     var term_count_org = (1 + Drupal.settings.term_count[2]) + term_count_ops;
     var term_count_it = (2 + Drupal.settings.term_count[3]) + term_count_org; //we used 2 instead of one because of spotlight category, hidden with css
     var term_count_ndm = (1 + Drupal.settings.term_count[4]) + term_count_it;
-    var term_count_entrepreneur = (1 + Drupal.settings.term_count[6]) + term_count_ndm;
-    var term_count_compete = (1 + Drupal.settings.term_count[5]) + term_count_entrepreneur;
+    var term_count_entrepreneur = (1 + Drupal.settings.term_count[5]) + term_count_ndm;
+    var term_count_compete = (1 + Drupal.settings.term_count[6]) + term_count_entrepreneur;
    //jQuery('#edit-newsletters').append('<div id="bto-newsletter" class="newsletter-block">' + news + '</div>');
    jQuery('#edit-newsletters .form-item').slice(start, term_count_bto).wrapAll('<div id="bto-newsletter" class="newsletter-block" />');
    jQuery('#edit-newsletters .form-item').slice(term_count_bto, term_count_ops).wrapAll('<div id="ops-newsletter" class="newsletter-block" />');
@@ -193,13 +192,13 @@ function addDivNewsletter() {
         jQuery('#compete-newsletter').remove();
     }
 
-   jQuery('#bto-newsletter .form-item-newsletters-457').css('padding-bottom',count_bto*25+'px');
-   jQuery('#ops-newsletter .form-item-newsletters-456').css('padding-bottom',count_ops*25+'px');
-   jQuery('#org-newsletter .form-item-newsletters-455').css('padding-bottom',count_org*25+'px');
-   jQuery('#it-newsletter .form-item-newsletters-609').css('padding-bottom',count_it*25+'px');
-   jQuery('#ndm-newsletter .form-item-newsletters-610').css('padding-bottom',count_ndm*25+'px');
-   jQuery('#entrepreneur-newsletter .form-item-newsletters-611').css('padding-bottom',count_entre*25+'px');
-   jQuery('#compete-newsletter .form-item-newsletters-612').css('padding-bottom',count_compete*25+'px');
+   jQuery('#bto-newsletter .form-item-newsletters-457').css('padding-bottom',count_bto*27+'px');
+   jQuery('#ops-newsletter .form-item-newsletters-456').css('padding-bottom',count_ops*27+'px');
+   jQuery('#org-newsletter .form-item-newsletters-455').css('padding-bottom',count_org*27+'px');
+   jQuery('#it-newsletter .form-item-newsletters-609').css('padding-bottom',count_it*27+'px');
+   jQuery('#ndm-newsletter .form-item-newsletters-610').css('padding-bottom',count_ndm*27+'px');
+   jQuery('#entrepreneur-newsletter .form-item-newsletters-611').css('padding-bottom',count_entre*27+'px');
+   jQuery('#compete-newsletter .form-item-newsletters-612').css('padding-bottom',count_compete*27+'px');
    //jQuery('#edit-newsletters .form-item:gt(13):lt(22)').wrapAll('<div id="ops-newsletter" class="newsletter-block" />');
    //jQuery('#edit-newsletters .form-item:gt(21):lt(25)').wrapAll('<div id="org-newsletter" class="newsletter-block" />');
    jQuery('#bto-newsletter').before('<p class="main-cat" id="bto-collapsible">BTO Academy Notifications</p>').hide();
