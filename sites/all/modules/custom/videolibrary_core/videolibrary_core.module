@@ -910,7 +910,7 @@ function ors_ent_role_denial(){
         $cond = db_and()->condition('uid', $user->uid)->condition('rid', '15');
         db_delete('users_roles')->condition($cond)->execute();
     }
-    setcookie('ent', 'set');
+    // setcookie('ent', 'set');
         drupal_goto(request_path());
 
 }
@@ -926,7 +926,7 @@ function ors_comp_role_access(){
         )
         ->execute();
     }
-    setcookie('comp', 'set');
+    // setcookie('comp', 'set');
     drupal_goto(request_path());
 }
 function ors_comp_role_denial(){
@@ -936,15 +936,15 @@ function ors_comp_role_denial(){
     $cond = db_and()->condition('uid', $user->uid)->condition('rid', '16');
             db_delete('users_roles')->condition($cond)->execute();
     }
-    setcookie('comp', 'set');
+    // setcookie('comp', 'set');
         drupal_goto(request_path());
 
 }
 
 function ors_role_assign(){
 if((!isset($_COOKIE['Drupal_visitor_ent'])) || (!isset($_COOKIE['Drupal_visitor_comp']))){
-    user_cookie_save(array('ent'=>'access'));
-    user_cookie_save(array('comp'=>'access'));
+    setrawcookie('Drupal_visitor_comp', rawurlencode('access'));
+    setrawcookie('Drupal_visitor_ent', rawurlencode('access'));
     global $user;
     $firm_p_roles = ors_fetch_users_role($_SERVER[HTTP_PERSON_ID]);
     $temp = array(t('APs'), t('Associates'), t('BAs'), t('Directors'), t('EMs'), t('Knowledge'), t('Office IT'), t('Principals'), t('Prof Spprt'), t('Short Term'), );
@@ -964,7 +964,6 @@ if((!isset($_COOKIE['Drupal_visitor_ent'])) || (!isset($_COOKIE['Drupal_visitor_
         if (!in_array('ors entrepreneur user', $user->roles)){
         ors_ent_role_access($user);
     }
-        user_cookie_save(array('entvalue'=>'access_ent'));
     }
     elseif((!in_array($firm_p_roles['POSITION_GROUP'], $ent_roles)) && in_array('ors entrepreneur user', $user->roles)){
             if (in_array('ors entrepreneur user', $user->roles)){
@@ -977,7 +976,6 @@ if((!isset($_COOKIE['Drupal_visitor_ent'])) || (!isset($_COOKIE['Drupal_visitor_
         if (!in_array('ors compete to win user', $user->roles)){
         ors_comp_role_access($user);
     }
-        user_cookie_save(array('compvalue'=>'access_comp'));
     }
     elseif(!(in_array($firm_p_roles['POSITION_GROUP'], $comp_roles)) && in_array('ors compete to win user', $user->roles)){
             if (in_array('ors compete to win user', $user->roles)){
