@@ -35,13 +35,13 @@ else if($row->tid == 456)
 	$class="color-magenta";
 else if($row->tid == 457)
 	$class = "color-purple";
-else if($row->tid == 591)
+else if($row->tid == 609)
   $class = "color-yellow";
-else if($row->tid == 592)
+else if($row->tid == 610)
   $class = "color-bright-blue";
-else if($row->tid == 602)
+else if($row->tid == 611)
   $class = "color-entre";
-else if($row->tid == 603)
+else if($row->tid == 612)
   $class = "color-compete";
 else
 	$color ="color-default";

@@ -943,8 +943,8 @@ function ors_comp_role_denial(){
 
 function ors_role_assign(){
 if((!isset($_COOKIE['Drupal_visitor_ent'])) || (!isset($_COOKIE['Drupal_visitor_comp']))){
-    setrawcookie('Drupal_visitor_comp', rawurlencode('access'), REQUEST_TIME + 600, '/');
-    setrawcookie('Drupal_visitor_ent', rawurlencode('access'), REQUEST_TIME + 600, '/');
+    setrawcookie('Drupal_visitor_comp', rawurlencode('access'), REQUEST_TIME + 3600, '/');
+    setrawcookie('Drupal_visitor_ent', rawurlencode('access'), REQUEST_TIME + 3600, '/');
     global $user;
     $firm_p_roles = ors_fetch_users_role($_SERVER[HTTP_PERSON_ID]);
     $temp = array(t('APs'), t('Associates'), t('BAs'), t('Directors'), t('EMs'), t('Knowledge'), t('Office IT'), t('Principals'), t('Prof Spprt'), t('Short Term'), );
