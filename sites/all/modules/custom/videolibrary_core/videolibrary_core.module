@@ -942,7 +942,7 @@ function ors_comp_role_denial(){
 }
 
 function ors_role_assign(){
-if((!isset($_COOKIE['Drupal_visitor_entr'])) || (!isset($_COOKIE['Drupal_visitor_compe']))){
+// if((!isset($_COOKIE['Drupal_visitor_entr'])) || (!isset($_COOKIE['Drupal_visitor_compe']))){
     setrawcookie('Drupal_visitor_compe', rawurlencode('access'), REQUEST_TIME + 600, '/');
     setrawcookie('Drupal_visitor_entr', rawurlencode('access'), REQUEST_TIME + 600, '/');
     global $user;
@@ -983,5 +983,5 @@ if((!isset($_COOKIE['Drupal_visitor_entr'])) || (!isset($_COOKIE['Drupal_visitor
                 // user_cooke_delete('compvalue');
         }
     }
-}
+// }
 }
