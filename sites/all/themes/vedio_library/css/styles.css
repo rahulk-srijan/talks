@@ -200,8 +200,11 @@ input.form-autocomplete::-ms-clear {display: none;}
 }
 #entrepreneur-newsletter .form-item-newsletters-611{
   float: left;
-  width: 30%;
+  width: 20%;
   margin-right: 85px;
+}
+#entrepreneur-newsletter .form-item-newsletters-611 .option {
+    padding: 0 8px 0 0;
 }
 /*#org-newsletter .form-item-newsletters-455{
   padding-bottom: 175px;
