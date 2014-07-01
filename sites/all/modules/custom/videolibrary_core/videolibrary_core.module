@@ -79,7 +79,7 @@ $library_subsite_variable = array(
         'recommend_text' => ' recommended an Entrepreneurship Stories video.'),
     'competetowin' =>
     array('to' => 'CSGroup@mckinsey.com',
-        'from_email' => 'CSGroup@mckinsey.com',
+        'from_email' => 'CSGro:90up@mckinsey.com',
         'subject' => 'Suggest a video',
         'msg' => 'I recommend adding the following video to the Compete to Win video channel.',
         'site_name' => 'Compete to Win',
@@ -891,7 +891,7 @@ function get_role_id($role_name) {
 
 function ors_ent_role_access(){
     global $user;
-    if (!in_array('ors entrepreneur user', $user->roles)){
+    if (!in_array('ors entrepreneur user', $user->roles) && ($user->uid > 1)){
     db_insert('users_roles')
         ->fields(array(
             'uid' => $user->uid,
@@ -906,7 +906,7 @@ function ors_ent_role_access(){
 
 function ors_ent_role_denial(){
     global $user;
-    if (in_array('ors entrepreneur user', $user->roles)){
+    if (in_array('ors entrepreneur user', $user->roles) && ($user->uid > 1)){
         $cond = db_and()->condition('uid', $user->uid)->condition('rid', '15');
         db_delete('users_roles')->condition($cond)->execute();
     }
@@ -917,7 +917,7 @@ function ors_ent_role_denial(){
 
 function ors_comp_role_access(){
     global $user;
-    if (!in_array('ors compete to win user', $user->roles)){
+    if (!in_array('ors compete to win user', $user->roles) && ($user->uid > 1)){
     db_insert('users_roles')
         ->fields(array(
             'uid' => $user->uid,
@@ -932,7 +932,7 @@ function ors_comp_role_access(){
 function ors_comp_role_denial(){
     global $user;
 
-    if (in_array('ors compete to win user', $user->roles)){
+    if (in_array('ors compete to win user', $user->roles) && ($user->uid > 1)){
     $cond = db_and()->condition('uid', $user->uid)->condition('rid', '16');
             db_delete('users_roles')->condition($cond)->execute();
     }
