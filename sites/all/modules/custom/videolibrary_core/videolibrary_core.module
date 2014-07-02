@@ -384,10 +384,11 @@ function videolibrary_core_views_pre_render(&$view) {
     $new_triple = array_merge($new_double, $result3);
     $new_fourth = array_merge($new_triple,$result4);
     $new_fifth = array_merge($new_fourth,$result5);
-    $new_sixth = array_merge($new_fifth,$result6);
-    shuffle($new_sixth);
+    // $new_sixth = array_merge($new_fifth,$result6);
+    shuffle($new_fifth);
     // Final result array is a combination of the 2 libraries
-    $view->result = $new_sixth;
+    // $view->result = $new_sixth;
+    $view->result = $new_fifth;
   }
 }
 
@@ -516,7 +517,9 @@ function videolibrary_core_menu_alter(&$items) {
 function videolibrary_core_node_view($node, $view_mode, $langcode) {
     //dsm($GLOBALS);
      //$device = array('ipad', 'iphone');
+    if(isset($_SERVER["HTTP_X_FORWARDED_FOR"])) {
     ors_role_assign();
+    }
     global $library_subsite_variable;
     $uri= $GLOBALS['_GET']['redirect'];
      if ((bool) strpos($_SERVER['HTTP_USER_AGENT'], 'iPad') && (bool) strpos($_SERVER['HTTP_USER_AGENT'], 'iPhone' && $uri= 'true')) {
@@ -845,8 +848,9 @@ function videolibrary_core_init(){
     if($arg == 'partner_entrepreneurship')
     {
         // if($_COOKIE['Drupal_visitor_entvalue'] != 'access_ent' || !(in_array('ors entrepreneur user', $roles))){
-
+        if(isset($_SERVER["HTTP_X_FORWARDED_FOR"])) {
             ors_role_assign();
+        }
         $private_access = false;
         if(in_array('entrepreneur web master', $roles) || in_array('entrepreneur user', $roles) || in_array('administrator', $roles) || in_array('super admin', $roles) || in_array('ors entrepreneur user', $roles))
         {
@@ -857,7 +861,9 @@ function videolibrary_core_init(){
     {
         // if($_COOKIE['Drupal_visitor_compvalue'] != 'access_comp' || !(in_array('ors compete to win user', $roles))){
 
+        if(isset($_SERVER["HTTP_X_FORWARDED_FOR"])) {
             ors_role_assign();
+        }
 
         $private_access = false;
         if(in_array('compete to win web master', $roles) || in_array('compete to win user', $roles) || in_array('administrator', $roles) || in_array('super admin', $roles) || in_array('ors compete to win user', $roles))
@@ -896,7 +902,7 @@ function get_role_id($role_name) {
 
 function ors_ent_role_access(){
     global $user;
-    if (!in_array('ors entrepreneur user', $user->roles) && ($user->uid > 1)){
+    if (!in_array('ors entrepreneur user', $user->roles)){
     db_insert('users_roles')
         ->fields(array(
             'uid' => $user->uid,
@@ -911,7 +917,7 @@ function ors_ent_role_access(){
 
 function ors_ent_role_denial(){
     global $user;
-    if (in_array('ors entrepreneur user', $user->roles) && ($user->uid > 1)){
+    if (in_array('ors entrepreneur user', $user->roles)){
         $cond = db_and()->condition('uid', $user->uid)->condition('rid', '15');
         db_delete('users_roles')->condition($cond)->execute();
     }
@@ -922,7 +928,7 @@ function ors_ent_role_denial(){
 
 function ors_comp_role_access(){
     global $user;
-    if (!in_array('ors compete to win user', $user->roles) && ($user->uid > 1)){
+    if (!in_array('ors compete to win user', $user->roles)){
     db_insert('users_roles')
         ->fields(array(
             'uid' => $user->uid,
@@ -937,7 +943,7 @@ function ors_comp_role_access(){
 function ors_comp_role_denial(){
     global $user;
 
-    if (in_array('ors compete to win user', $user->roles) && ($user->uid > 1)){
+    if (in_array('ors compete to win user', $user->roles)){
     $cond = db_and()->condition('uid', $user->uid)->condition('rid', '16');
             db_delete('users_roles')->condition($cond)->execute();
     }
@@ -947,9 +953,9 @@ function ors_comp_role_denial(){
 }
 
 function ors_role_assign(){
-// if((!isset($_COOKIE['Drupal_visitor_entr'])) || (!isset($_COOKIE['Drupal_visitor_compe']))){
-    setrawcookie('Drupal_visitor_compe', rawurlencode('access'), REQUEST_TIME + 600, '/');
-    setrawcookie('Drupal_visitor_entr', rawurlencode('access'), REQUEST_TIME + 600, '/');
+if((!isset($_COOKIE['Drupal_visitor_entr'])) || (!isset($_COOKIE['Drupal_visitor_compe']))){
+    setrawcookie('Drupal_visitor_compe', rawurlencode('access'), REQUEST_TIME + 3600, '/');
+    setrawcookie('Drupal_visitor_entr', rawurlencode('access'), REQUEST_TIME + 3600, '/');
     global $user;
     $firm_p_roles = ors_fetch_users_role($_SERVER[HTTP_PERSON_ID]);
     $temp = array(t('APs'), t('Associates'), t('BAs'), t('Directors'), t('EMs'), t('Knowledge'), t('Office IT'), t('Principals'), t('Prof Spprt'), t('Short Term'), );
@@ -988,5 +994,5 @@ function ors_role_assign(){
                 // user_cooke_delete('compvalue');
         }
     }
-// }
+}
 }
