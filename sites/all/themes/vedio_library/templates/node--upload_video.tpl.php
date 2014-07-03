@@ -77,7 +77,9 @@ if (isset($tags_obj)) {
             $path_alias = drupal_lookup_path('alias', $url);
             $break = "%0D%0D%0D";
             $subject = $user->name . $library_subsite_variable[$subsite_home_page_url]['recommend_text'];
-            $body = "View the video '" . $title . "' here: " . $base_url . "/" . $path_alias . $break;
+            $title_t = $title;
+            $title_t = preg_replace('/[^A-Za-z0-9]/', ' ', $title_t);
+            $body = "View the video '" . $title_t . "' here: " . $base_url . "/" . $path_alias . $break;
             //       $body = "Here is the link " . url($node_url, array('absolute' => TRUE));
             print '<a href="mailto:?Subject=' . $subject . '&body=' . $body . ' ">' . t('> Recommend to a colleague') . '</a>';
             ?></div>
