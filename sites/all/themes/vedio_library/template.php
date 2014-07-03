@@ -39,11 +39,13 @@ function vedio_library_preprocess_html(&$vars) {
         'preprocess' => FALSE
     ));
 
+    if (!empty($subsite_home_page_url))  {
     drupal_add_css(drupal_get_path('theme', 'vedio_library') . '/css/' . $subsite_home_page_url . '--color.css', array(
         'group' => CSS_THEME,
         'preprocess' => FALSE,
         'type' => 'file',
     ));
+    }
     $current_url = explode("/", request_path());
     if (($current_url[0] == $subsite_home_page_url) && (empty($current_url[1]))) {
         $vars['classes_array'][] = 'home-child body-'.$subsite_home_page_url;
