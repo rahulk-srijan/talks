@@ -111,8 +111,7 @@ if (userNav.indexOf('Trident/6.0') >= 0 && userNav.indexOf('MSIE 7.0')>= 0) { /*
 
 </script>
 <!--[if lt IE 9]>
-    <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
-    <script src="scripts/css3-mediaqueries.js"></script>
+    <script src="/scripts/css3-mediaqueries.js"></script>
 <![endif]-->
 <!-- <script src="/sites/all/libraries/jwplayer/jwplayer.js"></script> -->
  <!--<script>jwplayer.key="Guox+nuMLWKTuNNNaAnBSWq9ep4UEQMc3m+a1A=="</script>-->
