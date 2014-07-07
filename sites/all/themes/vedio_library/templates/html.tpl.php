@@ -88,8 +88,6 @@ global $library_subsite_variable;
 <?php print $scripts; ?>
 
 <?php print $polyfills; ?>
-<!-- <link href='http://fonts.googleapis.com/css?family=Sanchez' rel='stylesheet' type='text/css'> -->
-<!-- <link href='http://fonts.googleapis.com/css?family=Average+Sans' rel='stylesheet' type='text/css'> -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 <div id='alertToCompatabilityMode' onclick='document.getElementById("alertToCompatabilityMode").style.display = "none"' style='height:30px;display:none;background-color:red;cursor:pointer;cursor:hand;'>
 <font style='cursor:pointer;cursor:hand' color=white><p>This website is best viewed outside of <i>Compatibility Mode</i>.  Select <i>Tools</i> from the menu at the top of your browser and uncheck <i>Compatibility View</i> for the best experience. </p></font>
