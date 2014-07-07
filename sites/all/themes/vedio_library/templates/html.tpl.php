@@ -88,8 +88,8 @@ global $library_subsite_variable;
 <?php print $scripts; ?>
 
 <?php print $polyfills; ?>
-<link href='http://fonts.googleapis.com/css?family=Sanchez' rel='stylesheet' type='text/css'>
-<link href='http://fonts.googleapis.com/css?family=Average+Sans' rel='stylesheet' type='text/css'>
+<!-- <link href='http://fonts.googleapis.com/css?family=Sanchez' rel='stylesheet' type='text/css'> -->
+<!-- <link href='http://fonts.googleapis.com/css?family=Average+Sans' rel='stylesheet' type='text/css'> -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 <div id='alertToCompatabilityMode' onclick='document.getElementById("alertToCompatabilityMode").style.display = "none"' style='height:30px;display:none;background-color:red;cursor:pointer;cursor:hand;'>
 <font style='cursor:pointer;cursor:hand' color=white><p>This website is best viewed outside of <i>Compatibility Mode</i>.  Select <i>Tools</i> from the menu at the top of your browser and uncheck <i>Compatibility View</i> for the best experience. </p></font>
@@ -111,7 +111,7 @@ if (userNav.indexOf('Trident/6.0') >= 0 && userNav.indexOf('MSIE 7.0')>= 0) { /*
 
 </script>
 <!--[if lt IE 9]>
-    <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+    <script src="scripts/css3-mediaqueries.js"></script>
 <![endif]-->
 <!-- <script src="/sites/all/libraries/jwplayer/jwplayer.js"></script> -->
  <!--<script>jwplayer.key="Guox+nuMLWKTuNNNaAnBSWq9ep4UEQMc3m+a1A=="</script>-->
