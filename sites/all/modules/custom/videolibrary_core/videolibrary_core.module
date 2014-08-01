@@ -87,14 +87,14 @@ $library_subsite_variable = array(
          'channel_path'=>'competetowin',
          'resource'=>'http://home.intranet.mckinsey.com/intcomms/clientchannel/Get-competitive-intelligence-Competitor-information-Tools',
         'recommend_text' => ' recommended a Compete to Win video.'),
-    'new_test_channel' =>
+    'newtest_channel' =>
     array('to' => 'kausha@srijan.in',
         'from_email' => 'kausha@srijan.in',
         'subject' => 'Suggest a video',
         'msg' => 'I recommend adding the following video to the New Test Channel video library',
         'site_name' => 'New Test Channel',
          'tid'=>'656',
-         'channel_path'=>'new_test_channel',
+         'channel_path'=>'newtest_channel',
          'resource'=>'',
         'recommend_text' => ' recommends an New Test Channel video.'),
     );
