@@ -162,7 +162,11 @@ function category_menu() {
     global $user;
     $argument = explode('/', request_path());
     global $subsite_home_page_url;
-    $category_vocab = array('orginaction' => 'category', 'btoacademy' => 'bto_category', 'opsinaction' => 'ops_category','ourtechnology'=>'it_category','mi_matters'=>'ndm_category','partner_entrepreneurship'=>'entrepreneur_category','competetowin'=>'compete_category');
+    $category_vocab = array('orginaction' => 'category', 'btoacademy' => 'bto_category',
+                            'opsinaction' => 'ops_category','ourtechnology'=>'it_category',
+                            'mi_matters'=>'ndm_category','partner_entrepreneurship'=>'entrepreneur_category',
+                            'competetowin'=>'compete_category','new_test_channel' => 'new_test_category'
+                        );
 
     $homeclass = '';
     $tagsclass = '';
