@@ -88,6 +88,16 @@ $library_subsite_variable = array(
          'resource'=>'http://home.intranet.mckinsey.com/intcomms/clientchannel/Get-competitive-intelligence-Competitor-information-Tools',
         'recommend_text' => ' recommended a Compete to Win video.'),
         );
+    'new_test_channel' =>
+    array('to' => 'kausha@srijan.in',
+        'from_email' => 'kausha@srijan.in',
+        'subject' => 'Suggest a video',
+        'msg' => 'I recommend adding the following video to the Org in Action video library',
+        'site_name' => 'New Test Channel',
+         'tid'=>'656',
+         'channel_path'=>'new_test_channel',
+         'resource'=>'http://home.intranet.mckinsey.com/practicespaces/ps/org/',
+        'recommend_text' => ' recommends an Org in Action video.'),
 
 /**
  * Implements hook_block_info().
