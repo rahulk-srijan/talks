@@ -91,12 +91,12 @@ $library_subsite_variable = array(
     array('to' => 'kausha@srijan.in',
         'from_email' => 'kausha@srijan.in',
         'subject' => 'Suggest a video',
-        'msg' => 'I recommend adding the following video to the Org in Action video library',
+        'msg' => 'I recommend adding the following video to the New Test Channel video library',
         'site_name' => 'New Test Channel',
          'tid'=>'656',
          'channel_path'=>'new_test_channel',
-         'resource'=>'http://home.intranet.mckinsey.com/practicespaces/ps/org/',
-        'recommend_text' => ' recommends an Org in Action video.'),
+         'resource'=>'',
+        'recommend_text' => ' recommends an New Test Channel video.'),
     );
 
 /**
