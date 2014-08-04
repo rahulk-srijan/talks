@@ -1,6 +1,5 @@
 <?php
 global $subsite_home_page_url;
-
 if (isset($node->field_tags['und'])) {
   $tags_obj = $node->field_tags['und'];
 }
@@ -26,7 +25,7 @@ elseif (isset($node->field_new_test_tags['und'])) {
   $tags_obj = $node->field_new_test_tags['und'];
 }
 
-
+$tags_link = '';
 if (isset($tags_obj)) {
   foreach ($tags_obj as $taxonomy_term) {
     $tags_tid = $taxonomy_term['taxonomy_term']->tid;
@@ -132,6 +131,9 @@ if (isset($tags_obj)) {
                       break;
                   case 'mi_matters':
                       print render($content['field_mi_category']);
+                      break;
+                  case 'newtest_channel':
+                      print render($content['new_test_channel_category']);
                       break;
               }
              ?>
