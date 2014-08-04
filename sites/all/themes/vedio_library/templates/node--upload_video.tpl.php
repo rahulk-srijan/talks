@@ -25,14 +25,18 @@ elseif (isset($node->field_new_test_tags['und'])) {
   $tags_obj = $node->field_new_test_tags['und'];
 }
 
-$tags_link = '';
 if (isset($tags_obj)) {
+  $tags_link = '';
+  $tags_content = '<h2 class="field-label">Tags: </h2>';
+  $tags_content .= '<ul class="field-items">';
   foreach ($tags_obj as $taxonomy_term) {
     $tags_tid = $taxonomy_term['taxonomy_term']->tid;
     $tags_name = $taxonomy_term['taxonomy_term']->name;
-    $tags_link .='<li class="field-item">' . l($tags_name, $subsite_home_page_url . '/tags', array('query' => array('tid' => $tags_tid))) . '</li>';
+    $tags_link ='<li class="field-item">' . l($tags_name, $subsite_home_page_url . '/tags', array('query' => array('tid' => $tags_tid))) . '</li>';
+    $tags_content .= $tags_link;
   }
-  $tags_content = '<h2 class="field-label">Tags: </h2><ul class="field-items">' . $tags_link . '</ul>';
+  $tags_content .= '</ul>';
+
 }
 ?>
 <script src="/sites/all/libraries/jwplayer/jwplayer.js"></script>
