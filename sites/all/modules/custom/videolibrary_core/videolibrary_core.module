@@ -165,7 +165,7 @@ function category_menu() {
     $category_vocab = array('orginaction' => 'category', 'btoacademy' => 'bto_category',
                             'opsinaction' => 'ops_category','ourtechnology'=>'it_category',
                             'mi_matters'=>'ndm_category','partner_entrepreneurship'=>'entrepreneur_category',
-                            'competetowin'=>'compete_category','new_test_channel' => 'new_test_category'
+                            'competetowin'=>'compete_category','newtest_channel' => 'new_test_channel_category'
                         );
 
     $homeclass = '';
@@ -181,7 +181,6 @@ function category_menu() {
     }
 
     $vocab = $category_vocab[$arg0];
-
 //#block-views-views-by-category-block .block-content.content .left-side-menu li.selected
     if ($vocab) {
         $browse_url = url("$arg0/browse");
@@ -198,8 +197,13 @@ function category_menu() {
             <li class="by-tags ' . $tagsclass . '"><a href="' . $tag_url . '">By Tags</a></li>
             <li class="by-category">By Category</li></ul>';
 
-            $query = db_query("SELECT taxonomy_term_data.name AS taxonomy_term_data_name, taxonomy_term_data.vid AS taxonomy_term_data_vid, taxonomy_term_data.tid AS tid, taxonomy_vocabulary.machine_name AS taxonomy_vocabulary_machine_name FROM
-            {taxonomy_term_data} taxonomy_term_data LEFT JOIN {taxonomy_vocabulary} taxonomy_vocabulary ON taxonomy_term_data.vid = taxonomy_vocabulary.vid WHERE (( (taxonomy_vocabulary.machine_name IN  ('$vocab')) ))")->fetchAll();
+            $query = db_query("SELECT taxonomy_term_data.name AS taxonomy_term_data_name,
+                              taxonomy_term_data.vid AS taxonomy_term_data_vid,
+                              taxonomy_term_data.tid AS tid, taxonomy_vocabulary.machine_name AS taxonomy_vocabulary_machine_name
+                              FROM {taxonomy_term_data} taxonomy_term_data
+                              LEFT JOIN {taxonomy_vocabulary} taxonomy_vocabulary
+                              ON taxonomy_term_data.vid = taxonomy_vocabulary.vid
+                              WHERE (( (taxonomy_vocabulary.machine_name IN  ('$vocab')) ))")->fetchAll();
             $content .= '<ul class="category-list">';
             foreach ($query as $row) {
             if ($arg2 == $row->tid) {
