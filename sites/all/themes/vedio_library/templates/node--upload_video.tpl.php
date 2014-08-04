@@ -22,6 +22,10 @@ elseif (isset($node->field_entre_tags['und'])) {
 elseif (isset($node->field_competetowin_tags['und'])) {
   $tags_obj = $node->field_competetowin_tags['und'];
 }
+elseif (isset($node->field_new_test_tags['und'])) {
+  $tags_obj = $node->field_new_test_tags['und'];
+}
+
 
 if (isset($tags_obj)) {
   foreach ($tags_obj as $taxonomy_term) {
