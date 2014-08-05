@@ -137,7 +137,7 @@ if (isset($tags_obj)) {
                       print render($content['field_mi_category']);
                       break;
                   case 'newtest_channel':
-                      print render($content['new_test_channel_category']);
+                      print render($content['field_new_test_category']);
                       break;
               }
              ?>
