@@ -148,7 +148,9 @@ input.form-autocomplete::-ms-clear {display: none;}
   margin: 24px 0 0;
   padding: 6px 5px;
 }
-#org-collapsible,#bto-collapsible,#ops-collapsible,#it-collapsible,#ndm-collapsible,#entrepreneur-collapsible,#compete-collapsible{
+#org-collapsible,#bto-collapsible,#ops-collapsible,
+#it-collapsible,#ndm-collapsible,#entrepreneur-collapsible,
+#compete-collapsible,#newtest-channel-collapsible{
  background-image: url("images/drop-right.png");
  background-position: 98% center;
  background-repeat: no-repeat;
@@ -174,6 +176,10 @@ input.form-autocomplete::-ms-clear {display: none;}
 #compete-collapsible{
   background-color: #00abee;
 }
+#newtest-channel-collapsible{
+  background-color: #e27120;
+}
+
 #edit-newsletters .expanded-newsletter{
   background-image: url("images/drop-down.png");
 }
@@ -183,7 +189,8 @@ input.form-autocomplete::-ms-clear {display: none;}
 #it-newsletter,
 #ndm-newsletter,
 #entrepreneur-newsletter,
-#compete-newsletter
+#compete-newsletter,
+#newtest-channel-newsletter
 {
  background: none repeat scroll 0 0 #FFFFFF;
  margin-top: -4px;
