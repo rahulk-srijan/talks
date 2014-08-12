@@ -1,0 +1,44 @@
+.view-dynamic-channel-latest-section .latest_wrapper .latest_label {
+    background-color: #000;
+    font-size: 17px;
+    float: left;
+    color: #FFFFFF;
+    font-family: 'Georgia', serif;
+    height: 52px;
+    width: 102px;
+    padding: 10px;
+    line-height: 17px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.view-dynamic-channel-latest-section {
+    position: relative;
+    margin: 0 2px 20px 2px;
+    height: 52px;
+    background-color: #EDEFEF;
+    overflow: hidden;
+}
+
+#views_slideshow_controls_text_next_dynamic_channel_latest_section-block a {
+    background: url("images/arrow-r-big.png") no-repeat scroll center center #000;
+    display: inline-block;
+    height: 33px;
+    width: 22px;
+    position: absolute;
+    padding: 8px 11px;
+    text-indent: -9999em;
+    z-index: 100;
+    top: 3px;
+    right: 0;
+}
+
+#block-views-043c86251b7aa2b2e9f59aa9a26fca84 {
+background: none repeat scroll 0 0 #333333;
+height: 217px;
+margin-left: 3px;
+overflow: hidden;
+width: 964px;
+position: relative;
+}
