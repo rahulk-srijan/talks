@@ -2,7 +2,6 @@
  * Latest Block Section
 **/
 .view-dynamic-channel-latest-section .latest_wrapper .latest_label {
-    background-color: #000;
     font-size: 17px;
     float: left;
     color: #FFFFFF;
@@ -25,7 +24,7 @@
 }
 
 #views_slideshow_controls_text_next_dynamic_channel_latest_section-block a {
-    background: url("images/arrow-r-big.png") no-repeat scroll center center #000;
+    background: url("images/arrow-r-big.png") no-repeat scroll center center;
     display: inline-block;
     height: 33px;
     width: 22px;
@@ -35,6 +34,10 @@
     z-index: 100;
     top: 3px;
     right: 0;
+}
+
+#views_slideshow_controls_text_next_featured_video_channels_landing_page-block a {
+    background-color : transparent !important;
 }
 
 
@@ -88,3 +91,4 @@
     position: relative;
     z-index: 1;
 }
+
