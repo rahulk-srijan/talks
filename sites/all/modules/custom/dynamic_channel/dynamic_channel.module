@@ -70,3 +70,15 @@ function get_color_channel($tid) {
     
     return $color;
 }
+
+function get_latest_section_block($title,$nid) {
+    $output = '';
+    $tid = arg(2);
+    $color = get_color_channel($tid);
+    $output .= '<div class="latest_wrapper">
+                <span class="latest_label" style="background-color:'.$color.'">Latest Videos</span>
+                <span class="latest_title">'.$title.'</span>';
+    $output .= '<span class="view_link">'.l("View video",'node/'.$nid).'</span></div>';
+            
+    return $output;
+}
