@@ -9,7 +9,6 @@
  * Implements hook_help().
  */
 function statistics_help($path, $arg) {
-  print_r($_SERVER);
   switch ($path) {
     case 'admin/help#statistics':
       $output = '';
@@ -59,8 +58,9 @@ function statistics_exit() {
   drupal_bootstrap(DRUPAL_BOOTSTRAP_VARIABLES);
 
   if (variable_get('statistics_count_content_views', 0)) {
-    // We are counting content views.
-    if (arg(0) == 'node' && is_numeric(arg(1)) && arg(2) == NULL) {
+    if(isset($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+      // We are counting content views.
+      if (arg(0) == 'node' && is_numeric(arg(1)) && arg(2) == NULL) {
       // A node has been viewed, so update the node's counters.
       db_merge('node_counter')
         ->key(array('nid' => arg(1)))
@@ -72,6 +72,7 @@ function statistics_exit() {
         ->expression('daycount', 'daycount + 1')
         ->expression('totalcount', 'totalcount + 1')
         ->execute();
+      }
     }
   }
   if (variable_get('statistics_enable_access_log', 0)) {
