@@ -9,7 +9,8 @@
  * Implements hook_help().
  */
 function statistics_help($path, $arg) {
-  print_r($_SERVER['SERVER_NAME']);
+  //print_r($_SERVER['SERVER_NAME']);
+  print_r($_SERVER);
   switch ($path) {
     case 'admin/help#statistics':
       $output = '';
