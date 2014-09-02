@@ -1,0 +1,42 @@
+***************
+*** 302,308 ****
+      $field_instance_option_limited = field_info_instance($settings['entity_type'], $field_name_option_limited, $settings['entity_bundle']);
+  
+      // Add a wrapper div to the limited field for the ajax to work on.
+-     $settings['ajax_wrapper'] = 'reference-options-limit-' . str_replace('_', '-', $field_name_option_limited);
+      $form[$field_name_option_limited]['#prefix'] = '<div id="' . $settings['ajax_wrapper'] . '">';
+      $form[$field_name_option_limited]['#suffix'] = '</div>';
+      //dsm($settings, 'settings');
+--- 303,308 ----
+      $field_instance_option_limited = field_info_instance($settings['entity_type'], $field_name_option_limited, $settings['entity_bundle']);
+  
+      // Add a wrapper div to the limited field for the ajax to work on.
+      $form[$field_name_option_limited]['#prefix'] = '<div id="' . $settings['ajax_wrapper'] . '">';
+      $form[$field_name_option_limited]['#suffix'] = '</div>';
+      //dsm($settings, 'settings');
+***************
+*** 321,326 ****
+          'effect' => 'fade',
+          'event' => 'change',
+        );
+  
+        $field_info_matching = field_info_field($field_name_matching);
+        //dsm($field_info_matching, '$field_info_matching');
+--- 321,337 ----
+          'effect' => 'fade',
+          'event' => 'change',
+        );
++       // Add a div for ajax to put any messages.
++       // html_tag defined in system_element_info() wraps theme_html_tag()
++       $form[$field_name_matching]['messages'] = array(
++         '#tag' => 'div',
++         '#value' => '',
++         '#attributes' => array(
++           'id' => 'reference-option-limit-messages-' . str_replace('_', '-', $field_name_matching),
++         ),
++         '#type' => 'html_tag',
++         '#weight' => -100,
++       );
+  
+        $field_info_matching = field_info_field($field_name_matching);
+        //dsm($field_info_matching, '$field_info_matching');

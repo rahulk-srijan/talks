@@ -1,0 +1,80 @@
+diff --git a/reference_option_limit.module b/reference_option_limit.module
+index 8b0254a..5ff2385 100644
+--- a/reference_option_limit.module
++++ b/reference_option_limit.module
+@@ -243,6 +243,7 @@ function reference_option_limit_field_widget_form_alter(&$element, &$form_state,
+     'entity_type'   => $context['instance']['entity_type'],
+     'entity_bundle' => $context['instance']['bundle'],
+     'empty_behaviour' => !empty($context['instance']['options_limit_empty_behaviour']),
++    'ajax_wrapper' => 'reference-options-limit-' . str_replace('_', '-', $field_name),
+   );
+   // Allow for settings for more than one field.
+   $form_state['reference_option_limit'][$field_name] = $settings;
+@@ -302,7 +303,6 @@ function reference_option_limit_form_alter(&$form, &$form_state, $form_id) {
+     $field_instance_option_limited = field_info_instance($settings['entity_type'], $field_name_option_limited, $settings['entity_bundle']);
+ 
+     // Add a wrapper div to the limited field for the ajax to work on.
+-    $settings['ajax_wrapper'] = 'reference-options-limit-' . str_replace('_', '-', $field_name_option_limited);
+     $form[$field_name_option_limited]['#prefix'] = '<div id="' . $settings['ajax_wrapper'] . '">';
+     $form[$field_name_option_limited]['#suffix'] = '</div>';
+     //dsm($settings, 'settings');
+@@ -321,6 +321,17 @@ function reference_option_limit_form_alter(&$form, &$form_state, $form_id) {
+         'effect' => 'fade',
+         'event' => 'change',
+       );
++      // Add a div for ajax to put any messages.
++      // html_tag defined in system_element_info() wraps theme_html_tag()
++      $form[$field_name_matching]['messages'] = array(
++        '#tag' => 'div',
++        '#value' => '',
++        '#attributes' => array(
++          'id' => 'reference-option-limit-messages-' . str_replace('_', '-', $field_name_matching),
++        ),
++        '#type' => 'html_tag',
++        '#weight' => -100,
++      );
+ 
+       $field_info_matching = field_info_field($field_name_matching);
+       //dsm($field_info_matching, '$field_info_matching');
+@@ -481,21 +492,29 @@ function reference_option_limit_js($form, $form_state) {
+   $field_name_triggering = $form_state['triggering_element']['#parents'][0];
+ 
+   // Find which option limited field we should be returning the element for.
+-  // @todo: I have no idea how to make this work if the triggering field affects
+-  // more than one option limited field!
+-  foreach ($form_state['reference_option_limit'] as $settings) {
+-    if (isset($settings['fields_match'][$field_name_triggering])) {
+-      $field_name_dependent = $settings['field'];
+-    }
+-  }
++  $return = array(
++    '#type' => 'ajax',
++    '#commands' => array(),
++  );
+ 
++  // building ajax commands.
++  // see https://api.drupal.org/api/drupal/includes!ajax.inc/group/ajax_commands/7
++  //
++  // first add the messages to the triggering element
+   if ($messages = theme('status_messages')) {
+-    $form[$field_name_dependent]['messages'] = array(
+-      '#markup' => '<div class="views-messages">' . $messages . '</div>',
+-    );
++    $selector = '#' . $form[$field_name_triggering]['messages']['#attributes']['id'];
++    $html = '<div class="views-messages">' . $messages . '</div>';
++    $return['#commands'][] = ajax_command_replace($selector, $html);
+   }
+-
+-  return $form[$field_name_dependent];
++  // next add the rendered fields
++  foreach ($form_state['reference_option_limit'] as $settings) {
++    if (!empty($settings['fields_match'][$field_name_triggering])) {
++      $selector = '#' . $settings['ajax_wrapper'];
++      $html = render($form[$settings['field']]);
++      $return['#commands'][] = ajax_command_replace($selector, $html);
++    }
++  }
++  return $return;
+ }
+ 
+ /**
