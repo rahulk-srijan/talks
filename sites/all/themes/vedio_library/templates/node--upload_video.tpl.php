@@ -76,33 +76,8 @@ global $subsite_home_page_url;
         <div class="body"><?php print render($node->body['und'][0]['value']); ?></div>
         <div class="category">
             <?php
-              switch ($subsite_home_page_url) {
-                  case 'orginaction':
-                      print render($content['field_category']);
-                      break;
-                  case 'opsinaction':
-                      print render($content['field_ops_category']);
-                      break;
-                  case 'btoacademy':
-                      print render($content['field_bto_category']);
-                      break;
-                  case 'competetowin':
-                      print render($content['field_compete_category']);
-                      break;
-                  case 'partner_entrepreneurship':
-                      print render($content['field_entre_category']);
-                      break;
-                  case 'ourtechnology':
-                      print render($content['field_ourtech_category']);
-                      break;
-                  case 'mi_matters':
-                      print render($content['field_mi_category']);
-                      break;
-                  case 'newtest_channel':
-                      print render($content['field_new_test_category']);
-                      break;
-              }
-             ?>
+              print render($content['field_related_categories']);
+            ?>
         </div>
         <?php
         $related_tags = '';
