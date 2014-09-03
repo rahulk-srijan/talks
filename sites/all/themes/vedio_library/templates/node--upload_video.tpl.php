@@ -1,43 +1,5 @@
 <?php
 global $subsite_home_page_url;
-if (isset($node->field_tags['und'])) {
-  $tags_obj = $node->field_tags['und'];
-}
-elseif (isset($node->field_ops_tags['und'])) {
-  $tags_obj = $node->field_ops_tags['und'];
-}
-elseif (isset($node->field_bto_tags['und'])) {
-  $tags_obj = $node->field_bto_tags['und'];
-}
-elseif (isset($node->field_ourtechtags['und'])) {
-  $tags_obj = $node->field_ourtechtags['und'];
-}
-elseif (isset($node->field_mi_tags['und'])) {
-  $tags_obj = $node->field_mi_tags['und'];
-}
-elseif (isset($node->field_entre_tags['und'])) {
-  $tags_obj = $node->field_entre_tags['und'];
-}
-elseif (isset($node->field_competetowin_tags['und'])) {
-  $tags_obj = $node->field_competetowin_tags['und'];
-}
-elseif (isset($node->field_new_test_tags['und'])) {
-  $tags_obj = $node->field_new_test_tags['und'];
-}
-
-if (isset($tags_obj)) {
-  $tags_link = '';
-  $tags_content = '<h2 class="field-label">Tags: </h2>';
-  $tags_content .= '<ul class="field-items">';
-  foreach ($tags_obj as $taxonomy_term) {
-    $tags_tid = $taxonomy_term['taxonomy_term']->tid;
-    $tags_name = $taxonomy_term['taxonomy_term']->name;
-    $tags_link ='<li class="field-item">' . l($tags_name, $subsite_home_page_url . '/tags', array('query' => array('tid' => $tags_tid))) . '</li>';
-    $tags_content .= $tags_link;
-  }
-  $tags_content .= '</ul>';
-
-}
 ?>
 <script src="/sites/all/libraries/jwplayer/jwplayer.js"></script>
 <script>jwplayer.key = "Guox+nuMLWKTuNNNaAnBSWq9ep4UEQMc3m+a1A=="</script>
@@ -142,9 +104,26 @@ if (isset($tags_obj)) {
               }
              ?>
         </div>
+        <?php
+        $related_tags = '';
+        if(isset($node->field_related_tags['und'])) {
+          $related_tags .= '<h2 class="field-label">Tags: </h2>';
+        }
+          $related_tags .= '<ul class="field-items">';
+          foreach ($node->field_related_tags['und'] as $value) {
+              $tags_tid = $value['taxonomy_term']->tid;
+              $tags_name = $value['taxonomy_term']->name;
+              $tags_link ='<li class="field-item">' . l($tags_name, $subsite_home_page_url . '/tags',
+                                                        array('query' => array('tid' => $tags_tid))) . '</li>';
+              $related_tags .= $tags_link;
+          }
+          $related_tags .= '</ul>';
+        ?>
+        
         <div class="tags">
             <section class="field field-name-field-tags field-type-taxonomy-term-reference field-label-inline clearfix view-mode-full">
-                <?php print $tags_content; //render($content['field_tags']); ?></section></div>
+                <?php print $related_tags;//render($content['field_tags']); ?>
+            </section></div>
         <div class='recommend-mobile'><?php
             global $user;
             global $base_url;
