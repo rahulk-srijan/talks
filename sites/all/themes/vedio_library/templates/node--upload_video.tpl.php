@@ -84,11 +84,14 @@ global $subsite_home_page_url;
         if(isset($node->field_related_tags['und'])) {
           $related_tags .= '<h2 class="field-label">Tags: </h2>';
         }
+        $channel_id = $node->field_library['und'][0]['tid'];
+        $term = taxonomy_term_load($channel_id);
+        $channel_name = $term->name;
           $related_tags .= '<ul class="field-items">';
           foreach ($node->field_related_tags['und'] as $value) {
               $tags_tid = $value['taxonomy_term']->tid;
               $tags_name = $value['taxonomy_term']->name;
-              $tags_link ='<li class="field-item">' . l($tags_name, $subsite_home_page_url . '/tags',
+              $tags_link ='<li class="field-item">' . l($tags_name, 'tags/' . $channel_name,
                                                         array('query' => array('tid' => $tags_tid))) . '</li>';
               $related_tags .= $tags_link;
           }
