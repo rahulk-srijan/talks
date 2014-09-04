@@ -160,63 +160,65 @@ function get_term_id($name) {
 
 function category_menu() {
     global $user;
-    $argument = explode('/', request_path());
     global $subsite_home_page_url;
-    $category_vocab = array('orginaction' => 'category', 'btoacademy' => 'bto_category',
-                            'opsinaction' => 'ops_category','ourtechnology'=>'it_category',
-                            'mi_matters'=>'ndm_category','partner_entrepreneurship'=>'entrepreneur_category',
-                            'competetowin'=>'compete_category','newtest_channel' => 'new_test_channel_category'
-                        );
-
+    $vocab_name = 'channel_categories' ;
     $homeclass = '';
     $tagsclass = '';
-    $arg0 = $argument[0];
     $arg2 = arg(2);
-    if ($arg0 == $subsite_home_page_url && arg(1) == '') {
-        $homeclass = 'selected homepage_link';
-    } elseif (arg(1) == 'tags') {
-        $tagsclass = 'selected';
-    } elseif (arg(1) == 'browse') {
+
+    $category_name = '';
+
+    $check = db_query("SELECT entity_id FROM field_data_field_library WHERE field_library_tid=:tid AND bundle=:bundle",
+                      array(':tid'=>arg(2),':bundle'=>$vocab_name))->fetchField();
+    if($check != '') {
+        $term = taxonomy_term_load($arg2);
+        $tname = strtolower($term->name);
+        $tag_url = url("tags/".$term->name);
+
+        $browse_url = url("taxonomy/term/$arg2");
         $homeclass = 'selected';
+        $query = db_query("SELECT td.name,td.tid FROM taxonomy_term_data td, field_data_field_library fl
+                        WHERE fl.bundle=:bundle AND fl.field_library_tid=:tid AND fl.entity_id=td.tid",
+                        array(':bundle'=>$vocab_name,':tid'=>$arg2))->fetchAll();
     }
-
-    $vocab = $category_vocab[$arg0];
-//#block-views-views-by-category-block .block-content.content .left-side-menu li.selected
-    if ($vocab) {
-        $browse_url = url("$arg0/browse");
-        $tag_url = url("$arg0/tags");
-        $content = '';
-        //print_r($user);
-
-        $show_block = false;
-        $show_block = user_library_permission($arg0);
-        if($show_block == true)
-        {
-            $content .= '<div class="block view-views-by-category" id="block-views-views-by-category-block"><div class="block-content content"><div class="left-side-menu"><ul>
-            <li class="view-all ' . $homeclass . '"><a href="' . $browse_url . '">View All</a></li>
-            <li class="by-tags ' . $tagsclass . '"><a href="' . $tag_url . '">By Tags</a></li>
-            <li class="by-category">By Category</li></ul>';
-
-            $query = db_query("SELECT taxonomy_term_data.name AS taxonomy_term_data_name,
-                              taxonomy_term_data.vid AS taxonomy_term_data_vid,
-                              taxonomy_term_data.tid AS tid, taxonomy_vocabulary.machine_name AS taxonomy_vocabulary_machine_name
-                              FROM {taxonomy_term_data} taxonomy_term_data
-                              LEFT JOIN {taxonomy_vocabulary} taxonomy_vocabulary
-                              ON taxonomy_term_data.vid = taxonomy_vocabulary.vid
-                              WHERE (( (taxonomy_vocabulary.machine_name IN  ('$vocab')) ))")->fetchAll();
-            $content .= '<ul class="category-list">';
-            foreach ($query as $row) {
-            if ($arg2 == $row->tid) {
-                $content .='<li>' . l($row->taxonomy_term_data_name, 'taxonomy/term/' . $row->tid, array('attributes' => array('class' => array('active')))) . '</li>';
-            } else {
-                $content .='<li>' . l($row->taxonomy_term_data_name, 'taxonomy/term/' . $row->tid) . '</li>';
-            }
-            }
-            $content .= '</ul></div></div></div>';
+    else {
+        $get_channel_id = db_query("SELECT field_library_tid FROM field_data_field_library WHERE entity_id=:id AND bundle=:bundle",
+                                array(':id'=>$arg2,':bundle'=>$vocab_name))->fetchField();
+        if($get_channel_id == '')   {
+            $channel_id = $arg2;
         }
-
-        return $content;
+        else {
+            $channel_id = $get_channel_id;
+        }
+        $query = db_query("SELECT td.name,td.tid FROM taxonomy_term_data td, field_data_field_library fl
+                        WHERE fl.bundle=:bundle AND fl.field_library_tid=:tid AND fl.entity_id=td.tid",
+                        array(':bundle'=>$vocab_name,':tid'=>$channel_id))->fetchAll();
+        $browse_url = url("taxonomy/term/$channel_id");
+        $term = taxonomy_term_load($channel_id);
+        $channel_name = strtolower($term->name);
+        $tag_url = url("tags/".$channel_name);
     }
+    
+    $category_name .= '<div class="block view-views-by-category" id="block-views-views-by-category-block">
+                    <div class="block-content content">
+                        <div class="left-side-menu">
+                            <ul>
+                                <li class="view-all ' . $homeclass . '"><a href="' . $browse_url . '">View All</a></li>
+                                <li class="by-tags ' . $tagsclass . '"><a href="' . $tag_url . '">By Tags</a></li>
+                                <li class="by-category">By Category</li>
+                            </ul>';
+
+                        $category_name .= '<ul class="category-list">';
+                            foreach ($query as $row) {
+                                if (arg(2) == $row->tid) {
+                                  $category_name .='<li>' . l($row->name, 'taxonomy/term/' . $row->tid, array('attributes' => array('class' => array('active')))) . '</li>';
+                                } else {
+                                    $category_name .='<li>' . l($row->name, 'taxonomy/term/' . $row->tid) . '</li>';
+                                }   
+                            }
+                        $category_name .= '</ul>';
+    $category_name .= '</div></div></div>';
+    return $category_name;
 }
 
 function user_library_permission($arg)
