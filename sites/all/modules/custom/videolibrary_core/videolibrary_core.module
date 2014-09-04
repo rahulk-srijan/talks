@@ -335,7 +335,15 @@ function videolibrary_core_views_query_alter(&$view, &$query) {
         //dsm($query, 'before');
         // Adding OR condition for the contextual filters.
         $query->where[0]['type'] = 'OR';
-        //dsm($query, 'after');
+    }
+    
+    if($view->name == 'listing_by_tags') {
+        if($view->current_display == 'page_11') {
+            $tid = taxonomy_get_term_by_name(arg(1), 'library');
+            $channel_id = key($tid);
+            $query->where[1]['conditions'][2]['value'] = $channel_id;
+            $query->where[1]['conditions'][2]['operator'] = '=';
+        }
     }
 }
 
