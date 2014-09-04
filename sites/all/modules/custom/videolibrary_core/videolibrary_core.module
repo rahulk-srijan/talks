@@ -168,22 +168,30 @@ function category_menu() {
 
     $category_name = '';
 
+    if(arg(0) == 'tags' && $arg2 == '') {
+        $arg2 = arg(1);
+        $tid = taxonomy_get_term_by_name(arg(1), 'library');
+        $arg2 = key($tid);
+        $tagsclass = 'selected';
+    }
+   
     $check = db_query("SELECT entity_id FROM field_data_field_library WHERE field_library_tid=:tid AND bundle=:bundle",
-                      array(':tid'=>arg(2),':bundle'=>$vocab_name))->fetchField();
+                    array(':tid'=>$arg2,':bundle'=>$vocab_name))->fetchField();
     if($check != '') {
         $term = taxonomy_term_load($arg2);
         $tname = strtolower($term->name);
         $tag_url = url("tags/".$term->name);
-
+    
         $browse_url = url("taxonomy/term/$arg2");
-        $homeclass = 'selected';
+        if(arg(0) != 'tags')
+            $homeclass = 'selected';
         $query = db_query("SELECT td.name,td.tid FROM taxonomy_term_data td, field_data_field_library fl
-                        WHERE fl.bundle=:bundle AND fl.field_library_tid=:tid AND fl.entity_id=td.tid",
-                        array(':bundle'=>$vocab_name,':tid'=>$arg2))->fetchAll();
+                    WHERE fl.bundle=:bundle AND fl.field_library_tid=:tid AND fl.entity_id=td.tid",
+                    array(':bundle'=>$vocab_name,':tid'=>$arg2))->fetchAll();
     }
     else {
         $get_channel_id = db_query("SELECT field_library_tid FROM field_data_field_library WHERE entity_id=:id AND bundle=:bundle",
-                                array(':id'=>$arg2,':bundle'=>$vocab_name))->fetchField();
+                            array(':id'=>$arg2,':bundle'=>$vocab_name))->fetchField();
         if($get_channel_id == '')   {
             $channel_id = $arg2;
         }
