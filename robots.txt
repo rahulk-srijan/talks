@@ -25,7 +25,7 @@ Disallow: /modules/
 Disallow: /profiles/
 Disallow: /scripts/
 Disallow: /themes/
-
+Disallow: /sites/default/files/videos/
 
 # Files
 Disallow: /CHANGELOG.txt
@@ -50,7 +50,7 @@ Disallow: /user/register/
 Disallow: /user/password/
 Disallow: /user/login/
 Disallow: /user/logout/
-Disallow: /download
+Disallow: /download*
 # Paths (no clean URLs)
 Disallow: /?q=admin/
 Disallow: /?q=comment/reply/
