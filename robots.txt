@@ -50,8 +50,7 @@ Disallow: /user/register/
 Disallow: /user/password/
 Disallow: /user/login/
 Disallow: /user/logout/
-Disallow: /download
-Disallow: /*.mp4
+Disallow: /*?file=*
 # Paths (no clean URLs)
 Disallow: /?q=admin/
 Disallow: /?q=comment/reply/
