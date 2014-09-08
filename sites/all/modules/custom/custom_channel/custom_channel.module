@@ -61,3 +61,26 @@ function get_manage_channel_block() {
     
     return $output;
 }
+
+/**
+ * Custom callback for getting the type of node
+ * Called in user_top_menu_link() in videolibrary_core.module file
+ * @param $nid
+ * return string
+**/
+function get_node_type($nid) {
+    $type = db_query("SELECT type FROM node WHERE nid=:nid",array(':nid'=>$nid))->fetchField();
+    return $type;
+}
+
+/**
+ * Custom Callback for getting channel id from a node relation
+ * Called from user_top_menu_link() in videolibrary_core.module file
+ * @param $nid
+ * return int
+**/
+function get_channel_tid_from_node($nid) {
+    $channel_tid = db_query("SELECT field_library_tid FROM field_data_field_library WHERE entity_id=:nid",
+                            array(':nid'=>$nid))->fetchField();
+    return $channel_tid;
+}
