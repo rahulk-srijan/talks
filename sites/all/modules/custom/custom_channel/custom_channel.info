@@ -1,0 +1,5 @@
+name = "Custom Channel Code"
+description = "Custom Module for dynamic channel creation"
+core = "7.x"
+package = "Custom Modules"
+
