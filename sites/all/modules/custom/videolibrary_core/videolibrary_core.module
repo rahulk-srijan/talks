@@ -337,18 +337,18 @@ function videolibrary_core_views_query_alter(&$view, &$query) {
         $query->where[0]['type'] = 'OR';
     }
     
-    if($view->name == 'listing_by_tags') {
+    /*if($view->name == 'listing_by_tags') {
         if($view->current_display == 'page_11') {
             $tid = taxonomy_get_term_by_name(arg(1), 'library');
             $channel_id = key($tid);
             $query->where[1]['conditions'][2]['value'] = $channel_id;
             $query->where[1]['conditions'][2]['operator'] = '=';
         }
-    }
+    }*/
 }
 
 function videolibrary_core_views_pre_render(&$view) {
-  if($view->name == 'most_liked_lib_craousel'){
+  /*if($view->name == 'most_liked_lib_craousel'){
     $temp = array();
     if ($view->result['6']->taxonomy_term_data_name == 'partner_entrepreneurship'){
         if ($view->result['1']->taxonomy_term_data_name == 'competetowin')  {
@@ -399,7 +399,7 @@ function videolibrary_core_views_pre_render(&$view) {
           $view->result['1'] = $temp['0'];
        }
     }
-  }
+  }*/
   if($view->name=='global_popular_video') {
     // Get most popular from 1st library
     $result1 = $view->result;
