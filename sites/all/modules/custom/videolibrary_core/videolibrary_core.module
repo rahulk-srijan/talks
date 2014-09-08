@@ -261,13 +261,7 @@ function user_top_menu_link() {
     global $base_url;
     $suggest_url = $base_url.'/suggest/nojs';
     $is_front = drupal_is_front_page();
-    //if($is_front==TRUE) {
-   /* if(!($subsite_home_page_url)) {
-        $suggest='How to Suggest a Video';
-    }
-    else{
-        $suggest='Suggest a Video';
-    }*/
+    
     $mail_to = $library_subsite_variable[$subsite_home_page_url]['to'];
     $subject = $library_subsite_variable[$subsite_home_page_url]['subject'];
     $msg = $library_subsite_variable[$subsite_home_page_url]['msg'];
@@ -289,17 +283,23 @@ function user_top_menu_link() {
         $device = array('ipad', 'iphone');
         foreach ($adminRoles as $value=>$role) {
             if (in_array($role, $user->roles) && !(bool) strpos($_SERVER['HTTP_USER_AGENT'], 'iPad') && !(bool) strpos($_SERVER['HTTP_USER_AGENT'], 'iPhone')) {
-                    //$lib_name = $subsite_home_page_url;
-                    //if($role=="super admin") {
-                        $content .='<li class="third">' . l("Admin", "admin/dashboard") . '</li>';
-                        break;
-                        //break;
-                    //}
-                    //elseif($lib_name == $value OR $user->roles=='administrator') {
-                        //$content .='<li class="third">' . l("Admin", "admin/dashboard/". $value) . '</li>';
-                        //break;
-                    //}
-        }
+                    $node_type = get_node_type(arg(1)); // called from custom_channel.module
+                    if((arg(0) == 'taxonomy' && is_numeric(arg(2)) || $node_type == 'upload_video')) {
+                        if(arg(2) != '') {
+                            $arg = arg(2);
+                        }
+                        else {
+                            $arg = get_channel_tid_from_node(arg(1));// called from custom_channel.module
+                        }
+                        $options = array('query'=>array("channel_tid"=>$arg));
+                        $admin_link = '<li class="third">' . l("Admin", "admin/dashboard",$options) . '</li>';
+                    }
+                    else {
+                        $admin_link = '';
+                    }
+                    $content .= $admin_link;
+                    break;
+            }
         }
     } else {
         $content .='<li class="first"><a href="' . url('user') . '">' . t('Login') . '</a></li>';
