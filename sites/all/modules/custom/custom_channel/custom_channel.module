@@ -12,6 +12,9 @@ function getName_channel() {
     $term_name = $term->name;
     $color = get_color_channel($tid);
     
+    if($color == '') {
+        $color = '#000';
+    }
     $resource_check = $term->field_resources_link['und'][0]['value'];
     $resource_url = $term->field_resources_url['und'][0]['value'];
         
@@ -20,7 +23,7 @@ function getName_channel() {
     $output .= '<span class="default inline-block float-left mstrip">'.flag_create_link('default', $tid).'</span>';
     if($resource_check == 1) {
         $output .= '<span class="resources inline-block float-left mstrip">'.
-                    l("> Resources",$resource_url).'</span>';
+                    l("> Resources",$resource_url,array('attributes'=>array('target'=>'_blank'))).'</span>';
     }
     $output .= '</div>';
     
