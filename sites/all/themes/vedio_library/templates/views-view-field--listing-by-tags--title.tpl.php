@@ -25,7 +25,10 @@
 <?php
     $tid = arg(2);
     $term = taxonomy_term_load($tid);
-    if($term->vid == 5) {
+    if(arg(0) == 'tags' && isset($_GET['ch_tid'])) {
+        $tid = $_GET['ch_tid'];
+    }
+    else if($term->vid == 5) {
         $tid = arg(2);
     }
     else {
