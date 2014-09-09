@@ -9,7 +9,14 @@ function getName_channel() {
 
     $tid = arg(2);
     $term = taxonomy_term_load($tid);
-    $term_name = $term->name;
+    if($term->vid == 5) {
+        $tid = arg(2);
+        $term_name = $term->name;
+    }
+    else {
+        $tid = $term->field_library['und'][0]['tid'];
+        $term_name = get_channel_name_from_tid($tid);
+    }
     if(function_exists('get_color_channel')) {
         $color = get_color_channel($tid);
     }
