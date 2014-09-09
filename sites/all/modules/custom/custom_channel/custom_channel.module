@@ -9,7 +9,11 @@ function getName_channel() {
 
     $tid = arg(2);
     $term = taxonomy_term_load($tid);
-    if($term->vid == 5) {
+    if(arg(0) == 'tags' && isset($_GET['ch_tid'])) {
+        $tid = $_GET['ch_tid'];
+    }
+    
+    else if($term->vid == 5) {
         $tid = arg(2);
         $term_name = $term->name;
     }
@@ -35,7 +39,6 @@ function getName_channel() {
     
     return $output;
 }
-
 
 /**
  * Custom callback for fetching the main color
@@ -141,6 +144,7 @@ function get_download_report_title_and_button($link) {
  * Custom callback to get channel name from tid passed in arguments
  * @param $ch_tid
  * return string
+ * PLEASE DONT REMOVE THIS FUNCTIONS AS IT HAS MANY IMPACTS ON VIEWS
 **/
 function get_channel_name_from_tid($ch_tid) {
     if($ch_tid != '') {
