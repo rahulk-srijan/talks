@@ -66,6 +66,27 @@ function get_manage_channel_block() {
 }
 
 /**
+ * Custom Callback for displaying admin link for tracking user report
+ * Called from block with id 55
+ * return string
+**/
+function get_manage_report_block() {
+    $output = '';
+    if(isset($_GET['channel_tid'])) {
+        $options = array(
+            'query' => array('channel_tid'=>$_GET['channel_tid']),
+        );
+        $output .= '<ul>';
+        $output .= '<li>' . l("User Statistics",'admin/user-stat') . '</li>';
+        $output .= '<li>' . l("Video Statistics",'admin/analytics',$options) . '</li>';
+        $output .= '<li>' . l("File Download Statistics",'admin/downloads/reports',$options) . '</li>';
+        $output .= '</ul>';
+    }
+    
+    return $output;
+}
+
+/**
  * Custom callback for getting the type of node
  * Called in user_top_menu_link() in videolibrary_core.module file
  * @param $nid
