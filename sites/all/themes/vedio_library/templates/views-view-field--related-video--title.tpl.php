@@ -23,19 +23,10 @@
  */
 ?>
 <?php
-    $tid = arg(2);
-    $term = taxonomy_term_load($tid);
-    if(arg(0) == 'tags' && isset($_GET['ch_tid'])) {
-        $tid = $_GET['ch_tid'];
-    }
-    else if($term->vid == 5) {
-        $tid = arg(2);
-    }
-    else {
-        $tid = $term->field_library['und'][0]['tid'];
-    }
+    $node_type = get_node_type(arg(1));
+    $ch_tid = get_channel_tid_from_node(arg(1));
     if(function_exists('get_color_channel')) {
-        $color = get_color_channel($tid);
+        $color = get_color_channel($ch_tid);
     }
     
   print l($row->node_title,'node/'.$row->nid,array('attributes'=>array('style'=>'color:'.$color)));
