@@ -186,11 +186,15 @@ $site_logo = '<a href="'.$url_front.'">'. strip_tags($site_logo, '<img>').'</a>'
           ?>
           <?php if ($title || $primary_local_tasks || $secondary_local_tasks || $action_links = render($action_links)): ?>
           <header<?php print $content_header_attributes; ?>>
-
+          <?php $node_type = get_node_type(arg(1)); ?>
           <?php if (!$is_front): if ($title): ?>
-          <h1 id="page-title">
-            <?php print $title; ?>
-          </h1>
+          <?php if($node_type == 'upload_video') {
+            $ch_tid = get_channel_tid_from_node(arg(1));
+            if(function_exists('get_color_channel')) { $color = get_color_channel($ch_tid); } ?>
+            <h1 id="page-title" style="<?php print t('color:').$color;?>">
+              <?php print $title; ?>
+            </h1>
+          <?php } ?>
         <?php endif; endif; ?>
 
         <?php if ($primary_local_tasks || $secondary_local_tasks || $action_links): ?>
