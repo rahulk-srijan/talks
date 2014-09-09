@@ -47,7 +47,7 @@ function get_color_channel($tid) {
 
 /**
  * Custom Callback for displaying admin link for maanging channel
- * Called from block with id 55
+ * Called from block with id 54
  * return string
 **/
 function get_manage_channel_block() {
@@ -109,4 +109,43 @@ function get_channel_tid_from_node($nid) {
     $channel_tid = db_query("SELECT field_library_tid FROM field_data_field_library WHERE entity_id=:nid",
                             array(':nid'=>$nid))->fetchField();
     return $channel_tid;
+}
+
+/**
+ * Custom Callback for displaying download button at admin download statistics page
+ * and show page title wrt channel name
+ * Called from view named downloads
+ * return string
+**/
+function get_download_report_title_and_button() {
+    $output = '';
+    
+    if(isset($_GET['channel_tid'])) {
+        if(function_exists('get_channel_name_from_tid')) {
+            $channel_name = get_channel_name_from_tid($_GET['channel_tid']);
+        }
+       $output .= '<h4>' . $channel_name . t(" Download Statistics"). '</h4>';
+    }
+    $child_lib_context ='';
+    if(arg(3)) {
+        $child_lib_context = arg(3);
+    }
+    $output .= '<p class="download-user-stats">'. l("Download",'admin/reports/csv/'.$child_lib_context).'</p>';
+    
+    return $output;
+}
+
+/**
+ * Custom callback to get channel name from tid passed in arguments
+ * @param $ch_tid
+ * return string
+**/
+function get_channel_name_from_tid($ch_tid) {
+    if($ch_tid != '') {
+       $channel_tid = $ch_tid;
+       $term = taxonomy_term_load($channel_tid);
+       $channel_name = $term->name;
+    }
+    
+    return $channel_name;
 }
