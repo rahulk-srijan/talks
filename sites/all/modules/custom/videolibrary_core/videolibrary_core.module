@@ -303,6 +303,13 @@ function user_top_menu_link() {
                         $options = array('query'=>array("channel_tid"=>$arg));
                         $admin_link = '<li class="third">' . l("Admin", "admin/dashboard",$options) . '</li>';
                     }
+                    else if(isset($_GET['ch_tid'])) {
+                        if(function_exists('get_channel_tid_from_node')) {
+                            $arg = get_channel_tid_from_node($_GET['ch_tid']);// called from custom_channel.module
+                        }
+                        $options = array('query'=>array("channel_tid"=>$arg));
+                        $admin_link = '<li class="third">' . l("Admin", "admin/dashboard",$options) . '</li>';
+                    }
                     else {
                         $admin_link = '';
                     }
