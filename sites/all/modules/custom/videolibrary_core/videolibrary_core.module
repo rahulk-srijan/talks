@@ -180,7 +180,7 @@ function category_menu() {
     if($check != '') {
         $term = taxonomy_term_load($arg2);
         $tname = strtolower($term->name);
-        $tag_url = url("tags/".$term->name);
+        $tag_url = t("tags/".$term->name);
     
         $browse_url = url("taxonomy/term/$arg2");
         if(arg(0) != 'tags')
@@ -204,15 +204,20 @@ function category_menu() {
         $browse_url = url("taxonomy/term/$channel_id");
         $term = taxonomy_term_load($channel_id);
         $channel_name = strtolower($term->name);
-        $tag_url = url("tags/".$channel_name);
+        $tag_url = t("tags/".$channel_name);
     }
-    
+    if(isset($_GET['ch_tid'])) {
+        $ch_tid = $_GET['ch_tid'];
+    }
+    else {
+        $ch_tid = arg(2);
+    }
     $category_name .= '<div class="block view-views-by-category" id="block-views-views-by-category-block">
                     <div class="block-content content">
                         <div class="left-side-menu">
                             <ul>
                                 <li class="view-all ' . $homeclass . '"><a href="' . $browse_url . '">View All</a></li>
-                                <li class="by-tags ' . $tagsclass . '"><a href="' . $tag_url . '">By Tags</a></li>
+                                <li class="by-tags ' . $tagsclass . '">'. l('By Tags',$tag_url,array('query'=>array('ch_tid'=>$ch_tid))) .'</li>
                                 <li class="by-category">By Category</li>
                             </ul>';
 
