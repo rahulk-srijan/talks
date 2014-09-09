@@ -283,13 +283,17 @@ function user_top_menu_link() {
         $device = array('ipad', 'iphone');
         foreach ($adminRoles as $value=>$role) {
             if (in_array($role, $user->roles) && !(bool) strpos($_SERVER['HTTP_USER_AGENT'], 'iPad') && !(bool) strpos($_SERVER['HTTP_USER_AGENT'], 'iPhone')) {
+                if(function_exists('get_node_type')) {
                     $node_type = get_node_type(arg(1)); // called from custom_channel.module
+                }
                     if((arg(0) == 'taxonomy' && is_numeric(arg(2)) || $node_type == 'upload_video')) {
                         if(arg(2) != '') {
                             $arg = arg(2);
                         }
                         else {
-                            $arg = get_channel_tid_from_node(arg(1));// called from custom_channel.module
+                            if(function_exists('get_channel_tid_from_node')) {
+                                $arg = get_channel_tid_from_node(arg(1));// called from custom_channel.module
+                            }
                         }
                         $options = array('query'=>array("channel_tid"=>$arg));
                         $admin_link = '<li class="third">' . l("Admin", "admin/dashboard",$options) . '</li>';
