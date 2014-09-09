@@ -7,20 +7,30 @@
 **/
 function getName_channel() {
 
-    $tid = arg(2);
+    $node_type = get_node_type(arg(1));
+    if((arg(0) == 'taxonomy' && is_numeric(arg(2)) || $node_type == 'upload_video')) {
+        if(arg(2) != '') {
+            $term = taxonomy_term_load(arg(2));
+            if($term->vid == 5) {
+                $tid = arg(2);
+            }
+            else {
+                $tid = $term->field_library['und'][0]['tid'];
+            }
+        }
+        else {
+            if(function_exists('get_channel_tid_from_node')) {
+                $tid = get_channel_tid_from_node(arg(1));// called from custom_channel.module
+            }
+        }
+    } else {
+       if(isset($_GET['ch_tid'])) {
+         $tid = $_GET['ch_tid'];
+       }
+    }
     $term = taxonomy_term_load($tid);
-    if(arg(0) == 'tags' && isset($_GET['ch_tid'])) {
-        $tid = $_GET['ch_tid'];
-        $term_name = get_channel_name_from_tid($tid);
-    }
-    else if($term->vid == 5) {
-        $tid = arg(2);
-        $term_name = $term->name;
-    }
-    else {
-        $tid = $term->field_library['und'][0]['tid'];
-        $term_name = get_channel_name_from_tid($tid);
-    }
+    $term_name = $term->name;
+      
     if(function_exists('get_color_channel')) {
         $color = get_color_channel($tid);
     }
