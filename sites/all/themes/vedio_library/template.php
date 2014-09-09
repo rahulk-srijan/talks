@@ -63,10 +63,34 @@ function vedio_library_preprocess_html(&$vars) {
         $vars['classes_array'][] = 'page-search';
         $vars['classes_array'][] = 'page-search-site';
     }
+    /** dynamically adding classes for channel name**/
+    $node_type = get_node_type(arg(1));
+    if((arg(0) == 'taxonomy' && is_numeric(arg(2)) || $node_type == 'upload_video')) {
+        if(arg(2) != '') {
+            $term = taxonomy_term_load(arg(2));
+            if($term->vid == 5) {
+                $arg = arg(2);
+            }
+            else {
+                $arg = $term->field_library['und'][0]['tid'];
+            }
+        }
+        else {
+            if(function_exists('get_channel_tid_from_node')) {
+                $arg = get_channel_tid_from_node(arg(1));// called from custom_channel.module
+            }
+        }
+    }
+    else {
+       if(isset($_GET['ch_tid'])) {
+         $arg = $_GET['ch_tid'];
+       }
+    }
+    $term = taxonomy_term_load($arg);
+    $vars['classes_array'][] = $term->name;
 }
 function vedio_library_preprocess_page(&$vars) {
     global $subsite_home_page_url;
-
     if (isset($_GET['q'])) {
 
         $current_url = explode("/", request_path());
