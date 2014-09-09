@@ -14,9 +14,6 @@ function getName_channel() {
         $color = get_color_channel($tid);
     }
     
-    if($color == '') {
-        $color = '#000';
-    }
     $resource_check = $term->field_resources_link['und'][0]['value'];
     $resource_url = $term->field_resources_url['und'][0]['value'];
         
@@ -41,7 +38,9 @@ function getName_channel() {
 function get_color_channel($tid) {
     $term = taxonomy_term_load($tid);
     $color = $term->field_color_title['und'][0]['rgb'];
-    
+    if ($color == '') {
+        $color = '#000';
+    }
     return $color;
 }
 
@@ -78,7 +77,6 @@ function get_manage_report_block() {
         $options = array(
             'query' => array('channel_tid'=>$_GET['channel_tid']),
         );
-        $channel_name = strtolower(get_channel_name_from_tid($_GET['channel_tid']));
         $output .= '<ul>';
         $output .= '<li>' . l("User Statistics",'admin/user-stat') . '</li>';
         $output .= '<li>' . l("Video Statistics",'admin/analytics',$options) . '</li>';
