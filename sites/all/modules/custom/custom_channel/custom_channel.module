@@ -78,6 +78,7 @@ function get_manage_report_block() {
         $options = array(
             'query' => array('channel_tid'=>$_GET['channel_tid']),
         );
+        $channel_name = strtolower(get_channel_name_from_tid($_GET['channel_tid']));
         $output .= '<ul>';
         $output .= '<li>' . l("User Statistics",'admin/user-stat') . '</li>';
         $output .= '<li>' . l("Video Statistics",'admin/analytics',$options) . '</li>';
@@ -117,7 +118,7 @@ function get_channel_tid_from_node($nid) {
  * Called from view named downloads
  * return string
 **/
-function get_download_report_title_and_button() {
+function get_download_report_title_and_button($link) {
     $output = '';
     
     if(isset($_GET['channel_tid'])) {
@@ -126,11 +127,7 @@ function get_download_report_title_and_button() {
         }
        $output .= '<h4>' . $channel_name . t(" Download Statistics"). '</h4>';
     }
-    $child_lib_context ='';
-    if(arg(3)) {
-        $child_lib_context = arg(3);
-    }
-    $output .= '<p class="download-user-stats">'. l("Download",'admin/reports/csv/'.$child_lib_context).'</p>';
+    $output .= '<p class="download-user-stats">'. l("Download",$link).'</p>';
     
     return $output;
 }
