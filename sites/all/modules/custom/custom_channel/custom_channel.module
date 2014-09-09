@@ -10,7 +10,9 @@ function getName_channel() {
     $tid = arg(2);
     $term = taxonomy_term_load($tid);
     $term_name = $term->name;
-    $color = get_color_channel($tid);
+    if(function_exists('get_color_channel')) {
+        $color = get_color_channel($tid);
+    }
     
     if($color == '') {
         $color = '#000';
