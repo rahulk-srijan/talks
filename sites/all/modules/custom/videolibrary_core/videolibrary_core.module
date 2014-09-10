@@ -165,7 +165,7 @@ function category_menu() {
     $homeclass = '';
     $tagsclass = '';
     
-    if(arg(0) == 'taxonomy' && is_numeric(arg(2)) {
+    if(arg(0) == 'taxonomy' && is_numeric(arg(2))) {
         if(arg(2) != '') {
             $term = taxonomy_term_load(arg(2));
             if($term->vid == 5) {
