@@ -51,6 +51,13 @@
     color: #642f7a;
 }
 
+.front .view-most-liked-lib-craousel .lib-title-color-purple a {
+    color: #642f7a;
+}
+
+.front .view-most-liked-lib-craousel .library-color-purple {
+    background-color: #642f7a;
+}
 
 
 
@@ -104,6 +111,13 @@
     color: #00abee;
 }
 
+.front .view-most-liked-lib-craousel .lib-title-color-skyblue a {
+    color: #00abee;
+}
+
+.front .view-most-liked-lib-craousel .library-color-skyblue {
+    background-color: #00abee;
+}
 
 
 
@@ -158,6 +172,13 @@
     color: #738102;
 }
 
+.front .view-most-liked-lib-craousel .lib-title-color-mahendi a {
+    color: #738102;
+}
+
+.front .view-most-liked-lib-craousel .library-color-mahendi {
+    background-color: #738102;
+}
 
 
 
@@ -212,6 +233,13 @@
     color: #ad0059;
 }
 
+.front .view-most-liked-lib-craousel .lib-title-color-magenta a {
+    color: #ad0059;
+}
+
+.front .view-most-liked-lib-craousel .library-color-magenta {
+    background-color: #ad0059;
+}
 
 
 
@@ -267,6 +295,13 @@
     color: #e37222;
 }
 
+.front .view-most-liked-lib-craousel .lib-title-color-orange a {
+    color: #e37222;
+}
+
+.front .view-most-liked-lib-craousel .library-color-orange {
+    background-color: #e37222;
+}
 
 
 
@@ -321,6 +356,13 @@
     color: #ceb003;
 }
 
+.front .view-most-liked-lib-craousel .lib-title-color-khakhi a {
+    color: #ceb003;
+}
+
+.front .view-most-liked-lib-craousel .library-color-khakhi {
+    background-color: #ceb003;
+}
 
 
 
@@ -375,6 +417,13 @@
     color: #0066be;
 }
 
+.front .view-most-liked-lib-craousel .lib-title-color-blue a {
+    color: #0066be;
+}
+
+.front .view-most-liked-lib-craousel .library-color-blue {
+    background-color: #0066be;
+}
 
 
 
@@ -429,6 +478,13 @@
     color: #ff0000;
 }
 
+.front .view-most-liked-lib-craousel .lib-title-color-red a {
+    color: #ff0000;
+}
+
+.front .view-most-liked-lib-craousel .library-color-red {
+    background-color: #ff0000;
+}
 
 
 
@@ -483,6 +539,13 @@
     color: #ff00b4;
 }
 
+.front .view-most-liked-lib-craousel .lib-title-color-pink a {
+    color: #ff00b4;
+}
+
+.front .view-most-liked-lib-craousel .library-color-pink {
+    background-color: #ff00b4;
+}
 
 
 
@@ -538,3 +601,10 @@
     color: #1d8202;
 }
 
+.front .view-most-liked-lib-craousel .lib-title-color-green a {
+    color: #1d8202;
+}
+
+.front .view-most-liked-lib-craousel .library-color-green {
+    background-color: #1d8202;
+}
