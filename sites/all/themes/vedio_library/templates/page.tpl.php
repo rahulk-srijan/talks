@@ -186,7 +186,7 @@ $site_logo = '<a href="'.$url_front.'">'. strip_tags($site_logo, '<img>').'</a>'
           ?>
           <?php if ($title || $primary_local_tasks || $secondary_local_tasks || $action_links = render($action_links)): ?>
           <header<?php print $content_header_attributes; ?>>
-          <?php $node_type = get_node_type(arg(1)); ?>
+          <?php if(function_exists('get_node_type')) {$node_type = get_node_type(arg(1));} ?>
           <?php if (!$is_front): if ($title): ?>
           <?php if($node_type == 'upload_video') {
             $ch_tid = get_channel_tid_from_node(arg(1));

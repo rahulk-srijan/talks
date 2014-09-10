@@ -23,7 +23,9 @@
  */
 ?>
 <?php
-    $node_type = get_node_type(arg(1));
+    if(function_exists('get_node_type')) {
+        $node_type = get_node_type(arg(1));
+    }
     $ch_tid = get_channel_tid_from_node(arg(1));
     if(function_exists('get_color_channel')) {
         $color = get_color_channel($ch_tid);
