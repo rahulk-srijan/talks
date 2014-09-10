@@ -164,8 +164,18 @@ function category_menu() {
     $vocab_name = 'channel_categories' ;
     $homeclass = '';
     $tagsclass = '';
-    $arg2 = arg(2);
-
+    
+    if(arg(0) == 'taxonomy' && is_numeric(arg(2)) {
+        if(arg(2) != '') {
+            $term = taxonomy_term_load(arg(2));
+            if($term->vid == 5) {
+                $arg2 = arg(2);
+            }
+            else {
+                $arg2 = $term->field_library['und'][0]['tid'];
+            }
+        }
+    }
     $category_name = '';
 
     if(arg(0) == 'tags' && $arg2 == '') {
