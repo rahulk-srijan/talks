@@ -17,6 +17,8 @@
   stylesheets[screen][] = css/global.styles.css
   stylesheets[screen][] = css/styles.css
   stylesheets[all][] = css/custom.css
+  stylesheets[all][] = css/color-classes.css
+
 
   stylesheets[screen][] = mobile/stylesheets/custom.css
   stylesheets[screen][] = scripts/jquery.more.css
