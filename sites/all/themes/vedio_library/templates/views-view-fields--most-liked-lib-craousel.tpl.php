@@ -29,7 +29,6 @@
 global $base_url;
 global $color_variable;
   $term = taxonomy_term_load($row->tid);
-  print $row->tid;
   $selected_color = $term->field_color_title['und'][0]['rgb'];
   foreach($color_variable as $key => $color_val) {
         if($selected_color == $color_val) {
@@ -39,7 +38,7 @@ global $color_variable;
 ?>
 
 <h4 class="lib-title lib-title-<?php print $class;?><?php $row->tid?>">
-  <a href="<?php print $base_url .'/'. $row->taxonomy_term_data_name; ?>"><?php print $row->taxonomy_term_data_description;?></a></h4>
+  <?php print l(strip_tags($row->taxonomy_term_data_description),'taxonomy/term/'.$row->tid);?></h4>
 <div class="library-item hargun library-<?php print $class;?>">
 <?php foreach ($fields as $id => $field): ?>
   <?php if (!empty($field->separator)): ?>
