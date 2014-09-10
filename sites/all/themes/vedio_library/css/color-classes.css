@@ -1,0 +1,364 @@
+
+/** Color Classes Css **/
+
+/** Purple Color Css Classes **/
+
+.color-purple .post-menu-strip .lib-name a {
+    color: #642f7a;
+}
+
+.color-purple #views_slideshow_cycle_teaser_section_logging-block .views-field-message-render .latest {
+    background-color: #642f7a;
+}
+
+.color-purple #views_slideshow_controls_text_next_comments_recent-block a, .color-purple #views_slideshow_controls_text_next_logging-block a {
+    background: url("images/arrow-r-big.png") no-repeat scroll center center #642f7a;
+}
+
+.color-purple #block-block-6 span {
+    color: #642f7a;
+}
+
+.color-purple .view-home-page-video-listing .views-field-title a, .color-purple .view-listing-by-category .views-field-title a, .color-purple .view-listing-by-tags .views-field-title a, .color-purple .view-playlist .views-field-title a {
+    color: #642f7a;
+}
+
+.color-purple .feat-videos-title a {
+    color: #c0abc9;
+}
+
+.color-purple #views_slideshow_cycle_teaser_section_logging-block .views-field-message-render .title {
+    background: url("images/quotes_bto.png") no-repeat scroll 8px center transparent;
+}
+
+.color-purple #views_slideshow_cycle_teaser_section_logging-block .views-field-message-render .author {
+	color: #642f7a;
+}
+
+
+
+
+/** Skyblue Color Css Classes **/
+
+.color-skyblue .post-menu-strip .lib-name a {
+    color: #00abee;
+}
+
+.color-skyblue #views_slideshow_cycle_teaser_section_logging-block .views-field-message-render .latest {
+    background-color: #00abee;
+}
+
+.color-skyblue #views_slideshow_controls_text_next_comments_recent-block a, .color-skyblue #views_slideshow_controls_text_next_logging-block a {
+    background: url("images/arrow-r-big.png") no-repeat scroll center center #00abee;
+}
+
+.color-skyblue #block-block-6 span {
+    color: #00abee;
+}
+
+.color-skyblue .view-home-page-video-listing .views-field-title a, .color-skyblue .view-listing-by-category .views-field-title a, .color-skyblue .view-listing-by-tags .views-field-title a, .color-skyblue .view-playlist .views-field-title a {
+    color: #00abee;
+}
+
+.color-skyblue .feat-videos-title a {
+    color: #98c1e1;
+}
+
+.color-skyblue #views_slideshow_cycle_teaser_section_logging-block .views-field-message-render .title {
+    background: url("images/quotes-compete.png") no-repeat scroll 8px center transparent;
+}
+
+.color-skyblue #views_slideshow_cycle_teaser_section_logging-block .views-field-message-render .author {
+	color: #00abee;
+}
+
+
+
+/** Mahendi Color Css Classes **/
+
+.color-mahendi .post-menu-strip .lib-name a {
+    color: #738102;
+}
+
+.color-mahendi #views_slideshow_cycle_teaser_section_logging-block .views-field-message-render .latest {
+    background-color: #738102;
+}
+
+.color-mahendi #views_slideshow_controls_text_next_comments_recent-block a, .color-mahendi #views_slideshow_controls_text_next_logging-block a {
+    background: url("images/arrow-r-big.png") no-repeat scroll center center #738102;
+}
+
+.color-mahendi #block-block-6 span {
+    color: #738102;
+}
+
+.color-mahendi .view-home-page-video-listing .views-field-title a, .color-mahendi .view-listing-by-category .views-field-title a, .color-mahendi .view-listing-by-tags .views-field-title a, .color-mahendi .view-playlist .views-field-title a {
+    color: #738102;
+}
+
+.color-mahendi .feat-videos-title a {
+    color: #a3ac00;
+}
+
+.color-mahendi #views_slideshow_cycle_teaser_section_logging-block .views-field-message-render .title {
+    background: url("images/quotes-entre.png") no-repeat scroll 8px center transparent;
+}
+
+.color-mahendi #views_slideshow_cycle_teaser_section_logging-block .views-field-message-render .author {
+	color: #738102;
+}
+
+
+
+/** Magenta Color Css Classes **/
+
+.color-magenta .post-menu-strip .lib-name a {
+    color: #ad0059;
+}
+
+.color-magenta #views_slideshow_cycle_teaser_section_logging-block .views-field-message-render .latest {
+    background-color: #ad0059;
+}
+
+.color-magenta #views_slideshow_controls_text_next_comments_recent-block a, .color-magenta #views_slideshow_controls_text_next_logging-block a {
+    background: url("images/arrow-r-big.png") no-repeat scroll center center #ad0059;
+}
+
+.color-magenta #block-block-6 span {
+    color: #ad0059;
+}
+
+.color-magenta .view-home-page-video-listing .views-field-title a, .color-magenta .view-listing-by-category .views-field-title a, .color-magenta .view-listing-by-tags .views-field-title a, .color-magenta .view-playlist .views-field-title a {
+    color: #ad0059;
+}
+
+.color-magenta .feat-videos-title a {
+    color: #de98ba;
+}
+
+.color-magenta #views_slideshow_cycle_teaser_section_logging-block .views-field-message-render .title {
+    background: url("images/quotes_ops.png") no-repeat scroll 8px center transparent;
+}
+
+.color-magenta #views_slideshow_cycle_teaser_section_logging-block .views-field-message-render .author {
+	color: #ad0059;
+}
+
+
+
+
+/** Orange Color Css Classes **/
+
+.color-orange .post-menu-strip .lib-name a {
+    color: #e37222;
+}
+
+.color-orange #views_slideshow_cycle_teaser_section_logging-block .views-field-message-render .latest {
+    background-color: #e37222;
+}
+
+.color-orange #views_slideshow_controls_text_next_comments_recent-block a, .color-orange #views_slideshow_controls_text_next_logging-block a {
+    background: url("images/arrow-r-big.png") no-repeat scroll center center #e37222;
+}
+
+.color-orange #block-block-6 span {
+    color: #e37222;
+}
+
+.color-orange .view-home-page-video-listing .views-field-title a, .color-orange .view-listing-by-category .views-field-title a, .color-orange .view-listing-by-tags .views-field-title a, .color-orange .view-playlist .views-field-title a {
+    color: #e37222;
+}
+
+.color-orange .feat-videos-title a {
+    color: #e37222;
+}
+
+.color-orange #views_slideshow_cycle_teaser_section_logging-block .views-field-message-render .title {
+    background: url("images/quotes_org.png") no-repeat scroll 8px center transparent;
+}
+
+.color-orange #views_slideshow_cycle_teaser_section_logging-block .views-field-message-render .author {
+	color: #e37222;
+}
+
+
+
+/** Khakhi Color Css Classes **/
+
+.color-khakhi .post-menu-strip .lib-name a {
+    color: #ceb003;
+}
+
+.color-khakhi #views_slideshow_cycle_teaser_section_logging-block .views-field-message-render .latest {
+    background-color: #ceb003;
+}
+
+.color-khakhi #views_slideshow_controls_text_next_comments_recent-block a, .color-khakhi #views_slideshow_controls_text_next_logging-block a {
+    background: url("images/arrow-r-big.png") no-repeat scroll center center #ceb003;
+}
+
+.color-khakhi #block-block-6 span {
+    color: #ceb003;
+}
+
+.color-khakhi .view-home-page-video-listing .views-field-title a, .color-khakhi .view-listing-by-category .views-field-title a, .color-khakhi .view-listing-by-tags .views-field-title a, .color-khakhi .view-playlist .views-field-title a {
+    color: #ceb003;
+}
+
+.color-khakhi .feat-videos-title a {
+    color: #ceb003;
+}
+
+.color-khakhi #views_slideshow_cycle_teaser_section_logging-block .views-field-message-render .title {
+    background: url("images/quotes-it.png") no-repeat scroll 8px center transparent;
+}
+
+.color-khakhi #views_slideshow_cycle_teaser_section_logging-block .views-field-message-render .author {
+	color: #ceb003;
+}
+
+
+
+/** Blue Color Css Classes **/
+
+.color-blue .post-menu-strip .lib-name a {
+    color: #0066be;
+}
+
+.color-blue #views_slideshow_cycle_teaser_section_logging-block .views-field-message-render .latest {
+    background-color: #0066be;
+}
+
+.color-blue #views_slideshow_controls_text_next_comments_recent-block a, .color-blue #views_slideshow_controls_text_next_logging-block a {
+    background: url("images/arrow-r-big.png") no-repeat scroll center center #0066be;
+}
+
+.color-blue #block-block-6 span {
+    color: #0066be;
+}
+
+.color-blue .view-home-page-video-listing .views-field-title a, .color-blue .view-listing-by-category .views-field-title a, .color-blue .view-listing-by-tags .views-field-title a, .color-blue .view-playlist .views-field-title a {
+    color: #0066be;
+}
+
+.color-blue .feat-videos-title a {
+    color: #98c1e1;
+}
+
+.color-blue #views_slideshow_cycle_teaser_section_logging-block .views-field-message-render .title {
+    background: url("images/quotes-ndm.png") no-repeat scroll 8px center transparent;
+}
+
+.color-blue #views_slideshow_cycle_teaser_section_logging-block .views-field-message-render .author {
+	color: #0066be;
+}
+
+
+
+/** Red Color Css Classes **/
+
+.color-red .post-menu-strip .lib-name a {
+    color: #ff0000;
+}
+
+.color-red #views_slideshow_cycle_teaser_section_logging-block .views-field-message-render .latest {
+    background-color: #ff0000;
+}
+
+.color-red #views_slideshow_controls_text_next_comments_recent-block a, .color-red #views_slideshow_controls_text_next_logging-block a {
+    background: url("images/arrow-r-big.png") no-repeat scroll center center #ff0000;
+}
+
+.color-red #block-block-6 span {
+    color: #ff0000;
+}
+
+.color-red .view-home-page-video-listing .views-field-title a, .color-red .view-listing-by-category .views-field-title a, .color-red .view-listing-by-tags .views-field-title a, .color-red .view-playlist .views-field-title a {
+    color: #ff0000;
+}
+
+.color-red .feat-videos-title a {
+    color: #ff0000;
+}
+
+.color-red #views_slideshow_cycle_teaser_section_logging-block .views-field-message-render .title {
+    background: url("images/quotes_bto.png") no-repeat scroll 8px center transparent;
+}
+
+.color-red #views_slideshow_cycle_teaser_section_logging-block .views-field-message-render .author {
+	color: #ff0000;
+}
+
+
+
+/** Pink Color Css Classes **/
+
+.color-pink .post-menu-strip .lib-name a {
+    color: #ff00b4;
+}
+
+.color-pink #views_slideshow_cycle_teaser_section_logging-block .views-field-message-render .latest {
+    background-color: #ff00b4;
+}
+
+.color-pink #views_slideshow_controls_text_next_comments_recent-block a, .color-pink #views_slideshow_controls_text_next_logging-block a {
+    background: url("images/arrow-r-big.png") no-repeat scroll center center #ff00b4;
+}
+
+.color-pink #block-block-6 span {
+    color: #ff00b4;
+}
+
+.color-pink .view-home-page-video-listing .views-field-title a, .color-pink .view-listing-by-category .views-field-title a, .color-pink .view-listing-by-tags .views-field-title a, .color-pink .view-playlist .views-field-title a {
+    color: #ff00b4;
+}
+
+.color-pink .feat-videos-title a {
+    color: #ff00b4;
+}
+
+.color-pink #views_slideshow_cycle_teaser_section_logging-block .views-field-message-render .title {
+    background: url("images/quotes_bto.png") no-repeat scroll 8px center transparent;
+}
+
+.color-pink #views_slideshow_cycle_teaser_section_logging-block .views-field-message-render .author {
+	color: #ff00b4;
+}
+
+
+
+
+/** Green Color Css Classes **/
+
+.color-green .post-menu-strip .lib-name a {
+    color: #1d8202;
+}
+
+.color-green #views_slideshow_cycle_teaser_section_logging-block .views-field-message-render .latest {
+    background-color: #1d8202;
+}
+
+.color-green #views_slideshow_controls_text_next_comments_recent-block a, .color-green #views_slideshow_controls_text_next_logging-block a {
+    background: url("images/arrow-r-big.png") no-repeat scroll center center #1d8202;
+}
+
+.color-green #block-block-6 span {
+    color: #1d8202;
+}
+
+.color-green .view-home-page-video-listing .views-field-title a, .color-green .view-listing-by-category .views-field-title a, .color-green .view-listing-by-tags .views-field-title a, .color-green .view-playlist .views-field-title a {
+    color: #1d8202;
+}
+
+.color-green .feat-videos-title a {
+    color: #1d8202;
+}
+
+.color-green #views_slideshow_cycle_teaser_section_logging-block .views-field-message-render .title {
+    background: url("images/quotes_bto.png") no-repeat scroll 8px center transparent;
+}
+
+.color-green #views_slideshow_cycle_teaser_section_logging-block .views-field-message-render .author {
+	color: #1d8202;
+}
+

@@ -16,6 +16,7 @@
   stylesheets[screen][] = css/global.base.css
   stylesheets[screen][] = css/global.styles.css
   stylesheets[screen][] = css/styles.css
+  stylesheets[screen][] = css/color-classes.css
   stylesheets[all][] = css/custom.css
 
   stylesheets[screen][] = mobile/stylesheets/custom.css
