@@ -1,13 +1,28 @@
 <?php
 
+global $color_variable;
+$color_variable = array(
+    'color-purple' => '#642f7a',
+    'color-skyblue' => '#00abee',
+    'color-mahendi' => '#738102',
+    'color-magenta' => '#ad0059',
+    'color-orange' => '#e37222',
+    'color-khakhi' => '#ceb003',
+    'color-blue' => '#0066be',
+    'color-red' => '#ff0000',
+    'color-pink' => '#ff00b4',
+    'color-green' => '#1d8202',
+);
+
 /**
  * Custom callback from blocks section
  * Called from block named "video library name post menu"
  * return string
 **/
 function getName_channel() {
-
-    $node_type = get_node_type(arg(1));
+    if(function_exists('get_node_type')) {
+        $node_type = get_node_type(arg(1));
+    }
     if((arg(0) == 'taxonomy' && is_numeric(arg(2)) || $node_type == 'upload_video')) {
         if(arg(2) != '') {
             $term = taxonomy_term_load(arg(2));
@@ -164,4 +179,45 @@ function get_channel_name_from_tid($ch_tid) {
     }
     
     return $channel_name;
+}
+
+/**
+ * Custom callback function for the adding color class to the body tag
+ * Called from hook_preprocess_html() in template.php
+ * return string
+**/
+function adding_color_class_bodyTag() {
+    global $color_variable;
+    if(function_exists('get_node_type')) {
+        $node_type = get_node_type(arg(1));
+    }
+    if((arg(0) == 'taxonomy' && is_numeric(arg(2)) || $node_type == 'upload_video')) {
+        if(arg(2) != '') {
+            $term = taxonomy_term_load(arg(2));
+            if($term->vid == 5) {
+                $arg = arg(2);
+            }
+            else {
+                $arg = $term->field_library['und'][0]['tid'];
+            }
+        }
+        else {
+            if(function_exists('get_channel_tid_from_node')) {
+                $arg = get_channel_tid_from_node(arg(1));// called from custom_channel.module
+            }
+        }
+    }
+    else {
+       if(isset($_GET['ch_tid'])) {
+         $arg = $_GET['ch_tid'];
+       }
+    }
+    $term = taxonomy_term_load($arg);
+    $selected_color = $term->field_color_title['und'][0]['rgb'];
+    foreach($color_variable as $key => $color_val) {
+        if($selected_color == $color_val) {
+            $color_class = $key;
+        }
+    }
+    return $color_class;
 }
