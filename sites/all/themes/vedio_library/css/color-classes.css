@@ -98,7 +98,7 @@
     background: url("images/quotes-compete.png") no-repeat scroll 8px center transparent;
 }
 
-.color-skyblue #views_slideshow_cycle_teaser_section_logging-block .views-field-message-render .author, .color-purple #views_slideshow_cycle_teaser_section_logging-block .views-field-message-render .author a {
+.color-skyblue #views_slideshow_cycle_teaser_section_logging-block .views-field-message-render .author, .color-skyblue #views_slideshow_cycle_teaser_section_logging-block .views-field-message-render .author a {
     color: #00abee !important;
 }
 
