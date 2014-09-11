@@ -18,7 +18,6 @@
   stylesheets[screen][] = css/styles.css
   stylesheets[screen][] = css/color-classes.css
   stylesheets[all][] = css/custom.css
-  stylesheets[all][] = css/color-classes.css
 
 
   stylesheets[screen][] = mobile/stylesheets/custom.css
