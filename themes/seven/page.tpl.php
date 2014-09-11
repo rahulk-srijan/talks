@@ -45,6 +45,11 @@ if (isset($_SERVER['HTTP_X_FORWARDED_FOR'])) {
     <?php print $breadcrumb; ?>
     <?php print render($title_prefix); ?>
     <?php if ($title): ?>
+    <?php if(isset($_GET['channel_tid'])) {
+      if(function_exists('get_channel_name_from_tid')) {
+         $title = get_channel_name_from_tid($_GET['channel_tid']) . t(" Dashboard");
+      }
+    } ?>
       <h1 class="page-title"><?php print $title; ?></h1>
     <?php endif; ?>
     <?php print render($title_suffix); ?>

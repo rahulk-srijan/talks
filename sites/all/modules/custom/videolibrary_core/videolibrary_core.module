@@ -165,7 +165,7 @@ function category_menu() {
     $homeclass = '';
     $tagsclass = '';
     
-    if(arg(0) == 'taxonomy' && is_numeric(arg(2)) {
+    if(arg(0) == 'taxonomy' && is_numeric(arg(2))) {
         if(arg(2) != '') {
             $term = taxonomy_term_load(arg(2));
             if($term->vid == 5) {
@@ -220,7 +220,15 @@ function category_menu() {
         $ch_tid = $_GET['ch_tid'];
     }
     else {
-        $ch_tid = arg(2);
+        if(arg(2) != '') {
+            $term = taxonomy_term_load(arg(2));
+            if($term->vid == 5) {
+                $ch_tid = arg(2);
+            }
+            else {
+                $ch_tid = $term->field_library['und'][0]['tid'];
+            }
+        }
     }
     $category_name .= '<div class="block view-views-by-category" id="block-views-views-by-category-block">
                     <div class="block-content content">
