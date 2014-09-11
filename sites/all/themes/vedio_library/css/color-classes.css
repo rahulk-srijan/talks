@@ -647,3 +647,49 @@
 .front .view-most-liked-lib-craousel .library-color-green {
     background-color: #1d8202;
 }
+
+
+
+
+
+/* Css for suggest a video Modal Window 11 Sep 2014 */
+
+#modalContent #modal-content #videolibrary-core-form .form-item a.color-purple {
+    color: #642f7a;
+}
+
+#modalContent #modal-content #videolibrary-core-form .form-item a.color-skyble {
+    color: #00abee;
+}
+
+#modalContent #modal-content #videolibrary-core-form .form-item a.color-mahendi {
+    color: #738102;
+}
+
+#modalContent #modal-content #videolibrary-core-form .form-item a.color-magenta {
+    color: #ad0059;
+}
+
+#modalContent #modal-content #videolibrary-core-form .form-item a.color-orange {
+    color: #e37222;
+}
+
+#modalContent #modal-content #videolibrary-core-form .form-item a.color-khakhi {
+    color: #ceb003;
+}
+
+#modalContent #modal-content #videolibrary-core-form .form-item a.color-blue {
+    color: #0066be;
+}
+
+#modalContent #modal-content #videolibrary-core-form .form-item a.color-red {
+    color: #ff0000;
+}
+
+#modalContent #modal-content #videolibrary-core-form .form-item a.color-pink {
+    color: #ff00b4;
+}
+
+#modalContent #modal-content #videolibrary-core-form .form-item a.color-green {
+    color: #1d8202;
+}
