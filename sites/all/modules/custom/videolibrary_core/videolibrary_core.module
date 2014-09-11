@@ -1,103 +1,48 @@
 <?php
+DEFINE("library_vocab_id",5);
 
 /*
  * hook_init()
  */
 
 global $library_subsite_variable;
+global $color_variable;
+$library_subsite_variable = array();
+$channel_term = taxonomy_get_tree(library_vocab_id);
+foreach($channel_term as $name) {
+    $email_val = '';
+    $color_class = '';
+    $channel_fields = taxonomy_term_load($name->tid);
+    if(isset($channel_fields->field_suggest_video_email)) {
+        foreach($channel_fields->field_suggest_video_email['und'] as $mail) {
+            $email_val .= $mail['email'] . t(",");
+        }
+    }
+    $desc = strip_tags($name->description);
+    $publish = $channel_fields->field_publish_channel['und'][0]['value'];
+    $private = $channel_fields->field_private_channel['und'][0]['value'];
+    $channel_url = $channel_fields->field_channel_url['und'][0]['value'];
+    // Main color fetch
+    $selected_color = $channel_fields->field_color_title['und'][0]['rgb'];
+    foreach($color_variable as $key => $color_val) {
+        if($selected_color == $color_val) {
+            $color_class = $key;
+        }
+    }
+    $library_subsite_variable[$name->tid] = array(
+            'to' => $email_val,
+            'subject' => 'Suggest a video',
+            'msg' => 'I recommend adding the following video to the ' . $desc .' video library',
+            'site_name' => $desc,
+            'recommend_text' => ' recommends an '. $desc.' video.',
+            'is_publish' => $publish,
+            'is_private' => $private,
+            'color-class' => $color_class,
+            'channel_path' => $channel_url,
+            'tid' => $name->tid,
+    );    
+}
 
-$library_subsite_variable = array(
-    'orginaction' =>
-    array('to' => 'organization_practice_learning_team@mckinsey.com',
-        'from_email' => 'organization_practice_learning_team@mckinsey.com',
-        'subject' => 'Suggest a video',
-        'msg' => 'I recommend adding the following video to the Org in Action video library',
-        'site_name' => 'Org in Action',
-         'tid'=>'455',
-         'channel_path'=>'orginaction',
-         'resource'=>'http://home.intranet.mckinsey.com/practicespaces/ps/org/',
-        'recommend_text' => ' recommends an Org in Action video.'),
-    'opsinaction' =>
-    array('to' => 'global_ops_learning_team@mckinsey.com,Ops_Feedback@mckinsey.com',
-        'from_email' => 'global_ops_learning_team@mckinsey.com',
-        'subject' => 'Suggest a video',
-        'msg' => 'I recommend adding the following video to the Ops in Action video library',
-        'site_name' => 'Ops in Action',
-        'tid'=>'456',
-        'channel_path'=>'opsinaction',
-        'resource'=>'http://home.intranet.mckinsey.com/practicespaces/ps/ops/',
-        'recommend_text' => ' recommends an Ops in Action video.'),
-    'btoacademy' =>
-    array('to' => 'bt_learning_registration@mckinsey.com',
-        'from_email' => 'bt_learning_registration@mckinsey.com',
-        'subject' => 'Suggest a video',
-        'msg' => 'I recommend adding the following video to the BTO Academy video library',
-        'site_name' => 'BTO Academy',
-        'tid'=>'457',
-        'channel_path'=>'btoacademy',
-        'resource'=>'http://home.intranet.mckinsey.com/practicespaces/ps/bt/',
-        'recommend_text' => ' recommends a BTO Academy video.'),
-    'spotlight' =>
-    array('to' => '',
-        'from_email' => '',
-        'subject' => 'Suggest a video',
-        'msg' => 'I recommend adding the following video to the miscellaneous library',
-        'site_name' => 'Miscellaneous: Video Library',
-        'tid'=>'536',
-        'channel_path'=>'spotlight',
-        'resource'=>'',
-        'recommend_text' => ' recommends a Spotlight video.'),
-    'ourtechnology' =>
-    array('to' => 'mckinsey_IT_Learning@mckinsey.com',
-        'from_email' => 'mckinsey_IT_Learning@mckinsey.com',
-        'subject' => 'Suggest a video',
-        'msg' => 'I recommend adding the following video to the Our Technology video channel.',
-        'site_name' => 'Our Technology',
-         'tid'=>'609',
-         'channel_path'=>'ourtechnology',
-         'resource'=>'http://home.intranet.mckinsey.com/otcs/',
-        'recommend_text' => ' recommended a Our Technology video.'),
-     'mi_matters' =>
-    array('to' => 'McKinsey_Implementation@mckinsey.com',
-        'from_email' => 'McKinsey_Implementation@mckinsey.com',
-        'subject' => 'Suggest a video',
-        'msg' => 'I recommend adding the following video to the MI Matters video channel.',
-        'site_name' => 'MI Matters',
-         'tid'=>'610',
-         'channel_path'=>'mi_matters',
-         'resource'=>'http://home.intranet.mckinsey.com/practicespaces/ps/mck-implementation/',
-        'recommend_text' => '  recommended an MI Matters video.'),
-    'partner_entrepreneurship' =>
-    array('to' => 'partner_entrepreneurship@mckinsey.com',
-        'from_email' => 'partner_entrepreneurship_team@mckinsey.com',
-        'subject' => 'Suggest a video',
-        'msg' => 'I recommend adding the following video to the Entrepreneurship Stories video channel.',
-        'site_name' => 'Entrepreneurship Stories',
-         'tid'=>'611',
-         'channel_path'=>'partner_entrepreneurship',
-         'resource'=>'',
-        'recommend_text' => ' recommended an Entrepreneurship Stories video.'),
-    'competetowin' =>
-    array('to' => 'CSGroup@mckinsey.com',
-        'from_email' => 'CSGroup@mckinsey.com',
-        'subject' => 'Suggest a video',
-        'msg' => 'I recommend adding the following video to the Compete to Win video channel.',
-        'site_name' => 'Compete to Win',
-         'tid'=>'612',
-         'channel_path'=>'competetowin',
-         'resource'=>'http://home.intranet.mckinsey.com/intcomms/clientchannel/Get-competitive-intelligence-Competitor-information-Tools',
-        'recommend_text' => ' recommended a Compete to Win video.'),
-    'newtest_channel' =>
-    array('to' => 'kausha@srijan.in',
-        'from_email' => 'kausha@srijan.in',
-        'subject' => 'Suggest a video',
-        'msg' => 'I recommend adding the following video to the New Test Channel video library',
-        'site_name' => 'New Test Channel',
-         'tid'=>'656',
-         'channel_path'=>'newtest_channel',
-         'resource'=>'',
-        'recommend_text' => ' recommends an New Test Channel video.'),
-    );
 
 /**
  * Implements hook_block_info().
@@ -142,16 +87,6 @@ function site_switching() {
     }
     $content .='</ul>';
     return $content;
-}
-
-/*
- * get term id from term name
- */
-
-function get_term_id($name) {
-    if ($name) {
-        return db_query("SELECT tid FROM {taxonomy_term_data} WHERE name =:name and vid =:vid", array(':name' => $name, ':vid' => 5))->fetchField();
-    }
 }
 
 /*
@@ -285,9 +220,6 @@ function user_top_menu_link() {
     $suggest_url = $base_url.'/suggest/nojs';
     $is_front = drupal_is_front_page();
     
-    $mail_to = $library_subsite_variable[$subsite_home_page_url]['to'];
-    $subject = $library_subsite_variable[$subsite_home_page_url]['subject'];
-    $msg = $library_subsite_variable[$subsite_home_page_url]['msg'];
     $content = '';
     $content .= '<div id="authorize"><ul class="user">';
 
@@ -569,21 +501,6 @@ function videolibrary_core_unset_field_library($form,$library_roles,$tid) {
          return $form;
 }
 
-/*
-function videolibrary_core_custom_theme() {
-    $current_path = explode('/', drupal_get_path_alias($_GET['q']));
-    if(($current_path[1] == 'dashboard') && ($current_path[2]==('orginaction' OR 'btoacademy' OR 'opsinaction'))) {
-    return variable_get('admin_theme');
-}
-}
-
-function videolibrary_core_menu_alter(&$items) {
-        if(arg(0) == 'orginaction') {
-    $items['admin/dashboard'] =;
-}
-}
-*/
-
 function videolibrary_core_node_view($node, $view_mode, $langcode) {
     //dsm($GLOBALS);
      //$device = array('ipad', 'iphone');
@@ -762,139 +679,54 @@ function videolibrary_core_comp_orslogin_submit($form, &$form_state)  {
  */
 function videolibrary_core_form($form, $form_state) {
     global $library_subsite_variable;
-    global $subsite_home_page_url;
     global $user;
-    $roles= $user->roles;
+    $roles = $user->roles;
+    
+    // For General Category addition
     $mail_to = 'McKinsey_Talks_Video_Suggestions@mckinsey.com';
     $subject = 'Suggest a video';
     $msg = 'I recommend adding the following video to the McKinsey Talks video library';
-    $mail_to_bto = $library_subsite_variable['btoacademy']['to'];
-    $subject_bto = $library_subsite_variable['btoacademy']['subject'];
-    $msg_bto = $library_subsite_variable['btoacademy']['msg'];
-    $mail_to_ops = $library_subsite_variable['opsinaction']['to'];
-    $subject_ops = $library_subsite_variable['opsinaction']['subject'];
-    $msg_ops = $library_subsite_variable['opsinaction']['msg'];
-    $mail_to_org = $library_subsite_variable['orginaction']['to'];
-    $subject_org = $library_subsite_variable['orginaction']['subject'];
-    $msg_org = $library_subsite_variable['orginaction']['msg'];
-    $mail_to_ourtechnology = $library_subsite_variable['ourtechnology']['to'];
-    $subject_ourtechnology = $library_subsite_variable['ourtechnology']['subject'];
-    $msg_ourtechnology = $library_subsite_variable['ourtechnology']['msg'];
-    $mail_to_mi_matters = $library_subsite_variable['mi_matters']['to'];
-    $subject_mi_matters = $library_subsite_variable['mi_matters']['subject'];
-    $msg_mi_matters = $library_subsite_variable['mi_matters']['msg'];
-    $mail_to_partner_entrepreneurship = $library_subsite_variable['partner_entrepreneurship']['to'];
-    $subject_partner_entrepreneurship = $library_subsite_variable['partner_entrepreneurship']['subject'];
-    $msg_partner_entrepreneurship = $library_subsite_variable['partner_entrepreneurship']['msg'];
-    $mail_to_competetowin = $library_subsite_variable['competetowin']['to'];
-    $subject_competetowin = $library_subsite_variable['competetowin']['subject'];
-    $msg_competetowin = $library_subsite_variable['competetowin']['msg'];
+    $gen =  '<a class="lib" id="gen" href="mailto:' . $mail_to . '?Subject=' . $subject . '&body=' . $msg . '"> General </a><br/>';
+    
+    $form['lib_list_gen'] = array(
+        '#type' => 'item',
+        '#markup' => t("General"),
+    );
 
-/*
-  $form['lib_list']= array(
-  '#type' => 'radios',
-//  '#title' => t('Choose library you want to suggest video.'),
-  '#options' => array(0 => 'General', 1 => 'BTO Academy',2=>'Ops in Action',3=>'Org in Action'),
-  '#required'=>TRUE
-);*/
-
-  $gen = ' <a class="lib" id="gen" href="mailto:' . $mail_to . '?Subject=' . $subject . '&body=' . $msg . '">General</a><br/>';
-  $bto= ' <a class="lib" id="bto" href="mailto:' . $mail_to_bto . '?Subject=' . $subject_bto . '&body=' . $msg_bto . '">BTO Academy</a><br/>';
-  $ops ='<a class="lib" id="ops" href="mailto:' . $mail_to_ops . '?Subject=' . $subject_ops . '&body=' . $msg_ops . '">Ops in Action</a><br/>';
-  $org= '<a class="lib" id="org" href="mailto:' . $mail_to_org . '?Subject=' . $subject_org . '&body=' . $msg_org . '">Org in Action</a>';
-  $ourtechnology= '<a class="lib" id="it" href="mailto:' . $mail_to_ourtechnology . '?Subject=' . $subject_ourtechnology . '&body=' . $msg_ourtechnology . '">Our Technology</a>';
-
-  $mi_matters= '<a class="lib" id="ndm" href="mailto:' . $mail_to_mi_matters . '?Subject=' . $subject_mi_matters . '&body=' . $msg_mi_matters . '">MI Matters</a>';
-  $partner_entrepreneurship= '<a class="lib" id="entre" href="mailto:' . $mail_to_partner_entrepreneurship . '?Subject=' . $subject_partner_entrepreneurship . '&body=' . $msg_partner_entrepreneurship . '">Entrepreneurship Stories</a>';
-  $competetowin= '<a class="lib" id="compete" href="mailto:' . $mail_to_competetowin . '?Subject=' . $subject_competetowin . '&body=' . $msg_competetowin . '">Compete to Win</a>';
-
-
- $form['lib_list_gen'] = array(
-//    '#title' => t('Click below to suggest a video'),
-    '#type' => 'item',
-    '#markup'=> $gen,
-    // '#states' => array(
-    //   'visible' => array(
-    //     ':input[name="lib_list"]' => array('value' => '0'),
-    //   ),
-    // ),
-  );
- $form['lib_list_bto'] = array(
-//    '#title' => t(''),
-    '#type' => 'item',
-    '#markup'=> $bto,
-    // '#states' => array(
-    //   'visible' => array(
-    //     ':input[name="lib_list"]' => array('value' => '1'),
-    //   ),
-    // ),
-  );
-  $compete_roles = array('compete to win user','ors compete to win user','super admin','compete to win web master');
-$compete_result= array_intersect($compete_roles, $roles);
- if(!empty($compete_result)) {
- $form['lib_list_compete'] = array(
-//    '#title' => t('Click below to suggest a video'),
+    // For channel categories    
+    $term = taxonomy_get_tree(library_vocab_id);
+    foreach($term as $name) {
+      // Show only published channel
+      if($library_subsite_variable[$name->tid]['is_publish'] == '') {
+        $ch_mail_to = $library_subsite_variable[$name->tid]['to'];
+        $ch_subject = $library_subsite_variable[$name->tid]['subject'];
+        $ch_msg = $library_subsite_variable[$name->tid]['msg'];
+        $color_cls = $library_subsite_variable[$name->tid]['color-class'];
+        $channel_name = $library_subsite_variable[$name->tid]['site_name'];
+        $ch_name =  '<a class="'.$color_cls.'" id="gen" href="mailto:' . $ch_mail_to . '?Subject=' . $ch_subject . '&body=' . $ch_msg . '">'.$channel_name.'</a><br/>';
+        $form['lib_list_'.$name->tid] = array(
+          '#type' => 'item',
+          '#markup' => $ch_name,
+        );
+      }  
+    }
+  
+// For pivate channel
+/*  $compete_roles = array('compete to win user','ors compete to win user','super admin','compete to win web master');
+  $compete_result= array_intersect($compete_roles, $roles);
+  if(!empty($compete_result)) {
+  $form['lib_list_compete'] = array(
     '#type' => 'item',
     '#markup'=> $competetowin,
-    // '#states' => array(
-    //   'visible' => array(
-    //     ':input[name="lib_list"]' => array('value' => '2'),
-    //   ),
-    // ),
   );}
  $entre_roles = array('entrepreneur user','ors entrepreneur user','super admin','entrepreneur web master');
-$entre_result= array_intersect($entre_roles, $roles);
+ $entre_result= array_intersect($entre_roles, $roles);
  if(!empty($entre_result)) {
  $form['lib_list_entre'] = array(
-//    '#title' => t('Click below to suggest a video'),
     '#type' => 'item',
     '#markup'=> $partner_entrepreneurship,
-    // '#states' => array(
-    //   'visible' => array(
-    //     ':input[name="lib_list"]' => array('value' => '2'),
-    //   ),
-    // ),
   );}
- $form['lib_list_mi_matters'] = array(
-//    '#title' => t('Click below to suggest a video'),
-    '#type' => 'item',
-    '#markup'=> $mi_matters,
-    // '#states' => array(
-    //   'visible' => array(
-    //     ':input[name="lib_list"]' => array('value' => '2'),
-    //   ),
-    // ),
-  );
- $form['lib_list_ops'] = array(
-//    '#title' => t('Click below to suggest a video'),
-    '#type' => 'item',
-    '#markup'=> $ops,
-    // '#states' => array(
-    //   'visible' => array(
-    //     ':input[name="lib_list"]' => array('value' => '2'),
-    //   ),
-    // ),
-  );
- $form['lib_list_org'] = array(
-//    '#title' => t('Click below to suggest a video'),
-    '#type' => 'item',
-    '#markup'=> $org,
-    // '#states' => array(
-    //   'visible' => array(
-    //     ':input[name="lib_list"]' => array('value' => '3'),
-    //   ),
-    // ),
-  );
- $form['lib_list_it'] = array(
-//    '#title' => t('Click below to suggest a video'),
-    '#type' => 'item',
-    '#markup'=> $ourtechnology,
-    // '#states' => array(
-    //   'visible' => array(
-    //     ':input[name="lib_list"]' => array('value' => '2'),
-    //   ),
-    // ),
-  );
+ */
     return $form;
 }
 
