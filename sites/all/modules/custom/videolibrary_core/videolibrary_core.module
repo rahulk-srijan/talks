@@ -697,7 +697,7 @@ function videolibrary_core_form($form, $form_state) {
     $term = taxonomy_get_tree(library_vocab_id);
     foreach($term as $name) {
       // Show only published channel
-      if($library_subsite_variable[$name->tid]['is_publish'] == '') {
+      if($library_subsite_variable[$name->tid]['is_publish'] == 1) {
         $ch_mail_to = $library_subsite_variable[$name->tid]['to'];
         $ch_subject = $library_subsite_variable[$name->tid]['subject'];
         $ch_msg = $library_subsite_variable[$name->tid]['msg'];
