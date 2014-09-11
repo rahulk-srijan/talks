@@ -1,7 +1,8 @@
 <?php
 global $subsite_home_page_url;
+global $base_url;
 ?>
-<script src="/sites/all/libraries/jwplayer/jwplayer.js"></script>
+<script src="<?php print $base_url;?>/sites/all/libraries/jwplayer/jwplayer.js"></script>
 <script>jwplayer.key = "Guox+nuMLWKTuNNNaAnBSWq9ep4UEQMc3m+a1A=="</script>
 <article id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
     <?php print render($title_prefix); ?>
