@@ -93,8 +93,8 @@ function get_manage_channel_block() {
         $output .= '<ul>';
         $output .= '<li>' . l("Manage Videos",'admin/manage-videos',$options) . '</li>';
         $output .= '<li>' . l("Manage Featured Videos",'admin/structure/nodequeue/8',$options) . '</li>';
-        $output .= '<li>' . l("Manage Categories",'admin/structure/taxonomy/channel_categories',$options) . '</li>';
-        $output .= '<li>' . l("Manage Tags",'admin/structure/taxonomy/channel_tags',$options) . '</li>';
+        $output .= '<li>' . l("Manage Categories",'admin/manage-categories',$options) . '</li>';
+        $output .= '<li>' . l("Manage Tags",'admin/manage-tags',$options) . '</li>';
         $output .= '</ul>';
     }
     
@@ -220,4 +220,10 @@ function adding_color_class_bodyTag() {
         }
     }
     return $color_class;
+}
+
+function get_related_tags($channel_tid) {
+    $query = db_query("SELECT td.tid,td.name FROM field_data_field_library fl, taxonomy_term_data td
+                      WHERE fl.field_library_tid = :tid AND fl.entity_id=td.tid AND fl.bundle=:bundle",
+                      array(':tid' => $channel_tid,':bundle'=>'channel_tags'))->fetchAll();
 }
