@@ -111,6 +111,10 @@
     color: #00abee;
 }
 
+.color-skyblue .views-slideshow-pager-field-item.views_slideshow_pager_field_item.active .views-content-counter {
+    background: url("images/img-skyblue.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+}
+
 .front .view-most-liked-lib-craousel .lib-title-color-skyblue a {
     color: #00abee;
 }
