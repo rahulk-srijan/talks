@@ -1585,3 +1585,19 @@ background-position: -57px -32px !important;
 #modalContent #modal-content #videolibrary-core-form .form-item {
     margin: 0 0 12px 0;
 }
+
+
+
+
+
+#views_slideshow_cycle_teaser_section_logging-block .views-field-message-render .title {
+    box-sizing: border-box;
+    float: left;
+    font-size: 11px;
+    height: 52px;
+    left: 270px;
+    padding: 10px 80px 10px 60px;
+    position: absolute;
+    top: 0;
+    width: 600px;
+}
