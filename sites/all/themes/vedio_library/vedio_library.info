@@ -15,8 +15,8 @@
   ; See each stylesheet for extensive documentation and help.
   stylesheets[screen][] = css/global.base.css
   stylesheets[screen][] = css/global.styles.css
-  stylesheets[screen][] = css/styles.css
   stylesheets[screen][] = css/color-classes.css
+  stylesheets[screen][] = css/styles.css
   stylesheets[all][] = css/custom.css
 
 
