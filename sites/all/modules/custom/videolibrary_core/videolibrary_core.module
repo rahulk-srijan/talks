@@ -21,7 +21,6 @@ foreach($channel_term as $name) {
     $desc = strip_tags($name->description);
     $publish = $channel_fields->field_publish_channel['und'][0]['value'];
     $private = $channel_fields->field_private_channel['und'][0]['value'];
-    $channel_url = $channel_fields->field_channel_url['und'][0]['value'];
     // Main color fetch
     $selected_color = $channel_fields->field_color_title['und'][0]['rgb'];
     foreach($color_variable as $key => $color_val) {
@@ -38,7 +37,6 @@ foreach($channel_term as $name) {
             'is_publish' => $publish,
             'is_private' => $private,
             'color-class' => $color_class,
-            'channel_path' => $channel_url,
             'tid' => $name->tid,
     );    
 }
