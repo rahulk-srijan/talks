@@ -1572,7 +1572,7 @@ background-position: -57px -32px !important;
 
 
 
-/* Css for Modal Window 11 Sep 2014 */
+/* Css for suggest a video Modal Window 11 Sep 2014 */
 
 #modalContent #modal-content {
     box-sizing: border-box;
@@ -1581,4 +1581,7 @@ background-position: -57px -32px !important;
     overflow: auto;
     padding: 0;
     width: 90% !important;
+}
+#modalContent #modal-content #videolibrary-core-form .form-item {
+    margin: 0 0 12px 0;
 }
