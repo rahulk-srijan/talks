@@ -1719,9 +1719,9 @@
             box-sizing: border-box;
         }
 
-        #views_slideshow_cycle_teaser_section_logging-block .views-field-message-render .author a {
+        /*#views_slideshow_cycle_teaser_section_logging-block .views-field-message-render .author a {
             color: #E37222 !important;
-        }
+        }*/
 
         #views_slideshow_cycle_main_logging-block .views-slideshow-cycle-main-frame-row .views-field-field-upload-video .field-content {
             height: auto;
