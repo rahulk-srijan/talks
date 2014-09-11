@@ -1569,3 +1569,16 @@ background-position: -29px -32px !important;
 background-position: -57px -32px !important;
 }
 
+
+
+
+/* Css for Modal Window 11 Sep 2014 */
+
+.modalContent #modal-content {
+    box-sizing: border-box;
+    height: 220px !important;
+    margin: 10px;
+    overflow: auto;
+    padding: 0;
+    width: 90% !important;
+}
