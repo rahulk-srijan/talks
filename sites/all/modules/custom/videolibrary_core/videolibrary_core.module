@@ -164,8 +164,18 @@ function category_menu() {
     $vocab_name = 'channel_categories' ;
     $homeclass = '';
     $tagsclass = '';
-    $arg2 = arg(2);
-
+    
+    if(arg(0) == 'taxonomy' && is_numeric(arg(2))) {
+        if(arg(2) != '') {
+            $term = taxonomy_term_load(arg(2));
+            if($term->vid == 5) {
+                $arg2 = arg(2);
+            }
+            else {
+                $arg2 = $term->field_library['und'][0]['tid'];
+            }
+        }
+    }
     $category_name = '';
 
     if(arg(0) == 'tags' && $arg2 == '') {
@@ -210,7 +220,15 @@ function category_menu() {
         $ch_tid = $_GET['ch_tid'];
     }
     else {
-        $ch_tid = arg(2);
+        if(arg(2) != '') {
+            $term = taxonomy_term_load(arg(2));
+            if($term->vid == 5) {
+                $ch_tid = arg(2);
+            }
+            else {
+                $ch_tid = $term->field_library['und'][0]['tid'];
+            }
+        }
     }
     $category_name .= '<div class="block view-views-by-category" id="block-views-views-by-category-block">
                     <div class="block-content content">

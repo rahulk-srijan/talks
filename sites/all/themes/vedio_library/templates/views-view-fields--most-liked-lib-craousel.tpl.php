@@ -27,28 +27,18 @@
 
 <?php
 global $base_url;
- //echo"<pre>";print_r($base_url);
-
-if ($row->tid == 455)
-	$class = "color-orange";
-else if($row->tid == 456)
-	$class="color-magenta";
-else if($row->tid == 457)
-	$class = "color-purple";
-else if($row->tid == 609)
-  $class = "color-yellow";
-else if($row->tid == 610)
-  $class = "color-bright-blue";
-else if($row->tid == 611)
-  $class = "color-entre";
-else if($row->tid == 612)
-  $class = "color-compete";
-else
-	$color ="color-default";
+global $color_variable;
+  $term = taxonomy_term_load($row->tid);
+  $selected_color = $term->field_color_title['und'][0]['rgb'];
+  foreach($color_variable as $key => $color_val) {
+        if($selected_color == $color_val) {
+            $class = $key;
+        }
+    }
 ?>
 
-<h4 class="lib-title lib-title-<?php print $class;?>">
-  <a href="<?php print $base_url .'/'. $row->taxonomy_term_data_name; ?>"><?php print $row->taxonomy_term_data_description;?></a></h4>
+<h4 class="lib-title lib-title-<?php print $class;?><?php $row->tid?>">
+  <?php print l(strip_tags($row->taxonomy_term_data_description),'taxonomy/term/'.$row->tid);?></h4>
 <div class="library-item hargun library-<?php print $class;?>">
 <?php foreach ($fields as $id => $field): ?>
   <?php if (!empty($field->separator)): ?>

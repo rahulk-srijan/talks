@@ -3,7 +3,8 @@
 
 /** Purple Color Css Classes **/
 
-.color-purple .post-menu-strip .lib-name a {
+
+.color-purple .post-menu-strip .lib-name, .color-purple .post-menu-strip .lib-name a {
     color: #642f7a;
 }
 
@@ -35,12 +36,37 @@
 	color: #642f7a;
 }
 
+.color-purple #edit-tid-wrapper .jcarousel-skin-default .jcarousel-item a.active-tag {
+    color: #642f7a;
+}
+
+.color-purple h1#page-title {
+    color: #642f7a;
+}
+
+.color-purple .region-sidebar-second .view-related-video .views-field.views-field-title a {
+    color: #642f7a;
+}
+
+.color-purple .region-secondary-content .region-inner #block-block-8 .block-inner .block-content.content p {
+    color: #642f7a;
+}
+
+.front .view-most-liked-lib-craousel .lib-title-color-purple a {
+    color: #642f7a;
+}
+
+.front .view-most-liked-lib-craousel .library-color-purple {
+    background-color: #642f7a;
+}
+
 
 
 
 /** Skyblue Color Css Classes **/
 
-.color-skyblue .post-menu-strip .lib-name a {
+
+.color-skyblue .post-menu-strip .lib-name, .color-skyblue .post-menu-strip .lib-name a {
     color: #00abee;
 }
 
@@ -69,14 +95,39 @@
 }
 
 .color-skyblue #views_slideshow_cycle_teaser_section_logging-block .views-field-message-render .author {
-	color: #00abee;
+    color: #00abee;
 }
+
+.color-skyblue #edit-tid-wrapper .jcarousel-skin-default .jcarousel-item a.active-tag {
+    color: #00abee;
+}
+
+.color-skyblue h1#page-title {
+    color: #00abee;
+}
+
+.color-skyblue .region-sidebar-second .view-related-video .views-field.views-field-title a {
+    color: #00abee;
+}
+
+.color-skyblue .region-secondary-content .region-inner #block-block-8 .block-inner .block-content.content p {
+    color: #00abee;
+}
+
+.front .view-most-liked-lib-craousel .lib-title-color-skyblue a {
+    color: #00abee;
+}
+
+.front .view-most-liked-lib-craousel .library-color-skyblue {
+    background-color: #00abee;
+}
+
 
 
 
 /** Mahendi Color Css Classes **/
 
-.color-mahendi .post-menu-strip .lib-name a {
+.color-mahendi .post-menu-strip .lib-name, .color-mahendi .post-menu-strip .lib-name a {
     color: #738102;
 }
 
@@ -108,11 +159,36 @@
 	color: #738102;
 }
 
+.color-mahendi #edit-tid-wrapper .jcarousel-skin-default .jcarousel-item a.active-tag {
+    color: #738102;
+}
+
+.color-mahendi h1#page-title {
+    color: #738102;
+}
+
+.color-mahendi .region-sidebar-second .view-related-video .views-field.views-field-title a {
+    color: #738102;
+}
+
+.color-mahendi .region-secondary-content .region-inner #block-block-8 .block-inner .block-content.content p {
+    color: #738102;
+}
+
+.front .view-most-liked-lib-craousel .lib-title-color-mahendi a {
+    color: #738102;
+}
+
+.front .view-most-liked-lib-craousel .library-color-mahendi {
+    background-color: #738102;
+}
+
+
 
 
 /** Magenta Color Css Classes **/
 
-.color-magenta .post-menu-strip .lib-name a {
+.color-magenta .post-menu-strip .lib-name, .color-magenta .post-menu-strip .lib-name a {
     color: #ad0059;
 }
 
@@ -141,7 +217,31 @@
 }
 
 .color-magenta #views_slideshow_cycle_teaser_section_logging-block .views-field-message-render .author {
-	color: #ad0059;
+    color: #ad0059;
+}
+
+.color-magenta #edit-tid-wrapper .jcarousel-skin-default .jcarousel-item a.active-tag {
+    color: #ad0059;
+}
+
+.color-magenta h1#page-title {
+    color: #ad0059;
+}
+
+.color-magenta .region-sidebar-second .view-related-video .views-field.views-field-title a {
+    color: #ad0059;
+}
+
+.color-magenta .region-secondary-content .region-inner #block-block-8 .block-inner .block-content.content p {
+    color: #ad0059;
+}
+
+.front .view-most-liked-lib-craousel .lib-title-color-magenta a {
+    color: #ad0059;
+}
+
+.front .view-most-liked-lib-craousel .library-color-magenta {
+    background-color: #ad0059;
 }
 
 
@@ -149,7 +249,7 @@
 
 /** Orange Color Css Classes **/
 
-.color-orange .post-menu-strip .lib-name a {
+.color-orange .post-menu-strip .lib-name, .color-orange .post-menu-strip .lib-name a {
     color: #e37222;
 }
 
@@ -178,14 +278,39 @@
 }
 
 .color-orange #views_slideshow_cycle_teaser_section_logging-block .views-field-message-render .author {
-	color: #e37222;
+    color: #e37222;
 }
+
+.color-orange #edit-tid-wrapper .jcarousel-skin-default .jcarousel-item a.active-tag {
+    color: #e37222;
+}
+
+.color-orange h1#page-title {
+    color: #e37222;
+}
+
+.color-orange .region-sidebar-second .view-related-video .views-field.views-field-title a {
+    color: #e37222;
+}
+
+.color-orange .region-secondary-content .region-inner #block-block-8 .block-inner .block-content.content p {
+    color: #e37222;
+}
+
+.front .view-most-liked-lib-craousel .lib-title-color-orange a {
+    color: #e37222;
+}
+
+.front .view-most-liked-lib-craousel .library-color-orange {
+    background-color: #e37222;
+}
+
 
 
 
 /** Khakhi Color Css Classes **/
 
-.color-khakhi .post-menu-strip .lib-name a {
+.color-khakhi .post-menu-strip .lib-name, .color-khakhi .post-menu-strip .lib-name a {
     color: #ceb003;
 }
 
@@ -214,14 +339,39 @@
 }
 
 .color-khakhi #views_slideshow_cycle_teaser_section_logging-block .views-field-message-render .author {
-	color: #ceb003;
+    color: #ceb003;
 }
+
+.color-khakhi #edit-tid-wrapper .jcarousel-skin-default .jcarousel-item a.active-tag {
+    color: #ceb003;
+}
+
+.color-khakhi h1#page-title {
+    color: #ceb003;
+}
+
+.color-khakhi .region-sidebar-second .view-related-video .views-field.views-field-title a {
+    color: #ceb003;
+}
+
+.color-khakhi .region-secondary-content .region-inner #block-block-8 .block-inner .block-content.content p {
+    color: #ceb003;
+}
+
+.front .view-most-liked-lib-craousel .lib-title-color-khakhi a {
+    color: #ceb003;
+}
+
+.front .view-most-liked-lib-craousel .library-color-khakhi {
+    background-color: #ceb003;
+}
+
 
 
 
 /** Blue Color Css Classes **/
 
-.color-blue .post-menu-strip .lib-name a {
+.color-blue .post-menu-strip .lib-name, .color-blue .post-menu-strip .lib-name a {
     color: #0066be;
 }
 
@@ -250,14 +400,38 @@
 }
 
 .color-blue #views_slideshow_cycle_teaser_section_logging-block .views-field-message-render .author {
-	color: #0066be;
+    color: #0066be;
+}
+
+.color-blue #edit-tid-wrapper .jcarousel-skin-default .jcarousel-item a.active-tag {
+    color: #0066be;
+}
+
+.color-blue h1#page-title {
+    color: #0066be;
+}
+
+.color-blue .region-sidebar-second .view-related-video .views-field.views-field-title a {
+    color: #0066be;
+}
+
+.color-blue .region-secondary-content .region-inner #block-block-8 .block-inner .block-content.content p {
+    color: #0066be;
+}
+
+.front .view-most-liked-lib-craousel .lib-title-color-blue a {
+    color: #0066be;
+}
+
+.front .view-most-liked-lib-craousel .library-color-blue {
+    background-color: #0066be;
 }
 
 
 
 /** Red Color Css Classes **/
 
-.color-red .post-menu-strip .lib-name a {
+.color-red .post-menu-strip .lib-name, .color-red .post-menu-strip .lib-name a {
     color: #ff0000;
 }
 
@@ -286,14 +460,39 @@
 }
 
 .color-red #views_slideshow_cycle_teaser_section_logging-block .views-field-message-render .author {
-	color: #ff0000;
+    color: #ff0000;
 }
+
+.color-red #edit-tid-wrapper .jcarousel-skin-default .jcarousel-item a.active-tag {
+    color: #ff0000;
+}
+
+.color-red h1#page-title {
+    color: #ff0000;
+}
+
+.color-red .region-sidebar-second .view-related-video .views-field.views-field-title a {
+    color: #ff0000;
+}
+
+.color-red .region-secondary-content .region-inner #block-block-8 .block-inner .block-content.content p {
+    color: #ff0000;
+}
+
+.front .view-most-liked-lib-craousel .lib-title-color-red a {
+    color: #ff0000;
+}
+
+.front .view-most-liked-lib-craousel .library-color-red {
+    background-color: #ff0000;
+}
+
 
 
 
 /** Pink Color Css Classes **/
 
-.color-pink .post-menu-strip .lib-name a {
+.color-pink .post-menu-strip .lib-name, .color-pink .post-menu-strip .lib-name a {
     color: #ff00b4;
 }
 
@@ -322,15 +521,38 @@
 }
 
 .color-pink #views_slideshow_cycle_teaser_section_logging-block .views-field-message-render .author {
-	color: #ff00b4;
+    color: #ff00b4;
 }
 
+.color-pink #edit-tid-wrapper .jcarousel-skin-default .jcarousel-item a.active-tag {
+    color: #ff00b4;
+}
+
+.color-pink h1#page-title {
+    color: #ff00b4;
+}
+
+.color-pink .region-sidebar-second .view-related-video .views-field.views-field-title a {
+    color: #ff00b4;
+}
+
+.color-pink .region-secondary-content .region-inner #block-block-8 .block-inner .block-content.content p {
+    color: #ff00b4;
+}
+
+.front .view-most-liked-lib-craousel .lib-title-color-pink a {
+    color: #ff00b4;
+}
+
+.front .view-most-liked-lib-craousel .library-color-pink {
+    background-color: #ff00b4;
+}
 
 
 
 /** Green Color Css Classes **/
 
-.color-green .post-menu-strip .lib-name a {
+.color-green .post-menu-strip .lib-name, .color-green .post-menu-strip .lib-name a {
     color: #1d8202;
 }
 
@@ -359,6 +581,29 @@
 }
 
 .color-green #views_slideshow_cycle_teaser_section_logging-block .views-field-message-render .author {
-	color: #1d8202;
+    color: #1d8202;
 }
 
+.color-green #edit-tid-wrapper .jcarousel-skin-default .jcarousel-item a.active-tag {
+    color: #1d8202;
+}
+
+.color-green h1#page-title {
+    color: #1d8202;
+}
+
+.color-green .region-sidebar-second .view-related-video .views-field.views-field-title a {
+    color: #1d8202;
+}
+
+.color-green .region-secondary-content .region-inner #block-block-8 .block-inner .block-content.content p {
+    color: #1d8202;
+}
+
+.front .view-most-liked-lib-craousel .lib-title-color-green a {
+    color: #1d8202;
+}
+
+.front .view-most-liked-lib-craousel .library-color-green {
+    background-color: #1d8202;
+}
