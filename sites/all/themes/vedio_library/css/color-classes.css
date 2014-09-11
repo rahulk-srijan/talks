@@ -32,8 +32,8 @@
     background: url("images/quotes_bto.png") no-repeat scroll 8px center transparent;
 }
 
-.color-purple #views_slideshow_cycle_teaser_section_logging-block .views-field-message-render .author {
-	color: #642f7a;
+.color-purple #views_slideshow_cycle_teaser_section_logging-block .views-field-message-render .author, .color-purple #views_slideshow_cycle_teaser_section_logging-block .views-field-message-render .author a {
+	color: #642f7a !important;
 }
 
 .color-purple #edit-tid-wrapper .jcarousel-skin-default .jcarousel-item a.active-tag {
@@ -98,8 +98,8 @@
     background: url("images/quotes-compete.png") no-repeat scroll 8px center transparent;
 }
 
-.color-skyblue #views_slideshow_cycle_teaser_section_logging-block .views-field-message-render .author {
-    color: #00abee;
+.color-skyblue #views_slideshow_cycle_teaser_section_logging-block .views-field-message-render .author, .color-purple #views_slideshow_cycle_teaser_section_logging-block .views-field-message-render .author a {
+    color: #00abee !important;
 }
 
 .color-skyblue #edit-tid-wrapper .jcarousel-skin-default .jcarousel-item a.active-tag {
@@ -163,8 +163,8 @@
     background: url("images/quotes-entre.png") no-repeat scroll 8px center transparent;
 }
 
-.color-mahendi #views_slideshow_cycle_teaser_section_logging-block .views-field-message-render .author {
-	color: #738102;
+.color-mahendi #views_slideshow_cycle_teaser_section_logging-block .views-field-message-render .author, .color-mahendi #views_slideshow_cycle_teaser_section_logging-block .views-field-message-render .author a {
+	color: #738102 !important;
 }
 
 .color-mahendi #edit-tid-wrapper .jcarousel-skin-default .jcarousel-item a.active-tag {
@@ -228,8 +228,8 @@
     background: url("images/quotes_ops.png") no-repeat scroll 8px center transparent;
 }
 
-.color-magenta #views_slideshow_cycle_teaser_section_logging-block .views-field-message-render .author {
-    color: #ad0059;
+.color-magenta #views_slideshow_cycle_teaser_section_logging-block .views-field-message-render .author, .color-magenta #views_slideshow_cycle_teaser_section_logging-block .views-field-message-render .author a {
+    color: #ad0059 !important;
 }
 
 .color-magenta #edit-tid-wrapper .jcarousel-skin-default .jcarousel-item a.active-tag {
@@ -293,8 +293,8 @@
     background: url("images/quotes_org.png") no-repeat scroll 8px center transparent;
 }
 
-.color-orange #views_slideshow_cycle_teaser_section_logging-block .views-field-message-render .author {
-    color: #e37222;
+.color-orange #views_slideshow_cycle_teaser_section_logging-block .views-field-message-render .author, .color-orange #views_slideshow_cycle_teaser_section_logging-block .views-field-message-render .author a {
+    color: #e37222 !important;
 }
 
 .color-orange #edit-tid-wrapper .jcarousel-skin-default .jcarousel-item a.active-tag {
@@ -358,8 +358,8 @@
     background: url("images/quotes-it.png") no-repeat scroll 8px center transparent;
 }
 
-.color-khakhi #views_slideshow_cycle_teaser_section_logging-block .views-field-message-render .author {
-    color: #ceb003;
+.color-khakhi #views_slideshow_cycle_teaser_section_logging-block .views-field-message-render .author, .color-khakhi #views_slideshow_cycle_teaser_section_logging-block .views-field-message-render .author a {
+    color: #ceb003 !important;
 }
 
 .color-khakhi #edit-tid-wrapper .jcarousel-skin-default .jcarousel-item a.active-tag {
@@ -423,8 +423,8 @@
     background: url("images/quotes-ndm.png") no-repeat scroll 8px center transparent;
 }
 
-.color-blue #views_slideshow_cycle_teaser_section_logging-block .views-field-message-render .author {
-    color: #0066be;
+.color-blue #views_slideshow_cycle_teaser_section_logging-block .views-field-message-render .author, .color-blue #views_slideshow_cycle_teaser_section_logging-block .views-field-message-render .author a {
+    color: #0066be !important;
 }
 
 .color-blue #edit-tid-wrapper .jcarousel-skin-default .jcarousel-item a.active-tag {
@@ -487,8 +487,8 @@
     background: url("images/quotes_bto.png") no-repeat scroll 8px center transparent;
 }
 
-.color-red #views_slideshow_cycle_teaser_section_logging-block .views-field-message-render .author {
-    color: #ff0000;
+.color-red #views_slideshow_cycle_teaser_section_logging-block .views-field-message-render .author, .color-red #views_slideshow_cycle_teaser_section_logging-block .views-field-message-render .author a {
+    color: #ff0000 !important;
 }
 
 .color-red #edit-tid-wrapper .jcarousel-skin-default .jcarousel-item a.active-tag {
@@ -552,8 +552,8 @@
     background: url("images/quotes_bto.png") no-repeat scroll 8px center transparent;
 }
 
-.color-pink #views_slideshow_cycle_teaser_section_logging-block .views-field-message-render .author {
-    color: #ff00b4;
+.color-pink #views_slideshow_cycle_teaser_section_logging-block .views-field-message-render .author, .color-pink #views_slideshow_cycle_teaser_section_logging-block .views-field-message-render .author a {
+    color: #ff00b4 !important;
 }
 
 .color-pink #edit-tid-wrapper .jcarousel-skin-default .jcarousel-item a.active-tag {
@@ -616,8 +616,8 @@
     background: url("images/quotes_bto.png") no-repeat scroll 8px center transparent;
 }
 
-.color-green #views_slideshow_cycle_teaser_section_logging-block .views-field-message-render .author {
-    color: #1d8202;
+.color-green #views_slideshow_cycle_teaser_section_logging-block .views-field-message-render .author, .color-green #views_slideshow_cycle_teaser_section_logging-block .views-field-message-render .author a {
+    color: #1d8202 !important;
 }
 
 .color-green #edit-tid-wrapper .jcarousel-skin-default .jcarousel-item a.active-tag {
