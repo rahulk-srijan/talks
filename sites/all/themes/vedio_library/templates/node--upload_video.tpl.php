@@ -1,7 +1,8 @@
 <?php
 global $subsite_home_page_url;
+global $base_url;
 ?>
-<script src="/sites/all/libraries/jwplayer/jwplayer.js"></script>
+<script src="<?php print $base_url;?>/sites/all/libraries/jwplayer/jwplayer.js"></script>
 <script>jwplayer.key = "Guox+nuMLWKTuNNNaAnBSWq9ep4UEQMc3m+a1A=="</script>
 <article id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
     <?php print render($title_prefix); ?>
@@ -45,7 +46,7 @@ global $subsite_home_page_url;
             $url = current_path();
             $path_alias = drupal_lookup_path('alias', $url);
             $break = "%0D%0D%0D";
-            $subject = $user->name . $library_subsite_variable[$subsite_home_page_url]['recommend_text'];
+            $subject = $user->name . $library_subsite_variable[$node->nid]['recommend_text'];
             $title_t = $title;
             $title_t = preg_replace('/[^A-Za-z0-9]/', ' ', $title_t);
             $body = "View the video '" . $title_t . "' here: " . $base_url . "/" . $path_alias . $break;
@@ -108,7 +109,7 @@ global $subsite_home_page_url;
             $url = current_path();
             $path_alias = drupal_lookup_path('alias', $url);
             $break = "%0D%0D%0D";
-            $subject = $user->name . $library_subsite_variable[$subsite_home_page_url]['recommend_text'];
+            $subject = $user->name . $library_subsite_variable[$node->nid]['recommend_text'];
             $body = "View the video '" . $title . "' here: " . $base_url . "/" . $path_alias . $break;
             //       $body = "Here is the link " . url($node_url, array('absolute' => TRUE));
             print '<a href="mailto:?Subject=' . $subject . '&body=' . $body . ' ">' . t('Recommend to a colleague') . '</a>';
