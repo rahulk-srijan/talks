@@ -300,15 +300,6 @@ function videolibrary_core_views_query_alter(&$view, &$query) {
         // Adding OR condition for the contextual filters.
         $query->where[0]['type'] = 'OR';
     }
-    
-    /*if($view->name == 'listing_by_tags') {
-        if($view->current_display == 'page_11') {
-            $tid = taxonomy_get_term_by_name(arg(1), 'library');
-            $channel_id = key($tid);
-            $query->where[1]['conditions'][2]['value'] = $channel_id;
-            $query->where[1]['conditions'][2]['operator'] = '=';
-        }
-    }*/
 }
 
 function videolibrary_core_views_pre_render(&$view) {
@@ -405,28 +396,30 @@ function videolibrary_core_form_alter(&$form, &$form_state, $form_id) {
     }
 
     if($form_id=='views_exposed_form') {
-    $form['field_library_tid']['#options'][536] ='Spotlight';
-    $form['field_library_tid']['#options'][457] ='BTO Academy';
-    $form['field_library_tid']['#options'][456] ='Ops in Action';
-    $form['field_library_tid']['#options'][455] ='Org in Action';
-    $form['field_library_tid']['#options'][609] ='Our Technology';
-    $form['field_library_tid']['#options'][610] ='MI Matters';
-    $form['field_library_tid']['#options'][611] ='Entrepreneurship Stories';
-    $form['field_library_tid']['#options'][612] ='Compete to Win';
-    asort($form['field_library_tid']['#options']);
-     global $user;
-    $role = $user->roles;
-    $private_entre= array('ors entrepreneur user', 'entrepreneur user', 'administrator', 'super admin', 'entrepreneur web master');
-    $result_entre = array_intersect($private_entre, $role);
-    if(count($result_entre) == '0') {
-        unset($form['field_library_tid']['#options'][611]);
+        $form['tid']['#options'] = '';
+        if(arg(0) == 'tags' && isset($_GET['ch_tid'])) {
+            $query = db_query("SELECT td.tid,td.name FROM field_data_field_library fl, taxonomy_term_data td
+                      WHERE fl.field_library_tid = :tid AND fl.entity_id=td.tid AND fl.bundle=:bundle",
+                      array(':tid' => $_GET['ch_tid'],':bundle'=>'channel_tags'))->fetchAll();
+        }
+        $form['tid']['#options']['All'] = t("- Any -");
+        foreach($query as $options) {
+            $form['tid']['#options'][$options->tid] = $options->name;
+        }
+        
+        global $user;
+        $role = $user->roles;
+        $private_entre= array('ors entrepreneur user', 'entrepreneur user', 'administrator', 'super admin', 'entrepreneur web master');
+        $result_entre = array_intersect($private_entre, $role);
+        if(count($result_entre) == '0') {
+            unset($form['field_library_tid']['#options'][611]);
+        }
+        $private_compete= array('ors compete to win user', 'compete to win user', 'administrator', 'super admin', 'compete to win web master');
+        $result_compete = array_intersect($private_compete, $role);
+        if(count($result_compete) == '0') {
+            unset($form['field_library_tid']['#options'][612]);
+        }
     }
-    $private_compete= array('ors compete to win user', 'compete to win user', 'administrator', 'super admin', 'compete to win web master');
-    $result_compete = array_intersect($private_compete, $role);
-    if(count($result_compete) == '0') {
-        unset($form['field_library_tid']['#options'][612]);
-    }
-}
     if($form_id =='upload_video_node_form') {
         global $user;
     //    $orginaction =  "$form['field_library']['und']['#options'][455]";
