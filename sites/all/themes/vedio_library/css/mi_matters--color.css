@@ -34,9 +34,9 @@
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
 }
-#views_slideshow_cycle_teaser_section_logging-block .views-field-message-render .author a {
+/*#views_slideshow_cycle_teaser_section_logging-block .views-field-message-render .author a {
 color: #0066be !important;
-}
+}*/
 #views_slideshow_cycle_teaser_section_logging-block .views-field-message-render .author {
     color: #0066be;
     float: left;

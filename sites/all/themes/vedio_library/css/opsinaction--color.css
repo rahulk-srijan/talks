@@ -34,9 +34,9 @@
 #views_slideshow_controls_text_next_comments_recent-block a, #views_slideshow_controls_text_next_logging-block a {
     background-color: #AD0059;
 }
-#views_slideshow_cycle_teaser_section_logging-block .views-field-message-render .author a {
+/*#views_slideshow_cycle_teaser_section_logging-block .views-field-message-render .author a {
 color: #AD0059 !important;
-}
+}*/
 .view-home-page-video-listing .views-field-title a,
 .view-listing-by-category .views-field-title a,
 .view-listing-by-tags .views-field-title a, 
