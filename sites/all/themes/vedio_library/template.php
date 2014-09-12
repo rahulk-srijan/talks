@@ -5,9 +5,15 @@
  *
  */
 global $subsite_home_page_url;
-$library_array = array('orginaction', 'opsinaction', 'btoacademy','spotlight','ourtechnology','mi_matters','partner_entrepreneurship','competetowin','newtest_channel');
+//$library_array = array('orginaction', 'opsinaction', 'btoacademy','spotlight','ourtechnology','mi_matters','partner_entrepreneurship','competetowin','newtest_channel');
+$library_array = array();
+$temp = taxonomy_get_tree(5);
+foreach ($temp as $key => $value) {
+   $library_array[$key] =  $value->name;
+}
 
 $argument = explode('/', request_path());
+//echo "<pre>";print_r($temp);die();
 if (in_array($argument[0], $library_array)) {
     $subsite_home_page_url = strtolower($argument[0]);
 }

@@ -45,6 +45,7 @@ function mckc_omniture_settings_submit(&$form, &$form_state) {
  */
 function mckc_omniture_sitecatalyst_variables() {
   global $subsite_home_page_url;
+  //print_r($subsite_home_page_url);die();
   $variables = array();
   if(isset($_SERVER['HTTP_PERSON_ID'])) {
     $visitor_id = $_SERVER['HTTP_PERSON_ID'];
