@@ -45,6 +45,13 @@ function vedio_library_preprocess_html(&$vars) {
         ),
         'preprocess' => FALSE
     ));
+    drupal_add_js($base_url.'/'.drupal_get_path('theme', 'vedio_library') . '/scripts/selectivizr/selectivizr.js', array(
+    'type' => 'external',
+    'scope' => 'header',
+    'group' => JS_THEME,
+    'every_page' => TRUE,
+    'weight' => 0,
+    ));
 
     if (!empty($subsite_home_page_url))  {
     drupal_add_css(drupal_get_path('theme', 'vedio_library') . '/css/' . $subsite_home_page_url . '--color.css', array(
