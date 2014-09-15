@@ -52,6 +52,7 @@ function vedio_library_preprocess_html(&$vars) {
     'every_page' => TRUE,
     'weight' => 0,
     ));
+    
 
     if (!empty($subsite_home_page_url))  {
     drupal_add_css(drupal_get_path('theme', 'vedio_library') . '/css/' . $subsite_home_page_url . '--color.css', array(
