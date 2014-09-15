@@ -38,6 +38,7 @@ foreach($channel_term as $name) {
             'is_private' => $private,
             'color-class' => $color_class,
             'tid' => $name->tid,
+            'channel_path' => 'taxonomy/term/'.$name->tid,
     );    
 }
 
@@ -384,6 +385,23 @@ function videolibrary_core_views_pre_render(&$view) {
 }
 
 function videolibrary_core_form_alter(&$form, &$form_state, $form_id) {
+    if($form_id == 'nodequeue_arrange_subqueue_form_8') {
+        //print_r($form);
+        if(isset($_GET['ch_tid'])) {
+            $query = db_query("SELECT td.tid,td.name FROM field_data_field_library fl, taxonomy_term_data td
+                      WHERE fl.field_library_tid = :tid AND fl.entity_id=td.tid AND fl.bundle=:bundle",
+                      array(':tid' => $_GET['ch_tid'],':bundle'=>'channel_tags'))->fetchAll();
+        }
+        foreach($query as $options) {
+            $node = node_load($options->tid);
+            $form['nodes'][$options->tid] = array(
+                '#nodes'=>array($node),
+                'title'=> array('#markup'=> '<a href="node/">'.$options->name.'</a>'),
+                'author' => array('#markup' => ''),
+                'edit'=> array('#markup'=> '<a href="node/">'.$options->name.'</a>'),
+            );
+        }
+    }
     if($form_id == 'taxonomy_form_term') {
         if($form['#term']['vocabulary_machine_name'] == 'channel_categories' || $form['#term']['vocabulary_machine_name'] == 'channel_tags') {
             $form['field_library']['#disabled'] = TRUE;
@@ -499,35 +517,41 @@ function videolibrary_core_unset_field_library($form,$library_roles,$tid) {
          return $form;
 }
 
+/**
+ * Implemetation of hook_node_view()
+ * @param $node
+ * @param $view_mode
+ * @param $langcode
+ * return string
+ **/
 function videolibrary_core_node_view($node, $view_mode, $langcode) {
-    //dsm($GLOBALS);
-     //$device = array('ipad', 'iphone');
-    if(isset($_SERVER["HTTP_X_FORWARDED_FOR"])) {
-    ors_role_assign();
-    }
     global $library_subsite_variable;
+
+    //$device = array('ipad', 'iphone');
+    if(isset($_SERVER["HTTP_X_FORWARDED_FOR"])) {
+        ors_role_assign();
+    }
     $uri= $GLOBALS['_GET']['redirect'];
-     if ((bool) strpos($_SERVER['HTTP_USER_AGENT'], 'iPad') && (bool) strpos($_SERVER['HTTP_USER_AGENT'], 'iPhone' && $uri= 'true')) {
-     //    return;
-     // }else {
-    //dsm($GLOBALS);
+
+    if ((bool) strpos($_SERVER['HTTP_USER_AGENT'], 'iPad') && (bool) strpos($_SERVER['HTTP_USER_AGENT'], 'iPhone' && $uri= 'true')) {
         return;
     }
     elseif(($_SERVER['HTTP_REFERER']==NULL) && ($GLOBALS['_GET']['q'] == 'node/5')) {
-    $flag = flag_get_flag('default');
-    if($flag) {
-   // $libs=array('455'=>'orginaction','456'=>'opsinaction','457'=>'btoacademy');
-    foreach($library_subsite_variable as $channel) {
-    if ($flag->is_flagged($channel['tid'])) {
-      drupal_goto($channel['channel_path']);
+        $flag = flag_get_flag('default');
+        if($flag) {
+       // $libs=array('455'=>'orginaction','456'=>'opsinaction','457'=>'btoacademy');
+        foreach($library_subsite_variable as $channel) {
+            if ($flag->is_flagged($channel['tid'])) {
+              drupal_goto($channel['channel_path']);
+            }
+        }
+        }else {
+            return;
+        }
     }
-    }
-}else {
-    return;
 }
-}
-}
-//}
+
+
 function videolibrary_core_menu() {
     $items = array();
 
