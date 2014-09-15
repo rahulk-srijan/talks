@@ -68,7 +68,8 @@ global $subsite_home_page_url;
    <link rel="shortcut icon" href="<?php print $base_url . '/' . path_to_theme() . '/favicon2.ico' ?>" type="image/x-icon" />
    <?php } ?>
 
-  <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+  <!-- <meta http-equiv="X-UA-Compatible" content="IE=EDGE" /> -->
+  <meta http-equiv="x-ua-compatible" content="IE=edge" >
 <?php print $head; ?>
 <title><?php
 global $subsite_home_page_url;
