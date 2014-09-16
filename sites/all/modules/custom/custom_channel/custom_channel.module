@@ -236,7 +236,33 @@ function get_related_tags($channel_tid) {
  **/
 function custom_channel_taxonomy_term_insert($term) {
     if($term->vid == library_vocab_id) {
-        $queue_data = array(
+        create_nodequeue($term);
+    }
+}
+
+/**
+ * Implementation of hook_taxonomy_term_update
+ * @param $term
+ * return array nodequeue
+ **/
+
+function custom_channel_taxonomy_term_update($term) {
+    if($term->vid == library_vocab_id) {
+        $query = db_query("SELECT reference FROM nodequeue_queue WHERE reference = :tid",
+                          array(':tid'=>$term->tid))->fetchField();
+        if($query == '') {
+            create_nodequeue($term);
+        }
+    }
+}
+
+/**
+ * Custom callback function for creating a nodequeue
+ * @param $term
+ * return array
+**/
+function create_nodequeue($term) {
+    $queue_data = array(
             'queue1' => array(
               'title' => $term->name.' nodequeue',
               'subqueue_title' => '',
@@ -263,7 +289,4 @@ function custom_channel_taxonomy_term_insert($term) {
           $queue = (object) $q;
           $qid = nodequeue_save($queue); // sets $queue->qid if needed.
         }
-    }
 }
-
-
