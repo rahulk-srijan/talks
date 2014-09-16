@@ -18,7 +18,7 @@ foreach($channel_term as $name) {
             $email_val .= $mail['email'] . t(",");
         }
     }
-    $desc = strip_tags($name->description);
+    $desc = $channel_fields->field_channel_name['und'][0]['value'];
     $publish = $channel_fields->field_publish_channel['und'][0]['value'];
     $private = $channel_fields->field_private_channel['und'][0]['value'];
     // Main color fetch
