@@ -1774,32 +1774,8 @@ function nodequeue_api_autocomplete($queue, $subqueue, $string) {
   if (empty($string)) {
     return $matches;
   }
-
-if($queue->qid=='3' ) {
-     $tid='457';
-     $query = taxonomy_based_autocomplete_alter($tid);
-}elseif ($queue->qid=='2') {
-   $tid='456';
-     $query = taxonomy_based_autocomplete_alter($tid);
-}
-elseif ($queue->qid=='1') {
-   $tid='455';
-     $query = taxonomy_based_autocomplete_alter($tid);
-}
-elseif ($queue->qid=='4') {
-   $tid='609';
-     $query = taxonomy_based_autocomplete_alter($tid);
-}
-elseif ($queue->qid=='5') {
-   $tid='610';
-     $query = taxonomy_based_autocomplete_alter($tid);
-}elseif ($queue->qid=='6') {
-   $tid='611';
-     $query = taxonomy_based_autocomplete_alter($tid);
-}
-elseif ($queue->qid=='7') {
-   $tid='612';
-     $query = taxonomy_based_autocomplete_alter($tid);
+if($queue->reference != 0) {
+  $query = taxonomy_based_autocomplete_alter($queue->reference);
 }
 else {
   $query = db_select('node', 'n')
