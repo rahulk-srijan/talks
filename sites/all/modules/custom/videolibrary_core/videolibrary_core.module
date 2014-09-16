@@ -385,25 +385,8 @@ function videolibrary_core_views_pre_render(&$view) {
 }
 
 function videolibrary_core_form_alter(&$form, &$form_state, $form_id) {
-    if($form_id == 'nodequeue_arrange_subqueue_form_8') {
-        //print_r($form);
-        if(isset($_GET['ch_tid'])) {
-            $query = db_query("SELECT td.tid,td.name FROM field_data_field_library fl, taxonomy_term_data td
-                      WHERE fl.field_library_tid = :tid AND fl.entity_id=td.tid AND fl.bundle=:bundle",
-                      array(':tid' => $_GET['ch_tid'],':bundle'=>'channel_tags'))->fetchAll();
-        }
-        foreach($query as $options) {
-            $node = node_load($options->tid);
-            $form['nodes'][$options->tid] = array(
-                '#nodes'=>array($node),
-                'title'=> array('#markup'=> '<a href="node/">'.$options->name.'</a>'),
-                'author' => array('#markup' => ''),
-                'edit'=> array('#markup'=> '<a href="node/">'.$options->name.'</a>'),
-            );
-        }
-    }
     if($form_id == 'taxonomy_form_term') {
-        if($form['#term']['vocabulary_machine_name'] == 'channel_categories' || $form['#term']['vocabulary_machine_name'] == 'channel_tags') {
+        if($form['#term']->vocabulary_machine_name == 'channel_categories' || $form['#term']->vocabulary_machine_name == 'channel_tags') {
             $form['field_library']['#disabled'] = TRUE;
             drupal_add_css('#edit-field-library {display:none}',$option['type'] = 'inline');
         }
