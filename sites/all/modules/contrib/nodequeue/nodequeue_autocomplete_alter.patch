@@ -1,49 +1,39 @@
 diff --git a/sites/all/modules/contrib/nodequeue/nodequeue.module b/sites/all/modules/contrib/nodequeue/nodequeue.module
-index 5f84cd5..e119ad8 100644
+index ed05340..a296baa 100644
 --- a/sites/all/modules/contrib/nodequeue/nodequeue.module
 +++ b/sites/all/modules/contrib/nodequeue/nodequeue.module
-@@ -1765,15 +1765,26 @@ function nodequeue_api_autocomplete($queue, $subqueue, $string) {
+@@ -1774,32 +1774,8 @@ function nodequeue_api_autocomplete($queue, $subqueue, $string) {
+   if (empty($string)) {
      return $matches;
    }
- 
-+if($queue->qid=='3' ) {
-+     $tid='457';
-+     $query = taxonomy_based_autocomplete_alter($tid);
-+}elseif ($queue->qid=='2') {
-+   $tid='456';
-+     $query = taxonomy_based_autocomplete_alter($tid);
-+}
-+elseif ($queue->qid=='1') {
-+   $tid='455';
-+     $query = taxonomy_based_autocomplete_alter($tid);
-+}
-+else {
-   $query = db_select('node', 'n')
-     ->addTag('node_access')
-     ->fields('n', array('nid', 'tnid', 'title'))
-     ->range(0, variable_get('nodequeue_autocomplete_limit', 10));
 -
-+}
-   if (!empty($queue->types)) {
-     $query->condition('n.type', $queue->types, 'IN');
-   }
--
-   $where_args = array();
-   global $user;
-   if (!user_access('administer nodes', $user)) {
-@@ -2181,3 +2192,15 @@ function theme_nodequeue_subqueue_full_text() {
- function theme_nodequeue_subqueue_count_text($variables) {
-   return t('@count in queue', array('@count' => $variables['count']));
+-if($queue->qid=='3' ) {
+-     $tid='457';
+-     $query = taxonomy_based_autocomplete_alter($tid);
+-}elseif ($queue->qid=='2') {
+-   $tid='456';
+-     $query = taxonomy_based_autocomplete_alter($tid);
+-}
+-elseif ($queue->qid=='1') {
+-   $tid='455';
+-     $query = taxonomy_based_autocomplete_alter($tid);
+-}
+-elseif ($queue->qid=='4') {
+-   $tid='609';
+-     $query = taxonomy_based_autocomplete_alter($tid);
+-}
+-elseif ($queue->qid=='5') {
+-   $tid='610';
+-     $query = taxonomy_based_autocomplete_alter($tid);
+-}elseif ($queue->qid=='6') {
+-   $tid='611';
+-     $query = taxonomy_based_autocomplete_alter($tid);
+-}
+-elseif ($queue->qid=='7') {
+-   $tid='612';
+-     $query = taxonomy_based_autocomplete_alter($tid);
++if($queue->reference != 0) {
++  $query = taxonomy_based_autocomplete_alter($queue->reference);
  }
-+/**
-+ * Return query based on taxonomy
-+ */
-+function taxonomy_based_autocomplete_alter($tid) {
-+  $query = db_select('node', 'n');
-+    $query->join('taxonomy_index', 't', 'n.nid = t.nid');
-+    $query->fields('n', array('nid','tnid','title'))
-+          ->condition('t.tid',$tid)
-+           ->range(0, variable_get('nodequeue_autocomplete_limit', 10));
-+
-+      return $query;
-+}
+ else {
+   $query = db_select('node', 'n')
