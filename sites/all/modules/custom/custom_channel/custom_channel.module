@@ -95,7 +95,7 @@ function get_manage_channel_block() {
         );
         $output .= '<ul>';
         $output .= '<li>' . l("Manage Videos",'admin/manage-videos',$options) . '</li>';
-        $output .= '<li>' . l("Manage Featured Videos",'admin/structure/nodequeue/'.$get_nodequeue_id,$options) . '</li>';
+        $output .= '<li>' . l("Manage Featured Videos",'admin/structure/nodequeue/'.$get_nodequeue_id) . '</li>';
         $output .= '<li>' . l("Manage Categories",'admin/manage-categories',$options) . '</li>';
         $output .= '<li>' . l("Manage Tags",'admin/manage-tags',$options) . '</li>';
         $output .= '</ul>';
