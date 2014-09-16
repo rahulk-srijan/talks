@@ -388,9 +388,10 @@ function videolibrary_core_form_alter(&$form, &$form_state, $form_id) {
             $form['field_library']['#disabled'] = TRUE;
             drupal_add_css('#edit-field-library {display:none}',$option['type'] = 'inline');
         }
-        /*if($form['#term'] == 'library') {
-            
-        }*/
+        if($form['#term']['vocabulary_machine_name'] == 'library') {
+            $form['name']['#title'] = t("Title");
+            $form['name']['#description'] = t("Please enter title without spaces. Use underscore or hyphen to get distinguished");
+        }
     }
     
     if($form_id=='upload_video_node_form') {
