@@ -29,8 +29,8 @@ global $base_url;
                         jwplayer("myElement").setup({
                             file: "<?php echo file_create_url($node->field_upload_video[LANGUAGE_NONE][0]['uri']); ?>",
                             image: "<?php echo file_create_url($node->field_upload_video[LANGUAGE_NONE][0]['thumbnailfile']->uri); ?>",
-                            height: 312,
-                            width: 509
+                            height: 343,
+                            width: 560
                         });
                     </script>
                 <?php endif;
