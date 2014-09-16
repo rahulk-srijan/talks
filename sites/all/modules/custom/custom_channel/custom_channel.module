@@ -88,12 +88,14 @@ function get_color_channel($tid) {
 function get_manage_channel_block() {
     $output = '';
     if(isset($_GET['channel_tid'])) {
+        $get_nodequeue_id = db_query("SELECT qid FROM nodequeue_queue WHERE reference=:tid",
+                                     array(':tid'=>$_GET['channel_tid']))->fetchField();
         $options = array(
             'query' => array('channel_tid'=>$_GET['channel_tid']),
         );
         $output .= '<ul>';
         $output .= '<li>' . l("Manage Videos",'admin/manage-videos',$options) . '</li>';
-        $output .= '<li>' . l("Manage Featured Videos",'admin/structure/nodequeue/8',$options) . '</li>';
+        $output .= '<li>' . l("Manage Featured Videos",'admin/structure/nodequeue/'.$get_nodequeue_id,$options) . '</li>';
         $output .= '<li>' . l("Manage Categories",'admin/manage-categories',$options) . '</li>';
         $output .= '<li>' . l("Manage Tags",'admin/manage-tags',$options) . '</li>';
         $output .= '</ul>';
@@ -236,7 +238,9 @@ function get_related_tags($channel_tid) {
  **/
 function custom_channel_taxonomy_term_insert($term) {
     if($term->vid == library_vocab_id) {
-        create_nodequeue($term);
+        if(function_exists('create_nodequeue')) {
+            create_nodequeue($term);
+        }
     }
 }
 
@@ -251,7 +255,9 @@ function custom_channel_taxonomy_term_update($term) {
         $query = db_query("SELECT reference FROM nodequeue_queue WHERE reference = :tid",
                           array(':tid'=>$term->tid))->fetchField();
         if($query == '') {
-            create_nodequeue($term);
+            if(function_exists('create_nodequeue')) {
+                create_nodequeue($term);
+            }
         }
     }
 }
