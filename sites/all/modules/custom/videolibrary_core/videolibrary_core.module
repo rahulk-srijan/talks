@@ -62,12 +62,10 @@ function videolibrary_core_block_view($delta = '') {
         switch ($delta) {
         case 'site_switching':
             $block['subject'] = null; // Most forms don't have a subject
-//    $block['content'] = noti_block_view();
             $block['content'] = site_switching();
             break;
         case 'category_menu':
             $block['subject'] = null; // Most forms don't have a subject
-//    $block['content'] = noti_block_view();
             $block['content'] = category_menu();
             break;
     }
@@ -79,7 +77,7 @@ function videolibrary_core_block_view($delta = '') {
  */
 
 function site_switching() {
-    $terms = taxonomy_get_tree(5);
+    $terms = taxonomy_get_tree(library_vocab_id);
     $content = '<ul class="sites_switch">';
     foreach ($terms as $val) {
         $content .='<li>' . l($val->name, $val->name . '') . '</li>';
@@ -156,7 +154,7 @@ function category_menu() {
     else {
         if(arg(2) != '') {
             $term = taxonomy_term_load(arg(2));
-            if($term->vid == 5) {
+            if($term->vid == library_vocab_id) {
                 $ch_tid = arg(2);
             }
             else {
