@@ -27,18 +27,13 @@
 
 <?php
 global $base_url;
-global $color_variable;
-  $term = taxonomy_term_load($row->tid);
-  $selected_color = $term->field_color_title['und'][0]['rgb'];
-  foreach($color_variable as $key => $color_val) {
-        if($selected_color == $color_val) {
-            $class = $key;
-        }
-    }
+global $library_subsite_variable;
+$class = $library_subsite_variable[$row->tid]['color-class'];
+$channel_name = $row->field_field_channel_name[0]['raw']['value'];
 ?>
 
 <h4 class="lib-title lib-title-<?php print $class;?><?php $row->tid?>">
-  <?php print l(strip_tags($row->taxonomy_term_data_description),'taxonomy/term/'.$row->tid);?></h4>
+  <?php print l($channel_name,'taxonomy/term/'.$row->tid);?></h4>
 <div class="library-item hargun library-<?php print $class;?>">
 <?php foreach ($fields as $id => $field): ?>
   <?php if (!empty($field->separator)): ?>
