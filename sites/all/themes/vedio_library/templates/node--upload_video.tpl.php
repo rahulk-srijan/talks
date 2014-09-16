@@ -17,7 +17,29 @@ global $base_url;
                 <?php endif; ?>
             </header>
         <?php endif; ?>
-        <div class='upload-video'><?php print render($content['field_upload_video']); ?></div>
+        <div class='upload-video'>
+            <?php
+            $format = false;
+            $videoname = $node->field_upload_video[LANGUAGE_NONE][0]['filename'];
+            $format = stristr($videoname, '.mov');
+            if ($format != false) :
+                    ?>
+                    <div id="myElement">Loading the player...</div>
+                    <script type="text/javascript">
+                        jwplayer("myElement").setup({
+                            file: "<?php echo file_create_url($node->field_upload_video[LANGUAGE_NONE][0]['uri']); ?>",
+                            image: "<?php echo file_create_url($node->field_upload_video[LANGUAGE_NONE][0]['thumbnailfile']->uri); ?>",
+                            height: 312,
+                            width: 509
+                        });
+                    </script>
+                <?php endif;
+            
+            if ($format==false){
+              print render($content['field_upload_video']);
+            } 
+            ?>
+        </div>
         <?php
         // Get the current child library configuration variables.
         global $library_subsite_variable;
