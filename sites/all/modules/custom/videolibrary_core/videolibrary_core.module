@@ -302,7 +302,7 @@ function videolibrary_core_views_query_alter(&$view, &$query) {
 }
 
 function videolibrary_core_views_pre_render(&$view) {
-  /*if($view->name == 'most_liked_lib_craousel'){
+  if($view->name == 'most_liked_lib_craousel'){
     $temp = array();
     if ($view->result['6']->taxonomy_term_data_name == 'partner_entrepreneurship'){
         if ($view->result['1']->taxonomy_term_data_name == 'competetowin')  {
@@ -353,7 +353,7 @@ function videolibrary_core_views_pre_render(&$view) {
           $view->result['1'] = $temp['0'];
        }
     }
-  }*/
+  }
   if($view->name=='global_popular_video') {
     // Get most popular from 1st library
     $result1 = $view->result;
@@ -719,7 +719,7 @@ function videolibrary_core_form($form, $form_state) {
     }
   
 // For pivate channel
-/*  $compete_roles = array('compete to win user','ors compete to win user','super admin','compete to win web master');
+  $compete_roles = array('compete to win user','ors compete to win user','super admin','compete to win web master');
   $compete_result= array_intersect($compete_roles, $roles);
   if(!empty($compete_result)) {
   $form['lib_list_compete'] = array(
@@ -733,7 +733,7 @@ function videolibrary_core_form($form, $form_state) {
     '#type' => 'item',
     '#markup'=> $partner_entrepreneurship,
   );}
- */
+ 
     return $form;
 }
 
