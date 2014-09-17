@@ -66,7 +66,7 @@ function add_term_roles_taxonomy_term_insert($term) {
     if ($term->field_private_channel[LANGUAGE_NONE][0]['value'] == 1) {
       $name = 'ors ' . $term->name . ' user';
       $channel = $term->name;
-      _add_term_roles_create_new_roles($name, array();
+      _add_term_roles_create_new_roles($name, array());
 
       // Update private roles.
       $private_roles = variable_get('add_term_roles_private_roles', array('ors entrepreneur user', 'ors compete to win user'));
