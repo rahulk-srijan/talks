@@ -21,13 +21,14 @@ $color_variable = array(
  * return string
 **/
 function getName_channel() {
+    global $library_subsite_variable;
     if(function_exists('get_node_type')) {
         $node_type = get_node_type(arg(1));
     }
     if((arg(0) == 'taxonomy' && is_numeric(arg(2)) || $node_type == 'upload_video')) {
         if(arg(2) != '') {
             $term = taxonomy_term_load(arg(2));
-            if($term->vid == 5) {
+            if($term->vid == library_vocab_id) {
                 $tid = arg(2);
             }
             else {
@@ -45,7 +46,7 @@ function getName_channel() {
        }
     }
     $term = taxonomy_term_load($tid);
-    $term_name = $term->name;
+    $term_name = $library_subsite_variable[$tid]['site_name'];
       
     if(function_exists('get_color_channel')) {
         $color = get_color_channel($tid);
@@ -88,8 +89,9 @@ function get_color_channel($tid) {
 function get_manage_channel_block() {
     $output = '';
     if(isset($_GET['channel_tid'])) {
+        // For featured video link
         $get_nodequeue_id = db_query("SELECT qid FROM nodequeue_queue WHERE reference=:tid",
-                                     array(':tid'=>$_GET['channel_tid']))->fetchField();
+                                     array(':tid'=>$_GET['channel_tid']))->fetchField(); 
         $options = array(
             'query' => array('channel_tid'=>$_GET['channel_tid']),
         );
@@ -155,13 +157,12 @@ function get_channel_tid_from_node($nid) {
  * return string
 **/
 function get_download_report_title_and_button($link) {
+    global $library_subsite_variable;
     $output = '';
     
     if(isset($_GET['channel_tid'])) {
-        if(function_exists('get_channel_name_from_tid')) {
-            $channel_name = get_channel_name_from_tid($_GET['channel_tid']);
-        }
-       $output .= '<h4>' . $channel_name . t(" Download Statistics"). '</h4>';
+        $channel_name = $library_subsite_variable[$_GET['channel_tid']]['site_name'];
+        $output .= '<h4>' . $channel_name . t(" Download Statistics"). '</h4>';
     }
     $output .= '<p class="download-user-stats">'. l("Download",$link).'</p>';
     
@@ -175,12 +176,8 @@ function get_download_report_title_and_button($link) {
  * PLEASE DONT REMOVE THIS FUNCTIONS AS IT HAS MANY IMPACTS ON VIEWS
 **/
 function get_channel_name_from_tid($ch_tid) {
-    if($ch_tid != '') {
-       $channel_tid = $ch_tid;
-       $term = taxonomy_term_load($channel_tid);
-       $channel_name = $term->name;
-    }
-    
+    global $library_subsite_variable;
+    $channel_name = $library_subsite_variable[$ch_tid]['site_name'];
     return $channel_name;
 }
 
@@ -191,13 +188,14 @@ function get_channel_name_from_tid($ch_tid) {
 **/
 function adding_color_class_bodyTag() {
     global $color_variable;
+    global $library_subsite_variable;
     if(function_exists('get_node_type')) {
         $node_type = get_node_type(arg(1));
     }
     if((arg(0) == 'taxonomy' && is_numeric(arg(2)) || $node_type == 'upload_video')) {
         if(arg(2) != '') {
             $term = taxonomy_term_load(arg(2));
-            if($term->vid == 5) {
+            if($term->vid == library_vocab_id) {
                 $arg = arg(2);
             }
             else {
@@ -215,13 +213,7 @@ function adding_color_class_bodyTag() {
          $arg = $_GET['ch_tid'];
        }
     }
-    $term = taxonomy_term_load($arg);
-    $selected_color = $term->field_color_title['und'][0]['rgb'];
-    foreach($color_variable as $key => $color_val) {
-        if($selected_color == $color_val) {
-            $color_class = $key;
-        }
-    }
+    $color_class = $library_subsite_variable[$arg]['color-class'];
     return $color_class;
 }
 

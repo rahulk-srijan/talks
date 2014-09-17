@@ -18,7 +18,7 @@ foreach($channel_term as $name) {
             $email_val .= $mail['email'] . t(",");
         }
     }
-    $desc = strip_tags($name->description);
+    $desc = $channel_fields->field_channel_name['und'][0]['value'];
     $publish = $channel_fields->field_publish_channel['und'][0]['value'];
     $private = $channel_fields->field_private_channel['und'][0]['value'];
     // Main color fetch
@@ -62,12 +62,10 @@ function videolibrary_core_block_view($delta = '') {
         switch ($delta) {
         case 'site_switching':
             $block['subject'] = null; // Most forms don't have a subject
-//    $block['content'] = noti_block_view();
             $block['content'] = site_switching();
             break;
         case 'category_menu':
             $block['subject'] = null; // Most forms don't have a subject
-//    $block['content'] = noti_block_view();
             $block['content'] = category_menu();
             break;
     }
@@ -79,7 +77,7 @@ function videolibrary_core_block_view($delta = '') {
  */
 
 function site_switching() {
-    $terms = taxonomy_get_tree(5);
+    $terms = taxonomy_get_tree(library_vocab_id);
     $content = '<ul class="sites_switch">';
     foreach ($terms as $val) {
         $content .='<li>' . l($val->name, $val->name . '') . '</li>';
@@ -156,7 +154,7 @@ function category_menu() {
     else {
         if(arg(2) != '') {
             $term = taxonomy_term_load(arg(2));
-            if($term->vid == 5) {
+            if($term->vid == library_vocab_id) {
                 $ch_tid = arg(2);
             }
             else {
@@ -304,7 +302,7 @@ function videolibrary_core_views_query_alter(&$view, &$query) {
 }
 
 function videolibrary_core_views_pre_render(&$view) {
-  /*if($view->name == 'most_liked_lib_craousel'){
+  if($view->name == 'most_liked_lib_craousel'){
     $temp = array();
     if ($view->result['6']->taxonomy_term_data_name == 'partner_entrepreneurship'){
         if ($view->result['1']->taxonomy_term_data_name == 'competetowin')  {
@@ -355,7 +353,7 @@ function videolibrary_core_views_pre_render(&$view) {
           $view->result['1'] = $temp['0'];
        }
     }
-  }*/
+  }
   if($view->name=='global_popular_video') {
     // Get most popular from 1st library
     $result1 = $view->result;
@@ -386,9 +384,13 @@ function videolibrary_core_views_pre_render(&$view) {
 
 function videolibrary_core_form_alter(&$form, &$form_state, $form_id) {
     if($form_id == 'taxonomy_form_term') {
-        if($form['#term']->vocabulary_machine_name == 'channel_categories' || $form['#term']->vocabulary_machine_name == 'channel_tags') {
+        if($form['#term']['vocabulary_machine_name'] == 'channel_categories' || $form['#term']['vocabulary_machine_name'] == 'channel_tags') {
             $form['field_library']['#disabled'] = TRUE;
             drupal_add_css('#edit-field-library {display:none}',$option['type'] = 'inline');
+        }
+        if($form['#term']['vocabulary_machine_name'] == 'library') {
+            $form['name']['#title'] = t("Title");
+            $form['name']['#description'] = t("Please enter title without spaces. Use underscore or hyphen to get distinguished");
         }
     }
     
@@ -717,7 +719,7 @@ function videolibrary_core_form($form, $form_state) {
     }
   
 // For pivate channel
-/*  $compete_roles = array('compete to win user','ors compete to win user','super admin','compete to win web master');
+  $compete_roles = array('compete to win user','ors compete to win user','super admin','compete to win web master');
   $compete_result= array_intersect($compete_roles, $roles);
   if(!empty($compete_result)) {
   $form['lib_list_compete'] = array(
@@ -731,7 +733,7 @@ function videolibrary_core_form($form, $form_state) {
     '#type' => 'item',
     '#markup'=> $partner_entrepreneurship,
   );}
- */
+ 
     return $form;
 }
 
