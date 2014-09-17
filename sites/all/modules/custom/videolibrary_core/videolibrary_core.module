@@ -384,13 +384,27 @@ function videolibrary_core_views_pre_render(&$view) {
 
 function videolibrary_core_form_alter(&$form, &$form_state, $form_id) {
     if($form_id == 'taxonomy_form_term') {
-        if($form['#term']['vocabulary_machine_name'] == 'channel_categories' || $form['#term']['vocabulary_machine_name'] == 'channel_tags') {
-            $form['field_library']['#disabled'] = TRUE;
-            drupal_add_css('#edit-field-library {display:none}',$option['type'] = 'inline');
+        $arg = arg();
+
+        if (in_array('edit', $arg)) {
+            if($form['#term']->vocabulary_machine_name == 'channel_categories' || $form['#term']->vocabulary_machine_name == 'channel_tags') {
+                $form['field_library']['#disabled'] = TRUE;
+                drupal_add_css('#edit-field-library {display:none}',$option['type'] = 'inline');
+            }
+            if($form['#term']->vocabulary_machine_name == 'library') {
+                $form['name']['#title'] = t("Title");
+                $form['name']['#description'] = t("Please enter title without spaces. Use underscore or hyphen to get distinguished");
+            }
         }
-        if($form['#term']['vocabulary_machine_name'] == 'library') {
-            $form['name']['#title'] = t("Title");
-            $form['name']['#description'] = t("Please enter title without spaces. Use underscore or hyphen to get distinguished");
+        else if (in_array('add', $arg)) {
+            if($form['#term']['vocabulary_machine_name'] == 'channel_categories' || $form['#term']['vocabulary_machine_name'] == 'channel_tags') {
+                $form['field_library']['#disabled'] = TRUE;
+                drupal_add_css('#edit-field-library {display:none}',$option['type'] = 'inline');
+            }
+            if($form['#term']['vocabulary_machine_name'] == 'library') {
+                $form['name']['#title'] = t("Title");
+                $form['name']['#description'] = t("Please enter title without spaces. Use underscore or hyphen to get distinguished");
+            }
         }
     }
     
