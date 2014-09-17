@@ -1,0 +1,151 @@
+<?php
+/**
+ * @file
+ * Create and assign new roles whenever a new channel is created.
+ */
+
+/**
+ * Implements hook_permission() for private channels.
+ * 
+function add_term_roles_permission() {
+  $private_channels = variable_get('add_term_roles_private_channels', array('entrepreneur', 'compete to win'));
+  foreach ($private_channels as $channel) {
+    $items['administer ' . $channel . ' site configuration'] = array(
+      'title' => t('Administer !channel site configuration', array('!channel' => $channel)),
+      'description' => t('Administer !channel site configuration', array('!channel' => $channel)),
+    );
+  }
+  return $items;
+}
+*/
+/**
+ * Implements hook_taxonomy_term_insert().
+ * 
+ */
+function add_term_roles_taxonomy_term_insert($term) {
+  if ($term->vid == 5) {
+
+    // Default permissions for webmaster role.
+    $webmaster_role = array(
+      'access dashboard',
+      'use text format filtered_html',
+      'access content overview',    
+      'view own unpublished content',
+      'create upload_video content',
+      'edit own upload_video content',
+      'edit any upload_video content',
+      'delete own upload_video content',
+      'delete any upload_video content',
+      'administer nodequeue',
+      'manipulate queues',
+      'manipulate all queues',
+      'assign roles',
+      'view the administration theme',
+      'edit terms in 4',
+      'delete terms in 4',
+      'edit terms in 18',
+      'delete terms in 18',
+      'edit terms in 19',
+      'delete terms in 19',
+      'add terms in author',
+      'add terms in channel_categories',
+      'add terms in channel_tags',      
+      'administer users',
+      'access user profiles',
+      'change own username',
+    );
+
+    // Default permissions for user role.
+    $user_role = array();
+
+    // Create new roles.
+    _add_term_roles_create_new_roles($term->name . ' web master', $webmaster_role);
+    _add_term_roles_create_new_roles($term->name . ' user', $user_role);
+
+    // Create role for private channel.
+    if ($term->field_private_channel[LANGUAGE_NONE][0]['value'] == 1) {
+      $name = 'ors ' . $term->name . ' user';
+      $channel = $term->name;
+      _add_term_roles_create_new_roles($name, array('administer ' . $channel . ' site configuration'));
+
+      // Update private roles.
+      $private_roles = variable_get('add_term_roles_private_roles', array('ors entrepreneur user', 'ors compete to win user'));
+      array_push($private_roles, $name);
+      variable_set('add_term_roles_private_roles', $private_roles);
+
+      // Update private channels.
+      $private_channels = variable_get('add_term_roles_private_channels', array('entrepreneur', 'compete to win'));
+      array_push($private_channels, $channel);
+      variable_set('add_term_roles_private_channels', $private_channels);
+    }
+  }
+}
+
+/**
+ * Implements hook_taxonomy_term_delete().
+ * 
+ */
+function add_term_roles_taxonomy_term_delete($term) {
+  if ($term->vid == 5) {
+
+    // Delete roles.
+    _add_term_roles_remove_new_roles($term->name . ' web master');
+    _add_term_roles_remove_new_roles($term->name . ' user');
+
+    // Delete role for private channel.
+    if ($term->field_private_channel[LANGUAGE_NONE][0]['value'] == 1) {
+      $name = 'ors ' . $term->name . ' user';
+      $channel = $term->name;
+      _add_term_roles_remove_new_roles($name);
+      
+      // Update private roles.
+      $private_roles = variable_get('add_term_roles_private_roles', array('ors entrepreneur user', 'ors compete to win user'));
+      if (array_search($name, $private_roles)) {
+        unset($private_roles[array_search($name, $private_roles)]);
+        $private_roles = array_values($private_roles);
+        variable_set('add_term_roles_private_roles', $private_roles);
+      }
+  
+      // Update private channels.
+      $private_channels = variable_get('add_term_roles_private_channels', array('entrepreneur', 'compete to win'));
+      if (array_search($channel, $private_channels)) {
+        unset($private_channels[array_search($channel, $private_channels)]);
+        $private_channels = array_values($private_channels);
+        variable_set('add_term_roles_private_channels', $private_channels);
+      }
+    }
+  }
+}
+
+/**
+ * Helper funciton to create new role and assign permissions.
+ * 
+ */
+function _add_term_roles_create_new_roles($name, $permissions) {
+/*
+  $role = new stdClass();
+  $role->name = $name;
+*/
+  $role['name'] = $name;
+  if (user_role_save($role) != SAVED_NEW) {
+    drupal_set_message(t('!role_name was not created', array('!role_name' => $role['name'])));
+  }
+  else {
+    $role = user_role_load_by_name($name);
+    user_role_grant_permissions($role->rid, $permissions);
+  }
+}
+
+
+/**
+ * Helper funciton to remove roles on deletion of a channel.
+ * 
+ */
+function _add_term_roles_remove_new_roles($name) {
+  $role = user_role_load_by_name($name);
+
+  // Remove user role.
+  if (isset($role->rid)) {
+    user_role_delete($name);
+  }
+}

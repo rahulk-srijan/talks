@@ -1,0 +1,15 @@
+name = Add term roles
+description = Add new role to terms when added by a user
+core = 7.x
+
+; So many dependencies because of default permissions strings used
+dependencies[] = dashboard
+dependencies[] = filter
+dependencies[] = node
+dependencies[] = system
+dependencies[] = taxonomy
+ependencies[] = user
+dependencies[] = nodequeue
+dependencies[] = roleassign
+dependencies[] = taxonomy_access_fix
+dependencies[] = videolibrary_core
