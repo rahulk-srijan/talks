@@ -29,15 +29,15 @@ $path_alias = drupal_lookup_path('alias',$raw_node);
 $host= $_SERVER['HTTP_HOST'];
 $node_title = $field->original_value;
 if($host == 'dev-drupaldev-lx01.amdc.mckinsey.com'){
-  print '<a href="http://devhome.intranet.mckinsey.com/drupaldev01/talks/'.$path_alias.'">'.$node_title.' </a>';
+  print '<a href="/talks/'.$path_alias.'">'.$node_title.' </a>';
 }
 if($host == 'videolibrary2qa.intranet.mckinsey.com'){
-  print '<a href="http://qahome.intranet.mckinsey.com/talks/'.$path_alias.'"> '.$node_title.'</a>';
+  print '<a href="/talks/'.$path_alias.'"> '.$node_title.'</a>';
 }
 if($host == 'videolibrary2int.intranet.mckinsey.com'){
-  print '<a href="http://devhome.intranet.mckinsey.com/talks/'.$path_alias.'">'.$node_title.'</a>';
+  print '<a href="/talks/'.$path_alias.'">'.$node_title.'</a>';
 }
 if($host == 'videolibrary2.intranet.mckinsey.com'){
-  print '<a href="http://home.intranet.mckinsey.com/talks/'.$path_alias.'">'.$node_title.'</a>';
+  print '<a href="/talks/'.$path_alias.'">'.$node_title.'</a>';
 }
 ?>
